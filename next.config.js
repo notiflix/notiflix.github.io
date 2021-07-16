@@ -11,6 +11,7 @@ const package = require('./package.json');
 
 
 // Contstants: begin
+const appName = 'Notiflix';
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
 const publicUrl = isProd ? (JSON.stringify((package || {}).homepage) || '').replace(/"/gm, '') : '';
@@ -35,9 +36,10 @@ const nextConfig = {
 
   // custom env
   env: {
-    isDev: isDev,
-    isProd: isProd,
-    PUBLIC_URL: publicUrl,
+    isDev,
+    isProd,
+    publicUrl,
+    appName,
   },
 
   // assets prefix

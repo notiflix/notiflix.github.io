@@ -4,13 +4,12 @@ import { withRouter } from 'next/router';
 import { Marked } from '@ts-stack/markdown';
 
 // Data
-import { attributes as aboutPageData } from '@database/pages/about.md';
-import { IDatabaseMeta } from '@database/database.i';
+import { attributes as _dbAbout } from '@database/pages/about.md';
 
 
 // TODO:
 function About(): JSX.Element {
-  const { _databaseMeta, _databaseContent } = aboutPageData;
+  const { _databaseMeta, _databaseContent } = _dbAbout;
 
   console.log(_databaseMeta);
   console.log(_databaseContent);
@@ -55,11 +54,11 @@ function About(): JSX.Element {
         <meta name="googlebot" content="noindex, nofollow, noodp, noydir" />
         <title>ABOUT</title>
         <meta name="description" content="ABOUT Description" />
-        <link rel="shortcut icon" href={`${process.env.PUBLIC_URL}${'/favicon.png'}`} />
+        <link rel="shortcut icon" href={`${process.env.publicUrl}${'/favicon.png'}`} />
       </Head>
       <h1>ABOUT</h1>
 
-      <Link href={'/'} as={`${process.env.PUBLIC_URL}${'/'}`} passHref>
+      <Link href={'/'} as={`${process.env.publicUrl}${'/'}`} passHref>
         <a>Go to Home</a>
       </Link>
 
@@ -72,7 +71,7 @@ function About(): JSX.Element {
       <br />
       <br />
       <br />
-      <img src={process.env.PUBLIC_URL + '/content/images/nature.jpeg'} alt="NATURE" />
+      <img src={process.env.publicUrl + '/content/images/nature.jpeg'} alt="NATURE" />
     </>
   );
 }

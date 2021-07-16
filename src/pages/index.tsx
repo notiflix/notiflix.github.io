@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
+import Layout from '@components/layout/Layout';
+
 // TODO:
 export default function Index(): JSX.Element {
   return (
-    <>
+    <Layout>
       <Head>
         <meta name="content-language" content="en" />
         <meta name="language" content="English" />
@@ -13,13 +15,13 @@ export default function Index(): JSX.Element {
         <meta name="googlebot" content="noindex, nofollow, noodp, noydir" />
         <title>HOME</title>
         <meta name="description" content="HOME Description" />
-        <link rel="shortcut icon" href={`${process.env.PUBLIC_URL}${'/favicon.png'}`} />
+        <link rel="shortcut icon" href={`${process.env.publicUrl}${'/favicon.png'}`} />
       </Head>
       <h1>HOME</h1>
 
-      <Link href={'/about'} as={`${process.env.PUBLIC_URL}${'/about'}`} passHref>
+      <Link href={'/about'} as={`${process.env.publicUrl}${'/about'}`} passHref>
         <a>Go to ABOUT</a>
       </Link>
-    </>
+    </Layout>
   );
 }

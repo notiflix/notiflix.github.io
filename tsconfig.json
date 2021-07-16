@@ -2,11 +2,14 @@
   "compilerOptions": {
     "baseUrl": "./src/.",
     "paths": {
+      "@public/*": [
+        "../public/*"
+      ],
       "@database/*": [
         "_database/*"
       ],
-      "@public/*": [
-        "../public/*"
+      "@components/*": [
+        "components/*"
       ],
     },
     "target": "es5",
