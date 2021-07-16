@@ -5,14 +5,15 @@ import { Marked } from '@ts-stack/markdown';
 
 // Data
 import { attributes as aboutPageData } from '@database/pages/about.md';
+import { IDatabaseMeta } from '@database/database.i';
 
 
 // TODO:
 function About(): JSX.Element {
-  const { pageMeta, content } = aboutPageData;
+  const { _databaseMeta, _databaseContent } = aboutPageData;
 
-  console.log(pageMeta);
-  console.log(content);
+  console.log(_databaseMeta);
+  console.log(_databaseContent);
 
   const fetchTags = async () => {
     try {

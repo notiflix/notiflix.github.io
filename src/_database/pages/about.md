@@ -1,10 +1,11 @@
 ---
-pageMeta:
+_databaseMeta:
   title: About
-  description: >-
-    About Us Description
+  description: About Us Description
   robots: "noindex, nofollow, noodp, noydir"
-content:
+  ogImage: null
+  themeColor: null
+_databaseContent:
   - isActive: true
     title: Title 1
     subtitle: SubTitle 1
