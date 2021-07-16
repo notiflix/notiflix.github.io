@@ -18,26 +18,22 @@ const publicUrl = isProd ? (JSON.stringify((package || {}).homepage) || '').repl
 
 // Next Config: begin
 const nextConfig = {
+  // next images
   images: {
     loader: 'imgix',
     disableStaticImages: true,
   },
 
-  // gzip enabled => default is true
+  // enable/disable gzip
   compress: true,
 
-  // remove "x-powered-by"
+  // add/remove "x-powered-by"
   poweredByHeader: false,
 
-  // remove dev tools
-  devIndicators: {
-    autoPrerender: false,
-  },
-
-  // add "/" to end of the pages link (true => affects all assets and pages URLs)
+  // add/remove "/" to URLs
   trailingSlash: false,
 
-  // custom environments
+  // custom env
   env: {
     isDev: isDev,
     isProd: isProd,
@@ -47,8 +43,14 @@ const nextConfig = {
   // assets prefix
   assetPrefix: publicUrl,
 
+  // extensions
+  pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
+
+  // dist directory
+  distDir: '.build',
+
   // TODO:
-  async redirects() {
+  redirects: async () => {
     return [
       {
         source: '/redirect-me',
@@ -59,19 +61,17 @@ const nextConfig = {
   },
 
   // TODO:
-  exportPathMap: async function (
+  exportPathMap: async (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
-  ) {
+  ) => {
     return {
       '/': { page: '/' },
       '/about': { page: '/about' },
     }
   },
 
-  // Build ID, Dir, and Ext
-  distDir: '.build',
-  pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
+  // Build ID
   generateBuildId: async () => {
     if (process.env.BUILD_ID) {
       return process.env.BUILD_ID;
