@@ -11,6 +11,9 @@
       "@components/*": [
         "components/*"
       ],
+      "@pages/*": [
+        "pages/*"
+      ],
     },
     "target": "es5",
     "lib": [

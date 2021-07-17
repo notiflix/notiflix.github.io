@@ -7,11 +7,12 @@
 */
 
 // Dependencies
+const StylelintPlugin = require('stylelint-webpack-plugin');
 const package = require('./package.json');
-
 
 // Contstants: begin
 const appName = 'Notiflix';
+const appVersion = (JSON.stringify((package || {}).version) || '').replace(/"/gm, '') || 'v1.0.0';
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
 const publicUrl = isProd ? (JSON.stringify((package || {}).homepage) || '').replace(/"/gm, '') : '';
@@ -40,6 +41,7 @@ const nextConfig = {
     isProd,
     publicUrl,
     appName,
+    appVersion,
   },
 
   // assets prefix
@@ -91,6 +93,14 @@ const nextConfig = {
         loader: 'frontmatter-markdown-loader',
       }
     );
+
+    // Fixes npm packages that depend on "fs" module
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+    }
+
+    // stylelint
+    config.plugins.push(new StylelintPlugin());
 
     // return extended config
     return config;

@@ -5,6 +5,8 @@ import { Marked } from '@ts-stack/markdown';
 
 import { attributes as _about } from '@database/pages/about.md';
 
+import aboutStyles from '@pages/about/about.module.scss';
+
 // TODO:
 function About(): JSX.Element {
   const { _dbMeta, _dbContent } = _about;
@@ -54,7 +56,10 @@ function About(): JSX.Element {
         <meta name="description" content="ABOUT Description" />
         <link rel="shortcut icon" href={`${process.env.publicUrl}${'/favicon.png'}`} />
       </Head>
-      <h1>ABOUT</h1>
+
+      <div className={aboutStyles.temp}>
+        <h1 className={`${aboutStyles.temp__title} ${aboutStyles['state--active']}`}>ABOUT</h1>
+      </div>
 
       <Link href={'/'} as={`${process.env.publicUrl}${'/'}`} passHref>
         <a>Go to Home</a>

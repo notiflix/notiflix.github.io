@@ -1,0 +1,14 @@
+.temp {
+  width: 100%;
+  height: 200px;
+  background: yellowgreen;
+
+  &__title {
+    font-size: 22px;
+    color: gray;
+
+    &.state--active {
+      color: black;
+    }
+  }
+}
