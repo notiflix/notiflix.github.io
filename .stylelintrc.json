@@ -9,7 +9,7 @@
     "length-zero-no-unit": null,
     "indentation": 2,
     "string-quotes": "double",
-    "unit-whitelist": [
+    "unit-allowed-list": [
       "px",
       "rem",
       "%",

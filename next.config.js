@@ -100,7 +100,9 @@ const nextConfig = {
     }
 
     // stylelint
-    config.plugins.push(new StylelintPlugin());
+    config.plugins.push(new StylelintPlugin({
+      files: "./src/**/*.scss",
+    }));
 
     // return extended config
     return config;
