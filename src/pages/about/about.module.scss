@@ -2,6 +2,11 @@
   width: 100%;
   height: 200px;
   background: yellowgreen;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &__title {
     font-size: 22px;
