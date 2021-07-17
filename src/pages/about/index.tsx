@@ -3,16 +3,14 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 import { Marked } from '@ts-stack/markdown';
 
-// Data
-import { attributes as _dbAbout } from '@database/pages/about.md';
-
+import { attributes as _about } from '@database/pages/about.md';
 
 // TODO:
 function About(): JSX.Element {
-  const { _databaseMeta, _databaseContent } = _dbAbout;
+  const { _dbMeta, _dbContent } = _about;
 
-  console.log(_databaseMeta);
-  console.log(_databaseContent);
+  console.log(_dbMeta);
+  console.log(_dbContent);
 
   const fetchTags = async () => {
     try {

@@ -4,11 +4,20 @@ interface IDatabaseSettings {
   metaTitle: string;
   metaDescription: string;
   metaRobots: string;
+  metaYearInit: number;
+  metaCopyright: string;
   metaThemeColor: string;
   metaOgImage: string;
   metaTwitterUser: string;
   metaTwitterDomain: string;
   bodyNoScript: string;
+}
+
+interface IDatabaseSocialMedia {
+  isActive: boolean;
+  icon: string;
+  url: string;
+  name: string;
 }
 
 interface IDatabaseMeta {
@@ -21,5 +30,6 @@ interface IDatabaseMeta {
 
 export type {
   IDatabaseSettings,
+  IDatabaseSocialMedia,
   IDatabaseMeta,
 };

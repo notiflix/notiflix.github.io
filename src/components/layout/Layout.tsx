@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
-
-import { attributes as _dbSettings } from '@database/settings/app.md';
+import { attributes as _settings } from '@database/settings/settings.md';
 import { IDatabaseMeta } from '@database/database.i';
+
+import Schema from '@components/meta/Schema';
+import MetaTags from '@components/meta/MetaTags';
 
 type TChildren = React.ReactNode
   | JSX.Element
@@ -12,40 +13,25 @@ type TChildren = React.ReactNode
   | React.ReactChild[];
 
 interface ILayout {
+  meta: IDatabaseMeta;
   children?: TChildren;
-  meta?: IDatabaseMeta;
 }
 
-function Layout({ children, meta }: ILayout): JSX.Element {
-  const { _databaseSettings } = _dbSettings;
-
-  console.log('Layout Meta: ', meta);
-
-  const router = useRouter();
-  console.log('Layout Router: ', router);
-
-  // schema "application/ld+json" meta
-  const schemaOrganization = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    'name': process.env.appName,
-    'url': process.env.publicUrl,
-    'logo': _databaseSettings.metaOgImage,
-    'sameAs': [], // TODO: Social Media Links from DB
-  };
+function Layout({ meta, children }: ILayout): JSX.Element {
+  const { _dbSettings } = _settings;
 
   return (
     <>
-      {/* TODO: MetaTags */}
+      <MetaTags meta={meta} />
       {/* TODO: Header */}
       <noscript>
-        <p className="noscript">{_databaseSettings.bodyNoScript}</p>
+        <p className="noscript">{_dbSettings.bodyNoScript}</p>
       </noscript>
       <section className={`section ${'todo'}`}>
         {children}
       </section>
       {/* TODO: Footer */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }} />
+      <Schema />
     </>
   );
 }

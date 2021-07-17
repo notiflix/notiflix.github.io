@@ -1,11 +1,11 @@
 ---
-_databaseMeta:
+_dbMeta:
   title: About
   description: About Us Description
-  robots: "noindex, nofollow, noodp, noydir"
+  robots: noindex, nofollow, noodp, noydir
   ogImage: null
   themeColor: null
-_databaseContent:
+_dbContent:
   - isActive: true
     title: Title 1
     subtitle: SubTitle 1
