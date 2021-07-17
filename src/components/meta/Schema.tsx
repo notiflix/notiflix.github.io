@@ -11,7 +11,7 @@ function Schema(): JSX.Element {
     '@type': 'Organization',
     'name': process.env.appName,
     'url': process.env.publicUrl,
-    'logo': _dbSettings.metaOgImage,
+    'logo': `${process.env.publicUrl}${_dbSettings.metaOgImage}`,
     'sameAs': _dbSocialMedia.filter(x => x.isActive).map(x => x.url),
   };
 

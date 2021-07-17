@@ -45,7 +45,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <link rel="shortlink" href={canonical} />
       <meta name="generator" content={appName} />
       <meta name="designer" content={appName} />
-      <meta name="copyright" content={`Copyright ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings.metaCopyright}`} />
+      <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings.metaCopyright}`} />
 
       {/* TODO: SEO */}
     </Head>
