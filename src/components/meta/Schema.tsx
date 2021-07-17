@@ -12,7 +12,7 @@ function Schema(): JSX.Element {
     'name': process.env.appName,
     'url': process.env.publicUrl,
     'logo': `${process.env.publicUrl}${_dbSettings.metaOgImage}`,
-    'sameAs': _dbSocialMedia.filter(x => x.isActive).map(x => x.url),
+    'sameAs': _dbSocialMedia?.filter(x => x.isActive)?.map(x => x.url) || [],
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }} />;
