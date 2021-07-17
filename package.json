@@ -28,5 +28,20 @@
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.2.2",
     "typescript": "4.3.5"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "last 4 versions",
+      "not ie < 11",
+      "not dead",
+      "not op_mini all",
+      "iOS >=7"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
