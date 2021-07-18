@@ -52,7 +52,7 @@ function About(): JSX.Element {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="robots" content="noindex, nofollow, noodp, noydir" />
         <meta name="googlebot" content="noindex, nofollow, noodp, noydir" />
-        <title>ABOUT</title>
+        <title>ABOUT US</title>
         <meta name="description" content="ABOUT Description" />
         <link rel="shortcut icon" href={`${process.env.publicUrl}${'/favicon.png'}`} />
       </Head>
