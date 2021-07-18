@@ -1,6 +1,6 @@
 ---
 _dbMeta:
-  title: About
+  title: About Us
   description: About Us Description
   robots: noindex, nofollow, noodp, noydir
   ogImage: null
