@@ -14,7 +14,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
 
   const appName = process.env.appName;
   const publicUrl = process.env.publicUrl;
-  const canonical = `${publicUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
+  const canonicalUrl = `${publicUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
   const yearInit = _dbSettings.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
 
@@ -27,7 +27,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
     themeColor: _dbSettings.metaThemeColor,
     ogImage: _dbSettings.metaOgImage,
   };
-  const metaData = { ...meta, ...metaBase };
+  const metaData = { ...metaBase, ...meta };
 
   return (
     <Head>
@@ -36,13 +36,13 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <meta name="language" content={metaData.language} />
       <title>{metaData.title}</title>
       <meta name="description" content={metaData.description} />
-      <meta name="robots" content={metaData.robots} />
-      <meta name="googlebot" content={metaData.robots} />
+      <meta name="robots" content={metaData.robots || metaBase.robots} />
+      <meta name="googlebot" content={metaData.robots || metaBase.robots} />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <link rel="shortcut icon" href={`${publicUrl}${'/favicon.png'}`} />
 
-      <link rel="canonical" href={canonical} />
-      <link rel="shortlink" href={canonical} />
+      <link rel="canonical" href={canonicalUrl} />
+      <link rel="shortlink" href={canonicalUrl} />
       <meta name="generator" content={appName} />
       <meta name="designer" content={appName} />
       <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings.metaCopyright}`} />

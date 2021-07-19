@@ -1,6 +1,6 @@
 ---
 _dbMeta:
-  title: About Us
+  title: About Us | Notiflix
   description: About Us Description
   robots: noindex, nofollow, noodp, noydir
   ogImage: null
