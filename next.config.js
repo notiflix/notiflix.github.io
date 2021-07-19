@@ -57,7 +57,7 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
-        source: '/index',
+        source: '/home',
         destination: '/',
         permanent: false,
       },
@@ -75,7 +75,7 @@ const nextConfig = {
     { dev, dir, outDir, distDir, buildId }
   ) => {
     return {
-      '/': { page: '/index' },
+      '/': { page: '/home' },
       '/about': { page: '/about' },
     }
   },
