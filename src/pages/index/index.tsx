@@ -5,7 +5,7 @@ import { attributes as _home } from '@database/pages/home.md';
 import Layout from '@components/layout/Layout';
 
 // TODO:
-export default function Index(): JSX.Element {
+function Home(): JSX.Element {
   const { _dbMeta } = _home;
 
   return (
@@ -20,3 +20,5 @@ export default function Index(): JSX.Element {
     </Layout>
   );
 }
+
+export default Home;

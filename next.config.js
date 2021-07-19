@@ -57,6 +57,11 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
+        source: '/index',
+        destination: '/',
+        permanent: false,
+      },
+      {
         source: '/redirect-me',
         destination: '/redirect-to',
         permanent: false,
@@ -70,7 +75,7 @@ const nextConfig = {
     { dev, dir, outDir, distDir, buildId }
   ) => {
     return {
-      '/': { page: '/' },
+      '/': { page: '/index' },
       '/about': { page: '/about' },
     }
   },
