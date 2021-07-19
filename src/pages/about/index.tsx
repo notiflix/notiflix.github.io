@@ -1,11 +1,12 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 import { Marked } from '@ts-stack/markdown';
 
 import { attributes as _about } from '@database/pages/about.md';
 
-import aboutStyles from '@pages/about/about.module.scss';
+import Layout from '@components/layout/Layout';
+
+import styles from '@pages/about/about.module.scss';
 
 // TODO:
 function About(): JSX.Element {
@@ -45,20 +46,10 @@ function About(): JSX.Element {
   };
 
   return (
-    <>
-      <Head>
-        <meta name="content-language" content="en" />
-        <meta name="language" content="English" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="robots" content="noindex, nofollow, noodp, noydir" />
-        <meta name="googlebot" content="noindex, nofollow, noodp, noydir" />
-        <title>ABOUT US</title>
-        <meta name="description" content="ABOUT Description" />
-        <link rel="shortcut icon" href={`${process.env.publicUrl}${'/favicon.png'}`} />
-      </Head>
+    <Layout meta={_dbMeta} classNamePrefix="about">
 
-      <div className={aboutStyles.temp}>
-        <h1 className={`${aboutStyles.temp__title} ${aboutStyles['state--active']}`}>ABOUT</h1>
+      <div className={styles.temp}>
+        <h1 className={`${styles.temp__title} ${styles['state--active']}`}>ABOUT</h1>
       </div>
 
       <Link href={'/'} as={`${process.env.publicUrl}${'/'}`} passHref>
@@ -75,7 +66,7 @@ function About(): JSX.Element {
       <br />
       <br />
       <img src={process.env.publicUrl + '/content/images/nature.jpeg'} alt="NATURE" />
-    </>
+    </Layout>
   );
 }
 

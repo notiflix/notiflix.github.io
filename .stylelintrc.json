@@ -10,7 +10,6 @@
     "indentation": 2,
     "string-quotes": "double",
     "unit-allowed-list": [
-      "px",
       "rem",
       "%",
       "s",

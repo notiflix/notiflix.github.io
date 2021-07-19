@@ -9,7 +9,7 @@ function Home(): JSX.Element {
   const { _dbMeta } = _home;
 
   return (
-    <Layout meta={_dbMeta}>
+    <Layout meta={_dbMeta} classNamePrefix="home">
 
       <h1>HOME</h1>
 

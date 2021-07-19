@@ -23,6 +23,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "@next/next/no-img-element": "off",
+    "@next/next/no-page-custom-font": "off",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
     "comma-dangle": [
       "error",

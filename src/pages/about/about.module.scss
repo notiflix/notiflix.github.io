@@ -1,6 +1,6 @@
 .temp {
   width: 100%;
-  height: 200px;
+  height: 12.5rem;
   background: yellowgreen;
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +9,7 @@
   justify-content: center;
 
   &__title {
-    font-size: 22px;
+    font-size: 1.375rem;
     color: gray;
 
     &.state--active {

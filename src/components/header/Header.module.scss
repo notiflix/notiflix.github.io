@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+
+  &--home {
+    background: yellowgreen;
+  }
+
+  &--about {
+    background: greenyellow;
+  }
+
+  &__logo {
+    width: 11.25rem;
+    height: 3.75rem;
+  }
+}

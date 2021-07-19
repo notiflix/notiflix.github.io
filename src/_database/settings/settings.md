@@ -11,6 +11,6 @@ _dbSettings:
   metaOgImage: /webapp/notiflix-og.jpg
   metaTwitterUser: "@notiflixjs"
   metaTwitterDomain: notiflix.github.io
-  bodyNoScript: You have to enable JavaScript in your browser to use Notiflix.
+  bodyNoScriptMessage: You have to enable JavaScript in your browser to use Notiflix.
 
 ---

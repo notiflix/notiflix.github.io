@@ -7,6 +7,7 @@
 */
 
 // Dependencies
+const path = require('path');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const package = require('./package.json');
 
@@ -52,6 +53,11 @@ const nextConfig = {
 
   // dist directory
   distDir: '.build',
+
+  // sass
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
 
   // TODO:
   redirects: async () => {

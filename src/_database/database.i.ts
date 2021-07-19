@@ -10,7 +10,7 @@ interface IDatabaseSettings {
   metaOgImage: string;
   metaTwitterUser: string;
   metaTwitterDomain: string;
-  bodyNoScript: string;
+  bodyNoScriptMessage: string;
 }
 
 interface IDatabaseSocialMedia {
