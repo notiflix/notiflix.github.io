@@ -1,16 +1,62 @@
-.header {
-  width: 100%;
+@import "@styles/variables";
 
-  &--home {
-    background: yellowgreen;
+.header {
+  transition: $transition_base;
+  width: 100%;
+  height: $header_height;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: 0 0 transparent;
+
+  &--sticky {
+    height: $header_height_sticky;
+    background: $color_light;
+    box-shadow: $box_shadow_base;
   }
 
-  &--about {
-    background: greenyellow;
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__logo {
-    width: 11.25rem;
-    height: 3.75rem;
+    width: 9.375rem;
+    height: 3.125rem;
+
+    @include media_up($breakpoint_tablet) {
+      width: 11.25rem;
+      height: 3.75rem;
+    }
+
+    &__link {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }

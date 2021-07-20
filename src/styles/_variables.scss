@@ -1,10 +1,10 @@
 // breakpoints
 $breakpoint_min: 20rem;
-$breakpoint_mobile: 33.75rem;
+$breakpoint_mobile: 34rem;
 $breakpoint_tablet: 48rem;
 $breakpoint_minibook: 64rem;
 $breakpoint_laptop: 75rem;
-$breakpoint_pc: 83.125rem;
+$breakpoint_pc: 84rem;
 $breakpoint_max: 120rem;
 
 // colors
@@ -12,6 +12,18 @@ $color_white: #fff;
 $color_black: #000;
 $color_light: #f8f8f8;
 $color_dark: #1e1e1e;
+$color_theme_light: #f4f4f4;
+$color_theme_dark: #2b3b42;
+$color_theme_green: #32c682;
+$color_theme_red: #ff5549;
+$color_theme_yellow: #eebf31;
+$color_theme_blue: #26c0d3;
+$color_code_light: #dcdcdc;
+$color_code_dark: #1e1e1e;
+$color_code_comment: #55a64a;
+$color_code_string: #d69d85;
+$color_code_number: #b5cea4;
+$color_code_boolean: #569cd6;
 
 // transitions
 $transition_delay_base: 0.25s;
@@ -21,9 +33,20 @@ $transition_opacity: opacity 0.25s ease-in-out;
 $transition_visibility: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
 $transition_background: background 0.25s ease-in-out;
 $transition_color: color 0.25s ease-in-out;
+$transition_height: height 0.25s ease-in-out;
+
+// box-shadows
+$box_shadow_base: 0 0.5rem 2rem -1rem rgba($color_black, 0.2);
 
 // typography
 $font_family_base: "Red Hat Display", sans-serif;
 $font_size_base: 0.9rem;
 $font_lineheight_base: 1.3;
 $font_weight_base: 400;
+
+// common variables
+$header_height: 6.25rem;
+$header_height_sticky: 5rem;
+
+// mixins
+@import "mixins";
