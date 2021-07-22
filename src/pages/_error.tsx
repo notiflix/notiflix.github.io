@@ -1,4 +1,5 @@
 import { NextPageContext } from 'next';
+import Link from 'next/link';
 
 interface ICustomError {
   statusCode?: number;
@@ -7,11 +8,18 @@ interface ICustomError {
 // TODO:
 function CustomError({ statusCode }: ICustomError): JSX.Element {
   return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : 'An error occurred on client'}
-    </p>
+    <>
+      <p>
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
+          : 'An error occurred on client'}
+      </p>
+      <br />
+      <br />
+      <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
+        <a>Go to Home</a>
+      </Link>
+    </>
   );
 }
 

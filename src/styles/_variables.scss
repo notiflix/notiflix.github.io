@@ -1,11 +1,11 @@
 // breakpoints
-$breakpoint_min: 20rem;
-$breakpoint_mobile: 34rem;
-$breakpoint_tablet: 48rem;
-$breakpoint_minibook: 64rem;
-$breakpoint_laptop: 75rem;
-$breakpoint_pc: 84rem;
-$breakpoint_max: 120rem;
+$breakpoint_min: 20rem; // 320px
+$breakpoint_mobile: 34rem; // 544px
+$breakpoint_tablet: 48rem; // 768px
+$breakpoint_minibook: 64rem; // 1024px
+$breakpoint_laptop: 75rem; // 1200px
+$breakpoint_pc: 84rem; // 1344px
+$breakpoint_max: 240rem; // 3840px
 
 // colors
 $color_white: #fff;
@@ -36,7 +36,11 @@ $transition_color: color 0.25s ease-in-out;
 $transition_height: height 0.25s ease-in-out;
 
 // box-shadows
-$box_shadow_base: 0 0.5rem 2rem -1rem rgba($color_black, 0.2);
+$box_shadow_base: 0 0 2rem -1rem rgba($color_black, 0.2);
+$box_shadow_30: 0 0 2rem -1rem rgba($color_black, 0.3);
+$box_shadow_40: 0 0 2rem -1rem rgba($color_black, 0.4);
+$box_shadow_50: 0 0 2rem -1rem rgba($color_black, 0.5);
+$box_shadow_bottom_base: 0 0.5rem 2rem -1rem rgba($color_black, 0.2);
 
 // typography
 $font_family_base: "Red Hat Display", sans-serif;

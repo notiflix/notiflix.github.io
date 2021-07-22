@@ -49,7 +49,8 @@ function About(): JSX.Element {
     <Layout meta={_dbMeta} classNamePrefix="about">
 
       <div className={styles.temp}>
-        <h1 className={`${styles.temp__title} ${styles['state--active']}`}>ABOUT</h1>
+        <h1 className={`${styles.temp__title} ${styles['state--active']}`}>TODO: TEMP ABOUT</h1>
+        <p>TODO: Will be removed</p>
       </div>
 
       <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>

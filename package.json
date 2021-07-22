@@ -24,12 +24,13 @@
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
     "frontmatter-markdown-loader": "^3.6.3",
+    "parse-md": "^2.0.4",
+    "react-icons": "^4.2.0",
     "sass": "^1.35.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.2.2",
-    "parse-md": "^2.0.4",
     "typescript": "4.3.5"
   },
   "browserslist": {

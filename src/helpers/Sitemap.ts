@@ -8,7 +8,6 @@ const appName = Constants.appName;
 const appOgImageSrc = `${Constants.appUrl}${Constants.appOgImageSrc}`;
 const sitemapStyleUrl = `${Constants.appUrl}/sitemap.xsl`;
 const pathOutput = 'public/sitemap.xml';
-const pathDatabase = 'src/_database';
 const pathPages = 'src/pages';
 // Constants: end
 
@@ -37,17 +36,17 @@ const sitemapCreateFrequencyAndPriority = (date: string): ISitemapCreateFrequenc
   const differenceAsDays = Math.round((today - pageDate) / (1000 * 3600 * 24));
   let frequency = 'daily';
   let priority = '1.0';
-  if (differenceAsDays > 7) {
-    frequency = 'weekly';
-    priority = '0.9';
+  if (differenceAsDays > 365) {
+    frequency = 'yearly';
+    priority = '0.7';
   }
   if (differenceAsDays > 93) {
     frequency = 'monthly';
     priority = '0.8';
   }
-  if (differenceAsDays > 365) {
-    frequency = 'yearly';
-    priority = '0.7';
+  if (differenceAsDays > 7) {
+    frequency = 'weekly';
+    priority = '0.9';
   }
   return {
     frequency,
@@ -73,7 +72,7 @@ const sitemapGetPagesLastModifiedDate = (path: string): string => {
     // eslint-disable-next-line
     const parseMD = require('parse-md').default;
     const fileTextAsObj = parseMD(fileAsText);
-    return fileTextAsObj?.metadata?.pageMeta?.lastModifiedDate || newDateAsString;
+    return fileTextAsObj?.metadata?._dbMeta?.lastModifiedDate || newDateAsString;
   }
 
   // else
@@ -122,8 +121,8 @@ const sitemapCreateUrl = ({ loc, lastMod, image, caption }: ISitemapCreateUrl): 
 const sitemapCreateUrlsFromPages = (): string => {
   let sitemapPagesUrls = '';
 
-  // if DB and Pages folders exist
-  if (existsSync(pathDatabase) && existsSync(pathPages)) {
+  // if Pages folders exist
+  if (existsSync(pathPages)) {
     Routes?.filter(route => route.isActive && route.addToSitemap)?.map(route => {
       // page path
       let pagePath = route.pathAs || '';
@@ -134,14 +133,8 @@ const sitemapCreateUrlsFromPages = (): string => {
       // page full url
       const pageFullUrl = `${appUrl}${pagePath}`;
 
-      // page db file
-      const pageDbFile = route.pathDBFile;
-
-      // page db path
-      const pageDbFullPath = `${pathDatabase}${pageDbFile}`;
-
       // page last mod date
-      const pageLastModifiedDate = sitemapGetPagesLastModifiedDate(pageDbFullPath);
+      const pageLastModifiedDate = sitemapGetPagesLastModifiedDate(route.pathDBFile);
 
       // create a sitemap url for this page
       sitemapPagesUrls += sitemapCreateUrl({

@@ -1,7 +1,9 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { FiMoreHorizontal, FiX } from 'react-icons/fi';
 
 import Logo from '@components/logo/Logo';
+import HeaderMenu from '@components/header/partials/HeaderMenu';
 
 import styles from '@components/header/Header.module.scss';
 
@@ -17,7 +19,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
     setScrollTop(Math.round(window.document.scrollingElement?.scrollTop || 0));
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.document.addEventListener('scroll', documentScrollListener);
     return () => {
       window.document.removeEventListener('scroll', documentScrollListener);
@@ -25,19 +27,38 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
   }, []);
   // Sticky: end
 
+  // Mobile Menu Handler: begin
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const headerMenuMobileClickHandler = (toggle: boolean): void => {
+    setMenuOpen(toggle);
+  };
+  // Mobile Menu Handler: end
+
   return (
     <header className={`${styles.header} ${styles[`header--${classNamePrefix}`] || ''} ${scrollTop > 1 ? (styles[`header--sticky`] || '') : ''}`}>
       <div className={styles.header__container}>
+
         <div className={styles.header__logo}>
-          <Link href={'/'} passHref>
+          <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
             <a className={styles.header__logo__link}>
               <Logo />
             </a>
           </Link>
         </div>
-        <div className={styles.header__menu}>
-          <p>TODO: nav menu</p>
+
+        <button type="button" className={styles.header__menu__open} onClick={() => headerMenuMobileClickHandler(true)}>
+          <FiMoreHorizontal />
+        </button>
+
+        <button type="button" className={`${styles.header__menu__overlay} ${menuOpen ? (styles['header__menu__overlay--opened'] || '') : ''}`} onClick={() => headerMenuMobileClickHandler(false)}></button>
+
+        <div className={`${styles.header__menu} ${menuOpen ? (styles['header__menu--opened'] || '') : ''}`}>
+          <button type="button" className={styles.header__menu__close} onClick={() => headerMenuMobileClickHandler(false)}>
+            <FiX />
+          </button>
+          <HeaderMenu />
         </div>
+
       </div>
     </header>
   );

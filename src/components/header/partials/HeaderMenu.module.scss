@@ -1,0 +1,89 @@
+@import "@styles/variables";
+
+.nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include media_up($breakpoint_minibook) {
+    justify-content: flex-end;
+  }
+
+  &__ul {
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden auto;
+    display: block;
+
+    @include media_up($breakpoint_minibook) {
+      padding: 0 0 0 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &__li {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      @include media_up($breakpoint_minibook) {
+        width: auto;
+      }
+
+      &:not(:last-child) {
+        margin: 0 0 1.75rem 0;
+
+        @include media_up($breakpoint_minibook) {
+          margin: 0 2rem 0 0;
+        }
+      }
+
+      &__a {
+        transition: $transition_color;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $color_theme_green;
+
+        &:hover {
+          color: $color_light;
+
+          @include media_up($breakpoint_minibook) {
+            color: $color_dark;
+          }
+        }
+
+        &--product {
+          color: $color_light;
+
+          @include media_up($breakpoint_minibook) {
+            color: $color_dark;
+          }
+
+          &:hover {
+            color: $color_theme_green;
+          }
+        }
+
+        svg {
+          color: $color_theme_green;
+          margin: 0 0.6rem 0 0;
+
+          @include media_up($breakpoint_minibook) {
+            margin: 0 0.4rem 0 0;
+          }
+        }
+      }
+    }
+  }
+}
