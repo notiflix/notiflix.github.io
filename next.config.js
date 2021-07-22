@@ -9,15 +9,16 @@
 // Dependencies
 const path = require('path');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const package = require('./package.json');
+const { Constants } = require('./.dev/src/constants/Constants');
+const { Routes } = require('./.dev/src/routes/Routes');
 
-// Contstants: begin
-const appName = 'Notiflix';
-const appVersion = (JSON.stringify((package || {}).version) || '').replace(/"/gm, '') || 'v1.0.0';
+// Constants: begin
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
-const publicUrl = isProd ? (JSON.stringify((package || {}).homepage) || '').replace(/"/gm, '') : '';
-// Contstants: end
+const appUrl = isProd ? Constants.appUrl : '';
+const appName = Constants.appName;
+const appVersion = Constants.appVersion;
+// Constants: end
 
 // Next Config: begin
 const nextConfig = {
@@ -40,13 +41,13 @@ const nextConfig = {
   env: {
     isDev,
     isProd,
-    publicUrl,
+    appUrl,
     appName,
     appVersion,
   },
 
   // assets prefix
-  assetPrefix: publicUrl,
+  assetPrefix: appUrl,
 
   // extensions
   pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
@@ -75,15 +76,23 @@ const nextConfig = {
     ]
   },
 
-  // TODO:
   exportPathMap: async (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) => {
-    return {
+
+    let defaultPaths = {
       '/': { page: '/home' },
-      '/about': { page: '/about' },
-    }
+    };
+
+    Routes?.filter(route => route.isActive && route.addToNextJSConfig)?.map(route => {
+      const routePath = {
+        [route.pathAs]: { page: route.pathPage },
+      };
+      defaultPaths = { ...defaultPaths, ...routePath };
+    });
+
+    return defaultPaths;
   },
 
   // Build ID

@@ -1,14 +1,16 @@
 {
   "name": "notiflix-documentation",
   "homepage": "https://notiflix.github.io",
-  "version": "3.0.1-beta.01",
+  "version": "1.0.0-beta.01",
   "private": true,
   "scripts": {
+    "sitemap:dev": "eslint src/constants/Constants.ts src/routes/Routes.ts src/helpers/Sitemap.ts",
+    "sitemap": "yarn sitemap:dev && tsc --resolveJsonModule --outDir .dev src/helpers/Sitemap.ts && node .dev/src/helpers/Sitemap.js",
     "lint": "next lint",
-    "dev": "next lint && next dev",
-    "build": "next build",
-    "start": "next start",
-    "deploy": "next build && next export -o dist"
+    "dev": "yarn sitemap && next lint && next dev",
+    "build": "yarn sitemap && next build",
+    "start": "yarn sitemap && next start",
+    "deploy": "yarn build && next export -o dist"
   },
   "dependencies": {
     "next": "11.0.1",
@@ -27,6 +29,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.2.2",
+    "parse-md": "^2.0.4",
     "typescript": "4.3.5"
   },
   "browserslist": {

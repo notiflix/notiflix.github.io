@@ -10,8 +10,8 @@ function Schema(): JSX.Element {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     'name': process.env.appName,
-    'url': process.env.publicUrl,
-    'logo': `${process.env.publicUrl}${_dbSettings.metaOgImage}`,
+    'url': process.env.appUrl,
+    'logo': `${process.env.appUrl}${_dbSettings.metaOgImage}`,
     'sameAs': _dbSocialMedia?.filter(x => x.isActive)?.map(x => x.url) || [],
   };
 

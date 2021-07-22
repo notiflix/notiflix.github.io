@@ -1,5 +1,6 @@
 ---
 _dbMeta:
+  lastModifiedDate: "2021-07-22" # YYYY-MM-DD
   title: About Us | Notiflix
   description: About Us Description
   robots: noindex, nofollow, noodp, noydir

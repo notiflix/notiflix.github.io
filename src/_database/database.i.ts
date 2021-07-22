@@ -21,6 +21,7 @@ interface IDatabaseSocialMedia {
 }
 
 interface IDatabaseMeta {
+  lastModifiedDate: string;
   title: string;
   description: string;
   robots?: string | null;

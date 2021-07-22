@@ -13,7 +13,7 @@ function Home(): JSX.Element {
 
       <h1>HOME</h1>
 
-      <Link href={'/about'} as={`${process.env.publicUrl}${'/about'}`} passHref>
+      <Link href={'/about'} as={`${process.env.appUrl}${'/about'}`} passHref>
         <a>Go to ABOUT</a>
       </Link>
 

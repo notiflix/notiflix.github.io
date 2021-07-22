@@ -52,7 +52,7 @@ function About(): JSX.Element {
         <h1 className={`${styles.temp__title} ${styles['state--active']}`}>ABOUT</h1>
       </div>
 
-      <Link href={'/'} as={`${process.env.publicUrl}${'/'}`} passHref>
+      <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
         <a>Go to Home</a>
       </Link>
 
@@ -65,7 +65,7 @@ function About(): JSX.Element {
       <br />
       <br />
       <br />
-      <img src={process.env.publicUrl + '/content/images/nature.jpeg'} alt="NATURE" />
+      <img src={process.env.appUrl + '/content/images/nature.jpeg'} alt="NATURE" />
     </Layout>
   );
 }

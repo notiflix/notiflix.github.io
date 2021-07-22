@@ -13,8 +13,8 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
   const router = useRouter();
 
   const appName = process.env.appName;
-  const publicUrl = process.env.publicUrl;
-  const canonicalUrl = `${publicUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
+  const appUrl = process.env.appUrl;
+  const canonicalUrl = `${appUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
   const yearInit = _dbSettings.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
 
@@ -39,7 +39,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <meta name="robots" content={metaData.robots || metaBase.robots} />
       <meta name="googlebot" content={metaData.robots || metaBase.robots} />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      <link rel="shortcut icon" href={`${publicUrl}${'/favicon.png'}`} />
+      <link rel="shortcut icon" href={`${appUrl}${'/favicon.png'}`} />
 
       <link rel="canonical" href={canonicalUrl} />
       <link rel="shortlink" href={canonicalUrl} />
