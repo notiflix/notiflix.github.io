@@ -10,7 +10,7 @@
     "dev": "yarn sitemap && next lint && next dev",
     "build": "yarn sitemap && next build",
     "start": "yarn sitemap && next start",
-    "deploy": "yarn build && next export -o dist"
+    "deploy": "yarn build && next export -o .dist"
   },
   "dependencies": {
     "next": "11.0.1",
