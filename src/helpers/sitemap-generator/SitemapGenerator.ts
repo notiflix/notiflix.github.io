@@ -98,7 +98,7 @@ const sitemapCreateUrl = ({ loc, lastMod, image, caption }: ISitemapCreateUrl): 
   // image caption
   let imageCaption = appName;
   if (caption) {
-    imageCaption = caption.length > 50 ? caption.substring(0, 50) + '...' : caption;
+    imageCaption = caption.length > 50 ? `${caption.substring(0, 50).trim()}...` : caption.trim();
   }
 
   return `
