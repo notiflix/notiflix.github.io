@@ -27,7 +27,7 @@
         "styles/*"
       ],
     },
-    "target": "es5",
+    "target": "ES5",
     "lib": [
       "dom",
       "dom.iterable",

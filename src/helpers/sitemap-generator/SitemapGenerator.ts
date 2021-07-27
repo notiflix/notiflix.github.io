@@ -1,6 +1,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { Constants } from '../constants/Constants';
-import { Routes } from '../routes/Routes';
+
+import { Constants } from '../../constants/Constants';
+import { Routes } from '../../routes/Routes';
+import { markdownParser } from '../markdown-parser/MarkdownParser';
 
 // Constants: begin
 const appUrl = Constants.appUrl;
@@ -64,15 +66,12 @@ const sitemapGetPagesLastModifiedDate = (path: string): string => {
     return newDateAsString;
   }
 
-  // read the file and return "pageMeta.lastModifiedDate"
+  // read the file and return "_dbMeta.lastModifiedDate"
   const fileAsText = readFileSync(path, 'utf-8');
   if (fileAsText) {
-    // TODO: require!!!
-    // @typescript-eslint/no-var-requires
-    // eslint-disable-next-line
-    const parseMD = require('parse-md').default;
-    const fileTextAsObj = parseMD(fileAsText);
-    return fileTextAsObj?.metadata?._dbMeta?.lastModifiedDate || newDateAsString;
+    const fileTextAsObj = markdownParser(fileAsText);
+    const lastModifiedDate = fileTextAsObj?.attributes?._dbMeta?.lastModifiedDate || newDateAsString;
+    return lastModifiedDate;
   }
 
   // else
