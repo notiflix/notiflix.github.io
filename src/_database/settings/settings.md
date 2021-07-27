@@ -8,7 +8,6 @@ _dbSettings:
   metaYearInit: 2019.
   metaCopyright: All Rights Reserved.
   metaThemeColor: "#32c682"
-  metaOgImage: /webapp/notiflix-og.jpg
   metaTwitterUser: "@notiflixjs"
   metaTwitterDomain: notiflix.github.io
   bodyNoScriptMessage: You have to enable JavaScript in your browser to use Notiflix.

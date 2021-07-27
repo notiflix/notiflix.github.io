@@ -7,7 +7,6 @@ interface IDatabaseSettings {
   metaYearInit: number;
   metaCopyright: string;
   metaThemeColor: string;
-  metaOgImage: string;
   metaTwitterUser: string;
   metaTwitterDomain: string;
   bodyNoScriptMessage: string;

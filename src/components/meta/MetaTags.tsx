@@ -14,6 +14,8 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
 
   const appName = process.env.appName;
   const appUrl = process.env.appUrl;
+  const appOgImageSrc = process.env.appOgImageSrc;
+
   const canonicalUrl = `${appUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
   const yearInit = _dbSettings.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
@@ -25,7 +27,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
     description: _dbSettings.metaDescription,
     robots: _dbSettings.metaRobots,
     themeColor: _dbSettings.metaThemeColor,
-    ogImage: _dbSettings.metaOgImage,
+    ogImage: appOgImageSrc,
   };
   const metaData = { ...metaBase, ...meta };
 

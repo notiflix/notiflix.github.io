@@ -1,9 +1,7 @@
-import { attributes as _settings } from '@database/settings/settings.md';
 import { attributes as _socialMedia } from '@database/settings/socialMedia.md';
 
 function Schema(): JSX.Element {
 
-  const { _dbSettings } = _settings;
   const { _dbSocialMedia } = _socialMedia;
 
   const schemaOrganization = {
@@ -11,7 +9,7 @@ function Schema(): JSX.Element {
     '@type': 'Organization',
     'name': process.env.appName,
     'url': process.env.appUrl,
-    'logo': `${process.env.appUrl}${_dbSettings.metaOgImage}`,
+    'logo': `${process.env.appUrl}${process.env.appOgImageSrc}`,
     'sameAs': _dbSocialMedia?.filter(x => x.isActive)?.map(x => x.url) || [],
   };
 

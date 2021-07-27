@@ -8,7 +8,7 @@ export default class CustomDocument extends Document {
   }
 
   render(): JSX.Element {
-    const language = this.props.head?.find(x => x?.props.name == 'content-language')?.props.content || 'en';
+    const language = this.props.head?.find(x => x?.props?.name == 'content-language')?.props?.content || 'en';
 
     return (
       <Html lang={language} itemScope itemType="https://schema.org/WebSite" prefix="og: http://ogp.me/ns#">

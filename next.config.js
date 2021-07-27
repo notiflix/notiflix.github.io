@@ -18,6 +18,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const appUrl = isProd ? Constants.appUrl : '';
 const appName = Constants.appName;
 const appVersion = Constants.appVersion;
+const appOgImageSrc = Constants.appOgImageSrc;
 // Constants: end
 
 // Next Config: begin
@@ -44,6 +45,7 @@ const nextConfig = {
     appUrl,
     appName,
     appVersion,
+    appOgImageSrc,
   },
 
   // assets prefix
@@ -60,7 +62,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
 
-  // TODO:
+  // useless with next export
   redirects: async () => {
     return [
       {
@@ -76,6 +78,7 @@ const nextConfig = {
     ]
   },
 
+  // static paths
   exportPathMap: async (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
