@@ -8,4 +8,8 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: $header_height 0 0;
+
+  &--home {
+    @include backgroundGradientLightGray();
+  }
 }

@@ -1,3 +1,36 @@
+// Page Home: begin
+interface IDatabaseHomeSlider {
+  image: string;
+  title: string;
+  description: string;
+  downloadInfo: string;
+  downloadCount: string;
+}
+// Page Home: end
+
+
+// Page Common: Meta Data: begin
+interface IDatabaseMeta {
+  lastModifiedDate: string;
+  title: string;
+  description: string;
+  robots?: string | null;
+  ogImage?: string | null;
+  themeColor?: string | null;
+}
+// Page Common: Meta Data: end
+
+
+// App: Social Media Accounts: begin
+interface IDatabaseSocialMedia {
+  isActive: boolean;
+  icon: string;
+  url: string;
+  name: string;
+}
+// App: Social Media Accounts: end
+
+// App: Settings: begin
 interface IDatabaseSettings {
   metaLanguageCode: string;
   metaLanguage: string;
@@ -11,25 +44,11 @@ interface IDatabaseSettings {
   metaTwitterDomain: string;
   bodyNoScriptMessage: string;
 }
-
-interface IDatabaseSocialMedia {
-  isActive: boolean;
-  icon: string;
-  url: string;
-  name: string;
-}
-
-interface IDatabaseMeta {
-  lastModifiedDate: string;
-  title: string;
-  description: string;
-  robots?: string | null;
-  ogImage?: string | null;
-  themeColor?: string | null;
-}
+// App: Settings: end
 
 export type {
-  IDatabaseSettings,
-  IDatabaseSocialMedia,
+  IDatabaseHomeSlider,
   IDatabaseMeta,
+  IDatabaseSocialMedia,
+  IDatabaseSettings,
 };

@@ -1,0 +1,204 @@
+@import "@styles/variables";
+
+.home__slider {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include media_up($breakpoint_tablet) {
+    justify-content: center;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content,
+  &__media {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__media {
+    padding: 1rem;
+
+    @include media_up($breakpoint_tablet) {
+      width: 50%;
+    }
+
+    &__image {
+      filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.02));
+    }
+  }
+
+  &__content {
+    padding: 1rem 0;
+
+    @include media_up($breakpoint_tablet) {
+      width: 50%;
+      padding: 1rem;
+    }
+
+    @include media_up($breakpoint_laptop) {
+      padding: 1rem 6rem 1rem 3rem;
+    }
+
+    &__title {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 300;
+      color: $color_theme_dark;
+      margin: 0 0 1.5rem;
+
+      @include media_up($breakpoint_minibook) {
+        font-size: 2.4rem;
+      }
+
+      span {
+        color: $color_white;
+        background: $color_theme_green;
+        font-weight: 500;
+        line-height: 1;
+        border-radius: 2rem;
+        margin: 0 0 0 0.75rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    &__description {
+      width: 100%;
+      max-width: 23rem;
+      margin: auto;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 300;
+      color: $color_gray_primary;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    &__download {
+      width: 100%;
+      max-width: 23rem;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      &__info {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin: 0 0 0.3rem;
+        text-align: center;
+        font-size: 0.6rem;
+        color: $color_dark;
+        opacity: 0.4;
+      }
+
+      &__link {
+        transition: $transition_opacity;
+        position: relative;
+        z-index: 1;
+        user-select: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 16rem;
+        min-height: 4.6rem;
+        margin: 0 auto;
+        color: $color_white;
+        background: $color_theme_dark;
+        padding: 0.5rem 2rem 0.5rem 5.5rem;
+        border-radius: 4rem;
+        font-size: 1rem;
+        font-weight: 500;
+
+        &--loading {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+
+        &__icon {
+          position: absolute;
+          left: 1.5rem;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 3rem;
+          height: 3rem;
+          padding: 0.25rem;
+          color: $color_gray_secondary;
+
+          &--loading {
+            animation: animation_home_slider_download_loading 1s linear 0s infinite;
+
+            @keyframes animation_home_slider_download_loading {
+              0% {
+                transform: rotate(0);
+              }
+
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+          }
+
+          &--failure {
+            color: $color_theme_red;
+          }
+        }
+
+        &__version {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        &__count {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-size: 0.5rem;
+          margin: 0.25rem 0 0;
+          color: $color_gray_secondary;
+        }
+      }
+    }
+  }
+}
