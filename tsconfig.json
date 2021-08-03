@@ -8,6 +8,9 @@
       "@database/*": [
         "_database/*"
       ],
+      "@api/*": [
+        "api/*"
+      ],
       "@components/*": [
         "components/*"
       ],

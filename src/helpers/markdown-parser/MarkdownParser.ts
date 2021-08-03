@@ -4,8 +4,8 @@ import { load } from 'js-yaml';
 type TMarkdownParserMetaData = any;
 
 interface IMarkdownParserData {
-  lines: Array<string>;
-  indexes: Array<number>;
+  lines: string[];
+  indexes: number[];
 }
 
 interface IMarkdownParser {
@@ -13,7 +13,7 @@ interface IMarkdownParser {
   html: string;
 }
 
-const mdFindAttributeIndexes = (previousValue: Array<number>, currentValue: string, currentIndex: number): Array<number> => {
+const mdFindAttributeIndexes = (previousValue: number[], currentValue: string, currentIndex: number): number[] => {
   if (/^---/.test(currentValue)) {
     previousValue.push(currentIndex);
   }
@@ -38,8 +38,8 @@ const mdParseHTML = ({ lines, indexes }: IMarkdownParserData): string => {
 
 
 const markdownParser = (contents: string): IMarkdownParser => {
-  const lines: Array<string> = contents.split('\n');
-  const indexes: Array<number> = lines.reduce(mdFindAttributeIndexes, []);
+  const lines: string[] = contents.split('\n');
+  const indexes: number[] = lines.reduce(mdFindAttributeIndexes, []);
 
   const attributes = mdParseAttributes({ lines, indexes });
   const html = mdParseHTML({ lines, indexes });

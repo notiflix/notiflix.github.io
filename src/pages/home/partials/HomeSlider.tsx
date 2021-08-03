@@ -4,66 +4,54 @@ import { AiOutlineLoading3Quarters as IconLoading } from 'react-icons/ai';
 
 import { attributes as _home } from '@database/pages/home.md';
 
-import { addSomeDelayAsync } from '@helpers/utilities/Utilities';
+import { GitHub } from '@api/github/GitHub';
+import { NPM } from '@api/npm/NPM';
+import { replaceBetweenCurlyBracesWithAData } from '@helpers/utilities/Utilities';
 
+
+import { IHomeSliderGitHubState, IHomeSliderNPMState } from '@pages/home/partials/HomeSlider.interfaces';
 import styles from '@pages/home/partials/HomeSlider.module.scss';
-
-
-interface IHomeSliderGitHubState {
-  isLoading: boolean;
-  isSuccess: boolean;
-  isFailure: boolean;
-  productVersion?: string;
-  productDownloadUrl?: string;
-}
 
 function HomeSlider(): JSX.Element {
   const { _dbHomeSlider } = _home;
   const appName = process.env.appName;
-  console.log(_dbHomeSlider);
 
-
-  // Last Version From GitHub: begin
   const [homeSliderGitHubState, setHomeSliderGitHubState] = useState<IHomeSliderGitHubState>({
     isLoading: true,
     isSuccess: false,
     isFailure: false,
   });
 
-  // TODO: will be moved to the API folder as a Service
-  const getHomeDataAsync = useCallback(async () => {
+  const [homeSliderNPMState, setHomeSliderNPMState] = useState<IHomeSliderNPMState>({
+    isLoading: true,
+    isSuccess: false,
+  });
+
+  const getHomeSliderDataAsync = useCallback(async () => {
     try {
-      const response = await fetch('https://api.github.com/repos/notiflix/Notiflix/releases', {
-        method: 'get',
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-        },
-      });
+      const gitHubData = await new GitHub().getLatestReleaseAsync();
 
-      await addSomeDelayAsync(1000);
+      if (gitHubData instanceof Object) {
+        setHomeSliderGitHubState({
+          isLoading: false,
+          isSuccess: true,
+          isFailure: false,
+          productVersion: gitHubData.version,
+          productDownloadUrl: gitHubData.downloadUrl,
+        });
 
-      if (response.ok) {
-
-        // TODO: Will be a global interface
-        const apiResponse: Array<{
-          id: number;
-          name: string;
-          zipball_url: string;
-          prerelease: boolean;
-        }> = await response.json();
-
-        const latestRelease = apiResponse?.filter(x => !x.prerelease)?.sort((x, y) => y.id - x.id)?.find(x => x);
-
-        if (latestRelease) {
-          setHomeSliderGitHubState({
+        const npmData = await new NPM().getTotalDownloadCounts();
+        if (npmData instanceof Object) {
+          setHomeSliderNPMState({
             isLoading: false,
             isSuccess: true,
-            isFailure: false,
-            productVersion: latestRelease.name,
-            productDownloadUrl: latestRelease.zipball_url,
+            downloadCounts: npmData.downloadCounts,
           });
         } else {
-          throw new Error();
+          setHomeSliderNPMState({
+            isLoading: false,
+            isSuccess: false,
+          });
         }
       } else {
         throw new Error();
@@ -78,11 +66,10 @@ function HomeSlider(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    if (homeSliderGitHubState.isLoading) {
-      getHomeDataAsync();
+    if (homeSliderGitHubState.isLoading && homeSliderNPMState.isLoading) {
+      getHomeSliderDataAsync();
     }
-  }, [homeSliderGitHubState, getHomeDataAsync]);
-  // Last Version From GitHub: end
+  }, [homeSliderGitHubState, homeSliderNPMState, getHomeSliderDataAsync]);
 
   return (
     <div className={styles.home__slider}>
@@ -99,25 +86,27 @@ function HomeSlider(): JSX.Element {
               {homeSliderGitHubState.isLoading &&
                 <>
                   <IconLoading className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`} />
-                  <span className={styles.home__slider__content__download__link__version}>{'TODO:Loading...'}</span>
-
-                  {/* TODO: Will be NPM state */}
-                  <span className={styles.home__slider__content__download__link__count}>{'TODO:Loading...'}</span>
+                  <span className={styles.home__slider__content__download__link__version}>{_dbHomeSlider.loading}</span>
+                  <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider.loading}</span>
                 </>
               }
               {homeSliderGitHubState.isSuccess &&
                 <>
                   <IconSuccess className={styles.home__slider__content__download__link__icon} />
-                  <span className={styles.home__slider__content__download__link__version}>{`${appName}-${homeSliderGitHubState.productVersion?.replace('v', '')}.zip`}</span>
+                  <span className={styles.home__slider__content__download__link__version}>{homeSliderGitHubState.productVersion}</span>
 
-                  {/* TODO: Will be NPM state */}
-                  <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider.downloadCount}</span>
+                  {homeSliderNPMState.isLoading &&
+                    <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider.loading}</span>
+                  }
+                  {homeSliderNPMState.isSuccess &&
+                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData(_dbHomeSlider.downloadCount, homeSliderNPMState.downloadCounts)}</span>
+                  }
                 </>
               }
               {homeSliderGitHubState.isFailure &&
                 <>
                   <IconFailure className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`} />
-                  <span>{'TODO:Uppsss...'}</span>
+                  <span>{_dbHomeSlider.failure}</span>
                 </>
               }
             </a>

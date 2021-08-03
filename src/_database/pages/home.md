@@ -12,5 +12,7 @@ _dbHomeSlider:
   title: welcome to <span>Notiflix</span>
   description: Notiflix is a <span>JavaScript</span> library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
   downloadInfo: Download the latest version of Notiflix.
-  downloadCount: Notiflix has been downloaded {{TODO}} times.
+  downloadCount: Notiflix has been downloaded {{x}} times.
+  loading: Loading...
+  failure: Something went wrong.
 ---

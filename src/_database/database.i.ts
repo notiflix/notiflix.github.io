@@ -5,6 +5,8 @@ interface IDatabaseHomeSlider {
   description: string;
   downloadInfo: string;
   downloadCount: string;
+  loading: string;
+  failure: string;
 }
 // Page Home: end
 

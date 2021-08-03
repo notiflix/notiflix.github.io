@@ -3,7 +3,7 @@ declare module '*.md' {
     // app settings
     _dbSettings: import('./database.i').IDatabaseSettings,
     // app social media accounts
-    _dbSocialMedia: Array<import('./database.i').IDatabaseSocialMedia>,
+    _dbSocialMedia: import('./database.i').IDatabaseSocialMedia[],
 
     // pages: common
     _dbMeta: import('./database.i').IDatabaseMeta,

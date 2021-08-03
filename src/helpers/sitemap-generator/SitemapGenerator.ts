@@ -5,10 +5,10 @@ import { Routes } from '../../routes/Routes';
 import { markdownParser } from '../markdown-parser/MarkdownParser';
 
 // Constants: begin
-const appUrl = Constants.appUrl;
-const appName = Constants.appName;
-const appOgImageSrc = `${Constants.appUrl}${Constants.appOgImageSrc}`;
-const sitemapStyleUrl = `${Constants.appUrl}/sitemap.xsl`;
+const appUrl = Constants.app.url;
+const appName = Constants.app.name;
+const appOgImageSrc = `${Constants.app.url}${Constants.app.ogImageSrc}`;
+const sitemapStyleUrl = `${Constants.app.url}/sitemap.xsl`;
 const pathOutput = 'public/sitemap.xml';
 const pathPages = 'src/pages';
 // Constants: end

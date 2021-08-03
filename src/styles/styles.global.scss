@@ -19,6 +19,10 @@ body {
   font-size: $font_size_base;
   line-height: $font_lineheight_base;
   font-weight: $font_weight_base;
+
+  @include media_down(20rem) {
+    min-width: 20rem !important;
+  }
 }
 
 button,

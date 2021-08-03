@@ -122,7 +122,7 @@
       }
 
       &__link {
-        transition: $transition_opacity;
+        transition: $transition_opacity, $transition_background;
         position: relative;
         z-index: 1;
         user-select: none;
@@ -133,7 +133,7 @@
         justify-content: center;
         text-align: center;
         width: 100%;
-        max-width: 16rem;
+        max-width: 15rem;
         min-height: 4.6rem;
         margin: 0 auto;
         color: $color_white;
@@ -142,6 +142,10 @@
         border-radius: 4rem;
         font-size: 1rem;
         font-weight: 500;
+
+        &:hover {
+          background: $color_dark;
+        }
 
         &--loading {
           opacity: 0.5;

@@ -17,7 +17,7 @@ interface IRoutes {
   IconComponent?: React.FC;
 }
 
-const Routes: Array<IRoutes> = [
+const Routes: IRoutes[] = [
   // Page Home: begin
   {
     id: 1,

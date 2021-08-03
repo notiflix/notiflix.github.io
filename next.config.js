@@ -15,10 +15,10 @@ const { Routes } = require('./.dev/src/routes/Routes');
 // Constants: begin
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
-const appUrl = isProd ? Constants.appUrl : '';
-const appName = Constants.appName;
-const appVersion = Constants.appVersion;
-const appOgImageSrc = Constants.appOgImageSrc;
+const appUrl = isProd ? Constants.app.url : '';
+const appName = Constants.app.name;
+const appVersion = Constants.app.version;
+const appOgImageSrc = Constants.app.ogImageSrc;
 // Constants: end
 
 // Next Config: begin
