@@ -8,9 +8,21 @@ import { GitHub } from '@api/github/GitHub';
 import { NPM } from '@api/npm/NPM';
 import { replaceBetweenCurlyBracesWithAData } from '@helpers/utilities/Utilities';
 
-
-import { IHomeSliderGitHubState, IHomeSliderNPMState } from '@pages/home/partials/HomeSlider.interfaces';
 import styles from '@pages/home/partials/HomeSlider.module.scss';
+
+interface IHomeSliderGitHubState {
+  isLoading: boolean;
+  isSuccess: boolean;
+  isFailure: boolean;
+  productVersion?: string;
+  productDownloadUrl?: string;
+}
+
+interface IHomeSliderNPMState {
+  isLoading: boolean;
+  isSuccess: boolean;
+  downloadCounts?: number;
+}
 
 function HomeSlider(): JSX.Element {
   const { _dbHomeSlider } = _home;
