@@ -10,9 +10,6 @@ declare module '*.md' {
 
     // pages: home
     _dbHomeSlider: import('./database.i').IDatabaseHomeSlider,
-
-    // TODO: add/extend for each page content
-    _dbContent: Record<string, unknown>,
   };
   const html: string;
   export { attributes, html };

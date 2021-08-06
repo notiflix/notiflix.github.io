@@ -169,25 +169,6 @@ const Routes: IRoutes[] = [
     IconComponent: FiBook,
   },
   // Page Documentation: end
-
-
-  // About Page (TODO: TEMP, will be deleted)
-  {
-    id: 9999,
-    sortOrder: 9999,
-    isActive: true,
-    isProduct: false,
-    addToNextJSConfig: true,
-    addToSitemap: false,
-    showInHeaderMenu: false,
-    showInFooterMenu: false,
-    name: 'About',
-    pathAs: '/about',
-    pathPage: '/about',
-    pathDBFile: 'src/_database/pages/about.md',
-    targetBlank: false,
-    IconComponent: FiHome,
-  },
 ];
 
 export type { IRoutes };
