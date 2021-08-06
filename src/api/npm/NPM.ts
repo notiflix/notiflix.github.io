@@ -1,5 +1,5 @@
-import { Constants } from "@constants/Constants";
-import { devLogger, addSomeDelayAsync } from "@helpers/utilities/Utilities";
+import { Constants } from '@constants/Constants';
+import { devLoggerError, addSomeDelayAsync } from '@helpers/utilities/Utilities';
 
 interface INPMResponseFailure {
   error: string;
@@ -39,22 +39,21 @@ class NPM {
         headers: _headers,
       });
 
-      if (response.ok) {
-        const data: INPMResponseDownloads | INPMResponseFailure = await response.json();
-
-        if (data instanceof Object && 'downloads' in data) {
-          const totalCounts = data?.downloads?.map(x => x.downloads)?.reduce((y, z) => y + z, 0) || 0;
-          return {
-            downloadCounts: totalCounts,
-          };
-        } else {
-          throw new Error('Not found.');
-        }
-      } else {
+      if (!response.ok) {
         throw new Error('Something went wrong.');
       }
+
+      const data: INPMResponseDownloads | INPMResponseFailure = await response.json();
+      if (!(data instanceof Object) || !('downloads' in data)) {
+        throw new Error('Not found.');
+      }
+
+      const totalCounts = data?.downloads?.map(x => x.downloads)?.reduce((y, z) => y + z, 0) || 0;
+      return {
+        downloadCounts: totalCounts,
+      };
     } catch (error) {
-      devLogger(error?.message);
+      devLoggerError(error?.message);
       return false;
     }
   };

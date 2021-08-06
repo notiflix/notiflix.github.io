@@ -1,5 +1,5 @@
-import { Constants } from "@constants/Constants";
-import { devLogger, addSomeDelayAsync, createProductZipName } from "@helpers/utilities/Utilities";
+import { Constants } from '@constants/Constants';
+import { devLoggerError, addSomeDelayAsync, createProductZipName } from '@helpers/utilities/Utilities';
 
 interface IGitHubResponseFailure {
   message: string;
@@ -39,29 +39,26 @@ class GitHub {
         headers: _headers,
       });
 
-      if (response.ok) {
-        const data: IGitHubResponseLatestRelease[] | IGitHubResponseFailure = await response.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          const latestRelease = data?.filter(x => !x.draft && !x.prerelease)?.sort((x, y) => y.id - x.id)?.find(x => x);
-
-          if (latestRelease) {
-            const version = createProductZipName(latestRelease.tag_name);
-            return {
-              version: version,
-              downloadUrl: latestRelease.zipball_url,
-            }
-          } else {
-            throw new Error('There is no release.');
-          }
-        } else {
-          throw new Error('Not found.');
-        }
-      } else {
+      if (!response.ok) {
         throw new Error('Something went wrong.');
       }
+
+      const data: IGitHubResponseLatestRelease[] | IGitHubResponseFailure = await response.json();
+      if (!Array.isArray(data) || data?.length < 1) {
+        throw new Error('Not found.');
+      }
+
+      const latestRelease = data?.filter(x => !x.draft && !x.prerelease)?.sort((x, y) => y.id - x.id)?.find(x => x);
+      if (!latestRelease) {
+        throw new Error('There is no release.');
+      }
+
+      return {
+        version: createProductZipName(latestRelease.tag_name),
+        downloadUrl: latestRelease.zipball_url,
+      };
     } catch (error) {
-      devLogger(error?.message);
+      devLoggerError(error?.message);
       return false;
     }
   };

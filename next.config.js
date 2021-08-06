@@ -7,9 +7,13 @@
 */
 
 // Dependencies
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const StylelintPlugin = require('stylelint-webpack-plugin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Constants } = require('./.dev/src/constants/Constants');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Routes } = require('./.dev/src/routes/Routes');
 
 // Constants: begin
@@ -23,6 +27,11 @@ const appOgImageSrc = Constants.app.ogImageSrc;
 
 // Next Config: begin
 const nextConfig = {
+  // eslint
+  eslint: {
+    dirs: ['src'],
+  },
+
   // next images
   images: {
     loader: 'imgix',
@@ -75,13 +84,15 @@ const nextConfig = {
         destination: '/redirect-to',
         permanent: false,
       },
-    ]
+    ];
   },
 
   // static paths
   exportPathMap: async (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    { dev, dir, outDir, distDir, buildId },
   ) => {
 
     let defaultPaths = {
@@ -108,13 +119,13 @@ const nextConfig = {
   },
 
   // Webpack config
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { isServer }) => {
     // frontmatter markdown loader
     config.module.rules.push(
       {
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
-      }
+      },
     );
 
     // Fixes npm packages that depend on "fs" module
@@ -124,7 +135,7 @@ const nextConfig = {
 
     // stylelint
     config.plugins.push(new StylelintPlugin({
-      files: "./src/**/*.scss",
+      files: './src/**/*.scss',
     }));
 
     // return extended config

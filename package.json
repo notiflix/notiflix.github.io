@@ -4,12 +4,11 @@
   "version": "1.0.0-beta.01",
   "private": true,
   "scripts": {
-    "startup:lint": "eslint src/constants/Constants.ts src/routes/Routes.ts src/helpers/markdown-parser/MarkdownParser.ts src/helpers/sitemap-generator/SitemapGenerator.ts",
-    "sitemap": "yarn startup:lint && tsc --resolveJsonModule --outDir .dev --target ES5 src/helpers/sitemap-generator/SitemapGenerator.ts && node .dev/src/helpers/sitemap-generator/SitemapGenerator.js",
-    "lint": "next lint",
-    "dev": "yarn sitemap && next lint && next dev",
-    "build": "yarn sitemap && next build",
-    "start": "yarn sitemap && next start",
+    "startup": "eslint src && tsc --resolveJsonModule --outDir .dev --target ES5 src/helpers/sitemap-generator/SitemapGenerator.ts && node .dev/src/helpers/sitemap-generator/SitemapGenerator.js",
+    "lint": "eslint next.config.js && next lint",
+    "dev": "yarn startup && next lint && next dev",
+    "build": "yarn startup && next build",
+    "start": "yarn startup && next start",
     "deploy": "yarn build && next export -o .dist"
   },
   "dependencies": {
