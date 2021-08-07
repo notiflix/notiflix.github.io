@@ -46,7 +46,7 @@
   }
 
   &__content {
-    padding: 1rem 0;
+    padding: 1rem 0 2.5rem;
 
     @include media_up($breakpoint_tablet) {
       width: 50%;

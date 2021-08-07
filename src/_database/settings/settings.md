@@ -11,5 +11,7 @@ _dbSettings:
   metaTwitterUser: "@notiflixjs"
   metaTwitterDomain: notiflix.github.io
   bodyNoScriptMessage: You have to enable JavaScript in your browser to use Notiflix.
+  footerGitHubName: /furcan
+  footerGitHubUrl: https://github.com/furcan
 
 ---

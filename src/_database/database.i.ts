@@ -45,6 +45,8 @@ interface IDatabaseSettings {
   metaTwitterUser: string;
   metaTwitterDomain: string;
   bodyNoScriptMessage: string;
+  footerGitHubName: string;
+  footerGitHubUrl: string;
 }
 // App: Settings: end
 

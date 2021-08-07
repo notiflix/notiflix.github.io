@@ -2,6 +2,7 @@ import { IDatabaseMeta } from '@database/database.i';
 
 import MetaTags from '@components/meta/MetaTags';
 import Header from '@components/header/Header';
+import Footer from '@components/footer/Footer';
 import Schema from '@components/meta/Schema';
 
 import NoScript from '@components/layout/partials/NoScript';
@@ -31,7 +32,7 @@ function Layout({ meta, classNamePrefix, children }: ILayout): JSX.Element {
       <main className={`${styles.layout} ${styles[`layout--${classNamePrefix}`] || ''}`}>
         {children}
       </main>
-      {/* TODO: Footer */}
+      <Footer />
       <Schema />
     </>
   );

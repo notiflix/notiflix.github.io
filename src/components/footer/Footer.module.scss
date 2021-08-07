@@ -1,0 +1,108 @@
+@import "@styles/variables";
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color_theme_light;
+  background: $color_theme_dark;
+
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    &__top {
+      width: 100%;
+      padding: 4rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      &__logo {
+        width: 14rem;
+        height: 4.65rem;
+        margin: auto;
+
+        &__svg {
+          width: 100%;
+          height: auto;
+          color: $color_gray_blue;
+        }
+      }
+
+      &__menu {
+        width: 100%;
+
+        @include media_up($breakpoint_tablet) {
+          width: auto;
+          flex-grow: 1;
+        }
+      }
+    }
+
+    &__bottom {
+      width: 100%;
+      padding: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 0.0625rem solid rgba($color_light, 0.05);
+
+      @include media_up($breakpoint_tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &__copyright {
+        order: 2;
+        display: inline-flex;
+        color: $color_gray_blue;
+        font-size: 0.75rem;
+        margin: 0.5rem 0;
+
+        @include media_up($breakpoint_tablet) {
+          order: 1;
+        }
+      }
+
+      &__link {
+        order: 1;
+        transition: $transition_color;
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5rem 0;
+        font-size: 0.8rem;
+        letter-spacing: 0.036rem;
+        color: $color_theme_light;
+
+        @include media_up($breakpoint_tablet) {
+          order: 2;
+        }
+
+        &:hover {
+          color: $color_theme_green;
+        }
+
+        &__icon {
+          margin: 0 0.1rem 0 0;
+        }
+      }
+    }
+  }
+}
