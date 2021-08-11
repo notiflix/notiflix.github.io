@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { FiMoreHorizontal, FiX } from 'react-icons/fi';
+import { FiMoreHorizontal as IconMenuOpen, FiX as IconMenuClose } from 'react-icons/fi';
 
 import Logo from '@components/logo/Logo';
 import HeaderMenu from '@components/header/partials/HeaderMenu';
@@ -47,14 +47,14 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
         </div>
 
         <button type="button" className={styles.header__menu__open} onClick={() => headerMenuMobileClickHandler(true)}>
-          <FiMoreHorizontal />
+          <IconMenuOpen />
         </button>
 
         <button type="button" className={`${styles.header__menu__overlay} ${menuOpen ? (styles['header__menu__overlay--opened'] || '') : ''}`} onClick={() => headerMenuMobileClickHandler(false)}></button>
 
         <div className={`${styles.header__menu} ${menuOpen ? (styles['header__menu--opened'] || '') : ''}`}>
           <button type="button" className={styles.header__menu__close} onClick={() => headerMenuMobileClickHandler(false)}>
-            <FiX />
+            <IconMenuClose />
           </button>
           <HeaderMenu />
         </div>

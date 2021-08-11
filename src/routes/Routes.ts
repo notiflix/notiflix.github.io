@@ -1,4 +1,13 @@
-import { FiHome, FiBell, FiInfo, FiCheckCircle, FiLoader, FiShield, FiDownloadCloud, FiBook } from 'react-icons/fi';
+import {
+  FiHome as IconHome,
+  FiBell as IconNotify,
+  FiInfo as IconReport,
+  FiCheckCircle as IconConfirm,
+  FiLoader as IconLoading,
+  FiShield as IconBlock,
+  FiDownloadCloud as IconDownload,
+  FiBook as IconDocumentation,
+} from 'react-icons/fi';
 
 interface IRoutes {
   id: number;
@@ -33,7 +42,7 @@ const Routes: IRoutes[] = [
     pathPage: '/home',
     pathDBFile: 'src/_database/pages/home.md',
     targetBlank: false,
-    IconComponent: FiHome,
+    IconComponent: IconHome,
   },
   // Page Home: end
 
@@ -52,7 +61,7 @@ const Routes: IRoutes[] = [
     pathPage: '/notify',
     pathDBFile: 'src/_database/pages/notify.md',
     targetBlank: false,
-    IconComponent: FiBell,
+    IconComponent: IconNotify,
   },
   // Page Notify: end
 
@@ -71,7 +80,7 @@ const Routes: IRoutes[] = [
     pathPage: '/report',
     pathDBFile: 'src/_database/pages/report.md',
     targetBlank: false,
-    IconComponent: FiInfo,
+    IconComponent: IconReport,
   },
   // Page Report: end
 
@@ -90,7 +99,7 @@ const Routes: IRoutes[] = [
     pathPage: '/confirm',
     pathDBFile: 'src/_database/pages/confirm.md',
     targetBlank: false,
-    IconComponent: FiCheckCircle,
+    IconComponent: IconConfirm,
   },
   // Page Confirm: end
 
@@ -109,7 +118,7 @@ const Routes: IRoutes[] = [
     pathPage: '/loading',
     pathDBFile: 'src/_database/pages/loading.md',
     targetBlank: false,
-    IconComponent: FiLoader,
+    IconComponent: IconLoading,
   },
   // Page Loading: end
 
@@ -128,7 +137,7 @@ const Routes: IRoutes[] = [
     pathPage: '/block',
     pathDBFile: 'src/_database/pages/block.md',
     targetBlank: false,
-    IconComponent: FiShield,
+    IconComponent: IconBlock,
   },
   // Page Block: end
 
@@ -147,7 +156,7 @@ const Routes: IRoutes[] = [
     pathPage: '/download',
     pathDBFile: 'src/_database/pages/download.md',
     targetBlank: false,
-    IconComponent: FiDownloadCloud,
+    IconComponent: IconDownload,
   },
   // Page Download: end
 
@@ -166,7 +175,7 @@ const Routes: IRoutes[] = [
     pathPage: '/documentation',
     pathDBFile: 'src/_database/pages/documentation.md',
     targetBlank: false,
-    IconComponent: FiBook,
+    IconComponent: IconDocumentation,
   },
   // Page Documentation: end
 ];
