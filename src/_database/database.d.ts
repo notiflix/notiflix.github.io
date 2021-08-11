@@ -10,6 +10,7 @@ declare module '*.md' {
 
     // pages: home
     _dbHomeSlider: import('./database.i').IDatabaseHomeSlider,
+    _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
   };
   const html: string;
   export { attributes, html };

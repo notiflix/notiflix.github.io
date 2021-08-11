@@ -15,4 +15,10 @@ _dbHomeSlider:
   downloadCount: Notiflix has been downloaded {{x}} times.
   loading: Loading...
   failure: Something went wrong.
+
+_dbHomeGetItOn:
+  title: Get it on
+  yarn: yarn add notiflix
+  npm: mpm i notiflix
+  github: https://github.com/notiflix/Notiflix.git
 ---

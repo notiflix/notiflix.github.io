@@ -8,6 +8,13 @@ interface IDatabaseHomeSlider {
   loading: string;
   failure: string;
 }
+
+interface IDatabaseHomeGetItOn {
+  title: string;
+  yarn: string;
+  npm: string;
+  github: string;
+}
 // Page Home: end
 
 
@@ -52,6 +59,7 @@ interface IDatabaseSettings {
 
 export type {
   IDatabaseHomeSlider,
+  IDatabaseHomeGetItOn,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,

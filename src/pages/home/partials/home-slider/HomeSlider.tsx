@@ -8,7 +8,7 @@ import { GitHub } from '@api/github/GitHub';
 import { NPM } from '@api/npm/NPM';
 import { replaceBetweenCurlyBracesWithAData } from '@helpers/utilities/Utilities';
 
-import styles from '@pages/home/partials/HomeSlider.module.scss';
+import styles from '@pages/home/partials/home-slider/HomeSlider.module.scss';
 
 interface IHomeSliderGitHubState {
   isLoading: boolean;

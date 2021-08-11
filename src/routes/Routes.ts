@@ -182,4 +182,14 @@ const Routes: IRoutes[] = [
 
 export type { IRoutes };
 
-export { Routes };
+export {
+  Routes,
+  IconHome,
+  IconNotify,
+  IconReport,
+  IconConfirm,
+  IconLoading,
+  IconBlock,
+  IconDownload,
+  IconDocumentation,
+};
