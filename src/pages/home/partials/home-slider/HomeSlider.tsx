@@ -87,19 +87,19 @@ function HomeSlider(): JSX.Element {
     <div className={styles.home__slider}>
       <div className={styles.home__slider__container}>
         <div className={styles.home__slider__media}>
-          <img className={styles.home__slider__media__image} width="500" height="500" src={`${process.env.appUrl}${_dbHomeSlider.image}`} alt={appName} />
+          <img className={styles.home__slider__media__image} width="500" height="500" src={`${process.env.appUrl}${_dbHomeSlider?.image}`} alt={appName} />
         </div>
         <div className={styles.home__slider__content}>
-          <h1 className={styles.home__slider__content__title} dangerouslySetInnerHTML={{ __html: _dbHomeSlider.title }}></h1>
-          <p className={styles.home__slider__content__description} dangerouslySetInnerHTML={{ __html: _dbHomeSlider.description }}></p>
+          <h1 className={styles.home__slider__content__title} dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.title || '' }}></h1>
+          <p className={styles.home__slider__content__description} dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.description || '' }}></p>
           <div className={styles.home__slider__content__download}>
-            <p className={styles.home__slider__content__download__info}>{_dbHomeSlider.downloadInfo}</p>
+            <p className={styles.home__slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
             <a href={homeSliderGitHubState.isSuccess ? homeSliderGitHubState.productDownloadUrl : undefined} download={homeSliderGitHubState.isSuccess} className={`${styles.home__slider__content__download__link} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`}>
               {homeSliderGitHubState.isLoading &&
                 <>
                   <IconLoading className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`} />
-                  <span className={styles.home__slider__content__download__link__version}>{_dbHomeSlider.loading}</span>
-                  <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider.loading}</span>
+                  <span className={styles.home__slider__content__download__link__version}>{_dbHomeSlider?.loading}</span>
+                  <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                 </>
               }
               {homeSliderGitHubState.isSuccess &&
@@ -108,17 +108,17 @@ function HomeSlider(): JSX.Element {
                   <span className={styles.home__slider__content__download__link__version}>{homeSliderGitHubState.productVersion}</span>
 
                   {homeSliderNPMState.isLoading &&
-                    <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider.loading}</span>
+                    <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                   }
                   {homeSliderNPMState.isSuccess &&
-                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData(_dbHomeSlider.downloadCount, homeSliderNPMState.downloadCounts)}</span>
+                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), homeSliderNPMState.downloadCounts)}</span>
                   }
                 </>
               }
               {homeSliderGitHubState.isFailure &&
                 <>
                   <IconFailure className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`} />
-                  <span>{_dbHomeSlider.failure}</span>
+                  <span>{_dbHomeSlider?.failure}</span>
                 </>
               }
             </a>

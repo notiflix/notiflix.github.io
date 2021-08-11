@@ -18,12 +18,12 @@ type TChildren = React.ReactNode
   | React.ReactChild[];
 
 interface ILayout {
-  meta: IDatabaseMeta;
   classNamePrefix: string;
+  meta?: IDatabaseMeta;
   children?: TChildren;
 }
 
-function Layout({ meta, classNamePrefix, children }: ILayout): JSX.Element {
+function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
   return (
     <>
       <MetaTags meta={meta} />

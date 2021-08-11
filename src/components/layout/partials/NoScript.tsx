@@ -31,7 +31,7 @@ function NoScript(): JSX.Element {
         }
       `}
       </style>
-      <p className="noscript__message">{_dbSettings.bodyNoScriptMessage}</p>
+      <p className="noscript__message">{_dbSettings?.bodyNoScriptMessage}</p>
     </noscript>
   );
 }

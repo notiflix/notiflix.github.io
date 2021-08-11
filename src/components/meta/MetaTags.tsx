@@ -5,7 +5,7 @@ import { attributes as _settings } from '@database/settings/settings.md';
 import { IDatabaseMeta } from '@database/database.i';
 
 interface IMetaTags {
-  meta: IDatabaseMeta;
+  meta?: IDatabaseMeta;
 }
 
 function MetaTags({ meta }: IMetaTags): JSX.Element {
@@ -17,16 +17,16 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
   const appOgImageSrc = process.env.appOgImageSrc;
 
   const canonicalUrl = `${appUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
-  const yearInit = _dbSettings.metaYearInit;
+  const yearInit = _dbSettings?.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
 
   const metaBase = {
-    languageCode: _dbSettings.metaLanguageCode,
-    language: _dbSettings.metaLanguage,
-    title: _dbSettings.metaTitle,
-    description: _dbSettings.metaDescription,
-    robots: _dbSettings.metaRobots,
-    themeColor: _dbSettings.metaThemeColor,
+    languageCode: _dbSettings?.metaLanguageCode,
+    language: _dbSettings?.metaLanguage,
+    title: _dbSettings?.metaTitle,
+    description: _dbSettings?.metaDescription,
+    robots: _dbSettings?.metaRobots,
+    themeColor: _dbSettings?.metaThemeColor,
     ogImage: appOgImageSrc,
   };
   const metaData = { ...metaBase, ...meta };
@@ -47,7 +47,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <link rel="shortlink" href={canonicalUrl} />
       <meta name="generator" content={appName} />
       <meta name="designer" content={appName} />
-      <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings.metaCopyright}`} />
+      <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings?.metaCopyright}`} />
 
       {/* TODO: SEO */}
 
