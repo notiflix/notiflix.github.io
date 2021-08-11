@@ -23,7 +23,7 @@ function Footer(): JSX.Element {
           </div>
         </div>
         <div className={styles.footer__content__bottom}>
-          <p className={styles.footer__content__bottom__copyright}>&copy; {_dbSettings?.metaYearInit} - {new Date().getFullYear()} {Constants.app.name}. {_dbSettings?.metaCopyright}</p>
+          <p className={styles.footer__content__bottom__copyright} dangerouslySetInnerHTML={{ __html: `&copy; ${_dbSettings?.metaYearInit} - ${new Date().getFullYear()} ${Constants.app.name}. ${_dbSettings?.metaCopyright}` }}></p>
           <a href={_dbSettings?.footerGitHubUrl} target="_blank" rel="noreferrer" className={styles.footer__content__bottom__link}>
             <IconGitHub className={styles.footer__content__bottom__link__icon} />
             <span>{_dbSettings?.footerGitHubName}</span>
