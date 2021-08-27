@@ -1,17 +1,30 @@
-declare module '*.md' {
+// Settings: begin
+declare module '@database/settings/settings.md' {
   const attributes: {
-    // app settings
     _dbSettings?: import('./database.i').IDatabaseSettings,
-    // app social media accounts
+  };
+  const html: string;
+  export { attributes, html };
+}
+
+declare module '@database/settings/socialMedia.md' {
+  const attributes: {
     _dbSocialMedia?: import('./database.i').IDatabaseSocialMedia[],
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Settings: end
 
-    // pages: common
+
+// Pages: Home: begin
+declare module '@database/pages/home.md' {
+  const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
-
-    // pages: home
     _dbHomeSlider?: import('./database.i').IDatabaseHomeSlider,
     _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
   };
   const html: string;
   export { attributes, html };
 }
+// Pages: Home: end
