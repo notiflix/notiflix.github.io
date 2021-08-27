@@ -1,4 +1,4 @@
-interface ILogo {
+interface ILogoNotiflix {
   className?: string;
   width?: number;
   height?: number;
@@ -6,7 +6,7 @@ interface ILogo {
   colorFlix?: string;
 }
 
-function Logo({ className, width, height, colorNoti, colorFlix }: ILogo): JSX.Element {
+function LogoNotiflix({ className, width, height, colorNoti, colorFlix }: ILogoNotiflix): JSX.Element {
   return (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" width={width || 180} height={height || 60} viewBox="0 0 180 60">
       <g>
@@ -17,4 +17,4 @@ function Logo({ className, width, height, colorNoti, colorFlix }: ILogo): JSX.El
   );
 }
 
-export default Logo;
+export default LogoNotiflix;

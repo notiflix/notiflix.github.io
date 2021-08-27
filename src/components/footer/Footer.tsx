@@ -4,7 +4,7 @@ import { attributes as _settings } from '@database/settings/settings.md';
 
 import { Constants } from '@constants/Constants';
 
-import Logo from '@components/logo/Logo';
+import LogoNotiflix from '@components/logo/LogoNotiflix';
 
 import styles from '@components/footer/Footer.module.scss';
 
@@ -16,7 +16,7 @@ function Footer(): JSX.Element {
       <div className={styles.footer__container}>
         <div className={styles.footer__content__top}>
           <div className={styles.footer__content__top__logo}>
-            <Logo className={styles.footer__content__top__logo__svg} colorNoti={'currentColor'} colorFlix={'currentColor'} />
+            <LogoNotiflix className={styles.footer__content__top__logo__svg} colorNoti={'currentColor'} colorFlix={'currentColor'} />
           </div>
           <div className={styles.footer__content__top__menu}>
             {/* TODO: Footer Menu from Routes.ts */}

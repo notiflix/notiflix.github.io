@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FiMoreHorizontal as IconMenuOpen, FiX as IconMenuClose } from 'react-icons/fi';
 
-import Logo from '@components/logo/Logo';
+import LogoNotiflix from '@components/logo/LogoNotiflix';
 import HeaderMenu from '@components/header/partials/HeaderMenu';
 
 import styles from '@components/header/Header.module.scss';
@@ -41,7 +41,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
         <div className={styles.header__logo}>
           <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
             <a className={styles.header__logo__link}>
-              <Logo />
+              <LogoNotiflix />
             </a>
           </Link>
         </div>
