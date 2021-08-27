@@ -10,11 +10,14 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const StylelintPlugin = require('stylelint-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Constants } = require('./.dev/src/constants/Constants');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Routes } = require('./.dev/src/routes/Routes');
+
 
 // Constants: begin
 const isDev = process.env.NODE_ENV === 'development';
@@ -26,9 +29,18 @@ const appOgImageSrc = Constants.app.ogImageSrc;
 // Constants: end
 
 // Next Config: begin
+/**
+* @type {import('next').NextConfig}
+*/
 const nextConfig = {
+  // ts
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+
   // eslint
   eslint: {
+    ignoreDuringBuilds: false,
     dirs: ['src'],
   },
 
@@ -132,6 +144,14 @@ const nextConfig = {
     if (!isServer) {
       config.resolve.fallback.fs = false;
     }
+
+    // eslint
+    config.plugins.push(new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+        memoryLimit: 8192,
+      }
+    }));
 
     // stylelint
     config.plugins.push(new StylelintPlugin({
