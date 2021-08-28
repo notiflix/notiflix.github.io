@@ -5,14 +5,17 @@
   "private": true,
   "scripts": {
     "startup": "eslint src && tsc --resolveJsonModule --outDir .dev --target ES5 src/helpers/sitemap-generator/SitemapGenerator.ts && node .dev/src/helpers/sitemap-generator/SitemapGenerator.js",
-    "lint": "eslint next.config.js && next lint",
-    "dev": "yarn startup && next lint && next dev",
+    "lint:stylelint": "stylelint \"src/**/*.{scss,sass}\" --config .stylelintrc.json",
+    "lint:eslint": "eslint next.config.js && next lint",
+    "lint": "yarn lint:stylelint && yarn lint:eslint",
+    "dev": "yarn startup && yarn lint && next dev",
     "build": "yarn startup && next build",
     "start": "yarn startup && next start",
     "deploy": "yarn build && next export -o .dist"
   },
   "dependencies": {
     "next": "11.1.0",
+    "notiflix": "^3.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
