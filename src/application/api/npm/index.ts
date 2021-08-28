@@ -1,5 +1,5 @@
-import { constants } from '@constants/Constants';
-import { devLoggerError, addSomeDelayAsync } from '@helpers/utilities/Utilities';
+import { constants } from '@application/constants';
+import { devLoggerError, addSomeDelayAsync } from '@application/helpers/utilities';
 
 interface INPMResponseFailure {
   error: string;

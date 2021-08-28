@@ -3,7 +3,7 @@ import { BiCopyAlt as IconCopy } from 'react-icons/bi';
 
 import { attributes as _home } from '@database/pages/home.md';
 
-import { constants } from '@constants/Constants';
+import { constants } from '@application/constants';
 
 import LogoYarn from '@components/logo/LogoYarn';
 import LogoNPM from '@components/logo/LogoNPM';

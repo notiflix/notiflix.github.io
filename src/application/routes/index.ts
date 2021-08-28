@@ -26,7 +26,7 @@ interface IRoutes {
   IconComponent?: React.FC;
 }
 
-const Routes: IRoutes[] = [
+const routes: IRoutes[] = [
   // Page Home: begin
   {
     id: 1,
@@ -183,7 +183,7 @@ const Routes: IRoutes[] = [
 export type { IRoutes };
 
 export {
-  Routes,
+  routes,
   IconHome,
   IconNotify,
   IconReport,

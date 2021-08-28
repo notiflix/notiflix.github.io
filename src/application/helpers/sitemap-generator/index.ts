@@ -1,8 +1,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 
-import { constants } from '../../constants/Constants';
-import { Routes } from '../../routes/Routes';
-import { markdownParser } from '../markdown-parser/MarkdownParser';
+import { constants } from '../../constants';
+import { routes } from '../../routes';
+import { markdownParser } from '../markdown-parser';
 
 // Constants: begin
 const appUrl = constants.app.url;
@@ -122,7 +122,7 @@ const sitemapCreateUrlsFromPages = (): string => {
 
   // if Pages folders exist
   if (existsSync(pathPages)) {
-    Routes?.filter(route => route.isActive && route.addToSitemap)?.map(route => {
+    routes?.filter(route => route.isActive && route.addToSitemap)?.map(route => {
       // page path
       let pagePath = route.pathAs || '';
 

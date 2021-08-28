@@ -1,5 +1,5 @@
-import { constants } from '@constants/Constants';
-import { ErrorWithStatus, devLoggerError, addSomeDelayAsync, createProductZipName } from '@helpers/utilities/Utilities';
+import { constants } from '@application/constants';
+import { ErrorWithStatus, devLoggerError, addSomeDelayAsync, createProductZipName } from '@application/helpers/utilities';
 
 interface IGitHubResponseFailure {
   message: string;

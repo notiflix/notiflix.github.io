@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Routes } from '@routes/Routes';
+import { routes } from '@application/routes';
 
 import styles from '@components/header/partials/HeaderMenu.module.scss';
 
@@ -7,7 +7,7 @@ function HeaderMenu(): JSX.Element {
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav__ul}>
-        {Routes?.filter(route => route.isActive && route.showInHeaderMenu)?.sort((x, y) => x.sortOrder - y.sortOrder)?.map(route => {
+        {routes?.filter(route => route.isActive && route.showInHeaderMenu)?.sort((x, y) => x.sortOrder - y.sortOrder)?.map(route => {
           return (
             <li key={route.id} className={styles.nav__ul__li}>
               <Link href={route.pathPage} as={`${process.env.appUrl}${route.pathAs}`} passHref>

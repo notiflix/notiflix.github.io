@@ -2,7 +2,7 @@ import { FaGithub as IconGitHub } from 'react-icons/fa';
 
 import { attributes as _settings } from '@database/settings/settings.md';
 
-import { constants } from '@constants/Constants';
+import { constants } from '@application/constants';
 
 import LogoNotiflix from '@components/logo/LogoNotiflix';
 

@@ -1,4 +1,4 @@
-import { constants } from '@constants/Constants';
+import { constants } from '@application/constants';
 
 const devLoggerInfo = (message?: string): void => {
   if (process.env.isDev) {

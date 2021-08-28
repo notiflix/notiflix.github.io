@@ -1,6 +1,6 @@
 import { INotifyOptions } from 'notiflix';
 
-import * as packageJSON from '../../package.json';
+import * as packageJSON from '../../../package.json';
 
 interface IConstants {
   app: {

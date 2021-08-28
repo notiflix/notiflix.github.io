@@ -4,9 +4,9 @@ import { AiOutlineLoading3Quarters as IconLoading } from 'react-icons/ai';
 
 import { attributes as _home } from '@database/pages/home.md';
 
-import { GitHub } from '@api/github/GitHub';
-import { NPM } from '@api/npm/NPM';
-import { replaceBetweenCurlyBracesWithAData } from '@helpers/utilities/Utilities';
+import { GitHub } from '@application/api/github';
+import { NPM } from '@application/api/npm';
+import { replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
 
 import styles from '@pages/home/partials/home-slider/HomeSlider.module.scss';
 

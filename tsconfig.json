@@ -8,23 +8,14 @@
       "@database/*": [
         "_database/*"
       ],
-      "@api/*": [
-        "api/*"
+      "@application/*": [
+        "application/*"
       ],
       "@components/*": [
         "components/*"
       ],
-      "@constants/*": [
-        "constants/*"
-      ],
-      "@helpers/*": [
-        "helpers/*"
-      ],
       "@pages/*": [
         "pages/*"
-      ],
-      "@routes/*": [
-        "routes/*"
       ],
       "@styles/*": [
         "styles/*"

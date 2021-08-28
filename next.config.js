@@ -14,9 +14,9 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StylelintPlugin = require('stylelint-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { constants } = require('./.dev/src/constants/Constants');
+const { constants } = require('./.dev/src/application/constants');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { Routes } = require('./.dev/src/routes/Routes');
+const { routes } = require('./.dev/src/application/routes');
 
 
 // Constants: begin
@@ -111,7 +111,7 @@ const nextConfig = {
       '/': { page: '/home' },
     };
 
-    Routes?.filter(route => route.isActive && route.addToNextJSConfig)?.map(route => {
+    routes?.filter(route => route.isActive && route.addToNextJSConfig)?.map(route => {
       const routePath = {
         [route.pathAs]: { page: route.pathPage },
       };
