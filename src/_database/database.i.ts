@@ -7,13 +7,24 @@ interface IDatabaseHomeSlider {
   downloadCount: string;
   loading: string;
   failure: string;
+  restricted: string;
 }
 
 interface IDatabaseHomeGetItOn {
   title: string;
-  yarn: string;
-  npm: string;
-  github: string;
+  clipboard: string;
+  yarn: {
+    script: string;
+    url: string;
+  };
+  npm: {
+    script: string;
+    url: string;
+  };
+  github: {
+    script: string | null;
+    url: string;
+  };
 }
 // Page Home: end
 

@@ -151,7 +151,7 @@
     }
 
     &__close {
-      transition: $transition_transform;
+      transition: $transition_color;
       position: absolute;
       z-index: 3;
       right: 0.5rem;
@@ -167,7 +167,7 @@
       color: $color_light;
 
       &:hover {
-        transform: rotate(90deg);
+        color: $color_theme_green;
       }
 
       @include media_up($breakpoint_minibook) {

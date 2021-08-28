@@ -1,0 +1,134 @@
+@import "@styles/variables";
+
+.home__getiton {
+  width: 100%;
+  order: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.6rem;
+  margin: 0 0 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: $box_shadow_30;
+  @include backgroundGradientLightGray();
+
+  @include media_up($breakpoint_tablet) {
+    width: calc(55% - 2rem);
+    order: 2;
+    margin: 0;
+  }
+
+  &__title {
+    position: relative;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.2rem 0.2rem 0.2rem 1rem;
+    margin: 0 0 1.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.2rem;
+      height: 100%;
+      background: $color_gray_200;
+      border-radius: 1rem;
+    }
+  }
+
+  &__links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__link {
+    transition: $transition_transform;
+    width: 100%;
+    min-height: 6rem;
+    align-self: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: $color_white;
+    box-shadow: $box_shadow_base;
+
+    @include media_up($breakpoint_mobile) {
+      width: calc(33.3333% - 0.75rem);
+      margin: 0;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 1rem;
+
+      @include media_up($breakpoint_mobile) {
+        margin: 0;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &__script {
+      transition: $transition_background;
+      order: 2;
+      position: relative;
+      cursor: copy;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.55rem 2rem;
+      margin: 1rem 0 0;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      line-height: 1.3;
+      font-family: $font_family_code;
+      color: $color_code_light;
+      background: $color_code_dark;
+
+      &:hover {
+        background: $color_black;
+      }
+
+      &__icon {
+        transition: $transition_visibility;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0.8rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        color: $color_theme_green;
+      }
+
+      &:hover &__icon {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &__script:hover + &__icon {
+      opacity: 0.4;
+    }
+
+    &__icon {
+      transition: $transition_opacity;
+      order: 1;
+      max-width: 5.5rem;
+      height: auto;
+    }
+  }
+}

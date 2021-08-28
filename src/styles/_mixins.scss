@@ -31,3 +31,13 @@
     #f1f1f1
   );
 }
+
+@mixin backgroundGradientGreen($deg: 36) {
+  background: $color_light;
+  background: linear-gradient(#{$deg}deg, #269360, #299f68, #2cac71, #2fb979, #32c682);
+}
+
+@mixin backgroundGradientDark($deg: 36) {
+  background: $color_light;
+  background: linear-gradient(#{$deg}deg, #0e0e0e, #1e1e1e);
+}

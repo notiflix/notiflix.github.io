@@ -1,0 +1,28 @@
+@import "@styles/variables";
+
+.home {
+  &__getiton__browsers {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include backgroundGradientGreen();
+
+    &__container {
+      width: 100%;
+      max-width: $breakpoint_pc;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      @include media_up($breakpoint_tablet) {
+        padding: 3rem 1.25rem;
+      }
+    }
+  }
+}

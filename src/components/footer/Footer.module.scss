@@ -38,7 +38,7 @@
         &__svg {
           width: 100%;
           height: auto;
-          color: $color_gray_blue;
+          color: $color_theme_gray_blue;
         }
       }
 
@@ -70,7 +70,7 @@
       &__copyright {
         order: 2;
         display: inline-flex;
-        color: $color_gray_blue;
+        color: $color_theme_gray_blue;
         font-size: 0.75rem;
         margin: 0.5rem 0;
 

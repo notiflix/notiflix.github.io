@@ -15,10 +15,18 @@ _dbHomeSlider:
   downloadCount: Notiflix has been downloaded {{x}} times.
   loading: Loading...
   failure: Something went wrong.
+  restricted: API rate limit exceeded.
 
 _dbHomeGetItOn:
   title: Get it on
-  yarn: yarn add notiflix
-  npm: mpm i notiflix
-  github: https://github.com/notiflix/Notiflix.git
+  clipboard: Copied to the clipboard.
+  yarn:
+    script: yarn add notiflix
+    url: https://yarnpkg.com/package/notiflix
+  npm:
+    script: npm i notiflix
+    url: https://www.npmjs.com/package/notiflix
+  github:
+    script: null
+    url: https://github.com/notiflix/Notiflix.git
 ---

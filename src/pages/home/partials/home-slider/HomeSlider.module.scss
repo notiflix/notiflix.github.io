@@ -41,7 +41,7 @@
     }
 
     &__image {
-      filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.02));
+      filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.025));
     }
   }
 
@@ -80,8 +80,12 @@
         font-weight: 500;
         line-height: 1;
         border-radius: 2rem;
-        margin: 0 0 0 0.75rem;
         padding: 0.5rem 1rem;
+        margin: 0 0 0 0.6rem;
+
+        @include media_up($breakpoint_minibook) {
+          margin: 0 0 0 0.75rem;
+        }
       }
     }
 
@@ -93,7 +97,7 @@
       font-size: 0.9rem;
       line-height: 1.5;
       font-weight: 300;
-      color: $color_gray_primary;
+      color: $color_theme_gray_primary;
 
       span {
         font-weight: 500;
@@ -161,7 +165,7 @@
           width: 3rem;
           height: 3rem;
           padding: 0.25rem;
-          color: $color_gray_secondary;
+          color: $color_theme_gray_secondary;
 
           &--loading {
             animation: animation_home_slider_download_loading 1s linear 0s infinite;
@@ -200,7 +204,7 @@
           text-align: center;
           font-size: 0.5rem;
           margin: 0.25rem 0 0;
-          color: $color_gray_secondary;
+          color: $color_theme_gray_secondary;
         }
       }
     }

@@ -74,6 +74,11 @@ p {
   margin: 0;
 }
 
+b,
+strong {
+  font-weight: 500;
+}
+
 *::-webkit-scrollbar {
   height: 0.25rem;
   width: 0.25rem;
