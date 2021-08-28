@@ -14,6 +14,7 @@ interface IHomeSliderGitHubState {
   isLoading: boolean;
   isSuccess: boolean;
   isFailure: boolean;
+  apiStatus?: number;
   productVersion?: string;
   productDownloadUrl?: string;
 }
@@ -66,10 +67,11 @@ function HomeSlider(): JSX.Element {
           });
         }
       } else {
-        throw new Error();
+        throw new Error(gitHubData.toString());
       }
     } catch (error) {
       setHomeSliderGitHubState({
+        apiStatus: (+(error?.message) || 500),
         isLoading: false,
         isSuccess: false,
         isFailure: true,
@@ -79,7 +81,9 @@ function HomeSlider(): JSX.Element {
 
   useEffect(() => {
     if (homeSliderGitHubState.isLoading && homeSliderNPMState.isLoading) {
-      getHomeSliderDataAsync();
+      if (!process.env.isDev) { // TODO:
+        getHomeSliderDataAsync();
+      }
     }
   }, [homeSliderGitHubState, homeSliderNPMState, getHomeSliderDataAsync]);
 
@@ -118,7 +122,7 @@ function HomeSlider(): JSX.Element {
               {homeSliderGitHubState.isFailure &&
                 <>
                   <IconFailure className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`} />
-                  <span>{_dbHomeSlider?.failure}</span>
+                  <span>{homeSliderGitHubState.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
                 </>
               }
             </a>

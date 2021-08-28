@@ -1,5 +1,5 @@
-import { Constants } from '@constants/Constants';
-import { devLoggerError, addSomeDelayAsync, createProductZipName } from '@helpers/utilities/Utilities';
+import { constants } from '@constants/Constants';
+import { ErrorWithStatus, devLoggerError, addSomeDelayAsync, createProductZipName } from '@helpers/utilities/Utilities';
 
 interface IGitHubResponseFailure {
   message: string;
@@ -28,29 +28,33 @@ class GitHub {
     'Accept': 'application/vnd.github.v3+json',
   };
 
-  getLatestReleaseAsync = async (): Promise<IGitHubLatestRelease | boolean> => {
+  getLatestReleaseAsync = async (): Promise<IGitHubLatestRelease | number> => {
     try {
       const _headers = this.headers;
 
       await addSomeDelayAsync(360);
 
-      const response = await fetch(Constants.api.urlGitHubReleases, {
+      const response = await fetch(constants.api.urlGitHubReleases, {
         method: 'get',
         headers: _headers,
       });
 
+      if (response.status === 403) {
+        throw new ErrorWithStatus('API rate limit exceeded.', response.status);
+      }
+
       if (!response.ok) {
-        throw new Error('Something went wrong.');
+        throw new ErrorWithStatus('Something went wrong.', response.status);
       }
 
       const data: IGitHubResponseLatestRelease[] | IGitHubResponseFailure = await response.json();
       if (!Array.isArray(data) || data?.length < 1) {
-        throw new Error('Not found.');
+        throw new ErrorWithStatus('Not found.', 404);
       }
 
       const latestRelease = data?.filter(x => !x.draft && !x.prerelease)?.sort((x, y) => y.id - x.id)?.find(x => x);
       if (!latestRelease) {
-        throw new Error('There is no release.');
+        throw new ErrorWithStatus('There is no release.', 404);
       }
 
       return {
@@ -59,7 +63,7 @@ class GitHub {
       };
     } catch (error) {
       devLoggerError(error?.message);
-      return false;
+      return error?.status || 500;
     }
   };
 }
