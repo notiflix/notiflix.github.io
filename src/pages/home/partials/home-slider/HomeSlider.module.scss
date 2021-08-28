@@ -2,14 +2,22 @@
 
 .home__slider {
   width: 100%;
+  padding: $header_height 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  border-radius: 60%/2rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  @include backgroundGradientLightGray();
 
   @include media_up($breakpoint_tablet) {
     justify-content: center;
+    border-radius: 40%/4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   &__container {

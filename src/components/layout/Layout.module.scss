@@ -10,6 +10,7 @@
   padding: $header_height 0 0;
 
   &--home {
-    @include backgroundGradientLightGray();
+    padding: 0;
+    @include backgroundGradientNight();
   }
 }
