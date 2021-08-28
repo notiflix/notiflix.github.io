@@ -105,6 +105,7 @@
 
       &__icon {
         transition: $transition_visibility;
+        pointer-events: none;
         opacity: 0;
         visibility: hidden;
         position: absolute;
