@@ -23,6 +23,7 @@ declare module '@database/pages/home.md' {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbHomeSlider?: import('./database.i').IDatabaseHomeSlider,
     _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
+    _dbHomeBrowsers?: import('./database.i').IDatabaseHomeBrowsers,
   };
   const html: string;
   export { attributes, html };

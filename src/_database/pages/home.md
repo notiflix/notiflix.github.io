@@ -29,4 +29,16 @@ _dbHomeGetItOn:
   github:
     script: null
     url: https://github.com/notiflix/Notiflix.git
+
+_dbHomeBrowsers:
+  title: Browser Compatibility
+  disclaimer: "* SVG animations are not supported."
+  chrome: Chrome
+  firefox: Firefox
+  safari: Safari
+  edge: Edge
+  opera: Opera
+  edgeLegacy: "* Edge Legacy"
+  ie: "* IE 10+"
+
 ---

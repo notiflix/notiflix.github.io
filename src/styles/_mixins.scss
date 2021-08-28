@@ -33,11 +33,16 @@
 }
 
 @mixin backgroundGradientGreen($deg: 36) {
-  background: $color_light;
+  background: $color_theme_green;
   background: linear-gradient(#{$deg}deg, #269360, #299f68, #2cac71, #2fb979, #32c682);
 }
 
 @mixin backgroundGradientDark($deg: 36) {
-  background: $color_light;
+  background: $color_dark;
   background: linear-gradient(#{$deg}deg, #0e0e0e, #1e1e1e);
+}
+
+@mixin backgroundGradientNight($deg: 36) {
+  background: $color_theme_dark;
+  background: linear-gradient(#{$deg}deg, $color_theme_dark_hover, $color_theme_dark);
 }

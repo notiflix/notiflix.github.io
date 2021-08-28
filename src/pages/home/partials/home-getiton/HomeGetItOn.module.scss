@@ -3,6 +3,7 @@
 .home__getiton {
   width: 100%;
   order: 1;
+  align-self: stretch;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -15,7 +16,7 @@
   @include backgroundGradientLightGray();
 
   @include media_up($breakpoint_tablet) {
-    width: calc(55% - 2rem);
+    width: calc(55% - 1.25rem);
     order: 2;
     margin: 0;
   }
@@ -23,7 +24,7 @@
   &__title {
     position: relative;
     width: 100%;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     padding: 0.2rem 0.2rem 0.2rem 1rem;
     margin: 0 0 1.5rem;

@@ -3,13 +3,86 @@
 .home__browsers {
   width: 100%;
   order: 2;
+  align-self: stretch;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 1.6rem;
+  border-radius: 1.5rem;
+  box-shadow: $box_shadow_30;
+  @include backgroundGradientLightGray();
 
   @include media_up($breakpoint_tablet) {
-    width: calc(45% - 2rem);
+    width: calc(45% - 1.25rem);
     order: 1;
+  }
+
+  &__title {
+    position: relative;
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.2rem 0.2rem 0.2rem 1rem;
+    margin: 0 0 1.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.2rem;
+      height: 100%;
+      background: $color_gray_200;
+      border-radius: 1rem;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include media_up($breakpoint_mobile) {
+      justify-content: space-between;
+    }
+
+    &__item {
+      width: 25%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 0 1.25rem;
+
+      @include media_up($breakpoint_mobile) {
+        width: 14.25%;
+      }
+
+      &__icon {
+        width: 45%;
+        height: auto;
+        margin: 0 auto 0.6rem;
+      }
+
+      &__text {
+        font-size: 0.6rem;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__disclaimer {
+    width: 100%;
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.5;
+    text-align: center;
   }
 }

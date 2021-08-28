@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   color: $color_theme_light;
-  background: $color_theme_dark;
+  @include backgroundGradientNight();
 
   &__container {
     width: 100%;

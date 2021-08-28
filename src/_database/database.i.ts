@@ -26,6 +26,18 @@ interface IDatabaseHomeGetItOn {
     url: string;
   };
 }
+
+interface IDatabaseHomeBrowsers {
+  title: string;
+  disclaimer: string;
+  chrome: string;
+  firefox: string;
+  safari: string;
+  edge: string;
+  opera: string;
+  edgeLegacy: string;
+  ie: string;
+}
 // Page Home: end
 
 
@@ -71,6 +83,7 @@ interface IDatabaseSettings {
 export type {
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
+  IDatabaseHomeBrowsers,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,
