@@ -1,4 +1,4 @@
-import { Constants } from '@constants/Constants';
+import { constants } from '@constants/Constants';
 import { devLoggerError, addSomeDelayAsync } from '@helpers/utilities/Utilities';
 
 interface INPMResponseFailure {
@@ -34,7 +34,7 @@ class NPM {
 
       await addSomeDelayAsync(360);
 
-      const response = await fetch(Constants.api.urlNPMDownloads, {
+      const response = await fetch(constants.api.urlNPMDownloads, {
         method: 'get',
         headers: _headers,
       });

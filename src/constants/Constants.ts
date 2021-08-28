@@ -1,3 +1,5 @@
+import { INotifyOptions } from 'notiflix';
+
 import * as packageJSON from '../../package.json';
 
 interface IConstants {
@@ -6,6 +8,9 @@ interface IConstants {
     version: string;
     name: string;
     ogImageSrc: string;
+    settings: {
+      notify: INotifyOptions,
+    },
   },
   api: {
     urlGitHubReleases: string;
@@ -13,12 +18,18 @@ interface IConstants {
   },
 }
 
-const Constants: IConstants = {
+const constants: IConstants = {
   app: {
     url: (JSON.stringify((packageJSON || {}).homepage) || '').replace(/"/gm, ''),
     version: (JSON.stringify((packageJSON || {}).version) || '').replace(/"/gm, ''),
     name: 'Notiflix',
     ogImageSrc: '/webapp/notiflix-og.jpg',
+    settings: {
+      notify: {
+        fontFamily: 'Red Hat Display',
+        plainText: false,
+      },
+    },
   },
   api: {
     urlGitHubReleases: 'https://api.github.com/repos/notiflix/Notiflix/releases',
@@ -28,4 +39,4 @@ const Constants: IConstants = {
 
 export type { IConstants };
 
-export { Constants };
+export { constants };

@@ -1,14 +1,14 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 
-import { Constants } from '../../constants/Constants';
+import { constants } from '../../constants/Constants';
 import { Routes } from '../../routes/Routes';
 import { markdownParser } from '../markdown-parser/MarkdownParser';
 
 // Constants: begin
-const appUrl = Constants.app.url;
-const appName = Constants.app.name;
-const appOgImageSrc = `${Constants.app.url}${Constants.app.ogImageSrc}`;
-const sitemapStyleUrl = `${Constants.app.url}/sitemap.xsl`;
+const appUrl = constants.app.url;
+const appName = constants.app.name;
+const appOgImageSrc = `${constants.app.url}${constants.app.ogImageSrc}`;
+const sitemapStyleUrl = `${constants.app.url}/sitemap.xsl`;
 const pathOutput = 'public/sitemap.xml';
 const pathPages = 'src/pages';
 // Constants: end

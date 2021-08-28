@@ -14,7 +14,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StylelintPlugin = require('stylelint-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { Constants } = require('./.dev/src/constants/Constants');
+const { constants } = require('./.dev/src/constants/Constants');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Routes } = require('./.dev/src/routes/Routes');
 
@@ -22,10 +22,10 @@ const { Routes } = require('./.dev/src/routes/Routes');
 // Constants: begin
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
-const appUrl = isProd ? Constants.app.url : '';
-const appName = Constants.app.name;
-const appVersion = Constants.app.version;
-const appOgImageSrc = Constants.app.ogImageSrc;
+const appUrl = isProd ? constants.app.url : '';
+const appName = constants.app.name;
+const appVersion = constants.app.version;
+const appOgImageSrc = constants.app.ogImageSrc;
 // Constants: end
 
 // Next Config: begin
@@ -131,7 +131,7 @@ const nextConfig = {
   },
 
   // Webpack config
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, isDev }) => {
     // frontmatter markdown loader
     config.module.rules.push(
       {
@@ -146,17 +146,21 @@ const nextConfig = {
     }
 
     // eslint
-    config.plugins.push(new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: './src/**/*.{ts,tsx,js,jsx}',
-        memoryLimit: 8192,
-      }
-    }));
+    if (isDev) {
+      config.plugins.push(new ForkTsCheckerWebpackPlugin({
+        eslint: {
+          files: './src/**/*.{ts,tsx,js,jsx}',
+          memoryLimit: 8192,
+        },
+      }));
+    }
 
     // stylelint
-    config.plugins.push(new StylelintPlugin({
-      files: './src/**/*.scss',
-    }));
+    if (isDev) {
+      config.plugins.push(new StylelintPlugin({
+        files: './src/**/*.scss',
+      }));
+    }
 
     // return extended config
     return config;
