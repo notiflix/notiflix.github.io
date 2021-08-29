@@ -38,6 +38,18 @@ interface IDatabaseHomeBrowsers {
   edgeLegacy: string;
   ie: string;
 }
+
+interface IDatabaseHomeModule {
+  id: number;
+  title: string;
+  description: string;
+  button: string;
+}
+
+interface IDatabaseHomeModules {
+  title: string;
+  modules: IDatabaseHomeModule[];
+}
 // Page Home: end
 
 
@@ -84,6 +96,7 @@ export type {
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
+  IDatabaseHomeModules,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,

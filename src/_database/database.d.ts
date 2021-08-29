@@ -24,6 +24,7 @@ declare module '@database/pages/home.md' {
     _dbHomeSlider?: import('./database.i').IDatabaseHomeSlider,
     _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
     _dbHomeBrowsers?: import('./database.i').IDatabaseHomeBrowsers,
+    _dbHomeModules?: import('./database.i').IDatabaseHomeModules,
   };
   const html: string;
   export { attributes, html };

@@ -5,7 +5,7 @@ import Layout from '@components/layout/Layout';
 import HomeSlider from '@pages/home/partials/home-slider/HomeSlider';
 import HomeBrowsers from '@pages/home/partials/home-browsers/HomeBrowsers';
 import HomeGetItOn from '@pages/home/partials/home-getiton/HomeGetItOn';
-import HomeProducts from '@pages/home/partials/home-products/HomeProducts';
+import HomeModules from '@pages/home/partials/home-modules/HomeModules';
 
 import styles from '@pages/home/index.module.scss';
 
@@ -21,7 +21,7 @@ function Home(): JSX.Element {
           <HomeGetItOn />
         </div>
       </div>
-      <HomeProducts />
+      <HomeModules />
     </Layout>
   );
 }

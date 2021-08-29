@@ -19,10 +19,10 @@ interface IRoutes {
   showInHeaderMenu: boolean;
   showInFooterMenu: boolean;
   name: string;
-  pathAs: string;
   pathPage: string;
+  pathAs: string;
   pathDBFile: string;
-  targetBlank: boolean;
+  isTargetBlank: boolean;
   IconComponent?: React.FC;
 }
 
@@ -38,10 +38,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: false,
     showInFooterMenu: false,
     name: 'Home',
-    pathAs: '/',
     pathPage: '/home',
+    pathAs: '/',
     pathDBFile: 'src/_database/pages/home.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconHome,
   },
   // Page Home: end
@@ -57,10 +57,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Notify',
-    pathAs: '/notify',
     pathPage: '/notify',
+    pathAs: '/notify',
     pathDBFile: 'src/_database/pages/notify.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconNotify,
   },
   // Page Notify: end
@@ -76,10 +76,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Report',
-    pathAs: '/report',
     pathPage: '/report',
+    pathAs: '/report',
     pathDBFile: 'src/_database/pages/report.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconReport,
   },
   // Page Report: end
@@ -95,10 +95,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Confirm',
-    pathAs: '/confirm',
     pathPage: '/confirm',
+    pathAs: '/confirm',
     pathDBFile: 'src/_database/pages/confirm.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconConfirm,
   },
   // Page Confirm: end
@@ -114,10 +114,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Loading',
-    pathAs: '/loading',
     pathPage: '/loading',
+    pathAs: '/loading',
     pathDBFile: 'src/_database/pages/loading.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconLoading,
   },
   // Page Loading: end
@@ -133,10 +133,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Block',
-    pathAs: '/block',
     pathPage: '/block',
+    pathAs: '/block',
     pathDBFile: 'src/_database/pages/block.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconBlock,
   },
   // Page Block: end
@@ -152,10 +152,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Download',
-    pathAs: '/download',
     pathPage: '/download',
+    pathAs: '/download',
     pathDBFile: 'src/_database/pages/download.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconDownload,
   },
   // Page Download: end
@@ -171,10 +171,10 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     name: 'Documentation',
-    pathAs: '/documentation',
     pathPage: '/documentation',
+    pathAs: '/documentation',
     pathDBFile: 'src/_database/pages/documentation.md',
-    targetBlank: false,
+    isTargetBlank: false,
     IconComponent: IconDocumentation,
   },
   // Page Documentation: end

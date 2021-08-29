@@ -12,7 +12,7 @@ function HeaderMenu(): JSX.Element {
             <li key={route.id} className={styles.nav__ul__li}>
               <Link href={route.pathPage} as={`${process.env.appUrl}${route.pathAs}`} passHref>
                 <a
-                  target={route.targetBlank ? '_blank' : undefined}
+                  target={route.isTargetBlank ? '_blank' : undefined}
                   className={`${styles.nav__ul__li__a} ${route.isProduct ? (styles[`nav__ul__li__a--product`] || '') : ''}`}
                 >
                   {route.IconComponent ? <route.IconComponent /> : ''}
