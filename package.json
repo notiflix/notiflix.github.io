@@ -12,8 +12,8 @@
     "lint:eslint": "eslint next.config.js && next lint",
     "lint": "yarn lint:stylelint && yarn lint:eslint",
     "dev": "yarn startup && yarn lint && next dev",
-    "build": "yarn startup && next build",
-    "start": "yarn startup && next start",
+    "build": "yarn startup && yarn lint && next build",
+    "start": "yarn startup && yarn lint && next start",
     "deploy": "yarn build && next export -o .dist"
   },
   "dependencies": {
