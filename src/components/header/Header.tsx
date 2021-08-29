@@ -35,7 +35,11 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
   // Mobile Menu Handler: end
 
   return (
-    <header className={`${styles.header} ${styles[`header--${classNamePrefix}`] || ''} ${scrollTop > 1 ? (styles[`header--sticky`] || '') : ''}`}>
+    <header className={[
+      `${styles.header}`,
+      `${styles[`header--${classNamePrefix}`] || ''}`,
+      `${scrollTop > 1 ? (styles[`header--sticky`] || '') : ''}`,
+    ].join(' ').trim()}>
       <div className={styles.header__container}>
 
         <div className={styles.header__logo}>

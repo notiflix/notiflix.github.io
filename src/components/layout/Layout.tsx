@@ -29,7 +29,10 @@ function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
       <MetaTags meta={meta} />
       <NoScript />
       <Header classNamePrefix={classNamePrefix} />
-      <main className={`${styles.layout} ${styles[`layout--${classNamePrefix}`] || ''}`}>
+      <main className={[
+        `${styles.layout}`,
+        `${styles[`layout--${classNamePrefix}`] || ''}`,
+      ].join(' ').trim()}>
         {children}
       </main>
       <Footer />

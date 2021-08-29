@@ -19,7 +19,7 @@ function Footer(): JSX.Element {
             <LogoNotiflix className={styles.footer__content__top__logo__svg} colorNoti={'currentColor'} colorFlix={'currentColor'} />
           </div>
           <div className={styles.footer__content__top__menu}>
-            {/* TODO: Footer Menu from Routes.ts */}
+            {/* TODO: Footer Menu from routes.ts */}
           </div>
         </div>
         <div className={styles.footer__content__bottom}>

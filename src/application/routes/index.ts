@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fi';
 
 interface IRoutes {
-  id: number;
+  id: string;
   sortOrder: number;
   isActive: boolean;
   isProduct: boolean;
@@ -29,7 +29,7 @@ interface IRoutes {
 const routes: IRoutes[] = [
   // Page Home: begin
   {
-    id: 1,
+    id: 'HOME',
     sortOrder: 1,
     isActive: true,
     isProduct: false,
@@ -48,11 +48,11 @@ const routes: IRoutes[] = [
 
   // Page Notify: begin
   {
-    id: 2,
+    id: 'NOTIFY',
     sortOrder: 2,
     isActive: true,
     isProduct: true,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     showInHeaderMenu: true,
     showInFooterMenu: true,
@@ -67,7 +67,7 @@ const routes: IRoutes[] = [
 
   // Page Report: begin
   {
-    id: 3,
+    id: 'REPORT',
     sortOrder: 3,
     isActive: true,
     isProduct: true,
@@ -86,7 +86,7 @@ const routes: IRoutes[] = [
 
   // Page Confirm: begin
   {
-    id: 4,
+    id: 'CONFIRM',
     sortOrder: 4,
     isActive: true,
     isProduct: true,
@@ -105,7 +105,7 @@ const routes: IRoutes[] = [
 
   // Page Loading: begin
   {
-    id: 5,
+    id: 'LOADING',
     sortOrder: 5,
     isActive: true,
     isProduct: true,
@@ -124,7 +124,7 @@ const routes: IRoutes[] = [
 
   // Page Block: begin
   {
-    id: 6,
+    id: 'BLOCK',
     sortOrder: 6,
     isActive: true,
     isProduct: true,
@@ -143,7 +143,7 @@ const routes: IRoutes[] = [
 
   // Page Download: begin
   {
-    id: 7,
+    id: 'DOWNLOAD',
     sortOrder: 7,
     isActive: true,
     isProduct: false,
@@ -162,7 +162,7 @@ const routes: IRoutes[] = [
 
   // Page Documentation: begin
   {
-    id: 8,
+    id: 'DOCUMENTATION',
     sortOrder: 8,
     isActive: true,
     isProduct: false,

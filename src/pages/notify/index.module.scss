@@ -1,0 +1,21 @@
+@import "@styles/variables";
+
+.notify {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

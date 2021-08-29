@@ -1,5 +1,6 @@
 @import "variables";
 
+// Reset: begin
 *,
 *::before,
 *::after {
@@ -97,3 +98,121 @@ strong {
   scrollbar-color: rgba($color_black, 0.2) rgba($color_black, 0.05);
   scrollbar-width: thin;
 }
+// Reset: end
+
+// Code: begin
+.code {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  font-family: $font_family_code;
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+  text-align: left;
+  color: $color_code_light;
+  background: $color_code_dark;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  overflow: auto hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &--medium {
+    font-size: 0.8rem;
+  }
+
+  &--large {
+    font-size: 0.9rem;
+  }
+
+  &--html {
+    color: $color_code_html;
+  }
+
+  &__l1 {
+    width: 100%;
+    display: block;
+    padding: 1rem 1.5rem;
+
+    &--pb0 {
+      padding-bottom: 0;
+    }
+
+    &--pt0 {
+      padding-top: 0;
+    }
+  }
+
+  &__comment {
+    color: $color_code_comment;
+
+    &::before {
+      content: "// ";
+    }
+
+    &--full {
+      &::before {
+        content: "/* ";
+      }
+
+      &::after {
+        content: " */";
+      }
+    }
+
+    &--html {
+      &::before {
+        content: "<!-- ";
+      }
+
+      &::after {
+        content: " -->";
+      }
+    }
+  }
+
+  &__string {
+    color: $color_code_string;
+  }
+
+  &__number {
+    color: $color_code_number;
+  }
+
+  &__boolean {
+    color: $color_code_boolean;
+  }
+
+  &__import {
+    color: $color_code_import;
+  }
+
+  &__attr {
+    color: $color_code_attr;
+  }
+
+  &__class {
+    color: $color_code_class;
+  }
+
+  &__namespace {
+    color: $color_code_namespace;
+  }
+
+  &__func {
+    color: $color_code_func;
+  }
+
+  &__const {
+    color: $color_code_const;
+  }
+
+  &__light {
+    color: $color_code_light;
+  }
+}
+// Code: end

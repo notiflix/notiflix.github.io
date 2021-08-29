@@ -40,7 +40,7 @@ interface IDatabaseHomeBrowsers {
 }
 
 interface IDatabaseHomeModule {
-  id: number;
+  routeId: string;
   title: string;
   description: string;
   button: string;
@@ -52,9 +52,25 @@ interface IDatabaseHomeModules {
 }
 // Page Home: end
 
+// Page Notify: begin
+interface IDatabaseNotifyBanner {
+  importNamespace: string;
+  title: string;
+  description: string;
+  importDescription: string;
+  htmlDescription: string;
+  htmlOneByOne: string;
+  htmlOneByOneCSS: string;
+  htmlOneByOneJS: string;
+  htmlAllInOne: string;
+  htmlAllInOneJS: string;
+}
+// Page Notify: end
+
 
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
+  routeId: string;
   lastModifiedDate: string;
   title: string;
   description: string;
@@ -97,6 +113,7 @@ export type {
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
   IDatabaseHomeModules,
+  IDatabaseNotifyBanner,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,

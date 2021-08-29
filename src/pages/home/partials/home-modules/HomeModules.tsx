@@ -17,13 +17,13 @@ function HomeModules(): JSX.Element {
           <h2 className={styles.home__modules__title}>{_dbHomeModules?.title}</h2>
           <div className={styles.home__modules__list}>
             {_dbHomeModules?.modules
-              ?.filter(module => routes.find(route => route.id === module.id)?.isActive)
-              ?.sort((moduleX, moduleY) => (routes.find(route => route.id === moduleX.id)?.sortOrder || 0) - (routes.find(route => route.id === moduleY.id)?.sortOrder || 1))
+              ?.filter(module => routes.find(route => route.id === module.routeId)?.isActive)
+              ?.sort((moduleX, moduleY) => (routes.find(route => route.id === moduleX.routeId)?.sortOrder || 0) - (routes.find(route => route.id === moduleY.routeId)?.sortOrder || 1))
               ?.map((module, index) => {
-                const ModuleIconComponent = routes.find(route => route.id === module.id)?.IconComponent || IconFallback;
-                const modulePathPage = routes.find(route => route.id === module.id)?.pathPage || '/';
-                const modulePathAs = routes.find(route => route.id === module.id)?.pathAs || '/';
-                const moduleIsTargetBlank = routes.find(route => route.id === module.id)?.isTargetBlank;
+                const ModuleIconComponent = routes.find(route => route.id === module.routeId)?.IconComponent || IconFallback;
+                const modulePathPage = routes.find(route => route.id === module.routeId)?.pathPage || '/';
+                const modulePathAs = routes.find(route => route.id === module.routeId)?.pathAs || '/';
+                const moduleIsTargetBlank = routes.find(route => route.id === module.routeId)?.isTargetBlank;
 
                 return (
                   <div key={index} className={styles.home__modules__list__item}>

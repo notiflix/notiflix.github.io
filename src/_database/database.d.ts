@@ -30,3 +30,14 @@ declare module '@database/pages/home.md' {
   export { attributes, html };
 }
 // Pages: Home: end
+
+// Pages: Notify: begin
+declare module '@database/pages/notify.md' {
+  const attributes: {
+    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbNotifyBanner?: import('./database.i').IDatabaseNotifyBanner,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Pages: Notify: end

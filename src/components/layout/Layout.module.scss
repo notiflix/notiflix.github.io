@@ -13,4 +13,9 @@
     padding: 0;
     @include backgroundGradientNight();
   }
+
+  &--notify {
+    padding: 0;
+    @include backgroundGradientNight();
+  }
 }

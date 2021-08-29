@@ -1,0 +1,123 @@
+@import "@styles/variables";
+
+.banner {
+  width: 100%;
+  padding: $header_height 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 60%/2rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  @include backgroundGradientLightGray();
+
+  @include media_up($breakpoint_tablet) {
+    justify-content: center;
+    border-radius: 40%/4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8.5rem 0.5rem 0;
+    margin: 1rem auto 3rem;
+
+    @include media_up($breakpoint_mobile) {
+      padding: 0 0 0 14rem;
+      margin: 2rem auto 5rem;
+      max-width: $breakpoint_minibook;
+    }
+
+    &__icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 7rem;
+      height: 7rem;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 10rem;
+      color: $color_theme_green;
+      @include backgroundGradientNight();
+
+      @include media_up($breakpoint_mobile) {
+        width: 10rem;
+        height: 10rem;
+        right: auto;
+        margin: 0;
+      }
+    }
+
+    &__title {
+      position: relative;
+      width: 100%;
+      font-size: 1.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.2rem 0.2rem 1.25rem;
+      margin: 0 0 1.4rem;
+
+      @include media_up($breakpoint_mobile) {
+        font-size: 2rem;
+        padding: 0.3rem 0.3rem 0.3rem 1.6rem;
+        margin: 0 0 1.6rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0.3rem;
+        height: 100%;
+        background: $color_theme_green;
+        border-radius: 1rem;
+      }
+    }
+
+    &__description {
+      width: 100%;
+      opacity: 0.8;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    &__subtitle {
+      width: 100%;
+      opacity: 0.6;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 1rem 0 0.5rem;
+    }
+
+    &__code {
+      width: 100%;
+      margin: 1rem 0 0;
+    }
+  }
+}
