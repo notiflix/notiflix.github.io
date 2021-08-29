@@ -138,6 +138,13 @@ strong {
     display: block;
     padding: 1rem 1.5rem;
 
+    &::after {
+      content: "___";
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     &--pb0 {
       padding-bottom: 0;
     }
