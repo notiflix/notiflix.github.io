@@ -15,7 +15,7 @@ function HeaderMenu(): JSX.Element {
                   target={route.isTargetBlank ? '_blank' : undefined}
                   className={[
                     `${styles.nav__ul__li__a}`,
-                    `${route.isModulePage ? (styles[`nav__ul__li__a--module`] || '') : ''}`
+                    `${route.isModulePage ? (styles[`nav__ul__li__a--module`] || '') : ''}`,
                   ].join(' ').trim()}
                 >
                   {route.IconComponent ? <route.IconComponent /> : ''}
