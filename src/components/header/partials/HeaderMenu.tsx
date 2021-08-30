@@ -13,7 +13,10 @@ function HeaderMenu(): JSX.Element {
               <Link href={route.pathPage} as={`${process.env.appUrl}${route.pathAs}`} passHref>
                 <a
                   target={route.isTargetBlank ? '_blank' : undefined}
-                  className={`${styles.nav__ul__li__a} ${route.isProduct ? (styles[`nav__ul__li__a--product`] || '') : ''}`}
+                  className={[
+                    `${styles.nav__ul__li__a}`,
+                    `${route.isModulePage ? (styles[`nav__ul__li__a--module`] || '') : ''}`
+                  ].join(' ').trim()}
                 >
                   {route.IconComponent ? <route.IconComponent /> : ''}
                   <span>{route.name}</span>

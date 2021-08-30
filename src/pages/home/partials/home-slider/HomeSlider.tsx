@@ -15,8 +15,8 @@ interface IHomeSliderGitHubState {
   isSuccess: boolean;
   isFailure: boolean;
   apiStatus?: number;
-  productVersion?: string;
-  productDownloadUrl?: string;
+  version?: string;
+  downloadUrl?: string;
 }
 
 interface IHomeSliderNPMState {
@@ -49,8 +49,8 @@ function HomeSlider(): JSX.Element {
           isLoading: false,
           isSuccess: true,
           isFailure: false,
-          productVersion: gitHubData.version,
-          productDownloadUrl: gitHubData.downloadUrl,
+          version: gitHubData.version,
+          downloadUrl: gitHubData.downloadUrl,
         });
 
         const npmData = await new NPM().getTotalDownloadCounts();
@@ -98,7 +98,7 @@ function HomeSlider(): JSX.Element {
           <p className={styles.home__slider__content__description} dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.description || '' }}></p>
           <div className={styles.home__slider__content__download}>
             <p className={styles.home__slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
-            <a href={homeSliderGitHubState.isSuccess ? homeSliderGitHubState.productDownloadUrl : undefined} download={homeSliderGitHubState.isSuccess} className={`${styles.home__slider__content__download__link} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`}>
+            <a href={homeSliderGitHubState.isSuccess ? homeSliderGitHubState.downloadUrl : undefined} download={homeSliderGitHubState.isSuccess} className={`${styles.home__slider__content__download__link} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`}>
               {homeSliderGitHubState.isLoading &&
                 <>
                   <IconLoading className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`} />
@@ -109,7 +109,7 @@ function HomeSlider(): JSX.Element {
               {homeSliderGitHubState.isSuccess &&
                 <>
                   <IconSuccess className={styles.home__slider__content__download__link__icon} />
-                  <span className={styles.home__slider__content__download__link__version}>{homeSliderGitHubState.productVersion}</span>
+                  <span className={styles.home__slider__content__download__link__version}>{homeSliderGitHubState.version}</span>
 
                   {homeSliderNPMState.isLoading &&
                     <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>

@@ -13,7 +13,7 @@ interface IRoutes {
   id: string;
   sortOrder: number;
   isActive: boolean;
-  isProduct: boolean;
+  isModulePage: boolean;
   addToNextJSConfig: boolean;
   addToSitemap: boolean;
   showInHeaderMenu: boolean;
@@ -32,7 +32,7 @@ const routes: IRoutes[] = [
     id: 'HOME',
     sortOrder: 1,
     isActive: true,
-    isProduct: false,
+    isModulePage: false,
     addToNextJSConfig: true,
     addToSitemap: true,
     showInHeaderMenu: false,
@@ -51,7 +51,7 @@ const routes: IRoutes[] = [
     id: 'NOTIFY',
     sortOrder: 2,
     isActive: true,
-    isProduct: true,
+    isModulePage: true,
     addToNextJSConfig: true,
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -70,7 +70,7 @@ const routes: IRoutes[] = [
     id: 'REPORT',
     sortOrder: 3,
     isActive: true,
-    isProduct: true,
+    isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -89,7 +89,7 @@ const routes: IRoutes[] = [
     id: 'CONFIRM',
     sortOrder: 4,
     isActive: true,
-    isProduct: true,
+    isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -108,7 +108,7 @@ const routes: IRoutes[] = [
     id: 'LOADING',
     sortOrder: 5,
     isActive: true,
-    isProduct: true,
+    isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -127,7 +127,7 @@ const routes: IRoutes[] = [
     id: 'BLOCK',
     sortOrder: 6,
     isActive: true,
-    isProduct: true,
+    isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -146,7 +146,7 @@ const routes: IRoutes[] = [
     id: 'DOWNLOAD',
     sortOrder: 7,
     isActive: true,
-    isProduct: false,
+    isModulePage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,
@@ -165,7 +165,7 @@ const routes: IRoutes[] = [
     id: 'DOCUMENTATION',
     sortOrder: 8,
     isActive: true,
-    isProduct: false,
+    isModulePage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     showInHeaderMenu: true,

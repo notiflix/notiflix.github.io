@@ -1,5 +1,5 @@
 import { constants } from '@application/constants';
-import { ErrorWithStatus, devLoggerError, addSomeDelayAsync, createProductZipName } from '@application/helpers/utilities';
+import { ErrorWithStatus, devLoggerError, addSomeDelayAsync, createZipFileName } from '@application/helpers/utilities';
 
 interface IGitHubResponseFailure {
   message: string;
@@ -58,7 +58,7 @@ class GitHub {
       }
 
       return {
-        version: createProductZipName(latestRelease.tag_name),
+        version: createZipFileName(latestRelease.tag_name),
         downloadUrl: latestRelease.zipball_url,
       };
     } catch (error) {

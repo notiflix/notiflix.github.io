@@ -14,7 +14,7 @@ const devLoggerError = (message?: string): void => {
 
 const addSomeDelayAsync = (milliseconds?: number): Promise<void> => new Promise(resolve => setTimeout(() => { resolve(); }, milliseconds || 1000));
 
-const createProductZipName = (productVersion?: string): string => `${constants.app.name}-${productVersion?.replace(/[^0-9.]/g, '')}.zip`;
+const createZipFileName = (version?: string): string => `${constants.app.name}-${version?.replace(/[^0-9.]/g, '')}.zip`;
 
 const replaceBetweenCurlyBracesWithAData = (content: string, data?: string | number): string => `${content.replace(/\{\{(.*?)\}\}/gm, (data || '-').toString())}`;
 
@@ -30,7 +30,7 @@ export {
   devLoggerInfo,
   devLoggerError,
   addSomeDelayAsync,
-  createProductZipName,
+  createZipFileName,
   replaceBetweenCurlyBracesWithAData,
   ErrorWithStatus,
 };
