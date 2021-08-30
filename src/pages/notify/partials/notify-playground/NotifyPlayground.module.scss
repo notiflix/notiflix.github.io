@@ -1,0 +1,13 @@
+@import "@styles/variables";
+
+.notify__playground {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.6rem;
+  border-radius: 1.5rem;
+  box-shadow: $box_shadow_30;
+  @include backgroundGradientLightGray();
+}

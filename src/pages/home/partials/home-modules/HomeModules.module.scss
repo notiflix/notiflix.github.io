@@ -17,10 +17,6 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-
-    @include media_up($breakpoint_tablet) {
-      margin: 0 auto 4.5rem;
-    }
   }
 
   &__content {

@@ -52,8 +52,8 @@ interface IDatabaseHomeModules {
 }
 // Page Home: end
 
-// Page Notify: begin
-interface IDatabaseNotifyBanner {
+// Page Modules: begin
+interface IDatabaseBannerModule {
   importNamespace: string;
   title: string;
   description: string;
@@ -65,6 +65,9 @@ interface IDatabaseNotifyBanner {
   htmlAllInOne: string;
   htmlAllInOneJS: string;
 }
+// Page Modules: end
+
+// Page Notify: begin
 // Page Notify: end
 
 
@@ -113,7 +116,7 @@ export type {
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
   IDatabaseHomeModules,
-  IDatabaseNotifyBanner,
+  IDatabaseBannerModule,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,
