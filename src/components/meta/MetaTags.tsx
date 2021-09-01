@@ -40,7 +40,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <meta name="description" content={metaData.description} />
       <meta name="robots" content={metaData.robots || metaBase.robots} />
       <meta name="googlebot" content={metaData.robots || metaBase.robots} />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
       <link rel="shortcut icon" href={`${appUrl}${'/favicon.png'}`} />
 
       <link rel="canonical" href={canonicalUrl} />

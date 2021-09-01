@@ -84,11 +84,13 @@ const sitemapGetPagesLastModifiedDate = (path: string): string => {
 interface ISitemapCreateUrl {
   loc: string;
   lastMod: string;
+  changefreq?: string;
+  priority?: string;
   image?: string;
   caption?: string;
 }
 
-const sitemapCreateUrl = ({ loc, lastMod, image, caption }: ISitemapCreateUrl): string => {
+const sitemapCreateUrl = ({ loc, lastMod, changefreq, priority, image, caption }: ISitemapCreateUrl): string => {
   // image src
   let imageSrc = appOgImageSrc;
   if (image) {
@@ -105,8 +107,8 @@ const sitemapCreateUrl = ({ loc, lastMod, image, caption }: ISitemapCreateUrl): 
   <url>
     <loc>${loc}</loc>
     <lastmod>${sitemapFormatDate(lastMod)}</lastmod>
-    <changefreq>${sitemapCreateFrequencyAndPriority(lastMod).frequency}</changefreq>
-    <priority>${sitemapCreateFrequencyAndPriority(lastMod).priority}</priority>
+    <changefreq>${changefreq || sitemapCreateFrequencyAndPriority(lastMod).frequency}</changefreq>
+    <priority>${priority || sitemapCreateFrequencyAndPriority(lastMod).priority}</priority>
     <image:image>
       <image:loc>${imageSrc}</image:loc>
       <image:caption>${imageCaption}</image:caption>
@@ -135,10 +137,16 @@ const sitemapCreateUrlsFromPages = (): string => {
       // page last mod date
       const pageLastModifiedDate = sitemapGetPagesLastModifiedDate(route.pathDBFile);
 
+      // page frequency and priority
+      const pageFrequency = route.sitemapFrequency;
+      const pagePriority = route.sitemapPriority;
+
       // create a sitemap url for this page
       sitemapPagesUrls += sitemapCreateUrl({
         loc: pageFullUrl,
         lastMod: pageLastModifiedDate,
+        changefreq: pageFrequency,
+        priority: pagePriority,
       });
     });
   }

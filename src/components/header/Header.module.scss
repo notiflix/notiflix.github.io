@@ -46,7 +46,7 @@
 
     &__link {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -55,7 +55,7 @@
 
       svg {
         width: 100%;
-        height: auto;
+        height: 100%;
       }
     }
   }

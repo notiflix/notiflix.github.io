@@ -9,6 +9,10 @@ import {
   FiBook as IconDocumentation,
 } from 'react-icons/fi';
 
+
+type TRoutesFrequency = 'daily' | 'weekly' | 'monthly' | 'yearly';
+type TRoutesPriority = '1.0' | '0.9' | '0.8' | '0.7' | '0.6' | '0.5';
+
 interface IRoutes {
   id: string;
   sortOrder: number;
@@ -16,13 +20,15 @@ interface IRoutes {
   isModulePage: boolean;
   addToNextJSConfig: boolean;
   addToSitemap: boolean;
+  sitemapFrequency?: TRoutesFrequency;
+  sitemapPriority?: TRoutesPriority;
   showInHeaderMenu: boolean;
   showInFooterMenu: boolean;
+  isTargetBlank: boolean;
   name: string;
   pathPage: string;
   pathAs: string;
   pathDBFile: string;
-  isTargetBlank: boolean;
   IconComponent?: React.FC;
 }
 
@@ -35,13 +41,15 @@ const routes: IRoutes[] = [
     isModulePage: false,
     addToNextJSConfig: true,
     addToSitemap: true,
+    sitemapFrequency: 'daily',
+    sitemapPriority: '1.0',
     showInHeaderMenu: false,
     showInFooterMenu: false,
+    isTargetBlank: false,
     name: 'Home',
     pathPage: '/home',
     pathAs: '/',
     pathDBFile: 'src/_database/pages/home.md',
-    isTargetBlank: false,
     IconComponent: IconHome,
   },
   // Page Home: end
@@ -54,13 +62,15 @@ const routes: IRoutes[] = [
     isModulePage: true,
     addToNextJSConfig: true,
     addToSitemap: true,
+    sitemapFrequency: 'weekly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Notify',
     pathPage: '/notify',
     pathAs: '/notify',
     pathDBFile: 'src/_database/pages/notify.md',
-    isTargetBlank: false,
     IconComponent: IconNotify,
   },
   // Page Notify: end
@@ -73,13 +83,15 @@ const routes: IRoutes[] = [
     isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'weekly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Report',
     pathPage: '/report',
     pathAs: '/report',
     pathDBFile: 'src/_database/pages/report.md',
-    isTargetBlank: false,
     IconComponent: IconReport,
   },
   // Page Report: end
@@ -92,13 +104,15 @@ const routes: IRoutes[] = [
     isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'weekly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Confirm',
     pathPage: '/confirm',
     pathAs: '/confirm',
     pathDBFile: 'src/_database/pages/confirm.md',
-    isTargetBlank: false,
     IconComponent: IconConfirm,
   },
   // Page Confirm: end
@@ -111,13 +125,15 @@ const routes: IRoutes[] = [
     isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'weekly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Loading',
     pathPage: '/loading',
     pathAs: '/loading',
     pathDBFile: 'src/_database/pages/loading.md',
-    isTargetBlank: false,
     IconComponent: IconLoading,
   },
   // Page Loading: end
@@ -130,13 +146,15 @@ const routes: IRoutes[] = [
     isModulePage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'weekly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Block',
     pathPage: '/block',
     pathAs: '/block',
     pathDBFile: 'src/_database/pages/block.md',
-    isTargetBlank: false,
     IconComponent: IconBlock,
   },
   // Page Block: end
@@ -149,13 +167,15 @@ const routes: IRoutes[] = [
     isModulePage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'monthly',
+    sitemapPriority: '0.9',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Download',
     pathPage: '/download',
     pathAs: '/download',
     pathDBFile: 'src/_database/pages/download.md',
-    isTargetBlank: false,
     IconComponent: IconDownload,
   },
   // Page Download: end
@@ -168,19 +188,25 @@ const routes: IRoutes[] = [
     isModulePage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
+    sitemapFrequency: 'monthly',
+    sitemapPriority: '1.0',
     showInHeaderMenu: true,
     showInFooterMenu: true,
+    isTargetBlank: false,
     name: 'Documentation',
     pathPage: '/documentation',
     pathAs: '/documentation',
     pathDBFile: 'src/_database/pages/documentation.md',
-    isTargetBlank: false,
     IconComponent: IconDocumentation,
   },
   // Page Documentation: end
 ];
 
-export type { IRoutes };
+export type {
+  IRoutes,
+  TRoutesFrequency,
+  TRoutesPriority,
+};
 
 export {
   routes,

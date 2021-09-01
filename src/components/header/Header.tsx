@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FiMoreHorizontal as IconMenuOpen, FiX as IconMenuClose } from 'react-icons/fi';
 
+import { attributes as _home } from '@database/pages/home.md';
+
+import { routes } from '@application/routes';
+
 import LogoNotiflix from '@components/logo/LogoNotiflix';
 import HeaderMenu from '@components/header/partials/HeaderMenu';
 
@@ -12,11 +16,16 @@ interface IHeader {
 }
 
 function Header({ classNamePrefix }: IHeader): JSX.Element {
+  const { _dbMeta } = _home;
+
+  const logoPathPage = routes.find(x => x.id === _dbMeta?.routeId)?.pathPage || '/';
+  const logoPathAs = routes.find(x => x.id === _dbMeta?.routeId)?.pathPage || '/';
+
   // Sticky: begin
   const [scrollTop, setScrollTop] = useState<number>(0);
 
   const documentScrollListener = (): void => {
-    setScrollTop(Math.round(window.document.scrollingElement?.scrollTop || 0));
+    setScrollTop(Math.round(window.document.documentElement?.scrollTop || 0));
   };
 
   useEffect(() => {
@@ -43,7 +52,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
       <div className={styles.header__container}>
 
         <div className={styles.header__logo}>
-          <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
+          <Link href={logoPathPage} as={`${process.env.appUrl}${logoPathAs}`} passHref>
             <a className={styles.header__logo__link}>
               <LogoNotiflix />
             </a>
