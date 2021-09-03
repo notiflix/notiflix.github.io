@@ -1,0 +1,17 @@
+Sitemap: https://notiflix.github.io/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Disallow: /404
+
+# Global
+User-agent: *
+Disallow: /404
+
+# Yandex
+User-agent: Yandex
+Disallow: /404
+
+# Microsoft
+User-Agent: msnbot
+Disallow: /404
