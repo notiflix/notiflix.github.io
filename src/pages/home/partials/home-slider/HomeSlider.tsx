@@ -6,7 +6,7 @@ import { attributes as _home } from '@database/pages/home.md';
 
 import { GitHub } from '@application/api/github';
 import { NPM } from '@application/api/npm';
-import { replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
+import { ErrorWithStatus, replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
 
 import styles from '@pages/home/partials/home-slider/HomeSlider.module.scss';
 
@@ -29,13 +29,13 @@ function HomeSlider(): JSX.Element {
   const { _dbHomeSlider } = _home;
   const appName = process.env.appName;
 
-  const [homeSliderGitHubState, setHomeSliderGitHubState] = useState<IHomeSliderGitHubState>({
+  const [stateHomeSliderGitHub, setStateHomeSliderGitHub] = useState<IHomeSliderGitHubState>({
     isLoading: true,
     isSuccess: false,
     isFailure: false,
   });
 
-  const [homeSliderNPMState, setHomeSliderNPMState] = useState<IHomeSliderNPMState>({
+  const [stateHomeSliderNPM, setStateHomeSliderNPM] = useState<IHomeSliderNPMState>({
     isLoading: true,
     isSuccess: false,
   });
@@ -45,7 +45,7 @@ function HomeSlider(): JSX.Element {
       const gitHubData = await new GitHub().getLatestReleaseAsync();
 
       if (gitHubData instanceof Object) {
-        setHomeSliderGitHubState({
+        setStateHomeSliderGitHub({
           isLoading: false,
           isSuccess: true,
           isFailure: false,
@@ -55,13 +55,13 @@ function HomeSlider(): JSX.Element {
 
         const npmData = await new NPM().getTotalDownloadCounts();
         if (npmData instanceof Object) {
-          setHomeSliderNPMState({
+          setStateHomeSliderNPM({
             isLoading: false,
             isSuccess: true,
             downloadCounts: npmData.downloadCounts,
           });
         } else {
-          setHomeSliderNPMState({
+          setStateHomeSliderNPM({
             isLoading: false,
             isSuccess: false,
           });
@@ -70,8 +70,8 @@ function HomeSlider(): JSX.Element {
         throw new Error(gitHubData.toString());
       }
     } catch (error) {
-      setHomeSliderGitHubState({
-        apiStatus: (+(error?.message) || 500),
+      setStateHomeSliderGitHub({
+        apiStatus: error instanceof ErrorWithStatus ? (+(error?.message) || 500) : 500,
         isLoading: false,
         isSuccess: false,
         isFailure: true,
@@ -80,49 +80,75 @@ function HomeSlider(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    if (homeSliderGitHubState.isLoading && homeSliderNPMState.isLoading) {
+    if (stateHomeSliderGitHub.isLoading && stateHomeSliderNPM.isLoading) {
       if (!process.env.isDev) { // TODO:
         getHomeSliderDataAsync();
       }
     }
-  }, [homeSliderGitHubState, homeSliderNPMState, getHomeSliderDataAsync]);
+  }, [stateHomeSliderGitHub, stateHomeSliderNPM, getHomeSliderDataAsync]);
 
   return (
     <div className={styles.home__slider}>
       <div className={styles.home__slider__container}>
         <div className={styles.home__slider__media}>
-          <img className={styles.home__slider__media__image} width="500" height="500" src={`${process.env.appUrl}${_dbHomeSlider?.image}`} alt={appName} />
+          <img
+            className={styles.home__slider__media__image}
+            width="500"
+            height="500"
+            src={`${process.env.appUrl}${_dbHomeSlider?.image}`}
+            alt={appName}
+          />
         </div>
         <div className={styles.home__slider__content}>
-          <h1 className={styles.home__slider__content__title} dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.title || '' }}></h1>
-          <p className={styles.home__slider__content__description} dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.description || '' }}></p>
+          <h1
+            className={styles.home__slider__content__title}
+            dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.title || '' }}
+          ></h1>
+          <p
+            className={styles.home__slider__content__description}
+            dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.description || '' }}
+          ></p>
           <div className={styles.home__slider__content__download}>
             <p className={styles.home__slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
-            <a href={homeSliderGitHubState.isSuccess ? homeSliderGitHubState.downloadUrl : undefined} download={homeSliderGitHubState.isSuccess} className={`${styles.home__slider__content__download__link} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`}>
-              {homeSliderGitHubState.isLoading &&
+            <a
+              href={stateHomeSliderGitHub.isSuccess ? stateHomeSliderGitHub.downloadUrl : undefined}
+              download={stateHomeSliderGitHub.isSuccess}
+              className={[
+                `${styles.home__slider__content__download__link}`,
+                `${stateHomeSliderGitHub.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''}`,
+                `${stateHomeSliderGitHub.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`,
+              ].join(' ').trim()}
+            >
+              {stateHomeSliderGitHub.isLoading &&
                 <>
-                  <IconLoading className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`} />
+                  <IconLoading className={[
+                    `${styles.home__slider__content__download__link__icon}`,
+                    `${stateHomeSliderGitHub.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`,
+                  ].join(' ').trim()} />
                   <span className={styles.home__slider__content__download__link__version}>{_dbHomeSlider?.loading}</span>
                   <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                 </>
               }
-              {homeSliderGitHubState.isSuccess &&
+              {stateHomeSliderGitHub.isSuccess &&
                 <>
                   <IconSuccess className={styles.home__slider__content__download__link__icon} />
-                  <span className={styles.home__slider__content__download__link__version}>{homeSliderGitHubState.version}</span>
+                  <span className={styles.home__slider__content__download__link__version}>{stateHomeSliderGitHub.version}</span>
 
-                  {homeSliderNPMState.isLoading &&
+                  {stateHomeSliderNPM.isLoading &&
                     <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                   }
-                  {homeSliderNPMState.isSuccess &&
-                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), homeSliderNPMState.downloadCounts)}</span>
+                  {stateHomeSliderNPM.isSuccess &&
+                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), stateHomeSliderNPM.downloadCounts)}</span>
                   }
                 </>
               }
-              {homeSliderGitHubState.isFailure &&
+              {stateHomeSliderGitHub.isFailure &&
                 <>
-                  <IconFailure className={`${styles.home__slider__content__download__link__icon} ${homeSliderGitHubState.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`} />
-                  <span>{homeSliderGitHubState.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
+                  <IconFailure className={[
+                    `${styles.home__slider__content__download__link__icon}`,
+                    `${stateHomeSliderGitHub.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`,
+                  ].join(' ').trim()} />
+                  <span>{stateHomeSliderGitHub.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
                 </>
               }
             </a>
