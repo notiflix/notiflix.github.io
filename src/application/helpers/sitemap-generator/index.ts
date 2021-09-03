@@ -7,9 +7,11 @@ import { markdownParser } from '../markdown-parser';
 // Constants: begin
 const appUrl = constants.app.url;
 const appName = constants.app.name;
-const appOgImageSrc = `${constants.app.url}${constants.app.ogImageSrc}`;
-const sitemapStyleUrl = `${constants.app.url}/sitemap.xsl`;
-const pathOutput = 'public/sitemap.xml';
+const appOgImageSrc = `${appUrl}${constants.app.ogImageSrc}`;
+const urlSitemapStyle = `${appUrl}/sitemap.xsl`;
+const urlSitemap = `${appUrl}/sitemap.xml`;
+const pathSitemapOutput = 'public/sitemap.xml';
+const pathRobotsTXTOutput = 'public/robots.txt';
 const pathPages = 'src/pages';
 // Constants: end
 
@@ -160,7 +162,7 @@ const sitemapCreateUrlsFromPages = (): string => {
 // Sitemap: Create XML Content: begin
 const sitemapCreateXmlPageContent = (): string => {
   return `<?xml version="1.0" encoding="UTF-8"?>
-  <?xml-stylesheet type="text/xsl" href="${sitemapStyleUrl}"?>
+  <?xml-stylesheet type="text/xsl" href="${urlSitemapStyle}"?>
   <urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${sitemapCreateUrlsFromPages()}
   </urlset>`;
@@ -168,8 +170,33 @@ const sitemapCreateXmlPageContent = (): string => {
 // Sitemap: Create XML Content: end
 
 // Sitemap: Write XML Content: begin
-const sitemapWriteXMLFile = (pathOutput: string): void => {
-  writeFileSync(pathOutput, sitemapCreateXmlPageContent());
+const sitemapWriteXMLFile = (pathSitemapOutput: string): void => {
+  writeFileSync(pathSitemapOutput, sitemapCreateXmlPageContent());
 };
-sitemapWriteXMLFile(pathOutput);
+sitemapWriteXMLFile(pathSitemapOutput);
 // Sitemap: Write XML Content: end
+
+// Robots.txt by Sitemap: begin
+const sitemapWriteRobotsTxtFile = (): void => {
+  const robotTXT = `Sitemap: ${urlSitemap}
+
+# Google
+User-agent: Googlebot
+Disallow: /404
+
+# Global
+User-agent: *
+Disallow: /404
+
+# Yandex
+User-agent: Yandex
+Disallow: /404
+
+# Microsoft
+User-Agent: msnbot
+Disallow: /404
+`;
+  writeFileSync(pathRobotsTXTOutput, robotTXT);
+};
+sitemapWriteRobotsTxtFile();
+// Robots.txt by Sitemap: end
