@@ -1,26 +1,13 @@
 import { NextPageContext } from 'next';
-import Link from 'next/link';
+
+import Error404 from '@pages/404';
 
 interface ICustomError {
   statusCode?: number;
 }
 
-// TODO:
-function CustomError({ statusCode }: ICustomError): JSX.Element {
-  return (
-    <>
-      <p>
-        {statusCode
-          ? `An error ${statusCode} occurred on server`
-          : 'An error occurred on client'}
-      </p>
-      <br />
-      <br />
-      <Link href={'/'} as={`${process.env.appUrl}${'/'}`} passHref>
-        <a>Go to Home</a>
-      </Link>
-    </>
-  );
+function CustomError({ statusCode = 404 }: ICustomError): JSX.Element {
+  return <Error404 statusCode={statusCode} />;
 }
 
 CustomError.getInitialProps = ({ res, err }: NextPageContext) => {

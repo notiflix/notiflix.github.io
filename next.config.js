@@ -29,9 +29,7 @@ const appOgImageSrc = constants.app.ogImageSrc;
 // Constants: end
 
 // Next Config: begin
-/**
-* @type {import('next').NextConfig}
-*/
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   // ts
   typescript: {
@@ -109,6 +107,7 @@ const nextConfig = {
 
     let defaultPaths = {
       '/': { page: '/home' },
+      '/404': { page: '/404' },
     };
 
     routes?.filter(route => route.isActive && route.addToNextJSConfig)?.map(route => {
