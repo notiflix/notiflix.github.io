@@ -8,14 +8,19 @@ interface IConstants {
     version: string;
     name: string;
     ogImageSrc: string;
-    settings: {
-      notify: INotifyOptions,
-    },
-  },
+    text: {
+      menu: string;
+      open: string;
+      close: string;
+    };
+    libraryOptions: {
+      notify: INotifyOptions;
+    };
+  };
   api: {
     urlGitHubReleases: string;
     urlNPMDownloads: string;
-  },
+  };
 }
 
 const constants: IConstants = {
@@ -24,7 +29,12 @@ const constants: IConstants = {
     version: (JSON.stringify((packageJSON || {}).version) || '').replace(/"/gm, ''),
     name: (JSON.stringify((packageJSON || {}).description) || '').replace(/"/gm, ''),
     ogImageSrc: '/webapp/notiflix-og.jpg', // TODO:
-    settings: {
+    text: {
+      menu: 'Menu',
+      open: 'Open',
+      close: 'Close',
+    },
+    libraryOptions: {
       notify: {
         fontFamily: 'Red Hat Display',
         plainText: false,
