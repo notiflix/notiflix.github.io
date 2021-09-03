@@ -22,8 +22,8 @@ const constants: IConstants = {
   app: {
     url: (JSON.stringify((packageJSON || {}).homepage) || '').replace(/"/gm, ''),
     version: (JSON.stringify((packageJSON || {}).version) || '').replace(/"/gm, ''),
-    name: 'Notiflix',
-    ogImageSrc: '/webapp/notiflix-og.jpg',
+    name: (JSON.stringify((packageJSON || {}).description) || '').replace(/"/gm, ''),
+    ogImageSrc: '/webapp/notiflix-og.jpg', // TODO:
     settings: {
       notify: {
         fontFamily: 'Red Hat Display',
