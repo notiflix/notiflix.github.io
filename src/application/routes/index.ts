@@ -17,7 +17,7 @@ interface IRoutes {
   id: string;
   sortOrder: number;
   isActive: boolean;
-  isModulePage: boolean;
+  isProductPage: boolean;
   addToNextJSConfig: boolean;
   addToSitemap: boolean;
   sitemapFrequency?: TRoutesFrequency;
@@ -38,7 +38,7 @@ const routes: IRoutes[] = [
     id: 'HOME',
     sortOrder: 1,
     isActive: true,
-    isModulePage: false,
+    isProductPage: false,
     addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'daily',
@@ -59,7 +59,7 @@ const routes: IRoutes[] = [
     id: 'NOTIFY',
     sortOrder: 2,
     isActive: true,
-    isModulePage: true,
+    isProductPage: true,
     addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'weekly',
@@ -80,7 +80,7 @@ const routes: IRoutes[] = [
     id: 'REPORT',
     sortOrder: 3,
     isActive: true,
-    isModulePage: true,
+    isProductPage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'weekly',
@@ -101,7 +101,7 @@ const routes: IRoutes[] = [
     id: 'CONFIRM',
     sortOrder: 4,
     isActive: true,
-    isModulePage: true,
+    isProductPage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'weekly',
@@ -122,7 +122,7 @@ const routes: IRoutes[] = [
     id: 'LOADING',
     sortOrder: 5,
     isActive: true,
-    isModulePage: true,
+    isProductPage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'weekly',
@@ -143,7 +143,7 @@ const routes: IRoutes[] = [
     id: 'BLOCK',
     sortOrder: 6,
     isActive: true,
-    isModulePage: true,
+    isProductPage: true,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'weekly',
@@ -164,7 +164,7 @@ const routes: IRoutes[] = [
     id: 'DOWNLOAD',
     sortOrder: 7,
     isActive: true,
-    isModulePage: false,
+    isProductPage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'monthly',
@@ -185,7 +185,7 @@ const routes: IRoutes[] = [
     id: 'DOCUMENTATION',
     sortOrder: 8,
     isActive: true,
-    isModulePage: false,
+    isProductPage: false,
     addToNextJSConfig: false, // TODO: will be true after the page has been created.
     addToSitemap: true,
     sitemapFrequency: 'monthly',

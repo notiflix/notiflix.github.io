@@ -1,7 +1,7 @@
 import { attributes as _notify } from '@database/pages/notify.md';
 
 import Layout from '@components/layout/Layout';
-import BannerModule from '@components/banner-module/BannerModule';
+import BannerProduct from '@components/banners/product/BannerProduct';
 
 import NotifyPlayground from '@pages/notify/partials/notify-playground/NotifyPlayground';
 
@@ -12,7 +12,7 @@ function Notify(): JSX.Element {
 
   return (
     <Layout meta={_dbMeta} classNamePrefix="notify">
-      <BannerModule
+      <BannerProduct
         classNamePrefix="notify"
         routeId={_dbMeta?.routeId}
         content={_dbNotifyBanner}

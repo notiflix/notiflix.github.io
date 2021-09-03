@@ -42,9 +42,9 @@ _dbHomeBrowsers:
   edgeLegacy: '* Edge Legacy'
   ie: '* IE 10+'
 
-_dbHomeModules:
+_dbHomeProducts:
   title: Notiflix Modules
-  modules:
+  products:
     - routeId: NOTIFY
       title: Notify
       description: 'Notiflix Notify module can be used to send non-blocking alerts/notifications. This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'

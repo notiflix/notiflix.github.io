@@ -24,7 +24,7 @@ declare module '@database/pages/home.md' {
     _dbHomeSlider?: import('./database.i').IDatabaseHomeSlider,
     _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
     _dbHomeBrowsers?: import('./database.i').IDatabaseHomeBrowsers,
-    _dbHomeModules?: import('./database.i').IDatabaseHomeModules,
+    _dbHomeProducts?: import('./database.i').IDatabaseHomeProducts,
   };
   const html: string;
   export { attributes, html };
@@ -35,7 +35,7 @@ declare module '@database/pages/home.md' {
 declare module '@database/pages/notify.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
-    _dbNotifyBanner?: import('./database.i').IDatabaseBannerModule,
+    _dbNotifyBanner?: import('./database.i').IDatabaseBannerProducts,
   };
   const html: string;
   export { attributes, html };

@@ -39,21 +39,21 @@ interface IDatabaseHomeBrowsers {
   ie: string;
 }
 
-interface IDatabaseHomeModule {
+interface IDatabaseHomeProduct {
   routeId: string;
   title: string;
   description: string;
   button: string;
 }
 
-interface IDatabaseHomeModules {
+interface IDatabaseHomeProducts {
   title: string;
-  modules: IDatabaseHomeModule[];
+  products: IDatabaseHomeProduct[];
 }
 // Page Home: end
 
-// Page Modules: begin
-interface IDatabaseBannerModule {
+// Page Products: begin
+interface IDatabaseBannerProducts {
   importNamespace: string;
   title: string;
   description: string;
@@ -65,7 +65,7 @@ interface IDatabaseBannerModule {
   htmlAllInOne: string;
   htmlAllInOneJS: string;
 }
-// Page Modules: end
+// Page Products: end
 
 // Page Notify: begin
 // Page Notify: end
@@ -115,8 +115,8 @@ export type {
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
-  IDatabaseHomeModules,
-  IDatabaseBannerModule,
+  IDatabaseHomeProducts,
+  IDatabaseBannerProducts,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,
