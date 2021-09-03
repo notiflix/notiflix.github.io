@@ -19,7 +19,7 @@ function HomeGetItOn(): JSX.Element {
       event.preventDefault();
       const code = event.target.innerText;
       window.navigator.clipboard.writeText(code);
-      Notify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.settings.notify);
+      Notify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.libraryOptions.notify);
     }
   };
 
