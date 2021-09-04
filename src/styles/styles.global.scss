@@ -111,7 +111,7 @@ strong {
   text-align: left;
   color: $color_code_light;
   background: $color_code_dark;
-  border-radius: 0.4rem;
+  border-radius: 0.6rem;
   white-space: nowrap;
   overflow: auto hidden;
   -ms-overflow-style: none;
@@ -136,7 +136,7 @@ strong {
   &__l1 {
     width: 100%;
     display: block;
-    padding: 1rem 1.5rem;
+    padding: 0.9rem 1.25rem;
 
     &::after {
       content: "___";
@@ -155,6 +155,7 @@ strong {
   }
 
   &__comment {
+    font-size: 94%;
     color: $color_code_comment;
 
     &::before {
@@ -168,6 +169,24 @@ strong {
 
       &::after {
         content: " */";
+      }
+
+      &beginning {
+        &::before {
+          content: "/* ";
+        }
+      }
+
+      &middle {
+        &::before {
+          content: "* ";
+        }
+      }
+
+      &end {
+        &::before {
+          content: "*/";
+        }
       }
     }
 
@@ -220,6 +239,38 @@ strong {
 
   &__light {
     color: $color_code_light;
+  }
+
+  &__input {
+    transition: $transition_opacity;
+    opacity: 0.8;
+    display: inline;
+    padding: 0.3rem 0.5rem;
+    color: $color_code_string;
+    background: rgba($color_code_string, 0.2);
+    border: 0.07rem dashed rgba($color_code_string, 0.6);
+    border-radius: 0.4rem;
+    font-family: inherit;
+    font-size: inherit;
+
+    &::placeholder {
+      color: rgba($color_code_string, 0.6);
+    }
+
+    &--number {
+      color: $color_code_number;
+      background: rgba($color_code_number, 0.2);
+      border-color: $color_code_number;
+
+      &::placeholder {
+        color: rgba($color_code_number, 0.6);
+      }
+    }
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 // Code: end

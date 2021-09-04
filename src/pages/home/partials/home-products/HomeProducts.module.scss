@@ -21,6 +21,7 @@
 
   &__content {
     width: 100%;
+    min-height: 10rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -119,7 +120,7 @@
         }
       }
 
-      &__wrapper {
+      &__content {
         transition: $transition_transform;
         position: relative;
         width: 100%;

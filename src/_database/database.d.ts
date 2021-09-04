@@ -36,6 +36,7 @@ declare module '@database/pages/notify.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbNotifyBanner?: import('./database.i').IDatabaseBannerProducts,
+    _dbNotifyPlayground?: import('./database.i').IDatabaseNotifyPlayground,
   };
   const html: string;
   export { attributes, html };

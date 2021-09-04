@@ -10,6 +10,8 @@ interface IConstants {
     ogImageSrc: string;
     text: {
       module: string;
+      global: string;
+      switch: string;
       menu: string;
       open: string;
       close: string;
@@ -32,6 +34,8 @@ const constants: IConstants = {
     ogImageSrc: '/webapp/notiflix-og.jpg', // TODO:
     text: {
       module: 'Module',
+      global: 'Global',
+      switch: 'Switch',
       menu: 'Menu',
       open: 'Open',
       close: 'Close',

@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix';
+import { Notify as NotiflixNotify } from 'notiflix';
 import { BiCopyAlt as IconCopy } from 'react-icons/bi';
 
 import { attributes as _home } from '@database/pages/home.md';
@@ -19,7 +19,7 @@ function HomeGetItOn(): JSX.Element {
       event.preventDefault();
       const code = event.target.innerText;
       window.navigator.clipboard.writeText(code);
-      Notify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.libraryOptions.notify);
+      NotiflixNotify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.libraryOptions.notify);
     }
   };
 

@@ -71,6 +71,34 @@ interface IDatabaseBannerProducts {
 // Page Products: end
 
 // Page Notify: begin
+type TDatabaseNotifyFunctionNames = 'success' | 'failure' | 'warning' | 'info';
+
+interface IDatabaseNotifyTypes {
+  id: string;
+  sortOrder: number;
+  isActive: boolean;
+  functionName: TDatabaseNotifyFunctionNames;
+  defaultValue: string;
+  docsRouteHash: string;
+}
+
+interface IDatabaseNotifyPlayground {
+  title: string;
+  namespace: string;
+  comments: string[];
+  docsText: string;
+  docsRouteId: string;
+  demoTitle: string;
+  demoDescription: string;
+  demoButton: string;
+  demoInputPlaceholder: string;
+  callbackTitle: string;
+  callbackDescription: string;
+  callbackNote: string;
+  extendTitle: string;
+  extendDescription: string;
+  types: IDatabaseNotifyTypes[];
+}
 // Page Notify: end
 
 
@@ -115,11 +143,13 @@ interface IDatabaseSettings {
 // App: Settings: end
 
 export type {
+  IDatabaseBannerProducts,
+  TDatabaseNotifyFunctionNames,
+  IDatabaseNotifyPlayground,
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
   IDatabaseHomeProducts,
-  IDatabaseBannerProducts,
   IDatabaseMeta,
   IDatabaseSocialMedia,
   IDatabaseSettings,

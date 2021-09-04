@@ -27,7 +27,7 @@ function HomeProducts(): JSX.Element {
 
                 return (
                   <div key={index} className={styles.home__products__list__item}>
-                    <div key={index} className={styles.home__products__list__item__wrapper}>
+                    <div className={styles.home__products__list__item__content}>
                       <ProductIconComponent className={styles.home__products__list__item__icon} />
                       <h3 className={styles.home__products__list__item__title}>{product.title}</h3>
                       <p className={styles.home__products__list__item__description}>{product.description}</p>
