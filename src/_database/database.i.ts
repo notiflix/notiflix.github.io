@@ -87,7 +87,6 @@ interface IDatabaseNotifyPlayground {
   namespace: string;
   comments: string[];
   docsText: string;
-  docsRouteId: string;
   demoTitle: string;
   demoDescription: string;
   demoInputPlaceholder: string;
@@ -97,8 +96,11 @@ interface IDatabaseNotifyPlayground {
   callbackMessage: string;
   callbackInputPlaceholder: string;
   callbackButton: string;
+  extendDocsText: string;
+  extendDocsRouteHash: string;
   extendTitle: string;
   extendDescription: string;
+  extendMessage: string;
   types: IDatabaseNotifyTypes[];
 }
 // Page Notify: end
@@ -120,7 +122,6 @@ interface IDatabaseMeta {
 // App: Social Media Accounts: begin
 interface IDatabaseSocialMedia {
   isActive: boolean;
-  icon: string;
   url: string;
   name: string;
 }

@@ -141,25 +141,25 @@ strong {
       width: 100%;
       display: block;
       padding: 0.9rem 1.25rem;
+
+      &::after {
+        content: "___";
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
     }
 
     &2 {
-      padding-left: 2.5rem;
+      padding-left: 2.1rem;
     }
 
     &3 {
-      padding-left: 3.75rem;
+      padding-left: 2.95rem;
     }
 
     &4 {
-      padding-left: 5rem;
-    }
-
-    &::after {
-      content: "___";
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      padding-left: 3.8rem;
     }
 
     &--pb0 {

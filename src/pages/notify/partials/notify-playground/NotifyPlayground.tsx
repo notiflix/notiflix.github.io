@@ -10,6 +10,7 @@ import { TDatabaseNotifyFunctionNames } from '@database/database.i';
 
 import { constants } from '@application/constants';
 import { routes } from '@application/routes';
+import { EPageId } from '@application/enumerations/page-id';
 import { getNotifyIconsAsSrc } from '@application/enumerations/notify';
 
 import LazyImage from '@components/lazyimage/LazyImage';
@@ -18,8 +19,10 @@ import styles from '@pages/notify/partials/notify-playground/NotifyPlayground.mo
 
 function NotifyPlayground(): JSX.Element {
   const { _dbNotifyPlayground } = _notify;
-  const globalNamespace = constants.app.name;
-  const moduleNamespace = _dbNotifyPlayground?.namespace;
+  const namespaceGlobal = constants.app.name;
+  const namespaceModule = _dbNotifyPlayground?.namespace;
+  const pathPageDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathPage || '/';
+  const pathAsDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathAs || '/';
 
   // Switch As Module: begin
   const [stateNotifyIsModule, setStateNotifyIsModule] = useState<boolean>(true);
@@ -89,9 +92,6 @@ function NotifyPlayground(): JSX.Element {
           ?.filter(x => x.isActive)
           ?.sort((a, b) => a.sortOrder - b.sortOrder)
           ?.map((type, index) => {
-            const docsPathPage = routes.find(route => route.id === _dbNotifyPlayground.docsRouteId)?.pathPage || '/';
-            const docsPathAs = routes.find(route => route.id === _dbNotifyPlayground.docsRouteId)?.pathAs || '/';
-
             return (
               <div
                 key={index}
@@ -110,12 +110,12 @@ function NotifyPlayground(): JSX.Element {
                       ].join(' ').trim()}
                     >
                       {[
-                        (!stateNotifyIsModule ? globalNamespace : null),
-                        moduleNamespace,
+                        (!stateNotifyIsModule ? namespaceGlobal : null),
+                        namespaceModule,
                         `${type.functionName}();`,
                       ].filter(x => x).join('.')}
                     </h3>
-                    <Link href={docsPathPage} as={`${process.env.appUrl}${docsPathAs}${type.docsRouteHash}`} passHref>
+                    <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${type.docsRouteHash}`} passHref>
                       <a className={styles.notify__playground__list__item__head__link}>
                         <IconDocs className={styles.notify__playground__list__item__head__link__icon} />
                         <span>{_dbNotifyPlayground.docsText}</span>
@@ -142,8 +142,8 @@ function NotifyPlayground(): JSX.Element {
                         </span>
 
                         <span className="code__lvl1">
-                          {!stateNotifyIsModule && <><span className="code__namespace">{globalNamespace}</span><span>{`.`}</span></>}
-                          <span className="code__namespace">{moduleNamespace}</span>
+                          {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                          <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
                           <span className="code__func">{type.functionName}</span>
                           <span>{`(`}</span>
@@ -189,8 +189,8 @@ function NotifyPlayground(): JSX.Element {
                     <div className={styles.notify__playground__list__item__demo__code}>
                       <code className="code code--medium">
                         <span className="code__lvl1">
-                          {!stateNotifyIsModule && <><span className="code__namespace">{globalNamespace}</span><span>{`.`}</span></>}
-                          <span className="code__namespace">{moduleNamespace}</span>
+                          {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                          <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
                           <span className="code__func">{type.functionName}</span>
                           <span>{`(`}</span>
@@ -240,20 +240,29 @@ function NotifyPlayground(): JSX.Element {
             </div>
 
             <div className={styles.notify__playground__list__item__demo}>
-
               <div className={styles.notify__playground__list__item__demo__code}>
                 <code className="code code--medium">
                   <span className="code__lvl1 code__lvl--pb0">
-                    {!stateNotifyIsModule && <><span className="code__namespace">{globalNamespace}</span><span>{`.`}</span></>}
-                    <span className="code__namespace">{moduleNamespace}</span>
+                    {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                    <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
                     <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'${_dbNotifyPlayground?.callbackMessage}'`}</span>
                     <span>{`, `}</span>
-                    <span className="code__boolean">{`function`}</span>
-                    <span className="code__func">{` cb`}</span>
-                    <span>{`() {`}</span>
+                    {stateNotifyIsModule ?
+                      <>
+                        <span>{`() `}</span>
+                        <span className="code__boolean">{`=>`}</span>
+                        <span>{` {`}</span>
+                      </>
+                      :
+                      <>
+                        <span className="code__boolean">{`function`}</span>
+                        <span className="code__func">{` cb`}</span>
+                        <span>{`() {`}</span>
+                      </>
+                    }
                   </span>
 
                   <span className="code__lvl2 code__lvl--py0">
@@ -286,13 +295,66 @@ function NotifyPlayground(): JSX.Element {
                   <span>{_dbNotifyPlayground?.callbackButton}</span>
                 </button>
               </div>
-
             </div>
-
-
           </div>
         </div>
         {/* Callback: end */}
+
+        {/* Extend: begin */}
+        <div
+          className={[
+            `${styles.notify__playground__list__item}`,
+            `${styles[`notify__playground__list__item--extend`] || ''}`,
+          ].join(' ').trim()}
+        >
+          <div className={styles.notify__playground__list__item__content}>
+            <div className={styles.notify__playground__list__item__head}>
+              <h3 className={styles.notify__playground__list__item__head__title}>{_dbNotifyPlayground?.extendTitle}</h3>
+              <p className={styles.notify__playground__list__item__head__description}>{_dbNotifyPlayground?.extendDescription}</p>
+              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbNotifyPlayground?.extendDocsRouteHash}`} passHref>
+                <a className={styles.notify__playground__list__item__head__link}>
+                  <IconDocs className={styles.notify__playground__list__item__head__link__icon} />
+                  <span>{_dbNotifyPlayground?.extendDocsText}</span>
+                </a>
+              </Link>
+            </div>
+
+            <div className={styles.notify__playground__list__item__usage}>
+              <div className={styles.notify__playground__list__item__usage__code}>
+                <code className="code code--medium">
+                  <span className="code__lvl1 code__lvl--pb0">
+                    {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                    <span className="code__namespace">{namespaceModule}</span>
+                    <span>{`.`}</span>
+                    <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
+                    <span>{`(`}</span>
+                    <span className="code__string">{`'${_dbNotifyPlayground?.extendMessage}'`}</span>
+                    <span>{`, {`}</span>
+                  </span>
+                  <span className="code__lvl2 code__lvl--py0">
+                    <span className="code__attr">{`ID: `}</span>
+                    <span className="code__string">{`'MKA'`}</span>
+                    <span>{`,`}</span>
+                  </span>
+                  <span className="code__lvl2 code__lvl--py0">
+                    <span className="code__attr">{`timeout: `}</span>
+                    <span className="code__number">{`1923`}</span>
+                    <span>{`,`}</span>
+                  </span>
+                  <span className="code__lvl2 code__lvl--py0">
+                    <span className="code__attr">{`showOnlyTheLastOne: `}</span>
+                    <span className="code__boolean">{`true`}</span>
+                    <span>{`,`}</span>
+                  </span>
+                  <span className="code__lvl1 code__lvl--pt0">
+                    <span>{`});`}</span>
+                  </span>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Extend: end */}
       </div>
 
     </div>

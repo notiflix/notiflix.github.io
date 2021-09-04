@@ -15,31 +15,33 @@ _dbNotifyBanner:
   importDescription: (A) Import as a Module
   htmlDescription: (B) Add to an HTML page (Global)
   htmlOneByOne: (B1) CSS and JS
-  htmlOneByOneCSS: .../dist/notiflix-X.X.X.min.css
-  htmlOneByOneJS: .../dist/notiflix-X.X.X.min.js
+  htmlOneByOneCSS: ../dist/notiflix-X.X.X.min.css
+  htmlOneByOneJS: ../dist/notiflix-X.X.X.min.js
   htmlAllInOne: (B2) or only JS (All in One => Internal CSS)
-  htmlAllInOneJS: .../dist/notiflix-aio-X.X.X.min.js
+  htmlAllInOneJS: ../dist/notiflix-aio-X.X.X.min.js
 
 _dbNotifyPlayground:
   title: Playground
   namespace: Notify
   comments:
     - "@param1 {string}: Required, a text in string format."
-    - "@param2 {function | Object}: Optional, a callback function that will be called when the notification element has been clicked. Or, extending the initialize options with new options for each notification element."
+    - "@param2 {function | Object}: Optional, a callback function that will be called when the notification element has been clicked. Or, extending the initialize options with the new options for each notification element."
     - "@param3 {Object}: Optional, extending the initialize options with new options for each notification element. (If the second parameter has been already used for a callback function.)"
   docsText: Options
-  docsRouteId: DOCUMENTATION
   demoTitle: Demo
   demoDescription: A text can be typed for the demonstration.
   demoInputPlaceholder: Message
   demoButton: Send
   callbackTitle: Callback Function
   callbackDescription: A callback function can be added as a second parameter. The callback function can be used for all types of notifications. The notifications with the callback function do not disappear until they were clicked.
-  callbackMessage: Show an alert.
-  callbackInputPlaceholder: Message
+  callbackMessage: Click to show an alert.
+  callbackInputPlaceholder: Alert message
   callbackButton: Send
+  extendDocsText: All Options
+  extendDocsRouteHash: "#DocsNotify"
   extendTitle: Extending the Options
-  extendDescription: Extending the initialize options with new options for each notification element.
+  extendDescription: Extending the initialize options with the new options for each notification element. An "options" object can be added as a second parameter. In addition, it has to be the third parameter if the second parameter has been already used for a callback function.
+  extendMessage: Peace at home, peace in the world.
   types:
     - id: SUCCESS
       sortOrder: 1
