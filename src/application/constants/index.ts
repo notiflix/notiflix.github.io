@@ -15,6 +15,7 @@ interface IConstants {
       menu: string;
       open: string;
       close: string;
+      copy: string;
     };
     libraryOptions: {
       notify: INotifyOptions;
@@ -39,6 +40,7 @@ const constants: IConstants = {
       menu: 'Menu',
       open: 'Open',
       close: 'Close',
+      copy: 'Copy',
     },
     libraryOptions: {
       notify: {

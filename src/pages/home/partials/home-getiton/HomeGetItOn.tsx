@@ -1,5 +1,5 @@
 import { Notify as NotiflixNotify } from 'notiflix';
-import { BiCopyAlt as IconCopy } from 'react-icons/bi';
+import { FiCopy as IconCopy } from 'react-icons/fi';
 
 import { attributes as _home } from '@database/pages/home.md';
 
@@ -38,7 +38,10 @@ function HomeGetItOn(): JSX.Element {
             className={styles.home__getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
           >
-            <IconCopy className={styles.home__getiton__link__script__icon} />
+            <span className={styles.home__getiton__link__script__copy}>
+              <IconCopy className={styles.home__getiton__link__script__copy__icon} />
+              <span>{constants.app.text.copy}</span>
+            </span>
             {_dbHomeGetItOn?.yarn.script}
           </span>
           <LogoYarn className={styles.home__getiton__link__icon} />
@@ -54,7 +57,10 @@ function HomeGetItOn(): JSX.Element {
             className={styles.home__getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
           >
-            <IconCopy className={styles.home__getiton__link__script__icon} />
+            <span className={styles.home__getiton__link__script__copy}>
+              <IconCopy className={styles.home__getiton__link__script__copy__icon} />
+              <span>{constants.app.text.copy}</span>
+            </span>
             {_dbHomeGetItOn?.npm.script}
           </span>
           <LogoNPM className={styles.home__getiton__link__icon} />
