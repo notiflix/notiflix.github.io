@@ -133,10 +133,27 @@ strong {
     color: $color_code_html;
   }
 
-  &__l1 {
-    width: 100%;
-    display: block;
-    padding: 0.9rem 1.25rem;
+  &__lvl {
+    &1,
+    &2,
+    &3,
+    &4 {
+      width: 100%;
+      display: block;
+      padding: 0.9rem 1.25rem;
+    }
+
+    &2 {
+      padding-left: 2.5rem;
+    }
+
+    &3 {
+      padding-left: 3.75rem;
+    }
+
+    &4 {
+      padding-left: 5rem;
+    }
 
     &::after {
       content: "___";
@@ -151,6 +168,11 @@ strong {
 
     &--pt0 {
       padding-top: 0;
+    }
+
+    &--py0 {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
