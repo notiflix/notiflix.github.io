@@ -56,7 +56,7 @@ function NotifyPlayground(): JSX.Element {
     const functionName = _dbNotifyPlayground?.types.find(x => x)?.functionName;
     const alertMessage = refCallbackInput.current?.value || '';
     if (functionName && alertMessage) {
-      callNotifyFunctionByTypeOnClickHandler(functionName, _dbNotifyPlayground.callbackMessage, () => {
+      callNotifyFunctionByTypeOnClickHandler(functionName, (_dbNotifyPlayground?.callbackMessage || ''), () => {
         alert(alertMessage);
       });
     } else {
