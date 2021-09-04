@@ -6,7 +6,7 @@ import { attributes as _home } from '@database/pages/home.md';
 
 import { GitHub } from '@application/api/github';
 import { NPM } from '@application/api/npm';
-import { ErrorWithStatus, replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
+import { replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
@@ -31,6 +31,7 @@ function HomeSlider(): JSX.Element {
   const { _dbHomeSlider } = _home;
   const appName = process.env.appName;
 
+  // Get GitHub and then NPM Data: begin
   const [stateHomeSliderGitHub, setStateHomeSliderGitHub] = useState<IHomeSliderGitHubState>({
     isLoading: true,
     isSuccess: false,
@@ -73,7 +74,7 @@ function HomeSlider(): JSX.Element {
       }
     } catch (error) {
       setStateHomeSliderGitHub({
-        apiStatus: error instanceof ErrorWithStatus ? (+(error?.message) || 500) : 500,
+        apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
         isLoading: false,
         isSuccess: false,
         isFailure: true,
@@ -83,11 +84,12 @@ function HomeSlider(): JSX.Element {
 
   useEffect(() => {
     if (stateHomeSliderGitHub.isLoading && stateHomeSliderNPM.isLoading) {
-      if (!process.env.isDev) { // TODO:
+      if (!process.env.isDev) {
         getHomeSliderDataAsync();
       }
     }
   }, [stateHomeSliderGitHub, stateHomeSliderNPM, getHomeSliderDataAsync]);
+  // Get GitHub and then NPM Data: end
 
   return (
     <div className={styles.home__slider}>
