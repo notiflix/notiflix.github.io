@@ -1,0 +1,14 @@
+enum EPageId {
+  HOME = 'HOME',
+  NOTIFY = 'NOTIFY',
+  REPORT = 'REPORT',
+  CONFIRM = 'CONFIRM',
+  LOADING = 'LOADING',
+  BLOCK = 'BLOCK',
+  DOWNLOAD = 'DOWNLOAD',
+  DOCUMENTATION = 'DOCUMENTATION',
+}
+
+export {
+  EPageId,
+};

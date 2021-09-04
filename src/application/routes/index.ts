@@ -9,6 +9,8 @@ import {
   FiBook as IconDocumentation,
 } from 'react-icons/fi';
 
+import { EPageId } from '../enumerations/page-id';
+
 
 type TRoutesFrequency = 'daily' | 'weekly' | 'monthly' | 'yearly';
 type TRoutesPriority = '1.0' | '0.9' | '0.8' | '0.7' | '0.6' | '0.5';
@@ -35,7 +37,7 @@ interface IRoutes {
 const routes: IRoutes[] = [
   // Page Home: begin
   {
-    id: 'HOME',
+    id: EPageId.HOME,
     sortOrder: 1,
     isActive: true,
     isProductPage: false,
@@ -56,7 +58,7 @@ const routes: IRoutes[] = [
 
   // Page Notify: begin
   {
-    id: 'NOTIFY',
+    id: EPageId.NOTIFY,
     sortOrder: 2,
     isActive: true,
     isProductPage: true,
@@ -77,7 +79,7 @@ const routes: IRoutes[] = [
 
   // Page Report: begin
   {
-    id: 'REPORT',
+    id: EPageId.REPORT,
     sortOrder: 3,
     isActive: true,
     isProductPage: true,
@@ -98,7 +100,7 @@ const routes: IRoutes[] = [
 
   // Page Confirm: begin
   {
-    id: 'CONFIRM',
+    id: EPageId.CONFIRM,
     sortOrder: 4,
     isActive: true,
     isProductPage: true,
@@ -119,7 +121,7 @@ const routes: IRoutes[] = [
 
   // Page Loading: begin
   {
-    id: 'LOADING',
+    id: EPageId.LOADING,
     sortOrder: 5,
     isActive: true,
     isProductPage: true,
@@ -140,7 +142,7 @@ const routes: IRoutes[] = [
 
   // Page Block: begin
   {
-    id: 'BLOCK',
+    id: EPageId.BLOCK,
     sortOrder: 6,
     isActive: true,
     isProductPage: true,
@@ -161,7 +163,7 @@ const routes: IRoutes[] = [
 
   // Page Download: begin
   {
-    id: 'DOWNLOAD',
+    id: EPageId.DOWNLOAD,
     sortOrder: 7,
     isActive: true,
     isProductPage: false,
@@ -182,7 +184,7 @@ const routes: IRoutes[] = [
 
   // Page Documentation: begin
   {
-    id: 'DOCUMENTATION',
+    id: EPageId.DOCUMENTATION,
     sortOrder: 8,
     isActive: true,
     isProductPage: false,
