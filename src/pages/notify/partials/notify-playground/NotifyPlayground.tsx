@@ -157,23 +157,28 @@ function NotifyPlayground(): JSX.Element {
                       <IconArrowDown className={styles.notify__playground__list__item__usage__preview__arrow} />
 
                       <div
-                        onClick={() => callNotifyFunctionByTypeOnClickHandler(type.functionName, type.defaultValue)}
                         className={[
                           `${styles.notify__playground__list__item__usage__preview__item}`,
                           `${styles[`notify__playground__list__item__usage__preview__item--${type.functionName}`] || ''}`,
                         ].join(' ').trim()}
                       >
                         <svg className={styles.notify__playground__list__item__usage__preview__item__arrow} width="40" height="54" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 54"><path fill="currentColor" d="M28.45 2.32h-3.49c-7.04 0-12.34 2.11-15.98 5.49-4.04 3.76-6.03 9.13-6.03 14.93 0 5.81 1.99 11.17 6.03 14.93 3.57 3.32 8.76 5.41 15.6 5.49-1.11-2.37-2.12-4.08-3.11-6.68-.29-.77.7-1.25 1.28-.98 5.09 2.37 10.08 4.9 14.99 7.61.43.23.57 1.01.13 1.35-4.49 3.47-9.32 6.1-14.63 7.96-.58.2-1.28-.44-1.02-1.05l2.44-6.59c-7.32-.06-12.89-2.32-16.76-5.92-4.39-4.08-6.55-9.87-6.55-16.12 0-6.24 2.16-12.03 6.55-16.12C11.82 2.98 17.49.71 24.96.71h3.49a.805.805 0 1 1 0 1.61zm7.57 41.63c-4.06-2.21-8.19-4.31-12.37-6.3.85 1.9 1.85 3.73 2.71 5.64.17.38.18.78.03 1.18l-2.21 5.97c4.23-1.62 8.17-3.78 11.84-6.49z" /></svg>
-                        <LazyImage
-                          threshold={0.25}
-                          className={styles.notify__playground__list__item__usage__preview__item__icon}
-                          classNameLoaded={styles[`notify__playground__list__item__usage__preview__item__icon--loaded`]}
-                          width="40"
-                          height="40"
-                          src={getNotifyIconsAsSrc(type.id)}
-                          alt={type.functionName}
-                        />
-                        <span>{type.defaultValue}</span>
+                        <button
+                          type="button"
+                          onClick={() => callNotifyFunctionByTypeOnClickHandler(type.functionName, type.defaultValue)}
+                          className={styles.notify__playground__list__item__usage__preview__item__button}
+                        >
+                          <LazyImage
+                            threshold={0.25}
+                            className={styles.notify__playground__list__item__usage__preview__item__icon}
+                            classNameLoaded={styles[`notify__playground__list__item__usage__preview__item__icon--loaded`]}
+                            width="40"
+                            height="40"
+                            src={getNotifyIconsAsSrc(type.id)}
+                            alt={type.functionName}
+                          />
+                          <span>{type.defaultValue}</span>
+                        </button>
                       </div>
                     </div>
 
