@@ -8,6 +8,8 @@ import { GitHub } from '@application/api/github';
 import { NPM } from '@application/api/npm';
 import { ErrorWithStatus, replaceBetweenCurlyBracesWithAData } from '@application/helpers/utilities';
 
+import LazyImage from '@components/lazyimage/LazyImage';
+
 import styles from '@pages/home/partials/home-slider/HomeSlider.module.scss';
 
 interface IHomeSliderGitHubState {
@@ -91,8 +93,10 @@ function HomeSlider(): JSX.Element {
     <div className={styles.home__slider}>
       <div className={styles.home__slider__container}>
         <div className={styles.home__slider__media}>
-          <img
+          <LazyImage
+            threshold={0.25}
             className={styles.home__slider__media__image}
+            classNameLoaded={styles['home__slider__media__image--loaded']}
             width="500"
             height="500"
             src={`${process.env.appUrl}${_dbHomeSlider?.image}`}
