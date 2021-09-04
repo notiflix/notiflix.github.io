@@ -189,7 +189,7 @@ function NotifyPlayground(): JSX.Element {
                       </span>
                     </code>
                     <button
-                      ref={_input => refsDemoButtons.current[index] = _input}
+                      ref={_button => refsDemoButtons.current[index] = _button}
                       aria-label={_dbNotifyPlayground.demoButton}
                       type="button"
                       onClick={() => demoButtonsOnClickHandler(type.functionName, index)}
