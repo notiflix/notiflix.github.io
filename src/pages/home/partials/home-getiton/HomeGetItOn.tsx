@@ -27,7 +27,13 @@ function HomeGetItOn(): JSX.Element {
     <div className={styles.home__getiton}>
       <h2 className={styles.home__getiton__title}>{_dbHomeGetItOn?.title}</h2>
       <div className={styles.home__getiton__links}>
-        <a className={styles.home__getiton__link} href={_dbHomeGetItOn?.yarn.url} target="_blank" rel="noreferrer">
+        <a
+          aria-label={_dbHomeGetItOn?.yarn.title}
+          className={styles.home__getiton__link}
+          href={_dbHomeGetItOn?.yarn.url}
+          target="_blank"
+          rel="noreferrer"
+        >
           <span
             className={styles.home__getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
@@ -37,7 +43,13 @@ function HomeGetItOn(): JSX.Element {
           </span>
           <LogoYarn className={styles.home__getiton__link__icon} />
         </a>
-        <a className={styles.home__getiton__link} href={_dbHomeGetItOn?.npm.url} target="_blank" rel="noreferrer">
+        <a
+          aria-label={_dbHomeGetItOn?.npm.title}
+          className={styles.home__getiton__link}
+          href={_dbHomeGetItOn?.npm.url}
+          target="_blank"
+          rel="noreferrer"
+        >
           <span
             className={styles.home__getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
@@ -47,7 +59,13 @@ function HomeGetItOn(): JSX.Element {
           </span>
           <LogoNPM className={styles.home__getiton__link__icon} />
         </a>
-        <a className={styles.home__getiton__link} href={_dbHomeGetItOn?.github.url} target="_blank" rel="noreferrer">
+        <a
+          aria-label={_dbHomeGetItOn?.github.title}
+          className={styles.home__getiton__link}
+          href={_dbHomeGetItOn?.github.url}
+          target="_blank"
+          rel="noreferrer"
+        >
           <LogoGitHub className={styles.home__getiton__link__icon} />
         </a>
       </div>

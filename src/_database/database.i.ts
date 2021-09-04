@@ -14,14 +14,17 @@ interface IDatabaseHomeGetItOn {
   title: string;
   clipboard: string;
   yarn: {
+    title: string;
     script: string;
     url: string;
   };
   npm: {
+    title: string;
     script: string;
     url: string;
   };
   github: {
+    title: string;
     script: string | null;
     url: string;
   };

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+
+import { constants } from '@application/constants';
 import { routes } from '@application/routes';
 
 import styles from '@components/header/partials/HeaderMenu.module.scss';
@@ -16,6 +18,7 @@ function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
             <li key={route.id} className={styles.nav__ul__li}>
               <Link href={route.pathPage} as={`${process.env.appUrl}${route.pathAs}`} passHref>
                 <a
+                  aria-label={`${constants.app.name} ${route.name} ${constants.app.text.module}`}
                   onClick={() => mobileMenuOnClickHandler(false)}
                   target={route.isTargetBlank ? '_blank' : undefined}
                   className={[

@@ -22,12 +22,15 @@ _dbHomeGetItOn:
   title: Get it on
   clipboard: Copied to the clipboard.
   yarn:
+    title: Yarn
     script: yarn add notiflix
     url: https://yarnpkg.com/package/notiflix
   npm:
+    title: NPM
     script: npm i notiflix
     url: https://www.npmjs.com/package/notiflix
   github:
+    title: GitHub
     script: null
     url: https://github.com/notiflix/Notiflix.git
 

@@ -53,6 +53,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
         <div className={styles.header__logo}>
           <Link href={logoPathPage} as={`${process.env.appUrl}${logoPathAs}`} passHref>
             <a
+              aria-label={constants.app.name}
               onClick={() => mobileMenuOnClickHandler(false)}
               className={styles.header__logo__link}
             >

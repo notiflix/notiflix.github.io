@@ -9,6 +9,7 @@ interface IConstants {
     name: string;
     ogImageSrc: string;
     text: {
+      module: string;
       menu: string;
       open: string;
       close: string;
@@ -30,6 +31,7 @@ const constants: IConstants = {
     name: (JSON.stringify((packageJSON || {}).description) || '').replace(/"/gm, ''),
     ogImageSrc: '/webapp/notiflix-og.jpg', // TODO:
     text: {
+      module: 'Module',
       menu: 'Menu',
       open: 'Open',
       close: 'Close',
