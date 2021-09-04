@@ -53,7 +53,8 @@ class NPM {
         downloadCounts: totalCounts,
       };
     } catch (error) {
-      devLoggerError(error?.message);
+      const errorMessage = error instanceof Error ? error?.message : '';
+      devLoggerError(errorMessage);
       return false;
     }
   };

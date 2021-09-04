@@ -62,8 +62,10 @@ class GitHub {
         downloadUrl: latestRelease.zipball_url,
       };
     } catch (error) {
-      devLoggerError(error?.message);
-      return error?.status || 500;
+      const errorMessage = error instanceof ErrorWithStatus ? error?.message : '';
+      const errorStatus = error instanceof ErrorWithStatus ? error?.status : 500;
+      devLoggerError(errorMessage);
+      return errorStatus;
     }
   };
 }
