@@ -215,6 +215,14 @@
           }
         }
 
+        &__description {
+          width: 100%;
+          margin: 0.5rem 0 0;
+          padding: 0 0 0 0.25rem;
+          font-size: 0.75rem;
+          opacity: 0.8;
+        }
+
         &__link {
           display: none;
 
@@ -245,6 +253,11 @@
             }
           }
         }
+      }
+
+      &--callback &__head,
+      &--extend &__head {
+        padding: 0 0 1rem;
       }
 
       &__usage {

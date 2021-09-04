@@ -90,11 +90,13 @@ interface IDatabaseNotifyPlayground {
   docsRouteId: string;
   demoTitle: string;
   demoDescription: string;
-  demoButton: string;
   demoInputPlaceholder: string;
+  demoButton: string;
   callbackTitle: string;
   callbackDescription: string;
-  callbackNote: string;
+  callbackMessage: string;
+  callbackInputPlaceholder: string;
+  callbackButton: string;
   extendTitle: string;
   extendDescription: string;
   types: IDatabaseNotifyTypes[];

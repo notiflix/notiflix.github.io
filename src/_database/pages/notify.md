@@ -31,11 +31,13 @@ _dbNotifyPlayground:
   docsRouteId: DOCUMENTATION
   demoTitle: Demo
   demoDescription: A text can be typed for the demonstration.
-  demoButton: Send
   demoInputPlaceholder: Message
+  demoButton: Send
   callbackTitle: Callback Function
-  callbackDescription: A callback function can be added as a second parameter. The callback function can be used for all types of notifications.
-  callbackNote: The notifications with the callback function do not disappear until they were clicked.
+  callbackDescription: A callback function can be added as a second parameter. The callback function can be used for all types of notifications. The notifications with the callback function do not disappear until they were clicked.
+  callbackMessage: Show an alert.
+  callbackInputPlaceholder: Message
+  callbackButton: Send
   extendTitle: Extending the Options
   extendDescription: Extending the initialize options with new options for each notification element.
   types:
