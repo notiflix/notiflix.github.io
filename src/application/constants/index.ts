@@ -22,6 +22,7 @@ interface IConstants {
     };
   };
   api: {
+    urlGitHubRepo: string;
     urlGitHubReleases: string;
     urlNPMDownloads: string;
   };
@@ -50,6 +51,7 @@ const constants: IConstants = {
     },
   },
   api: {
+    urlGitHubRepo: 'https://api.github.com/repos/notiflix/Notiflix',
     urlGitHubReleases: 'https://api.github.com/repos/notiflix/Notiflix/releases',
     urlNPMDownloads: 'https://api.npmjs.org/downloads/range/2019-01-01:2042-01-01/notiflix',
   },

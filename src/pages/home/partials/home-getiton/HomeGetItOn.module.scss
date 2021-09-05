@@ -149,5 +149,59 @@
       max-width: 5.5rem;
       height: auto;
     }
+
+    &__stats {
+      order: 3;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      &__item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0.75rem 0.5rem -0.25rem;
+
+        &__icon {
+          width: 0.75rem;
+          height: 0.75rem;
+          transform: scale(1.3) translateY(-0.07rem);
+          margin: 0 0.3rem;
+          color: $color_theme_yellow;
+        }
+
+        &__text {
+          font-size: 0.75rem;
+          font-weight: 500;
+        }
+      }
+
+      &--loading &__item {
+        &__text {
+          width: 2rem;
+          height: 1rem;
+          border-radius: 2rem;
+          background: $color_gray_100;
+          animation: animation_home_getiton_github_loading 1s linear 0s infinite;
+
+          @keyframes animation_home_getiton_github_loading {
+            0% {
+              opacity: 1;
+            }
+
+            50% {
+              opacity: 0.5;
+            }
+
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
   }
 }
