@@ -83,7 +83,7 @@ const routes: IRoutes[] = [
     sortOrder: 3,
     isActive: true,
     isProductPage: true,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'weekly',
     sitemapPriority: '1.0',
@@ -104,7 +104,7 @@ const routes: IRoutes[] = [
     sortOrder: 4,
     isActive: true,
     isProductPage: true,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'weekly',
     sitemapPriority: '1.0',
@@ -125,7 +125,7 @@ const routes: IRoutes[] = [
     sortOrder: 5,
     isActive: true,
     isProductPage: true,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'weekly',
     sitemapPriority: '1.0',
@@ -146,7 +146,7 @@ const routes: IRoutes[] = [
     sortOrder: 6,
     isActive: true,
     isProductPage: true,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'weekly',
     sitemapPriority: '1.0',

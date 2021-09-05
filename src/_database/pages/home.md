@@ -66,6 +66,6 @@ _dbHomeProducts:
       button: More
     - routeId: BLOCK
       title: Block
-      description: "Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user's interactions on the blocked elements."
+      description: "Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user’s interactions on the blocked elements."
       button: More
 ---

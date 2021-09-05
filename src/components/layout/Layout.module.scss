@@ -9,12 +9,12 @@
   justify-content: flex-start;
   padding: $header_height 0 0;
 
-  &--home {
-    padding: 0;
-    @include backgroundGradientNight();
-  }
-
-  &--notify {
+  &--home,
+  &--notify,
+  &--report,
+  &--confirm,
+  &--loading,
+  &--block {
     padding: 0;
     @include backgroundGradientNight();
   }
