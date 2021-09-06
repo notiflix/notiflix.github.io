@@ -374,10 +374,16 @@
             }
 
             &__icon {
+              transition: $transition_opacity;
+              opacity: 0.25;
               position: absolute;
               left: 0.5rem;
               width: 2.5rem;
               height: 2.5rem;
+
+              &--loaded {
+                opacity: 1;
+              }
             }
           }
         }
