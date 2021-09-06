@@ -296,7 +296,7 @@
           margin: 0.6rem 0 0;
 
           @include media_up($breakpoint_tablet) {
-            margin: 1rem 0 0;
+            margin: 1.4rem 0 0;
           }
 
           &__arrow {
@@ -365,7 +365,7 @@
                 display: block;
                 position: absolute;
                 left: -3.5rem;
-                top: -1.5rem;
+                top: -2rem;
                 width: 2.5rem;
                 height: auto;
                 transform: rotate(8deg);
