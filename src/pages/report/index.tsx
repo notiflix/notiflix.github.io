@@ -3,7 +3,7 @@ import { attributes as _report } from '@database/pages/report.md';
 import Layout from '@components/layout/Layout';
 import BannerProduct from '@components/banners/product/BannerProduct';
 
-// import ReportPlayground from '@pages/report/partials/report-playground/ReportPlayground';
+import ReportPlayground from '@pages/report/partials/report-playground/ReportPlayground';
 
 import styles from '@pages/report/index.module.scss';
 
@@ -19,7 +19,7 @@ function Report(): JSX.Element {
       />
       <div className={styles.report}>
         <div className={styles.report__container}>
-          {'TODO: <ReportPlayground />'}
+          <ReportPlayground />
         </div>
       </div>
     </Layout>

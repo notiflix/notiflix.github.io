@@ -48,7 +48,7 @@ declare module '@database/pages/report.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbReportBanner?: import('./database.i').IDatabaseBannerProducts,
-    // _dbReportPlayground?: import('./database.i').IDatabaseReportPlayground,
+    _dbReportPlayground?: import('./database.i').IDatabaseReportPlayground,
   };
   const html: string;
   export { attributes, html };

@@ -1,4 +1,4 @@
-import { INotifyOptions } from 'notiflix';
+import { INotifyOptions, IReportOptions } from 'notiflix';
 
 import * as packageJSON from '../../../package.json';
 
@@ -19,6 +19,7 @@ interface IConstants {
     };
     libraryOptions: {
       notify: INotifyOptions;
+      report: IReportOptions;
     };
   };
   api: {
@@ -45,6 +46,10 @@ const constants: IConstants = {
     },
     libraryOptions: {
       notify: {
+        fontFamily: 'Red Hat Display',
+        plainText: false,
+      },
+      report: {
         fontFamily: 'Red Hat Display',
         plainText: false,
       },

@@ -55,7 +55,7 @@ interface IDatabaseHomeProducts {
 }
 // Page Home: end
 
-// Page Products: begin
+// Page Notify, Report, Confirm, Loading, Block: begin
 interface IDatabaseBannerProducts {
   importNamespace: string;
   title: string;
@@ -68,7 +68,7 @@ interface IDatabaseBannerProducts {
   htmlAllInOne: string;
   htmlAllInOneJS: string;
 }
-// Page Products: end
+// Page Notify, Report, Confirm, Loading, Block: end
 
 // Page Notify: begin
 type TDatabaseNotifyFunctionNames = 'success' | 'failure' | 'warning' | 'info';
@@ -79,31 +79,74 @@ interface IDatabaseNotifyTypes {
   isActive: boolean;
   functionName: TDatabaseNotifyFunctionNames;
   defaultValue: string;
-  docsRouteHash: string;
+  docsLinkRouteHash: string;
 }
 
 interface IDatabaseNotifyPlayground {
   title: string;
   namespace: string;
   comments: string[];
-  docsText: string;
-  demoTitle: string;
-  demoDescription: string;
+  docsLinkText: string;
+  demoInfoTitle: string;
+  demoInfoDescription: string;
   demoInputPlaceholder: string;
-  demoButton: string;
-  callbackTitle: string;
-  callbackDescription: string;
-  callbackMessage: string;
+  demoButtonText: string;
+  callbackInfoTitle: string;
+  callbackInfoDescription: string;
+  callbackExampleMessage: string;
   callbackInputPlaceholder: string;
-  callbackButton: string;
-  extendDocsText: string;
-  extendDocsRouteHash: string;
-  extendTitle: string;
-  extendDescription: string;
-  extendMessage: string;
+  callbackButtonText: string;
+  extendDocsLinkText: string;
+  extendDocsLinkRouteHash: string;
+  extendInfoTitle: string;
+  extendInfoDescription: string;
+  extendExampleMessage: string;
   types: IDatabaseNotifyTypes[];
 }
 // Page Notify: end
+
+// Page Report: begin
+type TDatabaseReportFunctionNames = 'success' | 'failure' | 'warning' | 'info';
+
+interface IDatabaseReportTypes {
+  id: string;
+  sortOrder: number;
+  isActive: boolean;
+  functionName: TDatabaseReportFunctionNames;
+  defaultValueTitle: string;
+  defaultValueMessage: string;
+  defaultValueButton: string;
+  docsLinkRouteHash: string;
+}
+
+interface IDatabaseReportPlayground {
+  title: string;
+  namespace: string;
+  comments: string[];
+  docsLinkText: string;
+  demoInfoTitle: string;
+  demoInfoDescription: string;
+  demoInputPlaceholderTitle: string;
+  demoInputPlaceholderMessage: string;
+  demoInputPlaceholderButton: string;
+  demoButtonText: string;
+  callbackInfoTitle: string;
+  callbackInfoDescription: string;
+  callbackExampleTitle: string;
+  callbackExampleMessage: string;
+  callbackExampleButton: string;
+  callbackInputPlaceholder: string;
+  callbackButtonText: string;
+  extendDocsLinkText: string;
+  extendDocsLinkRouteHash: string;
+  extendInfoTitle: string;
+  extendInfoDescription: string;
+  extendExampleTitle: string;
+  extendExampleMessage: string;
+  extendExampleButton: string;
+  types: IDatabaseReportTypes[];
+}
+// Page Report: end
 
 
 // Page Common: Meta Data: begin
@@ -149,6 +192,8 @@ export type {
   IDatabaseBannerProducts,
   TDatabaseNotifyFunctionNames,
   IDatabaseNotifyPlayground,
+  TDatabaseReportFunctionNames,
+  IDatabaseReportPlayground,
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
