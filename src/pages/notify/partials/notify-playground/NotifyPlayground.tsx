@@ -31,7 +31,7 @@ function NotifyPlayground(): JSX.Element {
   };
   // Switch As Module: end
 
-  // Demo Call Notiflix Function by Type: begin
+  // Demo Call NotiflixNotify Function by Type: begin
   const callNotifyFunctionByTypeOnClickHandler = (
     functionName: TDatabaseNotifyFunctionNames,
     message: string,
@@ -39,7 +39,7 @@ function NotifyPlayground(): JSX.Element {
   ): void => {
     NotiflixNotify[functionName](message, callback, constants.app.libraryOptions.notify);
   };
-  // Demo Call Notiflix Function by Type: end
+  // Demo Call NotiflixNotify Function by Type: end
 
   // Demo Buttons Handler: begin
   const refsDemoInputs = useRef<(HTMLInputElement | null)[]>([]);
