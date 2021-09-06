@@ -7,7 +7,7 @@ _dbSocialMedia:
     url: https://twitter.com/notiflixjs
     name: Twitter
   - isActive: true
-    icon: fab fa-facebook-square # todo:
+    url: https://www.facebook.com/notiflixjs
     name: Facebook
   - isActive: true
     url: https://www.instagram.com/notiflixjs
