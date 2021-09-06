@@ -59,7 +59,7 @@ function NotifyPlayground(): JSX.Element {
     const functionName = _dbNotifyPlayground?.types.find(x => x)?.functionName;
     const alertMessage = refCallbackInput.current?.value || '';
     if (functionName && alertMessage) {
-      callNotifyFunctionByTypeOnClickHandler(functionName, (_dbNotifyPlayground?.callbackMessage || ''), () => {
+      callNotifyFunctionByTypeOnClickHandler(functionName, (_dbNotifyPlayground?.callbackExampleMessage || ''), () => {
         alert(alertMessage);
       });
     } else {
@@ -115,10 +115,10 @@ function NotifyPlayground(): JSX.Element {
                         `${type.functionName}();`,
                       ].filter(x => x).join('.')}
                     </h3>
-                    <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${type.docsRouteHash}`} passHref>
+                    <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${type.docsLinkRouteHash}`} passHref>
                       <a className={styles.notify__playground__list__item__head__link}>
                         <IconDocs className={styles.notify__playground__list__item__head__link__icon} />
-                        <span>{_dbNotifyPlayground.docsText}</span>
+                        <span>{_dbNotifyPlayground.docsLinkText}</span>
                       </a>
                     </Link>
                   </div>
@@ -187,8 +187,8 @@ function NotifyPlayground(): JSX.Element {
                   <div className={styles.notify__playground__list__item__demo}>
 
                     <div className={styles.notify__playground__list__item__demo__head}>
-                      <h4 className={styles.notify__playground__list__item__demo__head__title}>{_dbNotifyPlayground.demoTitle}</h4>
-                      <p className={styles.notify__playground__list__item__demo__head__description}>{_dbNotifyPlayground.demoDescription}</p>
+                      <h4 className={styles.notify__playground__list__item__demo__head__title}>{_dbNotifyPlayground.demoInfoTitle}</h4>
+                      <p className={styles.notify__playground__list__item__demo__head__description}>{_dbNotifyPlayground.demoInfoDescription}</p>
                     </div>
 
                     <div className={styles.notify__playground__list__item__demo__code}>
@@ -213,13 +213,13 @@ function NotifyPlayground(): JSX.Element {
                         </span>
                       </code>
                       <button
-                        aria-label={_dbNotifyPlayground.demoButton}
+                        aria-label={_dbNotifyPlayground.demoButtonText}
                         type="button"
                         onClick={() => demoButtonsOnClickHandler(type.functionName, index)}
                         className={styles.notify__playground__list__item__demo__code__button}
                       >
                         <IconSend className={styles.notify__playground__list__item__demo__code__button__icon} />
-                        <span>{_dbNotifyPlayground.demoButton}</span>
+                        <span>{_dbNotifyPlayground.demoButtonText}</span>
                       </button>
                     </div>
 
@@ -240,8 +240,8 @@ function NotifyPlayground(): JSX.Element {
         >
           <div className={styles.notify__playground__list__item__content}>
             <div className={styles.notify__playground__list__item__head}>
-              <h3 className={styles.notify__playground__list__item__head__title}>{_dbNotifyPlayground?.callbackTitle}</h3>
-              <p className={styles.notify__playground__list__item__head__description}>{_dbNotifyPlayground?.callbackDescription}</p>
+              <h3 className={styles.notify__playground__list__item__head__title}>{_dbNotifyPlayground?.callbackInfoTitle}</h3>
+              <p className={styles.notify__playground__list__item__head__description}>{_dbNotifyPlayground?.callbackInfoDescription}</p>
             </div>
 
             <div className={styles.notify__playground__list__item__demo}>
@@ -253,7 +253,7 @@ function NotifyPlayground(): JSX.Element {
                     <span>{`.`}</span>
                     <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
-                    <span className="code__string">{`'${_dbNotifyPlayground?.callbackMessage}'`}</span>
+                    <span className="code__string">{`'${_dbNotifyPlayground?.callbackExampleMessage}'`}</span>
                     <span>{`, `}</span>
                     {stateNotifyIsModule ?
                       <>
@@ -291,13 +291,13 @@ function NotifyPlayground(): JSX.Element {
                   </span>
                 </code>
                 <button
-                  aria-label={_dbNotifyPlayground?.callbackButton}
+                  aria-label={_dbNotifyPlayground?.callbackButtonText}
                   type="button"
                   onClick={callbackButtonOnClickHandler}
                   className={styles.notify__playground__list__item__demo__code__button}
                 >
                   <IconSend className={styles.notify__playground__list__item__demo__code__button__icon} />
-                  <span>{_dbNotifyPlayground?.callbackButton}</span>
+                  <span>{_dbNotifyPlayground?.callbackButtonText}</span>
                 </button>
               </div>
             </div>
@@ -314,12 +314,12 @@ function NotifyPlayground(): JSX.Element {
         >
           <div className={styles.notify__playground__list__item__content}>
             <div className={styles.notify__playground__list__item__head}>
-              <h3 className={styles.notify__playground__list__item__head__title}>{_dbNotifyPlayground?.extendTitle}</h3>
-              <p className={styles.notify__playground__list__item__head__description}>{_dbNotifyPlayground?.extendDescription}</p>
-              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbNotifyPlayground?.extendDocsRouteHash}`} passHref>
+              <h3 className={styles.notify__playground__list__item__head__title}>{_dbNotifyPlayground?.extendInfoTitle}</h3>
+              <p className={styles.notify__playground__list__item__head__description}>{_dbNotifyPlayground?.extendInfoDescription}</p>
+              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbNotifyPlayground?.extendDocsLinkRouteHash}`} passHref>
                 <a className={styles.notify__playground__list__item__head__link}>
                   <IconDocs className={styles.notify__playground__list__item__head__link__icon} />
-                  <span>{_dbNotifyPlayground?.extendDocsText}</span>
+                  <span>{_dbNotifyPlayground?.extendDocsLinkText}</span>
                 </a>
               </Link>
             </div>
@@ -333,7 +333,7 @@ function NotifyPlayground(): JSX.Element {
                     <span>{`.`}</span>
                     <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
-                    <span className="code__string">{`'${_dbNotifyPlayground?.extendMessage}'`}</span>
+                    <span className="code__string">{`'${_dbNotifyPlayground?.extendExampleMessage}'`}</span>
                     <span>{`, {`}</span>
                   </span>
                   <span className="code__lvl2 code__lvl--py0">

@@ -26,46 +26,46 @@ _dbNotifyPlayground:
   comments:
     - "@param1 {string}: Required, a text in string format."
     - "@param2 {function | Object}: Optional, a callback function that will be called when the notification element has been clicked. Or, extending the initialize options with the new options for each notification element."
-    - "@param3 {Object}: Optional, extending the initialize options with new options for each notification element. (If the second parameter has been already used for a callback function.)"
-  docsText: Options
-  demoTitle: Demo
-  demoDescription: A text can be typed for the demonstration.
+    - "@param3 {Object}: Optional, extending the initialize options with new the options for each notification element. (If the second parameter has been already used for a callback function.)"
+  docsLinkText: Options
+  demoInfoTitle: Demo
+  demoInfoDescription: A text can be typed for the demonstration.
   demoInputPlaceholder: Message
-  demoButton: Send
-  callbackTitle: Callback Function
-  callbackDescription: A callback function can be added as a second parameter. The callback function can be used for all types of notifications. The notifications with the callback function do not disappear until they were clicked.
-  callbackMessage: Click to show an alert.
+  demoButtonText: Send
+  callbackInfoTitle: Callback Function
+  callbackInfoDescription: A callback function can be added as the second parameter. The callback function can be used for all types of notifications. The notifications with the callback function do not disappear until they were clicked.
+  callbackExampleMessage: Click to show an alert.
   callbackInputPlaceholder: Alert message
-  callbackButton: Send
-  extendDocsText: All Options
-  extendDocsRouteHash: "#DocsNotify"
-  extendTitle: Extending the Options
-  extendDescription: Extending the initialize options with the new options for each notification element. An "options" object can be added as a second parameter. In addition, it has to be the third parameter if the second parameter has been already used for a callback function.
-  extendMessage: Peace at home, peace in the world.
+  callbackButtonText: Send
+  extendDocsLinkText: All Options
+  extendDocsLinkRouteHash: "#DocsNotify"
+  extendInfoTitle: Extending the Options
+  extendInfoDescription: Extending the initialize options with the new options for each notification element. An "options" object can be added as the second parameter. In addition, it has to be the third parameter if the second parameter has been already used for a callback function.
+  extendExampleMessage: Peace at home, peace in the world.
   types:
     - id: SUCCESS
       sortOrder: 1
       isActive: true
       functionName: success
       defaultValue: Sol lucet omnibus
-      docsRouteHash: "#DocsNotifySuccess"
+      docsLinkRouteHash: "#DocsNotifySuccess"
     - id: FAILURE
       sortOrder: 2
       isActive: true
       functionName: failure
       defaultValue: Qui timide rogat docet negare
-      docsRouteHash: "#DocsNotifyFailure"
+      docsLinkRouteHash: "#DocsNotifyFailure"
     - id: WARNING
       sortOrder: 3
       isActive: true
       functionName: warning
       defaultValue: Memento te hominem esse
-      docsRouteHash: "#DocsNotifyWarning"
+      docsLinkRouteHash: "#DocsNotifyWarning"
     - id: INFO
       sortOrder: 4
       isActive: true
       functionName: info
       defaultValue: Cogito ergo sum
-      docsRouteHash: "#DocsNotifyInfo"
+      docsLinkRouteHash: "#DocsNotifyInfo"
 
 ---
