@@ -145,7 +145,7 @@ function NotifyPlayground(): JSX.Element {
                           {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__func">{type.functionName}</span>
+                          <span className="code__method">{type.functionName}</span>
                           <span>{`(`}</span>
                           <span className="code__string">{`'${type.defaultValue}'`}</span>
                           <span>{`);`}</span>
@@ -197,7 +197,7 @@ function NotifyPlayground(): JSX.Element {
                           {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__func">{type.functionName}</span>
+                          <span className="code__method">{type.functionName}</span>
                           <span>{`(`}</span>
                           <span className="code__string">{`'`}</span>
                           <span className="code__string">
@@ -251,27 +251,27 @@ function NotifyPlayground(): JSX.Element {
                     {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'${_dbNotifyPlayground?.callbackExampleMessage}'`}</span>
                     <span>{`, `}</span>
                     {stateNotifyIsModule ?
                       <>
                         <span>{`() `}</span>
-                        <span className="code__function">{`=>`}</span>
+                        <span className="code__methodtion">{`=>`}</span>
                         <span>{` {`}</span>
                       </>
                       :
                       <>
-                        <span className="code__function">{`function`}</span>
-                        <span className="code__func">{` cb`}</span>
+                        <span className="code__methodtion">{`function`}</span>
+                        <span className="code__method">{` cb`}</span>
                         <span>{`() {`}</span>
                       </>
                     }
                   </span>
 
                   <span className="code__lvl2 code__lvl--py0">
-                    <span className="code__func">{`alert`}</span>
+                    <span className="code__method">{`alert`}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'`}</span>
                     <span className="code__string">
@@ -331,7 +331,7 @@ function NotifyPlayground(): JSX.Element {
                     {!stateNotifyIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__func">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbNotifyPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'${_dbNotifyPlayground?.extendExampleMessage}'`}</span>
                     <span>{`, {`}</span>

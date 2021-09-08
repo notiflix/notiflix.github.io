@@ -161,7 +161,7 @@ function ReportPlayground(): JSX.Element {
                           {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__func">{type.functionName}</span>
+                          <span className="code__method">{type.functionName}</span>
                           <span>{`(`}</span>
                         </span>
 
@@ -241,7 +241,7 @@ function ReportPlayground(): JSX.Element {
                           {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__func">{type.functionName}</span>
+                          <span className="code__method">{type.functionName}</span>
                           <span>{`(`}</span>
                         </span>
 
@@ -328,7 +328,7 @@ function ReportPlayground(): JSX.Element {
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__func">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                   </span>
 
@@ -349,19 +349,19 @@ function ReportPlayground(): JSX.Element {
                     {stateReportIsModule ?
                       <>
                         <span>{`() `}</span>
-                        <span className="code__function">{`=>`}</span>
+                        <span className="code__methodtion">{`=>`}</span>
                         <span>{` {`}</span>
                       </>
                       :
                       <>
-                        <span className="code__function">{`function`}</span>
-                        <span className="code__func">{` cb`}</span>
+                        <span className="code__methodtion">{`function`}</span>
+                        <span className="code__method">{` cb`}</span>
                         <span>{`() {`}</span>
                       </>
                     }
                   </span>
                   <span className="code__lvl3 code__lvl--py0">
-                    <span className="code__func">{`alert`}</span>
+                    <span className="code__method">{`alert`}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'`}</span>
                     <span className="code__string">
@@ -424,7 +424,7 @@ function ReportPlayground(): JSX.Element {
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__func">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                   </span>
 
