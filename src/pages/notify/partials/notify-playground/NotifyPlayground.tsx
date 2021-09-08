@@ -258,12 +258,12 @@ function NotifyPlayground(): JSX.Element {
                     {stateNotifyIsModule ?
                       <>
                         <span>{`() `}</span>
-                        <span className="code__methodtion">{`=>`}</span>
+                        <span className="code__function">{`=>`}</span>
                         <span>{` {`}</span>
                       </>
                       :
                       <>
-                        <span className="code__methodtion">{`function`}</span>
+                        <span className="code__function">{`function`}</span>
                         <span className="code__method">{` cb`}</span>
                         <span>{`() {`}</span>
                       </>
