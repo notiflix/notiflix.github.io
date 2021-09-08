@@ -31,8 +31,8 @@ function ReportPlayground(): JSX.Element {
   };
   // Switch As Module: end
 
-  // Demo Call NotiflixReport Function by Type: begin
-  const callReportFunctionByTypeOnClickHandler = (
+  // Demo Call NotiflixReport Function by Method: begin
+  const callReportFunctionByMethodOnClickHandler = (
     functionName: TDatabaseReportFunctionNames,
     title: string,
     message: string,
@@ -41,7 +41,7 @@ function ReportPlayground(): JSX.Element {
   ): void => {
     NotiflixReport[functionName](title, message, button, callback, constants.app.libraryOptions.report);
   };
-  // Demo Call NotiflixReport Function by Type: end
+  // Demo Call NotiflixReport Function by Method: end
 
   // Demo Buttons Handler: begin
   const refsDemoInputsTitle = useRef<(HTMLInputElement | null)[]>([]);
@@ -58,7 +58,7 @@ function ReportPlayground(): JSX.Element {
     } else if (!thisButton) {
       refsDemoInputsButton.current[targetIndex]?.focus();
     } else {
-      callReportFunctionByTypeOnClickHandler(functionName, thisTitle, thisMessage, thisButton);
+      callReportFunctionByMethodOnClickHandler(functionName, thisTitle, thisMessage, thisButton);
     }
   };
   // Demo Buttons Handler: end
@@ -66,10 +66,10 @@ function ReportPlayground(): JSX.Element {
   // Callback Button Handler: begin
   const refCallbackInput = useRef<HTMLInputElement | null>(null);
   const callbackButtonOnClickHandler = (): void => {
-    const functionName = _dbReportPlayground?.types.find(x => x)?.functionName;
+    const functionName = _dbReportPlayground?.methods.find(x => x)?.functionName;
     const alertMessage = refCallbackInput.current?.value || '';
     if (functionName && alertMessage) {
-      callReportFunctionByTypeOnClickHandler(
+      callReportFunctionByMethodOnClickHandler(
         functionName,
         (_dbReportPlayground?.callbackExampleTitle || ''),
         (_dbReportPlayground?.callbackExampleMessage || ''),
@@ -104,16 +104,16 @@ function ReportPlayground(): JSX.Element {
 
       <div className={styles.report__playground__list}>
         {/* Functions: begin */}
-        {_dbReportPlayground?.types
+        {_dbReportPlayground?.methods
           ?.filter(x => x.isActive)
           ?.sort((a, b) => a.sortOrder - b.sortOrder)
-          ?.map((type, index) => {
+          ?.map((method, index) => {
             return (
               <div
                 key={index}
                 className={[
                   `${styles.report__playground__list__item}`,
-                  `${styles[`report__playground__list__item--${type.functionName}`] || ''}`,
+                  `${styles[`report__playground__list__item--${method.functionName}`] || ''}`,
                 ].join(' ').trim()}
               >
                 <div className={styles.report__playground__list__item__content}>
@@ -122,19 +122,19 @@ function ReportPlayground(): JSX.Element {
                     <h3
                       className={[
                         `${styles.report__playground__list__item__head__title}`,
-                        `${styles[`report__playground__list__item__head__title--${type.functionName}`] || ''}`,
+                        `${styles[`report__playground__list__item__head__title--${method.functionName}`] || ''}`,
                       ].join(' ').trim()}
                     >
                       {[
                         (!stateReportIsModule ? namespaceGlobal : null),
                         namespaceModule,
-                        `${type.functionName}();`,
+                        `${method.functionName}();`,
                       ].filter(x => x).join('.')}
                     </h3>
-                    <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${type.docsLinkRouteHash}`} passHref>
+                    <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${method.docsLinkRouteHash}`} passHref>
                       <a className={styles.report__playground__list__item__head__link}>
                         <IconDocs className={styles.report__playground__list__item__head__link__icon} />
-                        <span>{_dbReportPlayground.docsLinkText}</span>
+                        <span>{method.docsLinkText}</span>
                       </a>
                     </Link>
                   </div>
@@ -161,20 +161,20 @@ function ReportPlayground(): JSX.Element {
                           {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__method">{type.functionName}</span>
+                          <span className="code__method">{method.functionName}</span>
                           <span>{`(`}</span>
                         </span>
 
                         <span className="code__lvl2 code__lvl--py0">
-                          <span className="code__string">{`'${type.defaultValueTitle}'`}</span>
+                          <span className="code__string">{`'${method.defaultValueTitle}'`}</span>
                           <span>{`,`}</span>
                         </span>
                         <span className="code__lvl2 code__lvl--py0">
-                          <span className="code__string">{`'${type.defaultValueMessage}'`}</span>
+                          <span className="code__string">{`'${method.defaultValueMessage}'`}</span>
                           <span>{`,`}</span>
                         </span>
                         <span className="code__lvl2 code__lvl--py0">
-                          <span className="code__string">{`'${type.defaultValueButton}'`}</span>
+                          <span className="code__string">{`'${method.defaultValueButton}'`}</span>
                           <span>{`,`}</span>
                         </span>
 
@@ -190,7 +190,7 @@ function ReportPlayground(): JSX.Element {
                       <div
                         className={[
                           `${styles.report__playground__list__item__usage__preview__item}`,
-                          `${styles[`report__playground__list__item__usage__preview__item--${type.functionName}`] || ''}`,
+                          `${styles[`report__playground__list__item__usage__preview__item--${method.functionName}`] || ''}`,
                         ].join(' ').trim()}
                       >
                         <svg className={styles.report__playground__list__item__usage__preview__item__arrow} width="40" height="54" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 54"><path fill="currentColor" d="M28.45 2.32h-3.49c-7.04 0-12.34 2.11-15.98 5.49-4.04 3.76-6.03 9.13-6.03 14.93 0 5.81 1.99 11.17 6.03 14.93 3.57 3.32 8.76 5.41 15.6 5.49-1.11-2.37-2.12-4.08-3.11-6.68-.29-.77.7-1.25 1.28-.98 5.09 2.37 10.08 4.9 14.99 7.61.43.23.57 1.01.13 1.35-4.49 3.47-9.32 6.1-14.63 7.96-.58.2-1.28-.44-1.02-1.05l2.44-6.59c-7.32-.06-12.89-2.32-16.76-5.92-4.39-4.08-6.55-9.87-6.55-16.12 0-6.24 2.16-12.03 6.55-16.12C11.82 2.98 17.49.71 24.96.71h3.49a.805.805 0 1 1 0 1.61zm7.57 41.63c-4.06-2.21-8.19-4.31-12.37-6.3.85 1.9 1.85 3.73 2.71 5.64.17.38.18.78.03 1.18l-2.21 5.97c4.23-1.62 8.17-3.78 11.84-6.49z" /></svg>
@@ -200,28 +200,28 @@ function ReportPlayground(): JSX.Element {
                           classNameLoaded={styles[`report__playground__list__item__usage__preview__item__icon--loaded`]}
                           width="110"
                           height="110"
-                          src={getReportIconsAsSrc(type.id)}
-                          alt={type.functionName}
+                          src={getReportIconsAsSrc(method.id)}
+                          alt={method.functionName}
                         />
                         <h5
                           className={styles.report__playground__list__item__usage__preview__item__title}
-                          dangerouslySetInnerHTML={{ __html: type.defaultValueTitle || '' }}
+                          dangerouslySetInnerHTML={{ __html: method.defaultValueTitle || '' }}
                         ></h5>
                         <p
                           className={styles.report__playground__list__item__usage__preview__item__message}
-                          dangerouslySetInnerHTML={{ __html: type.defaultValueMessage || '' }}
+                          dangerouslySetInnerHTML={{ __html: method.defaultValueMessage || '' }}
                         ></p>
                         <button
                           type="button"
-                          onClick={() => callReportFunctionByTypeOnClickHandler(
-                            type.functionName,
-                            type.defaultValueTitle,
-                            type.defaultValueMessage,
-                            type.defaultValueButton,
+                          onClick={() => callReportFunctionByMethodOnClickHandler(
+                            method.functionName,
+                            method.defaultValueTitle,
+                            method.defaultValueMessage,
+                            method.defaultValueButton,
                           )}
                           className={styles.report__playground__list__item__usage__preview__item__button}
                         >
-                          <span>{type.defaultValueButton}</span>
+                          <span>{method.defaultValueButton}</span>
                         </button>
                       </div>
                     </div>
@@ -241,7 +241,7 @@ function ReportPlayground(): JSX.Element {
                           {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                           <span className="code__namespace">{namespaceModule}</span>
                           <span>{`.`}</span>
-                          <span className="code__method">{type.functionName}</span>
+                          <span className="code__method">{method.functionName}</span>
                           <span>{`(`}</span>
                         </span>
 
@@ -292,7 +292,7 @@ function ReportPlayground(): JSX.Element {
                       <button
                         aria-label={_dbReportPlayground.demoButtonText}
                         type="button"
-                        onClick={() => demoButtonsOnClickHandler(type.functionName, index)}
+                        onClick={() => demoButtonsOnClickHandler(method.functionName, index)}
                         className={styles.report__playground__list__item__demo__code__button}
                       >
                         <IconSend className={styles.report__playground__list__item__demo__code__button__icon} />
@@ -328,7 +328,7 @@ function ReportPlayground(): JSX.Element {
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__method">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbReportPlayground?.methods.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                   </span>
 
@@ -424,7 +424,7 @@ function ReportPlayground(): JSX.Element {
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
-                    <span className="code__method">{_dbReportPlayground?.types.find(x => x)?.functionName}</span>
+                    <span className="code__method">{_dbReportPlayground?.methods.find(x => x)?.functionName}</span>
                     <span>{`(`}</span>
                   </span>
 
