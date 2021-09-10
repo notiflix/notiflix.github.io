@@ -22,8 +22,8 @@ function NotifyPlayground(): JSX.Element {
   const namespaceGlobal = constants.app.name;
   const namespaceModule = _dbNotifyPlayground?.namespace;
   const functionName = _dbNotifyPlayground?.methods?.find(x => x)?.functionName;
-  const pathPageDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathPage || '/';
-  const pathAsDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathAs || '/';
+  const pathPageDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathPage || '/';
+  const pathAsDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathAs || '/';
 
   // Switch As Module: begin
   const [stateNotifyIsModule, setStateNotifyIsModule] = useState<boolean>(true);
@@ -90,7 +90,7 @@ function NotifyPlayground(): JSX.Element {
         {/* Functions: begin */}
         {
           _dbNotifyPlayground?.methods
-            ?.filter(x => x.isActive)
+            ?.filter(x => x?.isActive)
             ?.sort((x, y) => x?.sortOrder - y?.sortOrder)
             ?.map((method, index) => {
               return (

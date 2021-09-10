@@ -22,8 +22,8 @@ function ReportPlayground(): JSX.Element {
   const namespaceGlobal = constants.app.name;
   const namespaceModule = _dbReportPlayground?.namespace;
   const functionName = _dbReportPlayground?.methods?.find(x => x)?.functionName;
-  const pathPageDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathPage || '/';
-  const pathAsDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathAs || '/';
+  const pathPageDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathPage || '/';
+  const pathAsDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathAs || '/';
 
   // Switch As Module: begin
   const [stateReportIsModule, setStateReportIsModule] = useState<boolean>(true);
@@ -106,7 +106,7 @@ function ReportPlayground(): JSX.Element {
         {/* Functions: begin */}
         {
           _dbReportPlayground?.methods
-            ?.filter(x => x.isActive)
+            ?.filter(x => x?.isActive)
             ?.sort((x, y) => x?.sortOrder - y?.sortOrder)
             ?.map((method, index) => {
               return (

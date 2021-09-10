@@ -29,8 +29,8 @@ function ConfirmPlaygroundItem({
   const isMethodAsk = data?.functionName === EConfirm.ASK;
   const namespaceGlobal = constants.app.name;
   const namespaceModule = namespace;
-  const pathPageDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathPage || '/';
-  const pathAsDocs = routes.find(route => route.id === EPageId.DOCUMENTATION)?.pathAs || '/';
+  const pathPageDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathPage || '/';
+  const pathAsDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathAs || '/';
 
   // Inputs Refs: begin
   const refsDemoInputs = useRef<(HTMLInputElement | null)[]>([]);
