@@ -19,8 +19,8 @@ interface IHeader {
 function Header({ classNamePrefix }: IHeader): JSX.Element {
   const { _dbMeta } = _home;
 
-  const logoPathPage = routes.find(x => x.id === _dbMeta?.routeId)?.pathPage || '/';
-  const logoPathAs = routes.find(x => x.id === _dbMeta?.routeId)?.pathAs || '/';
+  const logoPathPage = routes.find(x => x?.id === _dbMeta?.routeId)?.pathPage || '/';
+  const logoPathAs = routes.find(x => x?.id === _dbMeta?.routeId)?.pathAs || '/';
 
   // Sticky: begin
   const [stateScrollTop, setStateScrollTop] = useState<number>(0);
