@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import { attributes as _settings } from '@database/settings/settings.md';
 import { IDatabaseMeta } from '@database/database.i';
+
+import { routes } from '@application/routes';
 
 interface IMetaTags {
   meta?: IDatabaseMeta;
@@ -10,13 +11,13 @@ interface IMetaTags {
 
 function MetaTags({ meta }: IMetaTags): JSX.Element {
   const { _dbSettings } = _settings;
-  const router = useRouter();
 
   const appName = process.env.appName;
   const appUrl = process.env.appUrl;
   const appOgImagePath = process.env.appOgImagePath;
 
-  const canonicalUrl = `${appUrl || ''}${(router?.asPath?.length > 1 ? router.asPath : '')}` || '';
+  const pathAs = routes.find(x => x?.id === meta?.routeId)?.pathAs || '';
+  const canonicalUrl = `${appUrl || ''}${(pathAs?.length > 1 ? pathAs : '')}` || '';
   const yearInit = _dbSettings?.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
 
