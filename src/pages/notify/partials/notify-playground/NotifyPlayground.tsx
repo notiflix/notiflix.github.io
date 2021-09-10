@@ -91,7 +91,7 @@ function NotifyPlayground(): JSX.Element {
         {
           _dbNotifyPlayground?.methods
             ?.filter(x => x.isActive)
-            ?.sort((a, b) => a.sortOrder - b.sortOrder)
+            ?.sort((x, y) => x?.sortOrder - y?.sortOrder)
             ?.map((method, index) => {
               return (
                 <div
