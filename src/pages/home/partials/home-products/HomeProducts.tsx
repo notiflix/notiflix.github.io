@@ -11,33 +11,33 @@ function HomeProducts(): JSX.Element {
   const { _dbHomeProducts } = _home;
 
   return (
-    <div className={styles.home__products}>
-      <div className={styles.home__products__container}>
-        <div className={styles.home__products__content}>
-          <h2 className={styles.home__products__title}>{_dbHomeProducts?.title}</h2>
-          <div className={styles.home__products__list}>
+    <div className={styles.products}>
+      <div className={styles.products__container}>
+        <div className={styles.products__content}>
+          <h2 className={styles.products__title}>{_dbHomeProducts?.title}</h2>
+          <div className={styles.products__list}>
             {_dbHomeProducts?.products
-              ?.filter(product => routes.find(route => route.id === product.routeId)?.isActive)
-              ?.sort((productX, productY) => (routes.find(route => route.id === productX.routeId)?.sortOrder || 0) - (routes.find(route => route.id === productY.routeId)?.sortOrder || 1))
+              ?.filter(product => routes.find(route => route.id === product?.routeId)?.isActive)
+              ?.sort((productX, productY) => (routes.find(route => route.id === productX?.routeId)?.sortOrder || 0) - (routes.find(route => route.id === productY?.routeId)?.sortOrder || 1))
               ?.map((product, index) => {
-                const ProductIconComponent = routes.find(route => route.id === product.routeId)?.IconComponent || IconFallback;
-                const productPathPage = routes.find(route => route.id === product.routeId)?.pathPage || '/';
-                const productPathAs = routes.find(route => route.id === product.routeId)?.pathAs || '/';
-                const productIsTargetBlank = routes.find(route => route.id === product.routeId)?.isTargetBlank;
+                const ProductIconComponent = routes.find(route => route.id === product?.routeId)?.IconComponent || IconFallback;
+                const productPathPage = routes.find(route => route.id === product?.routeId)?.pathPage || '/';
+                const productPathAs = routes.find(route => route.id === product?.routeId)?.pathAs || '/';
+                const productIsTargetBlank = routes.find(route => route.id === product?.routeId)?.isTargetBlank;
 
                 return (
-                  <div key={index} className={styles.home__products__list__item}>
-                    <div className={styles.home__products__list__item__content}>
-                      <ProductIconComponent className={styles.home__products__list__item__icon} />
-                      <h3 className={styles.home__products__list__item__title}>{product.title}</h3>
-                      <p className={styles.home__products__list__item__description}>{product.description}</p>
+                  <div key={index} className={styles.products__list__item}>
+                    <div className={styles.products__list__item__content}>
+                      <ProductIconComponent className={styles.products__list__item__icon} />
+                      <h3 className={styles.products__list__item__title}>{product?.title}</h3>
+                      <p className={styles.products__list__item__description}>{product?.description}</p>
                       <Link href={productPathPage} as={`${process.env.appUrl}${productPathAs}`} passHref>
                         <a
                           target={productIsTargetBlank ? '_blank' : undefined}
-                          className={styles.home__products__list__item__link}
+                          className={styles.products__list__item__link}
                         >
-                          <IconMore className={styles.home__products__list__item__link__icon} />
-                          <span className={styles.home__products__list__item__link__text}>{product.button}</span>
+                          <IconMore className={styles.products__list__item__link__icon} />
+                          <span className={styles.products__list__item__link__text}>{product?.button}</span>
                         </a>
                       </Link>
                     </div>

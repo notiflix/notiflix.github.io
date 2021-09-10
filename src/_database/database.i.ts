@@ -13,17 +13,17 @@ interface IDatabaseHomeSlider {
 interface IDatabaseHomeGetItOn {
   title: string;
   clipboard: string;
-  yarn: {
+  yarn?: {
     title: string;
     script: string;
     url: string;
   };
-  npm: {
+  npm?: {
     title: string;
     script: string;
     url: string;
   };
-  github: {
+  github?: {
     title: string;
     script: string | null;
     url: string;
@@ -51,7 +51,7 @@ interface IDatabaseHomeProduct {
 
 interface IDatabaseHomeProducts {
   title: string;
-  products: IDatabaseHomeProduct[];
+  products?: IDatabaseHomeProduct[];
 }
 // Page Home: end
 

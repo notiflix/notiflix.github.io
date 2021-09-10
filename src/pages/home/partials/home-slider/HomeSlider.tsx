@@ -92,67 +92,67 @@ function HomeSlider(): JSX.Element {
   // Get GitHub and then NPM Data: end
 
   return (
-    <div className={styles.home__slider}>
-      <div className={styles.home__slider__container}>
-        <div className={styles.home__slider__media}>
+    <div className={styles.slider}>
+      <div className={styles.slider__container}>
+        <div className={styles.slider__media}>
           <LazyImage
             threshold={0.25}
-            className={styles.home__slider__media__image}
-            classNameLoaded={styles['home__slider__media__image--loaded']}
+            className={styles.slider__media__image}
+            classNameLoaded={styles['slider__media__image--loaded']}
             width="500"
             height="500"
             src={`${process.env.appUrl}${_dbHomeSlider?.image}`}
             alt={appName}
           />
         </div>
-        <div className={styles.home__slider__content}>
+        <div className={styles.slider__content}>
           <h1
-            className={styles.home__slider__content__title}
+            className={styles.slider__content__title}
             dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.title || '' }}
           ></h1>
           <p
-            className={styles.home__slider__content__description}
+            className={styles.slider__content__description}
             dangerouslySetInnerHTML={{ __html: _dbHomeSlider?.description || '' }}
           ></p>
-          <div className={styles.home__slider__content__download}>
-            <p className={styles.home__slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
+          <div className={styles.slider__content__download}>
+            <p className={styles.slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
             <a
               href={stateHomeSliderGitHub.isSuccess ? stateHomeSliderGitHub.downloadUrl : undefined}
               download={stateHomeSliderGitHub.isSuccess}
               className={[
-                `${styles.home__slider__content__download__link}`,
-                `${stateHomeSliderGitHub.isLoading ? (styles['home__slider__content__download__link--loading'] || '') : ''}`,
-                `${stateHomeSliderGitHub.isFailure ? (styles['home__slider__content__download__link--failure'] || '') : ''}`,
+                `${styles.slider__content__download__link}`,
+                `${stateHomeSliderGitHub.isLoading ? (styles['slider__content__download__link--loading'] || '') : ''}`,
+                `${stateHomeSliderGitHub.isFailure ? (styles['slider__content__download__link--failure'] || '') : ''}`,
               ].join(' ').trim()}
             >
               {stateHomeSliderGitHub.isLoading &&
                 <>
                   <IconLoading className={[
-                    `${styles.home__slider__content__download__link__icon}`,
-                    `${stateHomeSliderGitHub.isLoading ? (styles['home__slider__content__download__link__icon--loading'] || '') : ''}`,
+                    `${styles.slider__content__download__link__icon}`,
+                    `${stateHomeSliderGitHub.isLoading ? (styles['slider__content__download__link__icon--loading'] || '') : ''}`,
                   ].join(' ').trim()} />
-                  <span className={styles.home__slider__content__download__link__version}>{_dbHomeSlider?.loading}</span>
-                  <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
+                  <span className={styles.slider__content__download__link__version}>{_dbHomeSlider?.loading}</span>
+                  <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                 </>
               }
               {stateHomeSliderGitHub.isSuccess &&
                 <>
-                  <IconSuccess className={styles.home__slider__content__download__link__icon} />
-                  <span className={styles.home__slider__content__download__link__version}>{stateHomeSliderGitHub.version}</span>
+                  <IconSuccess className={styles.slider__content__download__link__icon} />
+                  <span className={styles.slider__content__download__link__version}>{stateHomeSliderGitHub.version}</span>
 
                   {stateHomeSliderNPM.isLoading &&
-                    <span className={styles.home__slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
+                    <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                   }
                   {stateHomeSliderNPM.isSuccess &&
-                    <span className={styles.home__slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), stateHomeSliderNPM.downloadCounts)}</span>
+                    <span className={styles.slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), stateHomeSliderNPM.downloadCounts)}</span>
                   }
                 </>
               }
               {stateHomeSliderGitHub.isFailure &&
                 <>
                   <IconFailure className={[
-                    `${styles.home__slider__content__download__link__icon}`,
-                    `${stateHomeSliderGitHub.isFailure ? (styles['home__slider__content__download__link__icon--failure'] || '') : ''}`,
+                    `${styles.slider__content__download__link__icon}`,
+                    `${stateHomeSliderGitHub.isFailure ? (styles['slider__content__download__link__icon--failure'] || '') : ''}`,
                   ].join(' ').trim()} />
                   <span>{stateHomeSliderGitHub.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
                 </>

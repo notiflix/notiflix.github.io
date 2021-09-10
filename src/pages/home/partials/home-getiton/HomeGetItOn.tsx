@@ -78,67 +78,67 @@ function HomeGetItOn(): JSX.Element {
   // Get GitHub Stats: end
 
   return (
-    <div className={styles.home__getiton}>
-      <h2 className={styles.home__getiton__title}>{_dbHomeGetItOn?.title}</h2>
-      <div className={styles.home__getiton__links}>
+    <div className={styles.getiton}>
+      <h2 className={styles.getiton__title}>{_dbHomeGetItOn?.title}</h2>
+      <div className={styles.getiton__links}>
         <a
-          aria-label={_dbHomeGetItOn?.yarn.title}
-          className={styles.home__getiton__link}
-          href={_dbHomeGetItOn?.yarn.url}
+          aria-label={_dbHomeGetItOn?.yarn?.title}
+          className={styles.getiton__link}
+          href={_dbHomeGetItOn?.yarn?.url}
           target="_blank"
           rel="noreferrer"
         >
           <span
-            className={styles.home__getiton__link__script}
+            className={styles.getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
           >
-            <span className={styles.home__getiton__link__script__copy}>
-              <IconCopy className={styles.home__getiton__link__script__copy__icon} />
+            <span className={styles.getiton__link__script__copy}>
+              <IconCopy className={styles.getiton__link__script__copy__icon} />
               <span>{constants.app.text.copy}</span>
             </span>
-            {_dbHomeGetItOn?.yarn.script}
+            {_dbHomeGetItOn?.yarn?.script}
           </span>
-          <LogoYarn className={styles.home__getiton__link__icon} />
+          <LogoYarn className={styles.getiton__link__icon} />
         </a>
         <a
-          aria-label={_dbHomeGetItOn?.npm.title}
-          className={styles.home__getiton__link}
-          href={_dbHomeGetItOn?.npm.url}
+          aria-label={_dbHomeGetItOn?.npm?.title}
+          className={styles.getiton__link}
+          href={_dbHomeGetItOn?.npm?.url}
           target="_blank"
           rel="noreferrer"
         >
           <span
-            className={styles.home__getiton__link__script}
+            className={styles.getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
           >
-            <span className={styles.home__getiton__link__script__copy}>
-              <IconCopy className={styles.home__getiton__link__script__copy__icon} />
+            <span className={styles.getiton__link__script__copy}>
+              <IconCopy className={styles.getiton__link__script__copy__icon} />
               <span>{constants.app.text.copy}</span>
             </span>
-            {_dbHomeGetItOn?.npm.script}
+            {_dbHomeGetItOn?.npm?.script}
           </span>
-          <LogoNPM className={styles.home__getiton__link__icon} />
+          <LogoNPM className={styles.getiton__link__icon} />
         </a>
         <a
-          aria-label={_dbHomeGetItOn?.github.title}
-          className={styles.home__getiton__link}
-          href={_dbHomeGetItOn?.github.url}
+          aria-label={_dbHomeGetItOn?.github?.title}
+          className={styles.getiton__link}
+          href={_dbHomeGetItOn?.github?.url}
           target="_blank"
           rel="noreferrer"
         >
-          <LogoGitHub className={styles.home__getiton__link__icon} />
+          <LogoGitHub className={styles.getiton__link__icon} />
           {!stateGetItOnGitHubStats.isFailure &&
             <span className={[
-              `${styles.home__getiton__link__stats}`,
-              stateGetItOnGitHubStats.isLoading ? `${styles['home__getiton__link__stats--loading']}` : '',
+              `${styles.getiton__link__stats}`,
+              stateGetItOnGitHubStats.isLoading ? `${styles['getiton__link__stats--loading']}` : '',
             ].join(' ').trim()}>
-              <span className={styles.home__getiton__link__stats__item}>
-                <IconStar className={styles.home__getiton__link__stats__item__icon} />
-                <span className={styles.home__getiton__link__stats__item__text}>{stateGetItOnGitHubStats.stargazersCount}</span>
+              <span className={styles.getiton__link__stats__item}>
+                <IconStar className={styles.getiton__link__stats__item__icon} />
+                <span className={styles.getiton__link__stats__item__text}>{stateGetItOnGitHubStats.stargazersCount}</span>
               </span>
-              <span className={styles.home__getiton__link__stats__item}>
-                <IconFork className={styles.home__getiton__link__stats__item__icon} />
-                <span className={styles.home__getiton__link__stats__item__text}>{stateGetItOnGitHubStats.forksCount}</span>
+              <span className={styles.getiton__link__stats__item}>
+                <IconFork className={styles.getiton__link__stats__item__icon} />
+                <span className={styles.getiton__link__stats__item__text}>{stateGetItOnGitHubStats.forksCount}</span>
               </span>
             </span>
           }
