@@ -10,7 +10,7 @@ function Schema(): JSX.Element {
     'name': process.env.appName,
     'url': process.env.appUrl,
     'logo': `${process.env.appUrl}${process.env.appOgImagePath}`,
-    'sameAs': _dbSocialMedia?.filter(x => x.isActive)?.map(x => x.url) || [],
+    'sameAs': _dbSocialMedia?.filter(x => x?.isActive)?.map(x => x?.url)?.map(x => x) || [],
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }} />;
