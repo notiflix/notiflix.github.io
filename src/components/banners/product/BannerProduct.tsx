@@ -14,7 +14,7 @@ interface IBannerProduct {
 }
 
 function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): JSX.Element {
-  const IconComponent = routes.find(route => route.id === routeId)?.IconComponent || IconFallback;
+  const IconComponent = routes.find(route => route?.id === routeId)?.IconComponent || IconFallback;
 
   return (
     <div className={[
