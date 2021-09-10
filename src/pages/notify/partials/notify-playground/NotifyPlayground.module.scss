@@ -340,23 +340,6 @@
               background: $color_theme_blue;
             }
 
-            &__button {
-              position: relative;
-              z-index: 2;
-              left: 0;
-              top: 0;
-              cursor: pointer;
-              width: 100%;
-              min-height: 3.5rem;
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
-              justify-content: flex-start;
-              padding: 0.5rem 0.5rem 0.5rem 3.75rem;
-              background: transparent;
-              border-radius: inherit;
-            }
-
             &__arrow {
               display: none;
 
@@ -371,6 +354,21 @@
                 transform: rotate(8deg);
                 color: $color_gray_300;
               }
+            }
+
+            &__button {
+              position: relative;
+              z-index: 2;
+              cursor: pointer;
+              width: 100%;
+              min-height: 3.5rem;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: flex-start;
+              padding: 0.5rem 0.5rem 0.5rem 3.75rem;
+              background: transparent;
+              border-radius: inherit;
             }
 
             &__icon {
