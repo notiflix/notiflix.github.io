@@ -124,9 +124,9 @@ const sitemapCreateUrlsFromPages = (): string => {
 
   // if Pages folders exist
   if (existsSync(pathPages)) {
-    routes?.filter(route => route.isActive && route.addToSitemap)?.map(route => {
+    routes?.filter(route => route?.isActive && route?.addToSitemap)?.map(route => {
       // page path
-      let pagePath = route.pathAs || '';
+      let pagePath = route?.pathAs || '';
 
       // if home page
       if (pagePath === '/') { pagePath = ''; }
@@ -135,11 +135,11 @@ const sitemapCreateUrlsFromPages = (): string => {
       const pageFullUrl = `${appUrl}${pagePath}`;
 
       // page last mod date
-      const pageLastModifiedDate = sitemapGetPagesLastModifiedDate(route.pathDBFile);
+      const pageLastModifiedDate = sitemapGetPagesLastModifiedDate(route?.pathDBFile);
 
       // page frequency and priority
-      const pageFrequency = route.sitemapFrequency;
-      const pagePriority = route.sitemapPriority;
+      const pageFrequency = route?.sitemapFrequency;
+      const pagePriority = route?.sitemapPriority;
 
       // create a sitemap url for this page
       sitemapPagesUrls += sitemapCreateUrl({
