@@ -86,8 +86,8 @@ interface IDatabaseNotifyMethods {
 interface IDatabaseNotifyPlayground {
   title: string;
   namespace: string;
-  comments: string[];
-  methods: IDatabaseNotifyMethods[];
+  comments?: string[];
+  methods?: IDatabaseNotifyMethods[];
   demoInfoTitle: string;
   demoInfoDescription: string;
   demoInputPlaceholder: string;
