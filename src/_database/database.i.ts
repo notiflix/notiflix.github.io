@@ -123,8 +123,8 @@ interface IDatabaseReportMethods {
 interface IDatabaseReportPlayground {
   title: string;
   namespace: string;
-  comments: string[];
-  methods: IDatabaseReportMethods[];
+  comments?: string[];
+  methods?: IDatabaseReportMethods[];
   demoInfoTitle: string;
   demoInfoDescription: string;
   demoInputPlaceholderTitle: string;
