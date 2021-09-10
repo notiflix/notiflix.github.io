@@ -65,7 +65,7 @@ class GitHub {
         throw new ErrorWithStatus('Not found.', 404);
       }
 
-      const latestRelease = data?.filter(x => !x.draft && !x.prerelease)?.sort((x, y) => y.id - x.id)?.find(x => x);
+      const latestRelease = data?.filter(x => !x?.draft && !x?.prerelease)?.sort((x, y) => y?.id - x?.id)?.find(x => x);
       if (!latestRelease) {
         throw new ErrorWithStatus('There is no release.', 404);
       }

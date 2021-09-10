@@ -48,7 +48,7 @@ class NPM {
         throw new Error('Not found.');
       }
 
-      const totalCounts = data?.downloads?.map(x => x.downloads)?.reduce((y, z) => y + z, 0) || 0;
+      const totalCounts = data?.downloads?.map(x => x?.downloads)?.reduce((y, z) => y + z, 0) || 0;
       return {
         downloadCounts: totalCounts,
       };
