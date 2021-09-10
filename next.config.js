@@ -25,7 +25,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const appUrl = isProd ? constants.app.url : '';
 const appName = constants.app.name;
 const appVersion = constants.app.version;
-const appOgImageSrc = constants.app.ogImageSrc;
+const appOgImagePath = constants.app.ogImagePath;
 // Constants: end
 
 // Next Config: begin
@@ -64,7 +64,7 @@ const nextConfig = {
     appUrl,
     appName,
     appVersion,
-    appOgImageSrc,
+    appOgImagePath,
   },
 
   // assets prefix
@@ -121,16 +121,10 @@ const nextConfig = {
   },
 
   // Build ID
-  generateBuildId: async () => {
-    if (process.env.BUILD_ID) {
-      return process.env.BUILD_ID;
-    } else {
-      return `BID-${new Date().getTime()}`;
-    }
-  },
+  generateBuildId: async () => process.env.BUILD_ID || `BID-${new Date().getTime()}`,
 
   // Webpack config
-  webpack: (config, { isServer, isDev }) => {
+  webpack: (config, { isServer }) => {
     // frontmatter markdown loader
     config.module.rules.push(
       {
@@ -145,21 +139,17 @@ const nextConfig = {
     }
 
     // eslint
-    if (isDev) {
-      config.plugins.push(new ForkTsCheckerWebpackPlugin({
-        eslint: {
-          files: './src/**/*.{ts,tsx,js,jsx}',
-          memoryLimit: 8192,
-        },
-      }));
-    }
+    config.plugins.push(new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+        memoryLimit: 8192,
+      },
+    }));
 
     // stylelint
-    if (isDev) {
-      config.plugins.push(new StylelintPlugin({
-        files: './src/**/*.scss',
-      }));
-    }
+    config.plugins.push(new StylelintPlugin({
+      files: './src/**/*.scss',
+    }));
 
     // return extended config
     return config;

@@ -9,7 +9,7 @@ function Schema(): JSX.Element {
     '@type': 'Organization',
     'name': process.env.appName,
     'url': process.env.appUrl,
-    'logo': `${process.env.appUrl}${process.env.appOgImageSrc}`,
+    'logo': `${process.env.appUrl}${process.env.appOgImagePath}`,
     'sameAs': _dbSocialMedia?.filter(x => x.isActive)?.map(x => x.url) || [],
   };
 

@@ -7,7 +7,7 @@ interface IConstants {
     url: string;
     version: string;
     name: string;
-    ogImageSrc: string;
+    ogImagePath: string;
     text: {
       module: string;
       global: string;
@@ -35,7 +35,7 @@ const constants: IConstants = {
     url: (JSON.stringify((packageJSON || {}).homepage) || '').replace(/"/gm, ''),
     version: (JSON.stringify((packageJSON || {}).version) || '').replace(/"/gm, ''),
     name: (JSON.stringify((packageJSON || {}).description) || '').replace(/"/gm, ''),
-    ogImageSrc: '/webapp/notiflix-og.jpg', // TODO:
+    ogImagePath: '/webapp/notiflix-og.jpg', // TODO:
     text: {
       module: 'Module',
       global: 'Global',

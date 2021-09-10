@@ -7,7 +7,7 @@ import { markdownParser } from '../markdown-parser';
 // Constants: begin
 const appUrl = constants.app.url;
 const appName = constants.app.name;
-const appOgImageSrc = `${appUrl}${constants.app.ogImageSrc}`;
+const appOgImageUrl = `${appUrl}${constants.app.ogImagePath}`;
 const urlSitemapStyle = `${appUrl}/sitemap.xsl`;
 const urlSitemap = `${appUrl}/sitemap.xml`;
 const pathSitemapOutput = 'public/sitemap.xml';
@@ -20,10 +20,8 @@ const pathPages = 'src/pages';
 const sitemapFormatDate = (date: string): string => {
   const d = new Date(date);
   const year = d.getFullYear();
-  let month = '' + (d.getMonth() + 1);
-  let day = '' + d.getDate();
-  if (month.length < 2) { month = '0' + month; }
-  if (day.length < 2) { day = '0' + day; }
+  const month = (d.getMonth() + 1 + '').padStart(2, '0');
+  const day = (d.getDate() + '').padStart(2, '0');
   return [year, month, day].join('-');
 };
 // Helper: Format Date as YYYY-MM-DD: end
@@ -94,7 +92,7 @@ interface ISitemapCreateUrl {
 
 const sitemapCreateUrl = ({ loc, lastMod, changefreq, priority, image, caption }: ISitemapCreateUrl): string => {
   // image src
-  let imageSrc = appOgImageSrc;
+  let imageSrc = appOgImageUrl;
   if (image) {
     imageSrc = image;
   }
