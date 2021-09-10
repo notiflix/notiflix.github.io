@@ -110,9 +110,9 @@ const nextConfig = {
       '/404': { page: '/404' },
     };
 
-    routes?.filter(route => route.isActive && route.addToNextJSConfig)?.map(route => {
+    routes?.filter(route => route?.isActive && route?.addToNextJSConfig)?.map(route => {
       const routePath = {
-        [route.pathAs]: { page: route.pathPage },
+        [route?.pathAs]: { page: route?.pathPage },
       };
       defaultPaths = { ...defaultPaths, ...routePath };
     });
