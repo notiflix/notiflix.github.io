@@ -280,6 +280,18 @@ strong {
     font-family: inherit;
     font-size: inherit;
 
+    @include media_up($breakpoint_mobile) {
+      min-width: 15rem;
+    }
+
+    @include media_up($breakpoint_minibook) {
+      min-width: initial;
+    }
+
+    @include media_up($breakpoint_laptop) {
+      min-width: 17rem;
+    }
+
     &::placeholder {
       color: rgba($color_code_string, 0.6);
     }

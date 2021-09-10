@@ -1,4 +1,4 @@
-import { INotifyOptions, IReportOptions } from 'notiflix';
+import { IConfirmOptions, INotifyOptions, IReportOptions } from 'notiflix';
 
 import * as packageJSON from '../../../package.json';
 
@@ -20,6 +20,7 @@ interface IConstants {
     libraryOptions: {
       notify: INotifyOptions;
       report: IReportOptions;
+      confirm: IConfirmOptions;
     };
   };
   api: {
@@ -50,6 +51,10 @@ const constants: IConstants = {
         plainText: false,
       },
       report: {
+        fontFamily: 'Red Hat Display',
+        plainText: false,
+      },
+      confirm: {
         fontFamily: 'Red Hat Display',
         plainText: false,
       },

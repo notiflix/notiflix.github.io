@@ -1,0 +1,110 @@
+@import "@styles/variables";
+
+.playground {
+  width: 100%;
+  min-height: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.2rem;
+  box-shadow: $box_shadow_30;
+  border-radius: 60%/2rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  @include backgroundGradientLightGray();
+
+  @include media_up($breakpoint_tablet) {
+    padding: 1.6rem;
+    border-radius: 40%/4rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  &__head {
+    position: relative;
+    width: 100%;
+    min-height: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7rem 0 0;
+    margin: 0 0 2rem;
+
+    &__title {
+      position: relative;
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 0.2rem 0.2rem 0.2rem 1rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0.2rem;
+        height: 100%;
+        background: $color_gray_200;
+        border-radius: 1rem;
+      }
+    }
+
+    &__switch {
+      transition: $transition_background;
+      position: absolute;
+      right: 0;
+      width: 6.4rem;
+      height: 2.5rem;
+      color: $color_white;
+      background: $color_gray_300;
+      border-radius: 2.5rem;
+
+      &--module {
+        background: $color_theme_green;
+      }
+
+      &__text {
+        transition: $transition_left;
+        position: absolute;
+        width: 4rem;
+        height: 1.8rem;
+        left: 0.4rem;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 0 0.6rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border-radius: 2.5rem;
+        background: rgba($color_black, 0.2);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      &--module &__text {
+        left: 2rem;
+      }
+    }
+  }
+
+  &__items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @include media_up($breakpoint_minibook) {
+      padding: 0 0 2rem;
+    }
+  }
+}

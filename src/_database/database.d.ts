@@ -60,7 +60,7 @@ declare module '@database/pages/confirm.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbConfirmBanner?: import('./database.i').IDatabaseBannerProducts,
-    // _dbConfirmPlayground?: import('./database.i').IDatabaseConfirmPlayground,
+    _dbConfirmPlayground?: import('./database.i').IDatabaseConfirmPlayground,
   };
   const html: string;
   export { attributes, html };

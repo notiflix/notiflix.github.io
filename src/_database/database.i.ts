@@ -73,12 +73,13 @@ interface IDatabaseBannerProducts {
 // Page Notify: begin
 type TDatabaseNotifyFunctionNames = 'success' | 'failure' | 'warning' | 'info';
 
-interface IDatabaseNotifyTypes {
+interface IDatabaseNotifyMethods {
   id: string;
   sortOrder: number;
   isActive: boolean;
   functionName: TDatabaseNotifyFunctionNames;
   defaultValue: string;
+  docsLinkText: string;
   docsLinkRouteHash: string;
 }
 
@@ -86,7 +87,7 @@ interface IDatabaseNotifyPlayground {
   title: string;
   namespace: string;
   comments: string[];
-  docsLinkText: string;
+  methods: IDatabaseNotifyMethods[];
   demoInfoTitle: string;
   demoInfoDescription: string;
   demoInputPlaceholder: string;
@@ -101,14 +102,13 @@ interface IDatabaseNotifyPlayground {
   extendInfoTitle: string;
   extendInfoDescription: string;
   extendExampleMessage: string;
-  types: IDatabaseNotifyTypes[];
 }
 // Page Notify: end
 
 // Page Report: begin
 type TDatabaseReportFunctionNames = 'success' | 'failure' | 'warning' | 'info';
 
-interface IDatabaseReportTypes {
+interface IDatabaseReportMethods {
   id: string;
   sortOrder: number;
   isActive: boolean;
@@ -116,6 +116,7 @@ interface IDatabaseReportTypes {
   defaultValueTitle: string;
   defaultValueMessage: string;
   defaultValueButton: string;
+  docsLinkText: string;
   docsLinkRouteHash: string;
 }
 
@@ -123,7 +124,7 @@ interface IDatabaseReportPlayground {
   title: string;
   namespace: string;
   comments: string[];
-  docsLinkText: string;
+  methods: IDatabaseReportMethods[];
   demoInfoTitle: string;
   demoInfoDescription: string;
   demoInputPlaceholderTitle: string;
@@ -144,10 +145,56 @@ interface IDatabaseReportPlayground {
   extendExampleTitle: string;
   extendExampleMessage: string;
   extendExampleButton: string;
-  types: IDatabaseReportTypes[];
 }
 // Page Report: end
 
+// Page Confirm: begin
+type TDatabaseConfirmFunctionNames = 'show' | 'ask';
+
+interface IDatabaseConfirmMethodsBase {
+  id: string;
+  infoDescription: string;
+  infoDocsLinkText: string;
+  infoDocsLinkRouteHash: string;
+  comments?: string[];
+  defaultValueTitle: string;
+  defaultValueQuestion: string;
+  defaultValueButtonOk: string;
+  defaultValueButtonOkCallbackFn: string;
+  defaultValueButtonOkCallbackTxt: string;
+  defaultValueButtonCancel: string;
+  defaultValueButtonCancelCallbackFn: string;
+  defaultValueButtonCancelCallbackTxt: string;
+  defaultValueOptionsComment: string;
+  demoInfoTitle: string;
+  demoInputPlaceholderTitle: string;
+  demoInputPlaceholderQuestion: string;
+  demoInputPlaceholderOkButton: string;
+  demoInputPlaceholderCancelButton: string;
+  demoInputPlaceholderOkButtonCallback: string;
+  demoInputPlaceholderCancelButtonCallback: string;
+  demoButtonText: string;
+}
+
+interface IDatabaseConfirmMethodsShow extends IDatabaseConfirmMethodsBase {
+  functionName: 'show';
+}
+
+interface IDatabaseConfirmMethodsAsk extends IDatabaseConfirmMethodsBase {
+  functionName: 'ask';
+  defaultValueAnswer: string;
+  demoInputPlaceholderAnswer: string;
+}
+
+interface IDatabaseConfirmPlayground {
+  title: string;
+  namespace: string;
+  methods?: {
+    show?: IDatabaseConfirmMethodsShow;
+    ask?: IDatabaseConfirmMethodsAsk;
+  };
+}
+// Page Confirm: end
 
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
@@ -194,6 +241,10 @@ export type {
   IDatabaseNotifyPlayground,
   TDatabaseReportFunctionNames,
   IDatabaseReportPlayground,
+  TDatabaseConfirmFunctionNames,
+  IDatabaseConfirmMethodsShow,
+  IDatabaseConfirmMethodsAsk,
+  IDatabaseConfirmPlayground,
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
