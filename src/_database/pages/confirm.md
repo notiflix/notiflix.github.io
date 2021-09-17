@@ -58,7 +58,7 @@ _dbConfirmPlayground:
     ask:
       id: ASK
       functionName: ask
-      infoDescription: The title, the message/question, the answer to the question, the OK button text, and the Cancel button text are the first fifth parameters in string format. The sixth and the seventh parameters are callback functions that are related to the OK and the Cancel button elements in order. The eighth and last parameter is the options parameter that extending the initialize options with the new options for each confirm box. Whether these parameters are Required or Optional is explained in the comments below.
+      infoDescription: The title, the question, the answer to the question, the OK button text, and the Cancel button text are the first fifth parameters in string format. The sixth and the seventh parameters are callback functions that are related to the OK and the Cancel button elements in order. The eighth and last parameter is the options parameter that extending the initialize options with the new options for each confirm box. Whether these parameters are Required or Optional is explained in the comments below.
       infoDocsLinkText: All Options
       infoDocsLinkRouteHash: "#DocsConfirm"
       comments:
