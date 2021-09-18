@@ -151,7 +151,7 @@ interface IDatabaseReportPlayground {
 // Page Confirm: begin
 type TDatabaseConfirmFunctionNames = 'show' | 'ask';
 
-interface IDatabaseConfirmMethodsBase {
+interface IDatabaseConfirmMethods {
   id: string;
   infoDescription: string;
   infoDocsLinkText: string;
@@ -176,11 +176,11 @@ interface IDatabaseConfirmMethodsBase {
   demoButtonText: string;
 }
 
-interface IDatabaseConfirmMethodsShow extends IDatabaseConfirmMethodsBase {
+interface IDatabaseConfirmMethodShow extends IDatabaseConfirmMethods {
   functionName: 'show';
 }
 
-interface IDatabaseConfirmMethodsAsk extends IDatabaseConfirmMethodsBase {
+interface IDatabaseConfirmMethodAsk extends IDatabaseConfirmMethods {
   functionName: 'ask';
   defaultValueAnswer: string;
   demoInputPlaceholderAnswer: string;
@@ -190,11 +190,74 @@ interface IDatabaseConfirmPlayground {
   title: string;
   namespace: string;
   methods?: {
-    show?: IDatabaseConfirmMethodsShow;
-    ask?: IDatabaseConfirmMethodsAsk;
+    show?: IDatabaseConfirmMethodShow;
+    ask?: IDatabaseConfirmMethodAsk;
   };
 }
 // Page Confirm: end
+
+// Page Loading: begin
+type TDatabaseLoadingIndicatorsFunctionNames = 'standard' | 'hourglass' | 'circle' | 'arrows' | 'dots' | 'pulse';
+
+interface IDatabaseLoadingMethods {
+  id: string;
+  isActive: boolean;
+}
+
+interface IDatabaseLoadingMethodsIndicators extends IDatabaseLoadingMethods {
+  sortOrder: number;
+  functionName: TDatabaseLoadingIndicatorsFunctionNames;
+}
+
+interface IDatabaseLoadingMethodCustom extends IDatabaseLoadingMethods {
+  functionName: 'custom';
+}
+
+interface IDatabaseLoadingMethodChange extends IDatabaseLoadingMethods {
+  functionName: 'change';
+}
+
+interface IDatabaseLoadingMethodRemove extends IDatabaseLoadingMethods {
+  functionName: 'remove';
+}
+
+interface IDatabaseLoadingPlayground {
+  title: string;
+  namespace: string;
+  infoDocsLinkText: string;
+  infoDocsLinkRouteHash: string;
+  commentsIndicators?: string[];
+  commentIndicatorOnly: string;
+  commentIndicatorWithMessage: string;
+  commentIndicatorWithNewOptions: string;
+  commentIndicatorWithMessageAndNewOptions: string;
+  commentIndicatorCustom: string;
+  commentIndicatorCustomWithMessage: string;
+  commentsChange?: string[];
+  commentsRemove?: string[];
+  commentRemoveImmediately: string;
+  commentRemoveWithDelay: string;
+  methodsDefaultMessage: string;
+  methodsIndicatorsTitle: string;
+  methodsIndicatorsDescription: string;
+  methodsIndicators?: IDatabaseLoadingMethodsIndicators[];
+  methodCustomTitle: string;
+  methodCustomDescription: string;
+  methodCustomSvgUrl: string;
+  methodCustom?: IDatabaseLoadingMethodCustom;
+  methodChangeTitle: string;
+  methodChangeDescription: string;
+  methodChangeMessage: string;
+  methodChange?: IDatabaseLoadingMethodChange;
+  methodRemoveTitle: string;
+  methodRemoveDescription: string;
+  methodRemoveDuration: number;
+  methodRemove?: IDatabaseLoadingMethodRemove;
+  demoTitle: string;
+  demoDescription: string;
+  demoInputPlaceholder: string;
+}
+// Page Loading: end
 
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
@@ -242,9 +305,11 @@ export type {
   TDatabaseReportFunctionNames,
   IDatabaseReportPlayground,
   TDatabaseConfirmFunctionNames,
-  IDatabaseConfirmMethodsShow,
-  IDatabaseConfirmMethodsAsk,
+  IDatabaseConfirmMethodShow,
+  IDatabaseConfirmMethodAsk,
   IDatabaseConfirmPlayground,
+  TDatabaseLoadingIndicatorsFunctionNames,
+  IDatabaseLoadingPlayground,
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,

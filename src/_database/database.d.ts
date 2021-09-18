@@ -72,7 +72,7 @@ declare module '@database/pages/loading.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbLoadingBanner?: import('./database.i').IDatabaseBannerProducts,
-    // _dbLoadingPlayground?: import('./database.i').IDatabaseLoadingPlayground,
+    _dbLoadingPlayground?: import('./database.i').IDatabaseLoadingPlayground,
   };
   const html: string;
   export { attributes, html };

@@ -3,7 +3,7 @@ import { attributes as _loading } from '@database/pages/loading.md';
 import Layout from '@components/layout/Layout';
 import BannerProduct from '@components/banners/product/BannerProduct';
 
-// import LoadingPlayground from '@pages/loading/partials/loading-playground/LoadingPlayground';
+import LoadingPlayground from '@pages/loading/partials/loading-playground/LoadingPlayground';
 
 import styles from '@pages/loading/index.module.scss';
 
@@ -19,7 +19,7 @@ function Loading(): JSX.Element {
       />
       <div className={styles.loading}>
         <div className={styles.loading__container}>
-          {'TODO: <LoadingPlayground />'}
+          <LoadingPlayground />
         </div>
       </div>
     </Layout>
