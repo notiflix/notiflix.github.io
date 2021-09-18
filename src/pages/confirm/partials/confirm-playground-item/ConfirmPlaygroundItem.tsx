@@ -271,7 +271,7 @@ function ConfirmPlaygroundItem({
               {
                 (isMethodAsk && 'demoInputPlaceholderAnswer' in data) &&
                 <div className={styles.item__usage__preview__item__answer}>
-                  <input type="text" className={styles.item__usage__preview__item__answer__input} readOnly placeholder={data?.demoInputPlaceholderAnswer} />
+                  <input type="text" maxLength={110} className={styles.item__usage__preview__item__answer__input} readOnly placeholder={data?.demoInputPlaceholderAnswer} />
                 </div>
               }
               <div className={styles.item__usage__preview__item__buttons}>
@@ -313,6 +313,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderTitle}
                     defaultValue={data?.defaultValueTitle}
                     type="text"
+                    maxLength={34}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>
@@ -327,6 +328,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderQuestion}
                     defaultValue={data?.defaultValueQuestion}
                     type="text"
+                    maxLength={110}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>
@@ -343,6 +345,7 @@ function ConfirmPlaygroundItem({
                       placeholder={data?.demoInputPlaceholderAnswer}
                       defaultValue={data?.defaultValueAnswer}
                       type="text"
+                      maxLength={110}
                     />
                   </span>
                   <span className="code__string">{`'`}</span>
@@ -358,6 +361,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderOkButton}
                     defaultValue={data?.defaultValueButtonOk}
                     type="text"
+                    maxLength={34}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>
@@ -372,6 +376,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderCancelButton}
                     defaultValue={data?.defaultValueButtonCancel}
                     type="text"
+                    maxLength={34}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>
@@ -406,6 +411,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderOkButtonCallback}
                     defaultValue={data?.defaultValueButtonOkCallbackTxt}
                     type="text"
+                    maxLength={110}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>
@@ -443,6 +449,7 @@ function ConfirmPlaygroundItem({
                     placeholder={data?.demoInputPlaceholderCancelButtonCallback}
                     defaultValue={data?.defaultValueButtonCancelCallbackTxt}
                     type="text"
+                    maxLength={110}
                   />
                 </span>
                 <span className="code__string">{`'`}</span>

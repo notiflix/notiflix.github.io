@@ -25,6 +25,7 @@ function ConfirmPlayground(): JSX.Element {
         <h2 className={styles.playground__head__title}>{_dbConfirmPlayground?.title}</h2>
         <button
           aria-label={constants.app.text.switch}
+          type="button"
           onClick={() => switchAsAModuleOnClickHandler(!stateConfirmIsModule)}
           className={[
             `${styles.playground__head__switch}`,
