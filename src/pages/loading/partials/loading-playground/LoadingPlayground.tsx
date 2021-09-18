@@ -53,6 +53,7 @@ function LoadingPlayground(): JSX.Element {
         <h2 className={styles.playground__head__title}>{_dbLoadingPlayground?.title}</h2>
         <button
           aria-label={constants.app.text.switch}
+          type="button"
           onClick={() => switchAsAModuleOnClickHandler(!stateLoadingIsModule)}
           className={[
             `${styles.playground__head__switch}`,
