@@ -291,6 +291,7 @@ function NotifyPlayground(): JSX.Element {
                         className="code__input"
                         placeholder={_dbNotifyPlayground?.callbackInputPlaceholder}
                         type="text"
+                        maxLength={110}
                       />
                     </span>
                     <span className="code__string">{`'`}</span>
