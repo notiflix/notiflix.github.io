@@ -33,7 +33,7 @@ function ReportPlayground(): JSX.Element {
   // Switch As Module: end
 
   // Demo Call NotiflixReport Function by Method: begin
-  const callReportFunctionByMethodOnClickHandler = (
+  const callNotiflixReportFunctionByMethod = (
     functionName: TDatabaseReportFunctionNames,
     title: string,
     message: string,
@@ -59,7 +59,7 @@ function ReportPlayground(): JSX.Element {
     } else if (!thisButton) {
       refsDemoInputsButton.current[targetIndex]?.focus();
     } else {
-      callReportFunctionByMethodOnClickHandler(functionName, thisTitle, thisMessage, thisButton);
+      callNotiflixReportFunctionByMethod(functionName, thisTitle, thisMessage, thisButton);
     }
   };
   // Demo Buttons Handler: end
@@ -69,7 +69,7 @@ function ReportPlayground(): JSX.Element {
   const callbackButtonOnClickHandler = (): void => {
     const alertMessage = refCallbackInput.current?.value || '';
     if (functionName && alertMessage) {
-      callReportFunctionByMethodOnClickHandler(
+      callNotiflixReportFunctionByMethod(
         functionName,
         (_dbReportPlayground?.callbackExampleTitle || ''),
         (_dbReportPlayground?.callbackExampleMessage || ''),
@@ -220,7 +220,7 @@ function ReportPlayground(): JSX.Element {
                           <button
                             aria-label={method?.defaultValueButton}
                             type="button"
-                            onClick={() => callReportFunctionByMethodOnClickHandler(
+                            onClick={() => callNotiflixReportFunctionByMethod(
                               method?.functionName,
                               method?.defaultValueTitle,
                               method?.defaultValueMessage,
