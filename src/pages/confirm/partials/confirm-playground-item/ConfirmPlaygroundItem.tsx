@@ -5,7 +5,7 @@ import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';
 
-import { IDatabaseConfirmMethodsShow, IDatabaseConfirmMethodsAsk } from '@database/database.i';
+import { IDatabaseConfirmMethodShow, IDatabaseConfirmMethodAsk } from '@database/database.i';
 
 import { constants } from '@application/constants';
 import { routes } from '@application/routes';
@@ -15,7 +15,7 @@ import { EConfirm } from '@application/enumerations/confirm';
 interface IConfirmPlaygroundItem {
   isModule: boolean;
   namespace: string;
-  data: IDatabaseConfirmMethodsShow | IDatabaseConfirmMethodsAsk;
+  data: IDatabaseConfirmMethodShow | IDatabaseConfirmMethodAsk;
 }
 
 import styles from '@pages/confirm/partials/confirm-playground-item/ConfirmPlaygroundItem.module.scss';
