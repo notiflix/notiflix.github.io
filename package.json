@@ -10,7 +10,7 @@
     "startup:run": "node .dev/src/application/helpers/sitemap-generator/index.js",
     "startup": "yarn startup:lint && yarn startup:compile && yarn startup:run",
     "lint:stylelint": "stylelint \"src/**/*.{scss,sass}\" --config .stylelintrc.json",
-    "lint:eslint": "eslint next.config.js && next lint",
+    "lint:eslint": "eslint next.config.js && eslint src && next lint",
     "lint": "yarn lint:stylelint && yarn lint:eslint",
     "dev": "yarn startup && yarn lint && next dev",
     "build": "yarn startup && yarn lint && next build",
