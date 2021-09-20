@@ -30,7 +30,7 @@ function HomeGetItOn(): JSX.Element {
   const copyTextToTheClipboardOnClickHandler = (event: React.MouseEvent<HTMLSpanElement>): void => {
     if (event.target instanceof HTMLSpanElement) {
       event.preventDefault();
-      const code = event.target.innerText;
+      const code = event.target.dataset.text || '';
       window.navigator.clipboard.writeText(code);
       NotiflixNotify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.libraryOptions.notify);
     }
@@ -91,6 +91,7 @@ function HomeGetItOn(): JSX.Element {
           <span
             className={styles.getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
+            data-text={_dbHomeGetItOn?.yarn?.script}
           >
             <span className={styles.getiton__link__script__copy}>
               <IconCopy className={styles.getiton__link__script__copy__icon} />
@@ -110,6 +111,7 @@ function HomeGetItOn(): JSX.Element {
           <span
             className={styles.getiton__link__script}
             onClick={copyTextToTheClipboardOnClickHandler}
+            data-text={_dbHomeGetItOn?.npm?.script}
           >
             <span className={styles.getiton__link__script__copy}>
               <IconCopy className={styles.getiton__link__script__copy__icon} />
