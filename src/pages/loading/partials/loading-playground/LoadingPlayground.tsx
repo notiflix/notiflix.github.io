@@ -108,15 +108,17 @@ function LoadingPlayground(): JSX.Element {
                   <span className="code__lvl1 code__lvl--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorOnly}</span>
                   </span>
-                  {_dbLoadingPlayground?.methodsIndicators?.map((indicator, index) => (
-                    <span key={index} className="code__lvl1 code__lvl--py0">
-                      {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
-                      <span className="code__namespace">{namespaceModule}</span>
-                      <span>{`.`}</span>
-                      <span className="code__method">{indicator?.functionName}</span>
-                      <span>{`();`}</span>
-                    </span>
-                  ))}
+                  {
+                    _dbLoadingPlayground?.methodsIndicators?.map((indicator, index) => (
+                      <span key={index} className="code__lvl1 code__lvl--py0">
+                        {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                        <span className="code__namespace">{namespaceModule}</span>
+                        <span>{`.`}</span>
+                        <span className="code__method">{indicator?.functionName}</span>
+                        <span>{`();`}</span>
+                      </span>
+                    ))
+                  }
 
                   <span className="code__lvl1 code__lvl--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorWithMessage}</span>
