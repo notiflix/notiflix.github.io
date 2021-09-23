@@ -1,4 +1,4 @@
-import { IConfirmOptions, ILoadingOptions, INotifyOptions, IReportOptions } from 'notiflix';
+import { IBlockOptions, IConfirmOptions, ILoadingOptions, INotifyOptions, IReportOptions } from 'notiflix';
 
 import * as packageJSON from '../../../package.json';
 
@@ -22,6 +22,7 @@ interface IConstants {
       report: IReportOptions;
       confirm: IConfirmOptions;
       loading: ILoadingOptions;
+      block: IBlockOptions;
     };
   };
   api: {
@@ -62,6 +63,9 @@ const constants: IConstants = {
       loading: {
         fontFamily: 'Red Hat Display',
         clickToClose: true,
+      },
+      block: {
+        fontFamily: 'Red Hat Display',
       },
     },
   },

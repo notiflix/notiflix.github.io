@@ -84,7 +84,7 @@ declare module '@database/pages/block.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
     _dbBlockBanner?: import('./database.i').IDatabaseBannerProducts,
-    // _dbBlockPlayground?: import('./database.i').IDatabaseBlockPlayground,
+    _dbBlockPlayground?: import('./database.i').IDatabaseBlockPlayground,
   };
   const html: string;
   export { attributes, html };

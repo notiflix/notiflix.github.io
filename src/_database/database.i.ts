@@ -259,6 +259,55 @@ interface IDatabaseLoadingPlayground {
 }
 // Page Loading: end
 
+// Page Block: begin
+type TDatabaseBlockIndicatorsFunctionNames = 'standard' | 'hourglass' | 'circle' | 'arrows' | 'dots' | 'pulse';
+
+interface IDatabaseBlockMethods {
+  id: string;
+  isActive: boolean;
+}
+
+interface IDatabaseBlockMethodsIndicators extends IDatabaseBlockMethods {
+  sortOrder: number;
+  functionName: TDatabaseBlockIndicatorsFunctionNames;
+}
+
+interface IDatabaseBlockMethodRemove extends IDatabaseBlockMethods {
+  functionName: 'remove';
+}
+
+interface IDatabaseBlockPlayground {
+  title: string;
+  namespace: string;
+  infoDocsLinkText: string;
+  infoDocsLinkRouteHash: string;
+  commentsBlock?: string[];
+  commentBlockOnly: string;
+  commentBlockWithMessage: string;
+  commentBlockWithNewOptions: string;
+  commentBlockWithMessageAndNewOptions: string;
+  commentsUnblock?: string[];
+  commentUnblockImmediately: string;
+  commentUnblockWithDelay: string;
+  methodsDefaultSelector: string;
+  methodsDefaultMessage: string;
+  methodsBlockTitle: string;
+  methodsBlockDescription: string;
+  methodsBlockIndicators: IDatabaseBlockMethodsIndicators[];
+  methodUnblockTitle: string;
+  methodUnblockDescription: string;
+  methodUnblockDuration: number;
+  methodUnblock?: IDatabaseBlockMethodRemove;
+  demoTitle: string;
+  demoDescription: string;
+  demoInputPlaceholder: string;
+  demoElementTitle: string;
+  demoElementDescription: string;
+  demoElementImage: string;
+  demoButtonUnblock: string;
+}
+// Page Block: end
+
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
   routeId: string;
@@ -310,6 +359,8 @@ export type {
   IDatabaseConfirmPlayground,
   TDatabaseLoadingIndicatorsFunctionNames,
   IDatabaseLoadingPlayground,
+  TDatabaseBlockIndicatorsFunctionNames,
+  IDatabaseBlockPlayground,
   IDatabaseHomeSlider,
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
