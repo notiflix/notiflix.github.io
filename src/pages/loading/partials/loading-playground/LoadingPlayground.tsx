@@ -414,7 +414,7 @@ function LoadingPlayground(): JSX.Element {
 
           </div>
         </div>
-        {/* Change: end */}
+        {/* Demo: end */}
 
       </div>
 
