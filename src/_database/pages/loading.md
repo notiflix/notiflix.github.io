@@ -35,7 +35,7 @@ _dbLoadingPlayground:
   commentIndicatorCustom: Only custom loading indicator
   commentIndicatorCustomWithMessage: Custom loading indicator with a message
   commentsChange:
-    - "@param1 {string}: Required, new message in string format.."
+    - "@param1 {string}: Required, new message in string format."
   commentsRemove:
     - "@param1 {number}: Optional, milliseconds for delaying in number format."
   commentRemoveImmediately: Remove immediately
