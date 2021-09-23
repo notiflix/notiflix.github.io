@@ -119,7 +119,7 @@ function NotifyPlayground(): JSX.Element {
                           ].filter(x => x).join('.')
                         }
                       </h3>
-                      <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${method?.docsLinkRouteHash}`} passHref>
+                      <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${method?.docsLinkRouteHash}`} passHref prefetch={false}>
                         <a className={styles.playground__item__head__link}>
                           <IconDocs className={styles.playground__item__head__link__icon} />
                           <span>{method?.docsLinkText}</span>
@@ -328,7 +328,7 @@ function NotifyPlayground(): JSX.Element {
             <div className={styles.playground__item__head}>
               <h3 className={styles.playground__item__head__title}>{_dbNotifyPlayground?.extendInfoTitle}</h3>
               <p className={styles.playground__item__head__description}>{_dbNotifyPlayground?.extendInfoDescription}</p>
-              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbNotifyPlayground?.extendDocsLinkRouteHash}`} passHref>
+              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbNotifyPlayground?.extendDocsLinkRouteHash}`} passHref prefetch={false}>
                 <a className={styles.playground__item__head__link}>
                   <IconDocs className={styles.playground__item__head__link__icon} />
                   <span>{_dbNotifyPlayground?.extendDocsLinkText}</span>

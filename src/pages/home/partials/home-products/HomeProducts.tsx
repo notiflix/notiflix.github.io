@@ -31,7 +31,7 @@ function HomeProducts(): JSX.Element {
                       <ProductIconComponent className={styles.products__list__item__icon} />
                       <h3 className={styles.products__list__item__title}>{product?.title}</h3>
                       <p className={styles.products__list__item__description}>{product?.description}</p>
-                      <Link href={productPathPage} as={`${process.env.appUrl}${productPathAs}`} passHref>
+                      <Link href={productPathPage} as={`${process.env.appUrl}${productPathAs}`} passHref prefetch={false}>
                         <a
                           target={productIsTargetBlank ? '_blank' : undefined}
                           className={styles.products__list__item__link}

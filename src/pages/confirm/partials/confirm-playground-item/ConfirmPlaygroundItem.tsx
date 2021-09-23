@@ -123,7 +123,7 @@ function ConfirmPlaygroundItem({
             }
           </h3>
           <p className={styles.item__head__description}>{data?.infoDescription}</p>
-          <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${data?.infoDocsLinkRouteHash}`} passHref>
+          <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${data?.infoDocsLinkRouteHash}`} passHref prefetch={false}>
             <a className={styles.item__head__link}>
               <IconDocs className={styles.item__head__link__icon} />
               <span>{data?.infoDocsLinkText}</span>

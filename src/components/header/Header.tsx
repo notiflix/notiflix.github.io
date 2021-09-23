@@ -51,7 +51,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
       <div className={styles.header__container}>
 
         <div className={styles.header__logo}>
-          <Link href={logoPathPage} as={`${process.env.appUrl}${logoPathAs}`} passHref>
+          <Link href={logoPathPage} as={`${process.env.appUrl}${logoPathAs}`} passHref prefetch={false}>
             <a
               aria-label={constants.app.name}
               onClick={() => mobileMenuOnClickHandler(false)}

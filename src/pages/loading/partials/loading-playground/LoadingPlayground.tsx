@@ -78,7 +78,7 @@ function LoadingPlayground(): JSX.Element {
             <div className={styles.playground__item__head}>
               <h3 className={styles.playground__item__head__title}>{_dbLoadingPlayground?.methodsIndicatorsTitle}</h3>
               <p className={styles.playground__item__head__description}>{_dbLoadingPlayground?.methodsIndicatorsDescription}</p>
-              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbLoadingPlayground?.infoDocsLinkRouteHash}`} passHref>
+              <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${_dbLoadingPlayground?.infoDocsLinkRouteHash}`} passHref prefetch={false}>
                 <a className={styles.playground__item__head__link}>
                   <IconDocs className={styles.playground__item__head__link__icon} />
                   <span>{_dbLoadingPlayground?.infoDocsLinkText}</span>

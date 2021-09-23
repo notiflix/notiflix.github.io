@@ -16,7 +16,7 @@ function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
         {routes?.filter(route => route?.isActive && route?.showInHeaderMenu)?.sort((x, y) => x?.sortOrder - y?.sortOrder)?.map(route => {
           return (
             <li key={route?.id} className={styles.nav__ul__li}>
-              <Link href={route?.pathPage} as={`${process.env.appUrl}${route?.pathAs}`} passHref>
+              <Link href={route?.pathPage} as={`${process.env.appUrl}${route?.pathAs}`} passHref prefetch={route?.prefetch}>
                 <a
                   aria-label={`${constants.app.name} ${route?.name} ${constants.app.text.module}`}
                   onClick={() => mobileMenuOnClickHandler(false)}

@@ -27,6 +27,7 @@ interface IRoutes {
   showInHeaderMenu: boolean;
   showInFooterMenu: boolean;
   isTargetBlank: boolean;
+  prefetch: boolean;
   name: string;
   pathPage: string;
   pathAs: string;
@@ -48,6 +49,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: false,
     showInFooterMenu: false,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Home',
     pathPage: '/home',
     pathAs: '/',
@@ -69,6 +71,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Notify',
     pathPage: '/notify',
     pathAs: '/notify',
@@ -90,6 +93,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Report',
     pathPage: '/report',
     pathAs: '/report',
@@ -111,6 +115,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Confirm',
     pathPage: '/confirm',
     pathAs: '/confirm',
@@ -132,6 +137,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Loading',
     pathPage: '/loading',
     pathAs: '/loading',
@@ -153,6 +159,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Block',
     pathPage: '/block',
     pathAs: '/block',
@@ -174,6 +181,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Download',
     pathPage: '/download',
     pathAs: '/download',
@@ -195,6 +203,7 @@ const routes: IRoutes[] = [
     showInHeaderMenu: true,
     showInFooterMenu: true,
     isTargetBlank: false,
+    prefetch: false,
     name: 'Documentation',
     pathPage: '/documentation',
     pathAs: '/documentation',
