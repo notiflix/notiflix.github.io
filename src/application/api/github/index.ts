@@ -153,7 +153,7 @@ class GitHub {
     try {
       const _headers = this.headers;
 
-      await addSomeDelayAsync(360);
+      await addSomeDelayAsync(720);
 
       const response = await fetch(constants.api.urlGitHubReleases, {
         method: 'get',
@@ -190,7 +190,7 @@ class GitHub {
           downloadUrl: release?.zipball_url,
         };
 
-        return mappedRelease || [];
+        return mappedRelease;
       });
 
       return mappedAllReleases;
