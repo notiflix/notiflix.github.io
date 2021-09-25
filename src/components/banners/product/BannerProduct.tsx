@@ -30,7 +30,7 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
           <div className={styles.bannerproduct__content__code}>
             <h2 className={styles.bannerproduct__content__subtitle}>{content?.importDescription}</h2>
             <code className="code code--large">
-              <span className="code__lvl1">
+              <span className="code__indent1">
                 <span className="code__import">{`import `}</span>
                 <span>{`{`}</span>
                 <span className="code__attr">{` ${content?.importNamespace} `}</span>
@@ -42,10 +42,10 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
             </code>
             <h2 className={styles.bannerproduct__content__subtitle}>{content?.htmlDescription}</h2>
             <code className="code code--medium code--html">
-              <span className="code__lvl1 code__lvl--pb0">
+              <span className="code__indent1 code__indent--pb0">
                 <span className="code__comment code__comment--html">{`${content?.htmlOneByOne}`}</span>
               </span>
-              <span className="code__lvl1 code__lvl--py0">
+              <span className="code__indent1 code__indent--py0">
                 <span>{`<`}</span>
                 <span className="code__const">{`link`}</span>
                 <span className="code__attr">{` rel`}</span>
@@ -56,7 +56,7 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
                 <span className="code__string">{`"${content?.htmlOneByOneCSS}"`}</span>
                 <span>{` />`}</span>
               </span>
-              <span className="code__lvl1 code__lvl--pt0">
+              <span className="code__indent1 code__indent--pt0">
                 <span>{`<`}</span>
                 <span className="code__const">{`script`}</span>
                 <span className="code__attr">{` src`}</span>
@@ -67,10 +67,10 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
                 <span>{`>`}</span>
               </span>
 
-              <span className="code__lvl1 code__lvl--pb0">
+              <span className="code__indent1 code__indent--pb0">
                 <span className="code__comment code__comment--html">{`${content?.htmlAllInOne}`}</span>
               </span>
-              <span className="code__lvl1 code__lvl--pt0">
+              <span className="code__indent1 code__indent--pt0">
                 <span>{`<`}</span>
                 <span className="code__const">{`script`}</span>
                 <span className="code__attr">{` src`}</span>

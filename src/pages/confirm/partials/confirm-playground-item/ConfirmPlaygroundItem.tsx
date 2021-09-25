@@ -134,23 +134,23 @@ function ConfirmPlaygroundItem({
         <div className={styles.item__usage}>
           <div className={styles.item__usage__code}>
             <code className="code code--medium">
-              <span className="code__lvl1 code__lvl--pb0">
+              <span className="code__indent1 code__indent--pb0">
                 <span className="code__comment code__comment--fullbeginning"></span>
               </span>
               {
                 data?.comments?.map((comment, index) => {
                   return (
-                    <span key={index} className="code__lvl1 code__lvl--py0">
+                    <span key={index} className="code__indent1 code__indent--py0">
                       <span className="code__comment code__comment--fullmiddle">{comment}</span>
                     </span>
                   );
                 })
               }
-              <span className="code__lvl1 code__lvl--py0">
+              <span className="code__indent1 code__indent--py0">
                 <span className="code__comment code__comment--fullend"></span>
               </span>
 
-              <span className="code__lvl1 code__lvl--pb0">
+              <span className="code__indent1 code__indent--pb0">
                 {!isModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                 <span className="code__namespace">{namespaceModule}</span>
                 <span>{`.`}</span>
@@ -158,30 +158,30 @@ function ConfirmPlaygroundItem({
                 <span>{`(`}</span>
               </span>
 
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'${data?.defaultValueTitle}'`}</span>
                 <span>{`,`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'${data?.defaultValueQuestion}'`}</span>
                 <span>{`,`}</span>
               </span>
               {
                 (isMethodAsk && 'defaultValueAnswer' in data) &&
-                <span className="code__lvl2 code__lvl--py0">
+                <span className="code__indent2 code__indent--py0">
                   <span className="code__string">{`'${data?.defaultValueAnswer}'`}</span>
                   <span>{`,`}</span>
                 </span>
               }
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'${data?.defaultValueButtonOk}'`}</span>
                 <span>{`,`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'${data?.defaultValueButtonCancel}'`}</span>
                 <span>{`,`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 {
                   isModule
                     ?
@@ -198,16 +198,16 @@ function ConfirmPlaygroundItem({
                     </>
                 }
               </span>
-              <span className="code__lvl3 code__lvl--py0">
+              <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
                 <span className="code__string">{`'${data?.defaultValueButtonOkCallbackTxt}'`}</span>
                 <span>{`);`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`},`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 {
                   isModule
                     ?
@@ -224,26 +224,26 @@ function ConfirmPlaygroundItem({
                     </>
                 }
               </span>
-              <span className="code__lvl3 code__lvl--py0">
+              <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
                 <span className="code__string">{`'${data?.defaultValueButtonCancelCallbackTxt}'`}</span>
                 <span>{`);`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`},`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`{`}</span>
               </span>
-              <span className="code__lvl3 code__lvl--py0">
+              <span className="code__indent3 code__indent--py0">
                 <span className="code__comment">{`${data?.defaultValueOptionsComment}`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`},`}</span>
               </span>
 
-              <span className="code__lvl1 code__lvl--pt0">
+              <span className="code__indent1 code__indent--pt0">
                 <span>{`);`}</span>
               </span>
             </code>
@@ -296,7 +296,7 @@ function ConfirmPlaygroundItem({
 
           <div className={styles.item__demo__code}>
             <code className="code code--medium">
-              <span className="code__lvl1 code__lvl--pb0">
+              <span className="code__indent1 code__indent--pb0">
                 {!isModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                 <span className="code__namespace">{namespaceModule}</span>
                 <span>{`.`}</span>
@@ -304,7 +304,7 @@ function ConfirmPlaygroundItem({
                 <span>{`(`}</span>
               </span>
 
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
                   <input
@@ -319,7 +319,7 @@ function ConfirmPlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`,`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
                   <input
@@ -336,7 +336,7 @@ function ConfirmPlaygroundItem({
               </span>
               {
                 (isMethodAsk && 'demoInputPlaceholderAnswer' in data && 'defaultValueAnswer' in data) &&
-                <span className="code__lvl2 code__lvl--py0">
+                <span className="code__indent2 code__indent--py0">
                   <span className="code__string">{`'`}</span>
                   <span className="code__string">
                     <input
@@ -352,7 +352,7 @@ function ConfirmPlaygroundItem({
                   <span>{`,`}</span>
                 </span>
               }
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
                   <input
@@ -367,7 +367,7 @@ function ConfirmPlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`,`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
                   <input
@@ -383,7 +383,7 @@ function ConfirmPlaygroundItem({
                 <span>{`,`}</span>
               </span>
 
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 {
                   isModule
                     ?
@@ -400,7 +400,7 @@ function ConfirmPlaygroundItem({
                     </>
                 }
               </span>
-              <span className="code__lvl3 code__lvl--py0">
+              <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
                 <span className="code__string">{`'`}</span>
@@ -417,11 +417,11 @@ function ConfirmPlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`);`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`},`}</span>
               </span>
 
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 {
                   isModule
                     ?
@@ -438,7 +438,7 @@ function ConfirmPlaygroundItem({
                     </>
                 }
               </span>
-              <span className="code__lvl3 code__lvl--py0">
+              <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
                 <span className="code__string">{`'`}</span>
@@ -455,11 +455,11 @@ function ConfirmPlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`);`}</span>
               </span>
-              <span className="code__lvl2 code__lvl--py0">
+              <span className="code__indent2 code__indent--py0">
                 <span>{`},`}</span>
               </span>
 
-              <span className="code__lvl1 code__lvl--pt0">
+              <span className="code__indent1 code__indent--pt0">
                 <span>{`);`}</span>
               </span>
             </code>

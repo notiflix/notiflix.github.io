@@ -95,28 +95,28 @@ function BlockPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment code__comment--fullbeginning"></span>
                   </span>
                   {
                     _dbBlockPlayground?.commentsBlock?.map((comment, index) => {
                       return (
-                        <span key={index} className="code__lvl1 code__lvl--py0">
+                        <span key={index} className="code__indent1 code__indent--py0">
                           <span className="code__comment code__comment--fullmiddle">{comment}</span>
                         </span>
                       );
                     })
                   }
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span className="code__comment code__comment--fullend"></span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentBlockOnly}</span>
                   </span>
                   {
                     _dbBlockPlayground?.methodsBlockIndicators?.map((indicator, index) => (
-                      <span key={index} className="code__lvl1 code__lvl--py0">
+                      <span key={index} className="code__indent1 code__indent--py0">
                         {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                         <span className="code__namespace">{namespaceModule}</span>
                         <span>{`.`}</span>
@@ -128,10 +128,10 @@ function BlockPlayground(): JSX.Element {
                     ))
                   }
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentBlockWithMessage}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -143,10 +143,10 @@ function BlockPlayground(): JSX.Element {
                     <span>{`);`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentBlockWithNewOptions}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -155,24 +155,24 @@ function BlockPlayground(): JSX.Element {
                     <span className="code__string">{`'${_dbBlockPlayground?.methodsDefaultSelector}'`}</span>
                     <span>{`, {`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`cssAnimationDuration: `}</span>
                     <span className="code__number">{`1881`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`svgSize: `}</span>
                     <span className="code__string">{`'19px'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span>{`});`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentBlockWithMessageAndNewOptions}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -183,12 +183,12 @@ function BlockPlayground(): JSX.Element {
                     <span className="code__string">{`'${_dbBlockPlayground?.methodsDefaultMessage}'`}</span>
                     <span>{`, {`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`backgroundColor: `}</span>
                     <span className="code__string">{`'rgba(0,0,0,0.8)'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     <span>{`});`}</span>
                   </span>
 
@@ -217,26 +217,26 @@ function BlockPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment code__comment--fullbeginning"></span>
                   </span>
                   {
                     _dbBlockPlayground?.commentsUnblock?.map((comment, index) => {
                       return (
-                        <span key={index} className="code__lvl1 code__lvl--py0">
+                        <span key={index} className="code__indent1 code__indent--py0">
                           <span className="code__comment code__comment--fullmiddle">{comment}</span>
                         </span>
                       );
                     })
                   }
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span className="code__comment code__comment--fullend"></span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentUnblockImmediately}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -246,10 +246,10 @@ function BlockPlayground(): JSX.Element {
                     <span>{`);`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbBlockPlayground?.commentUnblockWithDelay}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     {!stateBlockIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>

@@ -147,23 +147,23 @@ function ReportPlayground(): JSX.Element {
 
                       <div className={styles.playground__item__usage__code}>
                         <code className="code code--medium">
-                          <span className="code__lvl1 code__lvl--pb0">
+                          <span className="code__indent1 code__indent--pb0">
                             <span className="code__comment code__comment--fullbeginning"></span>
                           </span>
                           {
                             _dbReportPlayground?.comments?.map((comment, index) => {
                               return (
-                                <span key={index} className="code__lvl1 code__lvl--py0">
+                                <span key={index} className="code__indent1 code__indent--py0">
                                   <span className="code__comment code__comment--fullmiddle">{comment}</span>
                                 </span>
                               );
                             })
                           }
-                          <span className="code__lvl1 code__lvl--py0">
+                          <span className="code__indent1 code__indent--py0">
                             <span className="code__comment code__comment--fullend"></span>
                           </span>
 
-                          <span className="code__lvl1 code__lvl--pb0">
+                          <span className="code__indent1 code__indent--pb0">
                             {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                             <span className="code__namespace">{namespaceModule}</span>
                             <span>{`.`}</span>
@@ -171,20 +171,20 @@ function ReportPlayground(): JSX.Element {
                             <span>{`(`}</span>
                           </span>
 
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'${method?.defaultValueTitle}'`}</span>
                             <span>{`,`}</span>
                           </span>
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'${method?.defaultValueMessage}'`}</span>
                             <span>{`,`}</span>
                           </span>
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'${method?.defaultValueButton}'`}</span>
                             <span>{`,`}</span>
                           </span>
 
-                          <span className="code__lvl1 code__lvl--pt0">
+                          <span className="code__indent1 code__indent--pt0">
                             <span>{`);`}</span>
                           </span>
                         </code>
@@ -244,7 +244,7 @@ function ReportPlayground(): JSX.Element {
 
                       <div className={styles.playground__item__demo__code}>
                         <code className="code code--medium">
-                          <span className="code__lvl1 code__lvl--pb0">
+                          <span className="code__indent1 code__indent--pb0">
                             {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                             <span className="code__namespace">{namespaceModule}</span>
                             <span>{`.`}</span>
@@ -252,7 +252,7 @@ function ReportPlayground(): JSX.Element {
                             <span>{`(`}</span>
                           </span>
 
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'`}</span>
                             <span className="code__string">
                               <input
@@ -266,7 +266,7 @@ function ReportPlayground(): JSX.Element {
                             <span className="code__string">{`'`}</span>
                             <span>{`,`}</span>
                           </span>
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'`}</span>
                             <span className="code__string">
                               <input
@@ -280,7 +280,7 @@ function ReportPlayground(): JSX.Element {
                             <span className="code__string">{`'`}</span>
                             <span>{`,`}</span>
                           </span>
-                          <span className="code__lvl2 code__lvl--py0">
+                          <span className="code__indent2 code__indent--py0">
                             <span className="code__string">{`'`}</span>
                             <span className="code__string">
                               <input
@@ -295,7 +295,7 @@ function ReportPlayground(): JSX.Element {
                             <span>{`,`}</span>
                           </span>
 
-                          <span className="code__lvl1 code__lvl--pt0">
+                          <span className="code__indent1 code__indent--pt0">
                             <span>{`);`}</span>
                           </span>
                         </code>
@@ -335,7 +335,7 @@ function ReportPlayground(): JSX.Element {
             <div className={styles.playground__item__demo}>
               <div className={styles.playground__item__demo__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -343,20 +343,20 @@ function ReportPlayground(): JSX.Element {
                     <span>{`(`}</span>
                   </span>
 
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.callbackExampleTitle}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.callbackExampleMessage}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.callbackExampleButton}'`}</span>
                     <span>{`,`}</span>
                   </span>
 
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     {
                       stateReportIsModule
                         ?
@@ -373,7 +373,7 @@ function ReportPlayground(): JSX.Element {
                         </>
                     }
                   </span>
-                  <span className="code__lvl3 code__lvl--py0">
+                  <span className="code__indent3 code__indent--py0">
                     <span className="code__method">{`alert`}</span>
                     <span>{`(`}</span>
                     <span className="code__string">{`'`}</span>
@@ -389,11 +389,11 @@ function ReportPlayground(): JSX.Element {
                     <span className="code__string">{`'`}</span>
                     <span>{`);`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span>{`},`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     <span>{`);`}</span>
                   </span>
                 </code>
@@ -434,7 +434,7 @@ function ReportPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     {!stateReportIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -442,42 +442,42 @@ function ReportPlayground(): JSX.Element {
                     <span>{`(`}</span>
                   </span>
 
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.extendExampleTitle}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.extendExampleMessage}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__string">{`'${_dbReportPlayground?.extendExampleButton}'`}</span>
                     <span>{`,`}</span>
                   </span>
 
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span>{`{`}</span>
                   </span>
-                  <span className="code__lvl3 code__lvl--py0">
+                  <span className="code__indent3 code__indent--py0">
                     <span className="code__attr">{`svgSize: `}</span>
                     <span className="code__string">{`'42px'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl3 code__lvl--py0">
+                  <span className="code__indent3 code__indent--py0">
                     <span className="code__attr">{`messageMaxLength: `}</span>
                     <span className="code__number">{`1923`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl3 code__lvl--py0">
+                  <span className="code__indent3 code__indent--py0">
                     <span className="code__attr">{`plainText: `}</span>
                     <span className="code__boolean">{`false`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span>{`},`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     <span>{`);`}</span>
                   </span>
                 </code>

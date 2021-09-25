@@ -89,28 +89,28 @@ function LoadingPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment code__comment--fullbeginning"></span>
                   </span>
                   {
                     _dbLoadingPlayground?.commentsIndicators?.map((comment, index) => {
                       return (
-                        <span key={index} className="code__lvl1 code__lvl--py0">
+                        <span key={index} className="code__indent1 code__indent--py0">
                           <span className="code__comment code__comment--fullmiddle">{comment}</span>
                         </span>
                       );
                     })
                   }
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span className="code__comment code__comment--fullend"></span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorOnly}</span>
                   </span>
                   {
                     _dbLoadingPlayground?.methodsIndicators?.map((indicator, index) => (
-                      <span key={index} className="code__lvl1 code__lvl--py0">
+                      <span key={index} className="code__indent1 code__indent--py0">
                         {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                         <span className="code__namespace">{namespaceModule}</span>
                         <span>{`.`}</span>
@@ -120,10 +120,10 @@ function LoadingPlayground(): JSX.Element {
                     ))
                   }
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorWithMessage}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -133,34 +133,34 @@ function LoadingPlayground(): JSX.Element {
                     <span>{`);`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorWithNewOptions}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
                     <span className="code__method">{_dbLoadingPlayground?.methodsIndicators?.find(x => x)?.functionName}</span>
                     <span>{`({`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`clickToClose: `}</span>
                     <span className="code__boolean">{`true`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`svgSize: `}</span>
                     <span className="code__string">{`'19px'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span>{`});`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorWithMessageAndNewOptions}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -169,12 +169,12 @@ function LoadingPlayground(): JSX.Element {
                     <span className="code__string">{`'${_dbLoadingPlayground?.methodsDefaultMessage}'`}</span>
                     <span>{`, {`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`backgroundColor: `}</span>
                     <span className="code__string">{`'rgba(0,0,0,0.8)'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     <span>{`});`}</span>
                   </span>
 
@@ -203,29 +203,29 @@ function LoadingPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorCustom}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
                     <span className="code__method">{_dbLoadingPlayground?.methodCustom?.functionName}</span>
                     <span>{`({`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`customSvgUrl: `}</span>
                     <span className="code__string">{`'${_dbLoadingPlayground?.methodCustomSvgUrl}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span>{`});`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorCustomWithMessage}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -234,12 +234,12 @@ function LoadingPlayground(): JSX.Element {
                     <span className="code__string">{`'${_dbLoadingPlayground?.methodsDefaultMessage}'`}</span>
                     <span>{`, {`}</span>
                   </span>
-                  <span className="code__lvl2 code__lvl--py0">
+                  <span className="code__indent2 code__indent--py0">
                     <span className="code__attr">{`customSvgUrl: `}</span>
                     <span className="code__string">{`'${_dbLoadingPlayground?.methodCustomSvgUrl}'`}</span>
                     <span>{`,`}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     <span>{`});`}</span>
                   </span>
 
@@ -268,23 +268,23 @@ function LoadingPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment code__comment--fullbeginning"></span>
                   </span>
                   {
                     _dbLoadingPlayground?.commentsChange?.map((comment, index) => {
                       return (
-                        <span key={index} className="code__lvl1 code__lvl--py0">
+                        <span key={index} className="code__indent1 code__indent--py0">
                           <span className="code__comment code__comment--fullmiddle">{comment}</span>
                         </span>
                       );
                     })
                   }
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span className="code__comment code__comment--fullend"></span>
                   </span>
 
-                  <span className="code__lvl1">
+                  <span className="code__indent1">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -318,26 +318,26 @@ function LoadingPlayground(): JSX.Element {
             <div className={styles.playground__item__usage}>
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment code__comment--fullbeginning"></span>
                   </span>
                   {
                     _dbLoadingPlayground?.commentsRemove?.map((comment, index) => {
                       return (
-                        <span key={index} className="code__lvl1 code__lvl--py0">
+                        <span key={index} className="code__indent1 code__indent--py0">
                           <span className="code__comment code__comment--fullmiddle">{comment}</span>
                         </span>
                       );
                     })
                   }
-                  <span className="code__lvl1 code__lvl--py0">
+                  <span className="code__indent1 code__indent--py0">
                     <span className="code__comment code__comment--fullend"></span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentRemoveImmediately}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
@@ -345,10 +345,10 @@ function LoadingPlayground(): JSX.Element {
                     <span>{`();`}</span>
                   </span>
 
-                  <span className="code__lvl1 code__lvl--pb0">
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentRemoveWithDelay}</span>
                   </span>
-                  <span className="code__lvl1 code__lvl--pt0">
+                  <span className="code__indent1 code__indent--pt0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                     <span className="code__namespace">{namespaceModule}</span>
                     <span>{`.`}</span>
