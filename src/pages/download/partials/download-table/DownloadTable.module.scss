@@ -11,7 +11,7 @@
 
   @include media_up($breakpoint_minibook) {
     order: 1;
-    width: 60%;
+    width: 62%;
   }
 
   &__head {
@@ -50,9 +50,10 @@
       width: 100%;
       font-size: 1.25rem;
       font-weight: 600;
+      margin: 0 0 0.25rem;
 
       @include media_up($breakpoint_tablet) {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
     }
 
@@ -144,13 +145,16 @@
       &:not(&--head):not(&--placeholder) {
         min-height: 6rem;
         padding: 1.5rem 1.5rem 1rem;
-        margin: 0 0 1rem;
         border-radius: 1rem;
+        border: 0.07rem solid $color_gray_100;
+
+        @include media_up($breakpoint_tablet) {
+          margin: 0 0 0.5rem;
+        }
 
         &:not(:last-child) {
           margin: 0 0 1.5rem;
           padding: 1.5rem;
-          border: 0.07rem solid $color_gray_100;
         }
       }
 
@@ -255,7 +259,7 @@
           }
 
           @include media_up($breakpoint_tablet) {
-            width: 36%;
+            width: 38%;
             justify-content: flex-start;
           }
 
@@ -283,7 +287,7 @@
           code {
             background: rgba($color_black, 0.09);
             display: inline;
-            padding: 0.05rem 0.4rem;
+            padding: 0.05rem 0.3rem;
             border-radius: 1rem;
           }
         }
@@ -294,15 +298,16 @@
 
           @include media_up($breakpoint_tablet) {
             width: 18%;
-            min-height: 3rem;
+            min-height: 3.5rem;
           }
         }
 
         &--download {
-          font-size: 0.75rem;
+          font-size: 0.9rem;
 
           @include media_up($breakpoint_tablet) {
-            width: 26%;
+            width: 24%;
+            font-size: 0.75rem;
           }
         }
 
@@ -328,7 +333,7 @@
 
           &__icon {
             transform: scale(1.4);
-            margin: 0 0.6rem 0 0;
+            margin: 0.2rem 0.6rem 0.2rem 0.2rem;
           }
         }
       }
