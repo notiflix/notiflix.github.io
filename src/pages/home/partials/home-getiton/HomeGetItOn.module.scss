@@ -62,7 +62,7 @@
     padding: 1rem;
     border-radius: 0.75rem;
     background: $color_white;
-    box-shadow: $box_shadow_base;
+    box-shadow: $box_shadow_20;
 
     @include media_up($breakpoint_mobile) {
       width: calc(33.3333% - 0.75rem);

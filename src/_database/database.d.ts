@@ -90,3 +90,15 @@ declare module '@database/pages/block.md' {
   export { attributes, html };
 }
 // Pages: Block: end
+
+// Pages: Download: begin
+declare module '@database/pages/download.md' {
+  const attributes: {
+    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbDownloadBanner?: import('./database.i').IDatabaseDownloadBanner,
+    _dbDownloadTable?: import('./database.i').IDatabaseDownloadTable,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Pages: Download: end

@@ -174,7 +174,7 @@ const routes: IRoutes[] = [
     sortOrder: 7,
     isActive: true,
     isProductPage: false,
-    addToNextJSConfig: false, // TODO: will be true after the page has been created.
+    addToNextJSConfig: true,
     addToSitemap: true,
     sitemapFrequency: 'monthly',
     sitemapPriority: '0.9',

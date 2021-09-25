@@ -308,6 +308,28 @@ interface IDatabaseBlockPlayground {
 }
 // Page Block: end
 
+// Page Download: begin
+interface IDatabaseDownloadTable {
+  title: string;
+  description: string;
+  version: string;
+  releaseNotes: string;
+  releaseDate: string;
+  download: string;
+  latestVersion: string;
+  loading: string;
+  failure: string;
+  restricted: string;
+  restrictedLinkText: string;
+  restrictedLinkUrl: string;
+}
+
+interface IDatabaseDownloadBanner {
+  image: string;
+  alt: string;
+}
+// Page Download: end
+
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
   routeId: string;
@@ -348,6 +370,8 @@ interface IDatabaseSettings {
 // App: Settings: end
 
 export type {
+  IDatabaseDownloadTable,
+  IDatabaseDownloadBanner,
   IDatabaseBannerProducts,
   TDatabaseNotifyFunctionNames,
   IDatabaseNotifyPlayground,

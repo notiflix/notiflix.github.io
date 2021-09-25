@@ -70,9 +70,7 @@ function HomeGetItOn(): JSX.Element {
 
   useEffect(() => {
     if (stateGetItOnGitHubStats.isLoading) {
-      if (!process.env.isDev) {
-        getGitHubStatsAsync();
-      }
+      getGitHubStatsAsync();
     }
   }, [stateGetItOnGitHubStats, getGitHubStatsAsync]);
   // Get GitHub Stats: end

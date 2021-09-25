@@ -17,7 +17,7 @@ interface IHomeSliderGitHubState {
   isSuccess: boolean;
   isFailure: boolean;
   apiStatus?: number;
-  version?: string;
+  fileName?: string;
   downloadUrl?: string;
 }
 
@@ -52,7 +52,7 @@ function HomeSlider(): JSX.Element {
           isLoading: false,
           isSuccess: true,
           isFailure: false,
-          version: gitHubData.version,
+          fileName: gitHubData.fileName,
           downloadUrl: gitHubData.downloadUrl,
         });
 
@@ -84,9 +84,7 @@ function HomeSlider(): JSX.Element {
 
   useEffect(() => {
     if (stateHomeSliderGitHub.isLoading && stateHomeSliderNPM.isLoading) {
-      if (!process.env.isDev) {
-        getHomeSliderDataAsync();
-      }
+      getHomeSliderDataAsync();
     }
   }, [stateHomeSliderGitHub, stateHomeSliderNPM, getHomeSliderDataAsync]);
   // Get GitHub and then NPM Data: end
@@ -131,14 +129,14 @@ function HomeSlider(): JSX.Element {
                     `${styles.slider__content__download__link__icon}`,
                     `${stateHomeSliderGitHub.isLoading ? (styles['slider__content__download__link__icon--loading'] || '') : ''}`,
                   ].join(' ').trim()} />
-                  <span className={styles.slider__content__download__link__version}>{_dbHomeSlider?.loading}</span>
+                  <span className={styles.slider__content__download__link__filename}>{_dbHomeSlider?.loading}</span>
                   <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                 </>
               }
               {stateHomeSliderGitHub.isSuccess &&
                 <>
                   <IconSuccess className={styles.slider__content__download__link__icon} />
-                  <span className={styles.slider__content__download__link__version}>{stateHomeSliderGitHub.version}</span>
+                  <span className={styles.slider__content__download__link__filename}>{stateHomeSliderGitHub.fileName}</span>
 
                   {stateHomeSliderNPM.isLoading &&
                     <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>

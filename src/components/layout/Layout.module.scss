@@ -18,4 +18,8 @@
     padding: 0;
     @include backgroundGradientNight();
   }
+
+  &--download {
+    @include backgroundGradientLightGray();
+  }
 }

@@ -16,6 +16,7 @@ interface IConstants {
       open: string;
       close: string;
       copy: string;
+      monthNames: string[];
     };
     libraryOptions: {
       notify: INotifyOptions;
@@ -46,6 +47,7 @@ const constants: IConstants = {
       open: 'Open',
       close: 'Close',
       copy: 'Copy',
+      monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     },
     libraryOptions: {
       notify: {
@@ -70,9 +72,9 @@ const constants: IConstants = {
     },
   },
   api: {
-    urlGitHubRepo: 'https://api.github.com/repos/notiflix/Notiflix',
-    urlGitHubReleases: 'https://api.github.com/repos/notiflix/Notiflix/releases',
-    urlNPMDownloads: 'https://api.npmjs.org/downloads/range/2019-01-01:2042-01-01/notiflix',
+    urlGitHubRepo: process.env.isDev ? '/mock/api-github-repo.json' : 'https://api.github.com/repos/notiflix/Notiflix',
+    urlGitHubReleases: process.env.isDev ? '/mock/api-github-allreleases.json' : 'https://api.github.com/repos/notiflix/Notiflix/releases',
+    urlNPMDownloads: process.env.isDev ? '/mock/api-npm-downloads.json' : 'https://api.npmjs.org/downloads/range/2019-01-01:2042-01-01/notiflix',
   },
 };
 

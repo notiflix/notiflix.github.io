@@ -1,0 +1,47 @@
+@import "@styles/variables";
+
+.banner {
+  order: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 3rem;
+
+  @include media_up($breakpoint_minibook) {
+    order: 2;
+    width: 40%;
+    padding: 0 2rem;
+    margin: 0 auto;
+    position: sticky;
+    top: $header_height_sticky;
+  }
+
+  @include media_up($breakpoint_laptop) {
+    padding-left: 4rem;
+  }
+
+  &__image {
+    transition: $transition_opacity;
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    margin: auto;
+    filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.03));
+    opacity: 0;
+
+    @include media_up($breakpoint_mobile) {
+      max-width: 22rem;
+    }
+
+    @include media_up($breakpoint_minibook) {
+      max-width: 100%;
+    }
+
+    &--loaded {
+      opacity: 1;
+    }
+  }
+}
