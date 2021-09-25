@@ -19,7 +19,8 @@
     @include backgroundGradientNight();
   }
 
-  &--download {
+  &--download,
+  &--documentation {
     @include backgroundGradientLightGray();
   }
 }

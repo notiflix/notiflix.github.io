@@ -102,3 +102,13 @@ declare module '@database/pages/download.md' {
   export { attributes, html };
 }
 // Pages: Download: end
+
+// Pages: Documentation: begin
+declare module '@database/pages/documentation.md' {
+  const attributes: {
+    _dbMeta?: import('./database.i').IDatabaseMeta,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Pages: Documentation: end
