@@ -37,6 +37,27 @@ const createFormattedReleaseDate = (date: string): string => {
 
 const replaceBetweenCurlyBracesWithAData = (content: string, data?: string | number): string => `${content.replace(/\{\{(.*?)\}\}/gm, (data || '-').toString())}`;
 
+const windowScrollToElementById = (selector: string, headerFix: boolean, isSmooth?: boolean, clearHash?: boolean): void => {
+  let headerHeight = 0;
+  if (headerFix) {
+    const header: HTMLElement | null = window.document.querySelector('header');
+    headerHeight = header ? header.clientHeight : 0;
+  }
+
+  const element: HTMLDivElement | null = window.document.querySelector(selector);
+  if (element) {
+    window.scrollTo({
+      top: Math.round(element.offsetTop - headerHeight),
+      behavior: isSmooth ? 'smooth' : 'auto',
+    });
+  } else if (clearHash) {
+    window.scrollTo(0, 0);
+  }
+  if (clearHash) {
+    window.history.replaceState('', window.document.title, window.location.href.replace(/#.*$/, ''));
+  }
+};
+
 
 export {
   ErrorWithStatus,
@@ -47,4 +68,5 @@ export {
   createZipFileName,
   createFormattedReleaseDate,
   replaceBetweenCurlyBracesWithAData,
+  windowScrollToElementById,
 };

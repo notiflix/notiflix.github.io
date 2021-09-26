@@ -322,3 +322,135 @@ strong {
   }
 }
 // Code: end
+
+// Table: begin
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  border-radius: 0.5rem;
+
+  &__thead {
+    display: table-header-group;
+    vertical-align: middle;
+  }
+
+  &__tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+
+  &__tr {
+    padding: 0.5rem;
+
+    &:not(:last-child) {
+      border-bottom: 0.07rem solid $color_gray_100;
+    }
+  }
+
+  &__th {
+    z-index: 1;
+    position: sticky;
+    top: $header_height_sticky;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: $color_white;
+    background: $color_gray_800;
+
+    &:first-child {
+      padding-left: 1rem;
+      border-radius: 4rem 0 0 4rem;
+    }
+
+    &:last-child {
+      border-radius: 0 4rem 4rem 0;
+    }
+  }
+
+  &--success &__th {
+    background: $color_theme_green;
+  }
+
+  &--failure &__th {
+    background: $color_theme_red;
+  }
+
+  &--warning &__th {
+    background: $color_theme_yellow;
+  }
+
+  &--info &__th {
+    background: $color_theme_blue;
+  }
+
+  &__td {
+    text-align: left;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+
+    &:first-child {
+      padding-left: 1rem;
+      font-weight: 600;
+    }
+
+    &--option {
+      font-family: $font_family_code;
+      min-width: 7rem;
+    }
+
+    &--type {
+      font-family: $font_family_code;
+      min-width: 5rem;
+    }
+
+    &--default {
+      font-family: $font_family_code;
+      min-width: 10rem;
+    }
+
+    &--description {
+      color: rgba($color_black, 0.7);
+
+      span {
+        font-size: 0.625rem;
+        display: inline-block;
+        margin: 0.15rem;
+        text-align: center;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4rem;
+        color: $color_white;
+        background: $color_theme_dark;
+        font-family: $font_family_code;
+      }
+    }
+
+    &--string,
+    &--number,
+    &--boolean {
+      display: inline-block;
+      text-align: center;
+      padding: 0.15rem 0.6rem;
+      border-radius: 4rem;
+      color: $color_white;
+    }
+
+    &--string {
+      background: $color_code_string;
+    }
+
+    &--number {
+      background: $color_code_number;
+    }
+
+    &--boolean {
+      background: $color_code_boolean;
+    }
+  }
+}
+// Table: emd

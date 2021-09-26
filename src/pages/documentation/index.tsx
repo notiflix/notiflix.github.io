@@ -2,8 +2,8 @@ import { attributes as _documentation } from '@database/pages/documentation.md';
 
 import Layout from '@components/layout/Layout';
 
-import DocumentationSidebar from '@pages/documentation/partials/documentation-sidebar/DocumentationSidebar';
-import DocumentationContent from '@pages/documentation/partials/documentation-content/DocumentationContent';
+import Sidebar from '@pages/documentation/partials/sidebar/Sidebar';
+import Content from '@pages/documentation/partials/content/Content';
 
 import styles from '@pages/documentation/index.module.scss';
 
@@ -14,8 +14,8 @@ function Documentation(): JSX.Element {
     <Layout meta={_dbMeta} classNamePrefix="documentation">
       <div className={styles.documentation}>
         <div className={styles.documentation__container}>
-          <DocumentationSidebar />
-          <DocumentationContent />
+          <Sidebar />
+          <Content />
         </div>
       </div>
     </Layout>

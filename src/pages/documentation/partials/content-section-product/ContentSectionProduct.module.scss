@@ -1,0 +1,145 @@
+@import "@styles/variables";
+
+.product {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: $color_white;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: $box_shadow_20;
+
+  &:not(:last-child) {
+    margin: 0 0 2rem;
+  }
+
+  &__head {
+    width: 100%;
+    padding: 1.25rem 1.25rem 2.75rem;
+    border-radius: 1rem;
+    color: $color_white;
+    background: $color_theme_dark;
+
+    &__title {
+      position: relative;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.2rem 0.2rem 0.2rem 1rem;
+      margin: 0 0 0.75rem;
+
+      @include media_up($breakpoint_tablet) {
+        font-size: 1.1rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0.2rem;
+        height: 100%;
+        background: $color_theme_green;
+        border-radius: 1rem;
+      }
+    }
+
+    &__description {
+      width: 100%;
+      opacity: 0.8;
+      margin: 0;
+      font-size: 0.75rem;
+      font-weight: 300;
+
+      span {
+        font-size: 0.625rem;
+        display: inline-block;
+        text-align: center;
+        margin: auto 0.1rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4rem;
+        color: $color_white;
+        background: rgba($color_black, 0.25);
+        font-family: $font_family_code;
+      }
+    }
+  }
+
+  &__nav {
+    padding: 0.5rem;
+    margin: -1.6rem auto 0;
+    color: $color_white;
+    background: $color_theme_green;
+    border-radius: 2rem;
+
+    &__button {
+      transition: $transition_background;
+      padding: 0.5rem 0.75rem;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+
+      &--active {
+        background: rgba($color_black, 0.2);
+      }
+
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+
+      &__icon {
+        transform: scale(1.4);
+        margin: 0 0.5rem 0 0;
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__tables {
+    padding: 1rem 0;
+  }
+
+  &__codes {
+    padding: 1rem 0 0;
+  }
+
+  &__tables,
+  &__codes {
+    width: 100%;
+    display: none;
+
+    &--active {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  // TODO: will be a component
+  &__code {
+    width: 100%;
+    padding: 1rem;
+    background: $color_white;
+    box-shadow: $box_shadow_30;
+    border-radius: 1rem;
+
+    @include media_up($breakpoint_tablet) {
+      width: calc(50% - 0.5rem);
+    }
+  }
+}

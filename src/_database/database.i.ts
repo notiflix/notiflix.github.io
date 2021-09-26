@@ -330,6 +330,52 @@ interface IDatabaseDownloadBanner {
 }
 // Page Download: end
 
+// Page Documentation: begin
+type TDatabaseDocumentationProductOptionSection = 'common' | 'success' | 'failure' | 'warning' | 'info';
+
+interface IDatabaseDocumentationProductOption {
+  name: string;
+  type: 'string' | 'number' | 'boolean';
+  defaultValue: string;
+  description: string;
+}
+
+interface IDatabaseDocumentationProductOptions {
+  sectionId: string;
+  sectionType: TDatabaseDocumentationProductOptionSection;
+  sectionTitle: string;
+  options?: IDatabaseDocumentationProductOption[];
+}
+
+interface IDatabaseDocumentationProduct {
+  id: string;
+  namespace: string;
+  functionNameInit: string;
+  functionNameMerge: string;
+  title: string;
+  description: string;
+  viewTable: string;
+  viewCode: string;
+  viewCodeDescriptionInit: string;
+  viewCodeDescriptionMerge: string;
+  optionsCommon?: IDatabaseDocumentationProductOptions;
+}
+
+interface IDatabaseDocumentationProductNotify extends IDatabaseDocumentationProduct {
+  optionsSuccess?: IDatabaseDocumentationProductOptions;
+  optionsFailure?: IDatabaseDocumentationProductOptions;
+  optionsWarning?: IDatabaseDocumentationProductOptions;
+  optionsInfo?: IDatabaseDocumentationProductOptions;
+}
+
+interface IDatabaseDocumentationProductReport extends IDatabaseDocumentationProduct {
+  optionsSuccess?: IDatabaseDocumentationProductOptions;
+  optionsFailure?: IDatabaseDocumentationProductOptions;
+  optionsWarning?: IDatabaseDocumentationProductOptions;
+  optionsInfo?: IDatabaseDocumentationProductOptions;
+}
+// Page Documentation: end
+
 // Page Common: Meta Data: begin
 interface IDatabaseMeta {
   routeId: string;
@@ -370,6 +416,11 @@ interface IDatabaseSettings {
 // App: Settings: end
 
 export type {
+  IDatabaseDocumentationProductOption,
+  IDatabaseDocumentationProductOptions,
+  IDatabaseDocumentationProductNotify,
+  IDatabaseDocumentationProductReport,
+  IDatabaseDocumentationProduct,
   IDatabaseDownloadTable,
   IDatabaseDownloadBanner,
   IDatabaseBannerProducts,

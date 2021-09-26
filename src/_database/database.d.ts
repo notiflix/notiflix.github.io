@@ -107,6 +107,7 @@ declare module '@database/pages/download.md' {
 declare module '@database/pages/documentation.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbDocsNotify?: import('./database.i').IDatabaseDocumentationProductNotify,
   };
   const html: string;
   export { attributes, html };
