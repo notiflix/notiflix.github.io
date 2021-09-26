@@ -23,7 +23,7 @@ function DownloadTable(): JSX.Element {
   const { _dbDownloadTable } = _download;
 
   // Get All Releases from GitHub: begin
-  const refStateCanBeUpdated = useRef<boolean>(true);
+  const refStateCanBeUpdated = useRef<boolean>(false);
 
   const [stateDownloadTableGitHub, setStateDownloadTableGitHub] = useState<IDownloadTableGitHubState>({
     isLoading: true,
