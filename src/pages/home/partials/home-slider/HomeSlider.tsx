@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FiDownloadCloud as IconSuccess, FiAlertCircle as IconFailure } from 'react-icons/fi';
 import { AiOutlineLoading3Quarters as IconLoading } from 'react-icons/ai';
 
@@ -32,6 +32,8 @@ function HomeSlider(): JSX.Element {
   const appName = process.env.appName;
 
   // Get GitHub and then NPM Data: begin
+  const refStateCanBeUpdated = useRef<boolean>(false);
+
   const [stateHomeSliderGitHub, setStateHomeSliderGitHub] = useState<IHomeSliderGitHubState>({
     isLoading: true,
     isSuccess: false,
@@ -43,11 +45,33 @@ function HomeSlider(): JSX.Element {
     isSuccess: false,
   });
 
-  const getHomeSliderDataAsync = useCallback(async () => {
+  const getHomeSliderNPMDataAsync = useCallback(async () => {
+    try {
+      const npmData = await new NPM().getTotalDownloadCounts();
+      if (npmData instanceof Object && refStateCanBeUpdated.current) {
+        setStateHomeSliderNPM({
+          isLoading: false,
+          isSuccess: true,
+          downloadCounts: npmData.downloadCounts,
+        });
+      } else {
+        throw new Error(npmData.toString());
+      }
+    } catch (error) {
+      if (refStateCanBeUpdated.current) {
+        setStateHomeSliderNPM({
+          isLoading: false,
+          isSuccess: false,
+        });
+      }
+    }
+  }, [refStateCanBeUpdated]);
+
+  const getHomeSliderGitHubDataAsync = useCallback(async () => {
     try {
       const gitHubData = await new GitHub().getLatestReleaseAsync();
 
-      if (gitHubData instanceof Object) {
+      if (gitHubData instanceof Object && refStateCanBeUpdated.current) {
         setStateHomeSliderGitHub({
           isLoading: false,
           isSuccess: true,
@@ -55,38 +79,40 @@ function HomeSlider(): JSX.Element {
           fileName: gitHubData.fileName,
           downloadUrl: gitHubData.downloadUrl,
         });
-
-        const npmData = await new NPM().getTotalDownloadCounts();
-        if (npmData instanceof Object) {
-          setStateHomeSliderNPM({
-            isLoading: false,
-            isSuccess: true,
-            downloadCounts: npmData.downloadCounts,
-          });
-        } else {
-          setStateHomeSliderNPM({
-            isLoading: false,
-            isSuccess: false,
-          });
-        }
       } else {
         throw new Error(gitHubData.toString());
       }
     } catch (error) {
-      setStateHomeSliderGitHub({
-        apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
-        isLoading: false,
-        isSuccess: false,
-        isFailure: true,
-      });
+      if (refStateCanBeUpdated.current) {
+        setStateHomeSliderGitHub({
+          apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
+          isLoading: false,
+          isSuccess: false,
+          isFailure: true,
+        });
+      }
     }
-  }, []);
+  }, [refStateCanBeUpdated]);
 
   useEffect(() => {
-    if (stateHomeSliderGitHub.isLoading && stateHomeSliderNPM.isLoading) {
-      getHomeSliderDataAsync();
+    if (stateHomeSliderGitHub.isLoading) {
+      refStateCanBeUpdated.current = true;
+      getHomeSliderGitHubDataAsync();
     }
-  }, [stateHomeSliderGitHub, stateHomeSliderNPM, getHomeSliderDataAsync]);
+    if (stateHomeSliderGitHub.isSuccess && stateHomeSliderNPM.isLoading) {
+      refStateCanBeUpdated.current = true;
+      getHomeSliderNPMDataAsync();
+    }
+    return () => {
+      refStateCanBeUpdated.current = false;
+    };
+  }, [
+    stateHomeSliderGitHub,
+    stateHomeSliderNPM,
+    refStateCanBeUpdated,
+    getHomeSliderGitHubDataAsync,
+    getHomeSliderNPMDataAsync,
+  ]);
   // Get GitHub and then NPM Data: end
 
   return (
