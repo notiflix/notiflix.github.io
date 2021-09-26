@@ -2,20 +2,25 @@ import { useState } from 'react';
 import { HiOutlineTable as IconTable } from 'react-icons/hi';
 import { FiCode as IconCode } from 'react-icons/fi';
 
-import { IDatabaseDocumentationProduct, IDatabaseDocumentationProductNotify, IDatabaseDocumentationProductReport } from '@database/database.i';
+import { IDatabaseDocumentationTableCommon, IDatabaseDocumentationTableProduct, IDatabaseDocumentationTableProductNotify, IDatabaseDocumentationTableProductReport } from '@database/database.i';
 
 import { constants } from '@application/constants';
+import { EProductId } from '@application/enumerations/product-id';
 
 import ContentSectionProductTable from '@pages/documentation/partials/content-section-product-table/ContentSectionProductTable';
+import ContentSectionProductCode from '@pages/documentation/partials/content-section-product-code/ContentSectionProductCode';
 
 import styles from '@pages/documentation/partials/content-section-product/ContentSectionProduct.module.scss';
 
 interface IContentSectionProduct {
-  data?: IDatabaseDocumentationProduct | IDatabaseDocumentationProductNotify | IDatabaseDocumentationProductReport;
+  productId: EProductId;
+  dataCommon?: IDatabaseDocumentationTableCommon;
+  dataProduct?: IDatabaseDocumentationTableProduct | IDatabaseDocumentationTableProductNotify | IDatabaseDocumentationTableProductReport;
 }
 
-function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
+function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentSectionProduct): JSX.Element {
   const namespaceGlobal = constants.app.name;
+  const namespaceProduct = dataProduct?.namespace;
 
   // Switch To Code View: begin
   const [stateViewAsCode, setStateViewAsCode] = useState<boolean>(false);
@@ -25,16 +30,16 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
   // Switch To Code View: end
 
   return (
-    <div id={data?.optionsCommon?.sectionId} className={styles.product}>
+    <div id={dataProduct?.optionsCommon?.sectionId} className={styles.product}>
 
       <div className={styles.product__head}>
         <h2
           className={styles.product__head__title}
-          dangerouslySetInnerHTML={{ __html: data?.title || '' }}
+          dangerouslySetInnerHTML={{ __html: `${namespaceGlobal} ${namespaceProduct || ''} ${dataCommon?.titleSuffix || ''}` }}
         ></h2>
         <p
           className={styles.product__head__description}
-          dangerouslySetInnerHTML={{ __html: data?.description || '' }}
+          dangerouslySetInnerHTML={{ __html: dataCommon?.description || '' }}
         ></p>
       </div>
 
@@ -48,7 +53,7 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
           ].join(' ').trim()}
         >
           <IconTable className={styles.product__nav__button__icon} />
-          <span>{data?.viewTable}</span>
+          <span>{dataCommon?.viewTable?.button}</span>
         </button>
         <button
           type="button"
@@ -59,7 +64,7 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
           ].join(' ').trim()}
         >
           <IconCode className={styles.product__nav__button__icon} />
-          <span>{data?.viewCode}</span>
+          <span>{dataCommon?.viewCode?.button}</span>
         </button>
       </div>
 
@@ -69,26 +74,26 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
           `${!stateViewAsCode ? `${styles['product__tables--active'] || ''}` : ''}`,
         ].join(' ').trim()}>
           <ContentSectionProductTable
-            tableHead={data?.tableHead}
-            data={data?.optionsCommon}
+            tableHead={dataCommon?.viewTable?.tableHead}
+            tableData={dataProduct?.optionsCommon}
           />
           {
             (
-              (data && 'optionsSuccess' in data) ||
-              (data && 'optionsFailure' in data) ||
-              (data && 'optionsWarning' in data) ||
-              (data && 'optionsInfo' in data)
+              (dataProduct && 'optionsSuccess' in dataProduct) ||
+              (dataProduct && 'optionsFailure' in dataProduct) ||
+              (dataProduct && 'optionsWarning' in dataProduct) ||
+              (dataProduct && 'optionsInfo' in dataProduct)
             ) && [
-              data?.optionsSuccess,
-              data?.optionsFailure,
-              data?.optionsWarning,
-              data?.optionsInfo,
+              dataProduct?.optionsSuccess,
+              dataProduct?.optionsFailure,
+              dataProduct?.optionsWarning,
+              dataProduct?.optionsInfo,
             ].map((optionsGroup, index) => (optionsGroup &&
               <ContentSectionProductTable
                 key={index}
                 id={optionsGroup?.sectionId}
-                tableHead={data?.tableHead}
-                data={optionsGroup}
+                tableHead={dataCommon?.viewTable?.tableHead}
+                tableData={optionsGroup}
               />
             ))
           }
@@ -98,71 +103,25 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
           `${styles.product__codes}`,
           `${stateViewAsCode ? `${styles['product__codes--active'] || ''}` : ''}`,
         ].join(' ').trim()}>
+          <ContentSectionProductCode
+            isInitFunction={true}
+            productId={productId}
+            dataNamespace={dataProduct?.namespace || ''}
+            dataCommon={dataCommon?.viewCode}
+            optionsCommon={dataProduct?.optionsCommon}
+            optionsSuccess={(dataProduct && 'optionsSuccess' in dataProduct) ? dataProduct?.optionsSuccess : undefined}
+            optionsFailure={(dataProduct && 'optionsFailure' in dataProduct) ? dataProduct?.optionsFailure : undefined}
+            optionsWarning={(dataProduct && 'optionsWarning' in dataProduct) ? dataProduct?.optionsWarning : undefined}
+            optionsInfo={(dataProduct && 'optionsInfo' in dataProduct) ? dataProduct?.optionsInfo : undefined}
+          />
 
-          {/* TODO: will be a component */}
-          <div className={styles.product__code}>
-            <code className="code code--medium">
-              <span className="code__indent1 code__indent--pb0">
-                <span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span>
-                <span className="code__namespace">{data?.namespace}</span>
-                <span>{`.`}</span>
-                <span className="code__method">{data?.functionNameInit}</span>
-                <span>{`({`}</span>
-              </span>
-              {
-                data?.optionsCommon?.options?.map((option, index) => (option &&
-                  <span key={index} className="code__indent2 code__indent--py0">
-                    <span className="code__attr">{`${option?.name}: `}</span>
-                    <span className={`code__${option?.type}`}>{`${option?.type === 'string' ? `'${option?.defaultValue}'` : option?.defaultValue}`}</span>
-                    <span>{`,`}</span>
-                  </span>
-                ))
-              }
-              {
-                (
-                  (data && 'optionsSuccess' in data) ||
-                  (data && 'optionsFailure' in data) ||
-                  (data && 'optionsWarning' in data) ||
-                  (data && 'optionsInfo' in data)
-                )
-                &&
-                [
-                  data?.optionsSuccess,
-                  data?.optionsFailure,
-                  data?.optionsWarning,
-                  data?.optionsInfo,
-                ].map((optionsGroup, index) => (optionsGroup &&
-                  <span key={index}>
-                    <span className="code__indent2 code__indent--py0">
-                      <span className="code__attr">{`${optionsGroup?.sectionType}: `}</span>
-                      <span>{`{`}</span>
-                    </span>
-                    {
-                      optionsGroup?.options?.map((option, index) => (
-                        <span key={index} className="code__indent3 code__indent--py0">
-                          <span className="code__attr">{`${option?.name}: `}</span>
-                          <span className={`code__${option?.type}`}>{`${option?.type === 'string' ? `'${option?.defaultValue}'` : option?.defaultValue}`}</span>
-                          <span>{`,`}</span>
-                        </span>
-                      ))
-                    }
-                    <span className="code__indent2 code__indent--py0">
-                      <span>{`},`}</span>
-                    </span>
-                  </span>
-                ))
-              }
-              <span className="code__indent1 code__indent--pt0">
-                <span>{`});`}</span>
-              </span>
-            </code>
-          </div>
-
-          {/* TODO: will be a component */}
-          <div className={styles.product__code}>
-            <h1>TODO: MERGE</h1>
-          </div>
-
+          <ContentSectionProductCode
+            isInitFunction={false}
+            productId={productId}
+            dataNamespace={dataProduct?.namespace || ''}
+            dataCommon={dataCommon?.viewCode}
+            optionsCommon={dataProduct?.optionsCommon}
+          />
         </div>
       </div>
     </div>

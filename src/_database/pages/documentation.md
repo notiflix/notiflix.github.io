@@ -8,22 +8,28 @@ _dbMeta:
   ogImage: null
   themeColor: null
 
-_dbDocsNotify:
-  id: NOTIFY
-  namespace: Notify
-  functionNameInit: init
-  functionNameMerge: merge
-  title: 'Notiflix Notify: All Options'
+_dbDocsTableCommon:
+  titleSuffix: ': All Options'
   description: 'All the options can be found in the table below. The "Code View" tab can be switched to see the usages of <span>init</span> and <span>merge</span> functions.'
-  viewTable: Table View
-  viewCode: Code View
-  viewCodeDescriptionInit: The "init()" function can be used to set custom options as globally.
-  viewCodeDescriptionMerge: The "merge()" function can be used to deeply extend the "init()" options for a specific page or event globally.
-  tableHead:
-    option: Option
-    type: Type
-    defaultValue: Default Value
-    description: Description
+  viewTable:
+    button: Table View
+    tableHead:
+      option: Option
+      type: Type
+      defaultValue: Default Value
+      description: Description
+  viewCode:
+    button: Code View
+    descriptionInit: The "init()" function can be used to set custom options as globally.
+    descriptionMerge: The "merge()" function can be used to deeply extend the "init()" options for a specific page or event globally.
+    functionNameInit: init
+    functionNameMerge: merge
+    scopeWebApp: Website
+    scopeGlobal: global.js (global scripts)
+    scopeComponent: contact.js (contact page scripts)
+
+_dbDocsTableNotify:
+  namespace: Notify
   optionsCommon:
     sectionId: DocsNotify
     sectionType: common
@@ -37,6 +43,10 @@ _dbDocsNotify:
         type: string
         defaultValue: right-top
         description: '7 types of positions can be used: <span>right-top</span> <span>right-bottom</span> <span>left-top</span> <span>left-bottom</span> <span>center-top</span> <span>center-bottom</span> <span>center-center</span>'
+      - name: distance
+        type: string
+        defaultValue: 10px
+        description: 'The distance between positioned notifications and the <span>body</span> element.'
   optionsSuccess:
     sectionId: DocsNotifySuccess
     sectionType: success
@@ -70,5 +80,47 @@ _dbDocsNotify:
         type: string
         defaultValue: 'rgba(50,198,130,0.2)'
         description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+
+_dbDocsTableReport:
+  namespace: Report
+  optionsCommon:
+    sectionId: DocsReport
+    sectionType: common
+    sectionTitle: 'Report Common Options:'
+    options:
+      - todo: furkan
+  optionsSuccess:
+    sectionId: DocsReportSuccess
+    sectionType: success
+    sectionTitle: 'Report Success Options:'
+    options:
+      - todo: furkan
+
+_dbDocsTableConfirm:
+  namespace: Confirm
+  optionsCommon:
+    sectionId: DocsConfirm
+    sectionType: common
+    sectionTitle: 'Confirm Common Options:'
+    options:
+      - todo: furkan
+
+_dbDocsTableLoading:
+  namespace: Loading
+  optionsCommon:
+    sectionId: DocsLoading
+    sectionType: common
+    sectionTitle: 'Loading Common Options:'
+    options:
+      - todo: furkan
+
+_dbDocsTableBlock:
+  namespace: Block
+  optionsCommon:
+    sectionId: DocsBlock
+    sectionType: common
+    sectionTitle: 'Block Common Options:'
+    options:
+      - todo: furkan
 
 ---

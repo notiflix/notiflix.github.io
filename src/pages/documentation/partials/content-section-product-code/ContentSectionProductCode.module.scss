@@ -1,0 +1,100 @@
+@import "@styles/variables";
+
+.code {
+  width: 100%;
+  margin: 0.5rem 0 0;
+  padding: 1rem;
+  background: $color_white;
+  box-shadow: $box_shadow_30;
+  border-radius: 1rem;
+
+  @include media_up($breakpoint_tablet) {
+    width: calc(50% - 0.5rem);
+    align-self: stretch;
+  }
+
+  &__head {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0 0 1rem;
+
+    &__title {
+      font-size: 0.9rem;
+      font-family: $font_family_code;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+
+    &__description {
+      font-size: 0.75rem;
+      opacity: 0.75;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &__scope {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 0.25rem 0 0;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 0.07rem dashed $color_gray_400;
+
+      &--global {
+        border-radius: 0.6rem;
+        border-color: $color_theme_yellow;
+        margin: 0.25rem 0 0;
+      }
+
+      &--component {
+        border-radius: 0.5rem;
+        border-color: $color_theme_green;
+        margin: 1.5rem 0 0;
+      }
+
+      &__title {
+        position: absolute;
+        left: 0.5rem;
+        top: -1rem;
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: $color_gray_800;
+        background: $color_white;
+        padding: 0.5rem;
+      }
+
+      &--global &__title {
+        color: $color_theme_yellow;
+      }
+
+      &--component &__title {
+        color: $color_theme_green;
+      }
+
+      &__code {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+  }
+}

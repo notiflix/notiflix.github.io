@@ -107,7 +107,12 @@ declare module '@database/pages/download.md' {
 declare module '@database/pages/documentation.md' {
   const attributes: {
     _dbMeta?: import('./database.i').IDatabaseMeta,
-    _dbDocsNotify?: import('./database.i').IDatabaseDocumentationProductNotify,
+    _dbDocsTableCommon?: import('./database.i').IDatabaseDocumentationTableCommon,
+    _dbDocsTableNotify?: import('./database.i').IDatabaseDocumentationTableProductNotify,
+    _dbDocsTableReport?: import('./database.i').IDatabaseDocumentationTableProductReport,
+    _dbDocsTableConfirm?: import('./database.i').IDatabaseDocumentationTableProduct,
+    _dbDocsTableLoading?: import('./database.i').IDatabaseDocumentationTableProduct,
+    _dbDocsTableBlock?: import('./database.i').IDatabaseDocumentationTableProduct,
   };
   const html: string;
   export { attributes, html };

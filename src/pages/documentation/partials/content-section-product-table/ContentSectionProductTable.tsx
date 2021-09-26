@@ -1,25 +1,25 @@
-import { IDatabaseDocumentationProductOptions, IDatabaseDocumentationProductTableHead } from '@database/database.i';
+import { IDatabaseDocumentationTableProductOptions, IDatabaseDocumentationTableCommonViewTableHead } from '@database/database.i';
 
 import styles from '@pages/documentation/partials/content-section-product-table/ContentSectionProductTable.module.scss';
 
 interface IContentSectionProductTable {
   id?: string;
-  tableHead?: IDatabaseDocumentationProductTableHead;
-  data?: IDatabaseDocumentationProductOptions;
+  tableHead?: IDatabaseDocumentationTableCommonViewTableHead;
+  tableData?: IDatabaseDocumentationTableProductOptions;
 }
 
-function ContentSectionProductTable({ id, tableHead, data }: IContentSectionProductTable): JSX.Element {
+function ContentSectionProductTable({ id, tableHead, tableData }: IContentSectionProductTable): JSX.Element {
   return (
     <div
       id={id}
       className={[
         `${styles.table}`,
-        `${styles[`table--${data?.sectionType}`] || ''}`,
+        `${styles[`table--${tableData?.sectionType}`] || ''}`,
       ].join(' ').trim()}
     >
-      <h3 className={styles.table__title}>{data?.sectionTitle}</h3>
+      <h3 className={styles.table__title}>{tableData?.sectionTitle}</h3>
       <div className={styles.table__content}>
-        <table className={`table table--${data?.sectionType}`}>
+        <table className={`table table--${tableData?.sectionType}`}>
           <thead className="table__thead">
             <tr className="table__tr">
               <th className="table__th">{tableHead?.option}</th>
@@ -30,7 +30,7 @@ function ContentSectionProductTable({ id, tableHead, data }: IContentSectionProd
           </thead>
           <tbody className="table__tbody">
             {
-              data?.options?.map((option, index) => (option &&
+              tableData?.options?.map((option, index) => (option &&
                 <tr key={index} className="table__tr">
                   <td className="table__td table__td--option">
                     <span>{option?.name}</span>

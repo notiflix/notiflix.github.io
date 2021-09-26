@@ -333,54 +333,69 @@ interface IDatabaseDownloadBanner {
 // Page Documentation: begin
 type TDatabaseDocumentationProductOptionSection = 'common' | 'success' | 'failure' | 'warning' | 'info';
 
-interface IDatabaseDocumentationProductOption {
+interface IDatabaseDocumentationTableProductOption {
   name: string;
   type: 'string' | 'number' | 'boolean';
   defaultValue: string;
   description: string;
 }
 
-interface IDatabaseDocumentationProductOptions {
+interface IDatabaseDocumentationTableProductOptions {
   sectionId: string;
   sectionType: TDatabaseDocumentationProductOptionSection;
   sectionTitle: string;
-  options?: IDatabaseDocumentationProductOption[];
+  options?: IDatabaseDocumentationTableProductOption[];
 }
 
-interface IDatabaseDocumentationProductTableHead {
+
+interface IDatabaseDocumentationTableProduct {
+  namespace: string;
+  optionsCommon?: IDatabaseDocumentationTableProductOptions;
+}
+
+interface IDatabaseDocumentationTableProductNotify extends IDatabaseDocumentationTableProduct {
+  optionsSuccess?: IDatabaseDocumentationTableProductOptions;
+  optionsFailure?: IDatabaseDocumentationTableProductOptions;
+  optionsWarning?: IDatabaseDocumentationTableProductOptions;
+  optionsInfo?: IDatabaseDocumentationTableProductOptions;
+}
+
+interface IDatabaseDocumentationTableProductReport extends IDatabaseDocumentationTableProduct {
+  optionsSuccess?: IDatabaseDocumentationTableProductOptions;
+  optionsFailure?: IDatabaseDocumentationTableProductOptions;
+  optionsWarning?: IDatabaseDocumentationTableProductOptions;
+  optionsInfo?: IDatabaseDocumentationTableProductOptions;
+}
+
+
+interface IDatabaseDocumentationTableCommonViewTableHead {
   option: string;
   type: string;
   defaultValue: string;
   description: string;
 }
 
-interface IDatabaseDocumentationProduct {
-  id: string;
-  namespace: string;
+interface IDatabaseDocumentationTableCommonViewTable {
+  button: string;
+  tableHead?: IDatabaseDocumentationTableCommonViewTableHead;
+}
+
+interface IDatabaseDocumentationTableCommonViewCode {
+  button: string;
+  descriptionInit: string;
+  descriptionMerge: string;
   functionNameInit: string;
   functionNameMerge: string;
-  title: string;
+  scopeWebApp: string;
+  scopeGlobal: string;
+  scopeComponent: string;
+}
+
+interface IDatabaseDocumentationTableCommon {
+  titleSuffix: string;
   description: string;
-  viewTable: string;
-  viewCode: string;
-  viewCodeDescriptionInit: string;
-  viewCodeDescriptionMerge: string;
-  tableHead?: IDatabaseDocumentationProductTableHead;
-  optionsCommon?: IDatabaseDocumentationProductOptions;
-}
-
-interface IDatabaseDocumentationProductNotify extends IDatabaseDocumentationProduct {
-  optionsSuccess?: IDatabaseDocumentationProductOptions;
-  optionsFailure?: IDatabaseDocumentationProductOptions;
-  optionsWarning?: IDatabaseDocumentationProductOptions;
-  optionsInfo?: IDatabaseDocumentationProductOptions;
-}
-
-interface IDatabaseDocumentationProductReport extends IDatabaseDocumentationProduct {
-  optionsSuccess?: IDatabaseDocumentationProductOptions;
-  optionsFailure?: IDatabaseDocumentationProductOptions;
-  optionsWarning?: IDatabaseDocumentationProductOptions;
-  optionsInfo?: IDatabaseDocumentationProductOptions;
+  viewTable?: IDatabaseDocumentationTableCommonViewTable;
+  viewCode?: IDatabaseDocumentationTableCommonViewCode;
 }
 // Page Documentation: end
 
@@ -424,12 +439,15 @@ interface IDatabaseSettings {
 // App: Settings: end
 
 export type {
-  IDatabaseDocumentationProductOption,
-  IDatabaseDocumentationProductOptions,
-  IDatabaseDocumentationProductTableHead,
-  IDatabaseDocumentationProductNotify,
-  IDatabaseDocumentationProductReport,
-  IDatabaseDocumentationProduct,
+  IDatabaseDocumentationTableProductOption,
+  IDatabaseDocumentationTableProductOptions,
+  IDatabaseDocumentationTableProductNotify,
+  IDatabaseDocumentationTableProductReport,
+  IDatabaseDocumentationTableProduct,
+  IDatabaseDocumentationTableCommonViewTableHead,
+  IDatabaseDocumentationTableCommonViewTable,
+  IDatabaseDocumentationTableCommonViewCode,
+  IDatabaseDocumentationTableCommon,
   IDatabaseDownloadTable,
   IDatabaseDownloadBanner,
   IDatabaseBannerProducts,

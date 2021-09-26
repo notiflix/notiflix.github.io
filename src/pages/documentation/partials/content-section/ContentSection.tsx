@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 
 import { attributes as _documentation } from '@database/pages/documentation.md';
 
+import { EProductId } from '@application/enumerations/product-id';
 import { windowScrollToElementById } from '@application/helpers/utilities';
 
 import ContentSectionProduct from '@pages/documentation/partials/content-section-product/ContentSectionProduct';
@@ -9,7 +10,14 @@ import ContentSectionProduct from '@pages/documentation/partials/content-section
 import styles from '@pages/documentation/partials/content-section/ContentSection.module.scss';
 
 function ContentSection(): JSX.Element {
-  const { _dbDocsNotify } = _documentation;
+  const {
+    _dbDocsTableCommon,
+    _dbDocsTableNotify,
+    _dbDocsTableReport,
+    _dbDocsTableConfirm,
+    _dbDocsTableLoading,
+    _dbDocsTableBlock,
+  } = _documentation;
 
   useLayoutEffect(() => {
     if (window.location.hash) {
@@ -19,7 +27,31 @@ function ContentSection(): JSX.Element {
 
   return (
     <div className={styles.section}>
-      <ContentSectionProduct data={_dbDocsNotify} />
+      <ContentSectionProduct
+        productId={EProductId.NOTIFY}
+        dataCommon={_dbDocsTableCommon}
+        dataProduct={_dbDocsTableNotify}
+      />
+      <ContentSectionProduct
+        productId={EProductId.REPORT}
+        dataCommon={_dbDocsTableCommon}
+        dataProduct={_dbDocsTableReport}
+      />
+      <ContentSectionProduct
+        productId={EProductId.CONFIRM}
+        dataCommon={_dbDocsTableCommon}
+        dataProduct={_dbDocsTableConfirm}
+      />
+      <ContentSectionProduct
+        productId={EProductId.LOADING}
+        dataCommon={_dbDocsTableCommon}
+        dataProduct={_dbDocsTableLoading}
+      />
+      <ContentSectionProduct
+        productId={EProductId.BLOCK}
+        dataCommon={_dbDocsTableCommon}
+        dataProduct={_dbDocsTableBlock}
+      />
     </div>
   );
 }

@@ -129,17 +129,4 @@
       justify-content: space-between;
     }
   }
-
-  // TODO: will be a component
-  &__code {
-    width: 100%;
-    padding: 1rem;
-    background: $color_white;
-    box-shadow: $box_shadow_30;
-    border-radius: 1rem;
-
-    @include media_up($breakpoint_tablet) {
-      width: calc(50% - 0.5rem);
-    }
-  }
 }
