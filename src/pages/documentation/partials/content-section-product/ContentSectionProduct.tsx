@@ -35,7 +35,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
       <div className={styles.product__head}>
         <h2
           className={styles.product__head__title}
-          dangerouslySetInnerHTML={{ __html: `${namespaceGlobal} ${namespaceProduct || ''} ${dataCommon?.titleSuffix || ''}` }}
+          dangerouslySetInnerHTML={{ __html: `${namespaceGlobal} ${namespaceProduct || ''}${dataCommon?.titleSuffix || ''}` }}
         ></h2>
         <p
           className={styles.product__head__description}

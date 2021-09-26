@@ -8,6 +8,7 @@ _dbMeta:
   ogImage: null
   themeColor: null
 
+# Docs: Table Common Content: begin
 _dbDocsTableCommon:
   titleSuffix: ': All Options'
   description: 'All the options can be found in the table below. The "Code View" tab can be switched to see the usages of <span>init</span> and <span>merge</span> functions.'
@@ -27,7 +28,9 @@ _dbDocsTableCommon:
     scopeWebApp: Website
     scopeGlobal: global.js (global scripts)
     scopeComponent: contact.js (contact page scripts)
+# Docs: Table Common Content: end
 
+# Docs: Table Notify Content: begin
 _dbDocsTableNotify:
   namespace: Notify
   optionsCommon:
@@ -209,7 +212,7 @@ _dbDocsTableNotify:
         version: null
         type: string
         defaultValue: 'rgba(50,198,130,0.2)'
-        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this notification type. This one can be set as an empty string to use the common one.)'
   optionsFailure:
     sectionId: DocsNotifyFailure
     sectionType: failure
@@ -249,7 +252,7 @@ _dbDocsTableNotify:
         version: null
         type: string
         defaultValue: 'rgba(255,85,73,0.2)'
-        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this notification type. This one can be set as an empty string to use the common one.)'
   optionsWarning:
     sectionId: DocsNotifyWarning
     sectionType: warning
@@ -289,7 +292,7 @@ _dbDocsTableNotify:
         version: null
         type: string
         defaultValue: 'rgba(238,191,49,0.2)'
-        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this notification type. This one can be set as an empty string to use the common one.)'
   optionsInfo:
     sectionId: DocsNotifyInfo
     sectionType: info
@@ -329,8 +332,10 @@ _dbDocsTableNotify:
         version: null
         type: string
         defaultValue: 'rgba(38,192,211,0.2)'
-        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this notification type. This one can be set as an empty string to use the common one.)'
+# Docs: Table Notify Content: end
 
+# Docs: Table Report Content: begin
 _dbDocsTableReport:
   namespace: Report
   optionsCommon:
@@ -338,14 +343,249 @@ _dbDocsTableReport:
     sectionType: common
     sectionTitle: 'Common Options:'
     options:
-      - todo: furkan
+      - name: className
+        version: null
+        type: string
+        defaultValue: 'notiflix-report'
+        description: Changes the class name (attribute).
+      - name: width
+        version: null
+        type: string
+        defaultValue: '320px'
+        description: Changes the width.
+      - name: backgroundColor
+        version: null
+        type: string
+        defaultValue: '#f8f8f8'
+        description: Changes the background color.
+      - name: borderRadius
+        version: null
+        type: string
+        defaultValue: '25px'
+        description: Changes the radius of the corners.
+      - name: rtl
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: 'Specifies the text direction to "right-to-left".'
+      - name: zindex
+        version: null
+        type: number
+        defaultValue: '4002'
+        description: Changes the z-index.
+      - name: backOverlay
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Adds a background overlay.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.5)'
+        description: 'Changes the color of the background overlay. (Only if the report type-based "backOverlayColor" option is empty.)'
+      - name: fontFamily
+        version: null
+        type: string
+        defaultValue: 'Quicksand'
+        description: Changes the font-family.
+      - name: svgSize
+        version: null
+        type: string
+        defaultValue: '110px'
+        description: Changes the built-in SVG icons width and height. (Notiflix uses square scaled icons.)
+      - name: plainText
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Strips all HTML tags.
+      - name: titleFontSize
+        version: null
+        type: string
+        defaultValue: '16px'
+        description: Changes the font-size of the title text.
+      - name: titleMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the title text.
+      - name: messageFontSize
+        version: null
+        type: string
+        defaultValue: '13px'
+        description: Changes the font-size of the message text.
+      - name: messageMaxLength
+        version: null
+        type: number
+        defaultValue: '400'
+        description: The maximum length of the message text.
+      - name: buttonFontSize
+        version: null
+        type: string
+        defaultValue: '14px'
+        description: Changes the font-size of the button text.
+      - name: buttonMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the button text.
+      - name: cssAnimation
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Enables/disables CSS animations to show/hide.
+      - name: cssAnimationDuration
+        version: null
+        type: number
+        defaultValue: '360'
+        description: Changes the CSS animations duration as milliseconds.
+      - name: cssAnimationStyle
+        version: null
+        type: string
+        defaultValue: 'fade'
+        description: '2 types of styles can be used: <span>fade</span> <span>zoom</span>'
   optionsSuccess:
     sectionId: DocsReportSuccess
     sectionType: success
     sectionTitle: 'Success Options:'
     options:
-      - todo: furkan
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#32c682'
+        description: Changes the built-in SVG icon color.
+      - name: titleColor
+        version: null
+        type: string
+        defaultValue: '#1e1e1e'
+        description: Changes the title text color.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#242424'
+        description: Changes the message text color.
+      - name: buttonBackground
+        version: null
+        type: string
+        defaultValue: '#32c682'
+        description: Changes the button background color.
+      - name: buttonColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the button text color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(50,198,130,0.2)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this report type. This one can be set as an empty string to use the common one.)'
+  optionsFailure:
+    sectionId: DocsReportFailure
+    sectionType: failure
+    sectionTitle: 'Failure Options:'
+    options:
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#ff5549'
+        description: Changes the built-in SVG icon color.
+      - name: titleColor
+        version: null
+        type: string
+        defaultValue: '#1e1e1e'
+        description: Changes the title text color.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#242424'
+        description: Changes the message text color.
+      - name: buttonBackground
+        version: null
+        type: string
+        defaultValue: '#ff5549'
+        description: Changes the button background color.
+      - name: buttonColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the button text color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(255,85,73,0.2)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this report type. This one can be set as an empty string to use the common one.)'
+  optionsWarning:
+    sectionId: DocsReportWarning
+    sectionType: warning
+    sectionTitle: 'Warning Options:'
+    options:
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#eebf31'
+        description: Changes the built-in SVG icon color.
+      - name: titleColor
+        version: null
+        type: string
+        defaultValue: '#1e1e1e'
+        description: Changes the title text color.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#242424'
+        description: Changes the message text color.
+      - name: buttonBackground
+        version: null
+        type: string
+        defaultValue: '#eebf31'
+        description: Changes the button background color.
+      - name: buttonColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the button text color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(238,191,49,0.2)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this report type. This one can be set as an empty string to use the common one.)'
+  optionsInfo:
+    sectionId: DocsReportInfo
+    sectionType: info
+    sectionTitle: 'Info Options:'
+    options:
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#26c0d3'
+        description: Changes the built-in SVG icon color.
+      - name: titleColor
+        version: null
+        type: string
+        defaultValue: '#1e1e1e'
+        description: Changes the title text color.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#242424'
+        description: Changes the message text color.
+      - name: buttonBackground
+        version: null
+        type: string
+        defaultValue: '#26c0d3'
+        description: Changes the button background color.
+      - name: buttonColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the button text color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(38,192,211,0.2)'
+        description: 'Changes the color of the background overlay. (Overrides the common "backOverlayColor" option for this report type. This one can be set as an empty string to use the common one.)'
+# Docs: Table Report Content: end
 
+# Docs: Table Confirm Content: begin
 _dbDocsTableConfirm:
   namespace: Confirm
   optionsCommon:
@@ -354,7 +594,9 @@ _dbDocsTableConfirm:
     sectionTitle: 'Common Options:'
     options:
       - todo: furkan
+# Docs: Table Confirm Content: end
 
+# Docs: Table Loading Content: begin
 _dbDocsTableLoading:
   namespace: Loading
   optionsCommon:
@@ -363,7 +605,9 @@ _dbDocsTableLoading:
     sectionTitle: 'Common Options:'
     options:
       - todo: furkan
+# Docs: Table Loading Content: end
 
+# Docs: Table Block Content: begin
 _dbDocsTableBlock:
   namespace: Block
   optionsCommon:
@@ -372,5 +616,6 @@ _dbDocsTableBlock:
     sectionTitle: 'Common Options:'
     options:
       - todo: furkan
+# Docs: Table Block Content: end
 
 ---
