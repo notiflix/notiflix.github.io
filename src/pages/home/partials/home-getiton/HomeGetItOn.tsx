@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 import { Notify as NotiflixNotify } from 'notiflix';
 import { FiCopy as IconCopy } from 'react-icons/fi';
 import { BiStar as IconStar, BiGitRepoForked as IconFork } from 'react-icons/bi';
@@ -38,6 +38,8 @@ function HomeGetItOn(): JSX.Element {
   // Copy to the clipboard: end
 
   // Get GitHub Stats: begin
+  const refStateCanBeUpdated = useRef<boolean>(false);
+
   const [stateGetItOnGitHubStats, setStateGetItOnGitHubStats] = useState<IHomeGetItOnGitHubStatsState>({
     isLoading: true,
     isSuccess: false,
@@ -47,7 +49,7 @@ function HomeGetItOn(): JSX.Element {
   const getGitHubStatsAsync = useCallback(async () => {
     try {
       const gitHubData = await new GitHub().getRepoStatsAsync();
-      if (gitHubData instanceof Object) {
+      if (gitHubData instanceof Object && refStateCanBeUpdated.current) {
         setStateGetItOnGitHubStats({
           isLoading: false,
           isSuccess: true,
@@ -59,20 +61,26 @@ function HomeGetItOn(): JSX.Element {
         throw new Error(gitHubData.toString());
       }
     } catch (error) {
-      setStateGetItOnGitHubStats({
-        apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
-        isLoading: false,
-        isSuccess: false,
-        isFailure: true,
-      });
+      if (refStateCanBeUpdated.current) {
+        setStateGetItOnGitHubStats({
+          apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
+          isLoading: false,
+          isSuccess: false,
+          isFailure: true,
+        });
+      }
     }
-  }, []);
+  }, [refStateCanBeUpdated]);
 
   useEffect(() => {
     if (stateGetItOnGitHubStats.isLoading) {
+      refStateCanBeUpdated.current = true;
       getGitHubStatsAsync();
     }
-  }, [stateGetItOnGitHubStats, getGitHubStatsAsync]);
+    return () => {
+      refStateCanBeUpdated.current = false;
+    };
+  }, [stateGetItOnGitHubStats, refStateCanBeUpdated, getGitHubStatsAsync]);
   // Get GitHub Stats: end
 
   return (
