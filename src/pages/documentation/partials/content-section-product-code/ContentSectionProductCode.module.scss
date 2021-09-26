@@ -13,6 +13,14 @@
     align-self: stretch;
   }
 
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+
+    @include media_up($breakpoint_tablet) {
+      margin-bottom: 0;
+    }
+  }
+
   &__head {
     width: 100%;
     display: flex;

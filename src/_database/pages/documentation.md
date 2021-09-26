@@ -36,14 +36,17 @@ _dbDocsTableNotify:
     sectionTitle: 'Notify Common Options:'
     options:
       - name: width
+        version: null
         type: string
         defaultValue: 280px
         description: Changes the width of the notifications.
       - name: position
+        version: null
         type: string
         defaultValue: right-top
         description: '7 types of positions can be used: <span>right-top</span> <span>right-bottom</span> <span>left-top</span> <span>left-bottom</span> <span>center-top</span> <span>center-bottom</span> <span>center-center</span>'
       - name: distance
+        version: null
         type: string
         defaultValue: 10px
         description: 'The distance between positioned notifications and the <span>body</span> element.'
@@ -53,30 +56,37 @@ _dbDocsTableNotify:
     sectionTitle: 'Notify Success Options:'
     options:
       - name: background
+        version: null
         type: string
         defaultValue: '#32c682'
         description: Changes the background color.
       - name: textColor
+        version: null
         type: string
         defaultValue: '#fff'
         description: Changes the text color.
       - name: childClassName
+        version: null
         type: string
         defaultValue: 'success'
         description: Changes the class name.
       - name: notiflixIconColor
+        version: null
         type: string
         defaultValue: 'rgba(0,0,0,0.2)'
         description: Changes the SVG icon color.
       - name: fontAwesomeClassName
+        version: null
         type: string
         defaultValue: 'fas fa-check-circle'
         description: Changes the FontAwesome icon class name (FontAwesome has to be added to the project separately.)
       - name: fontAwesomeIconColor
+        version: null
         type: string
         defaultValue: 'rgba(0,0,0,0.2)'
         description: Changes the FontAwesome icon color.
       - name: backOverlayColor
+        version: null
         type: string
         defaultValue: 'rgba(50,198,130,0.2)'
         description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'

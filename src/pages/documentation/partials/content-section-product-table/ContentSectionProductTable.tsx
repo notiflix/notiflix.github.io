@@ -31,9 +31,21 @@ function ContentSectionProductTable({ id, tableHead, tableData }: IContentSectio
           <tbody className="table__tbody">
             {
               tableData?.options?.map((option, index) => (option &&
-                <tr key={index} className="table__tr">
+                <tr key={index} className={[
+                  `table__tr`,
+                  `${option?.version ? 'table__tr--new' : ''}`,
+                ].join(' ').trim()}>
                   <td className="table__td table__td--option">
-                    <span>{option?.name}</span>
+                    <div className={[
+                      `table__td__option`,
+                      `${option?.version ? 'table__td__option--new' : ''}`,
+                    ].join(' ').trim()}>
+                      <span>{option?.name}</span>
+                      {
+                        option?.version &&
+                        <span className="table__td__option__version">{option?.version}</span>
+                      }
+                    </div>
                   </td>
                   <td className="table__td table__td--type">
                     <span className={`table__td--${option?.type}`}>{option?.type}</span>

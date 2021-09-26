@@ -333,22 +333,40 @@ strong {
   margin: 0;
   padding: 0;
   border-radius: 0.5rem;
+  display: block;
+
+  @include media_up($breakpoint_tablet) {
+    display: table;
+  }
 
   &__thead {
-    display: table-header-group;
-    vertical-align: middle;
+    display: none;
+
+    @include media_up($breakpoint_tablet) {
+      display: table-header-group;
+      vertical-align: middle;
+    }
   }
 
   &__tbody {
-    display: table-row-group;
-    vertical-align: middle;
+    display: block;
     border-color: inherit;
+
+    @include media_up($breakpoint_tablet) {
+      display: table-row-group;
+      vertical-align: middle;
+    }
   }
 
   &__tr {
     padding: 0.5rem;
+    display: block;
 
-    &:not(:last-child) {
+    @include media_up($breakpoint_tablet) {
+      display: table-row;
+    }
+
+    &:not(:last-child):not(&--new) {
       border-bottom: 0.07rem solid $color_gray_100;
     }
   }
@@ -362,6 +380,11 @@ strong {
     font-weight: 400;
     color: $color_white;
     background: $color_gray_800;
+    display: block;
+
+    @include media_up($breakpoint_tablet) {
+      display: table-cell;
+    }
 
     &:first-child {
       padding-left: 1rem;
@@ -393,6 +416,11 @@ strong {
     text-align: left;
     font-size: 0.75rem;
     padding: 0.75rem;
+    display: block;
+
+    @include media_up($breakpoint_tablet) {
+      display: table-cell;
+    }
 
     &:first-child {
       padding-left: 1rem;
@@ -423,7 +451,7 @@ strong {
         margin: 0.15rem;
         text-align: center;
         padding: 0.2rem 0.6rem;
-        border-radius: 4rem;
+        border-radius: 0.75rem;
         color: $color_white;
         background: $color_theme_dark;
         font-family: $font_family_code;
@@ -436,7 +464,7 @@ strong {
       display: inline-block;
       text-align: center;
       padding: 0.15rem 0.6rem;
-      border-radius: 4rem;
+      border-radius: 0.75rem;
       color: $color_white;
     }
 
@@ -450,6 +478,52 @@ strong {
 
     &--boolean {
       background: $color_code_boolean;
+    }
+
+    &__option {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+
+      &--new {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      &__version {
+        display: inline-block;
+        margin: 0.5rem 0 0;
+        font-size: 0.6rem;
+        font-weight: 300;
+        text-align: center;
+        padding: 0.3rem 0.6rem;
+        border-radius: 0.75rem;
+        color: $color_white;
+        background: $color_theme_dark;
+      }
+    }
+  }
+
+  &__tr--new &__td {
+    background: rgba($color_theme_dark, 0.075);
+
+    &:first-child {
+      border-radius: 1rem 1rem 0 0;
+
+      @include media_up($breakpoint_tablet) {
+        border-radius: 1rem 0 0 1rem;
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 0 1rem 1rem;
+
+      @include media_up($breakpoint_tablet) {
+        border-radius: 0 1rem 1rem 0;
+      }
     }
   }
 }

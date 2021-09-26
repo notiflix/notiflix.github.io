@@ -1,7 +1,11 @@
 @import "@styles/variables";
 
 .sidebar {
-  width: 30%;
+  width: 100%;
   height: 15.5rem;
   background: crimson;
+
+  @include media_up($breakpoint_minibook) {
+    width: 30%;
+  }
 }

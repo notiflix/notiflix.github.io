@@ -335,6 +335,7 @@ type TDatabaseDocumentationProductOptionSection = 'common' | 'success' | 'failur
 
 interface IDatabaseDocumentationTableProductOption {
   name: string;
+  version?: string | null;
   type: 'string' | 'number' | 'boolean';
   defaultValue: string;
   description: string;
@@ -346,7 +347,6 @@ interface IDatabaseDocumentationTableProductOptions {
   sectionTitle: string;
   options?: IDatabaseDocumentationTableProductOption[];
 }
-
 
 interface IDatabaseDocumentationTableProduct {
   namespace: string;
@@ -366,7 +366,6 @@ interface IDatabaseDocumentationTableProductReport extends IDatabaseDocumentatio
   optionsWarning?: IDatabaseDocumentationTableProductOptions;
   optionsInfo?: IDatabaseDocumentationTableProductOptions;
 }
-
 
 interface IDatabaseDocumentationTableCommonViewTableHead {
   option: string;
