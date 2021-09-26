@@ -41,17 +41,17 @@ _dbDocsTableNotify:
       - name: width
         version: null
         type: string
-        defaultValue: 280px
+        defaultValue: '280px'
         description: Changes the width of the notifications.
       - name: position
         version: null
         type: string
-        defaultValue: right-top
+        defaultValue: 'right-top'
         description: '7 types of positions can be used: <span>right-top</span> <span>right-bottom</span> <span>left-top</span> <span>left-bottom</span> <span>center-top</span> <span>center-bottom</span> <span>center-center</span>'
       - name: distance
         version: null
         type: string
-        defaultValue: 10px
+        defaultValue: '10px'
         description: 'The distance between positioned notifications and the <span>body</span> element.'
       - name: opacity
         version: null
@@ -61,7 +61,7 @@ _dbDocsTableNotify:
       - name: borderRadius
         version: null
         type: string
-        defaultValue: 5px
+        defaultValue: '5px'
         description: Changes the radius of the notifications corners.
       - name: rtl
         version: null
@@ -593,7 +593,141 @@ _dbDocsTableConfirm:
     sectionType: common
     sectionTitle: 'Common Options:'
     options:
-      - todo: furkan
+      - name: className
+        version: null
+        type: string
+        defaultValue: 'notiflix-confirm'
+        description: Changes the class name (attribute).
+      - name: width
+        version: null
+        type: string
+        defaultValue: '300px'
+        description: Changes the width.
+      - name: zindex
+        version: null
+        type: number
+        defaultValue: '4003'
+        description: Changes the z-index.
+      - name: position
+        version: null
+        type: string
+        defaultValue: 'center'
+        description: '9 types of positions can be used: <span>center</span> <span>center-top</span> <span>center-bottom</span> <span>right-top</span> <span>right-center</span> <span>right-bottom</span> <span>left-top</span> <span>left-center</span> <span>left-bottom</span>'
+      - name: distance
+        version: null
+        type: string
+        defaultValue: '10px'
+        description: 'The distance between positioned confirm boxes and the <span>body</span> element.'
+      - name: backgroundColor
+        version: null
+        type: string
+        defaultValue: '#f8f8f8'
+        description: Changes the background color.
+      - name: borderRadius
+        version: null
+        type: string
+        defaultValue: '25px'
+        description: Changes the radius of the corners.
+      - name: backOverlay
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Adds a background overlay.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.5)'
+        description: Changes the color of the background overlay.
+      - name: rtl
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: 'Specifies the text direction to "right-to-left".'
+      - name: fontFamily
+        version: null
+        type: string
+        defaultValue: 'Quicksand'
+        description: Changes the font-family.
+      - name: cssAnimation
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Enables/disables CSS animations to show/hide.
+      - name: cssAnimationDuration
+        version: null
+        type: number
+        defaultValue: '300'
+        description: Changes the CSS animations duration as milliseconds.
+      - name: cssAnimationStyle
+        version: null
+        type: string
+        defaultValue: 'fade'
+        description: '2 types of styles can be used: <span>fade</span> <span>zoom</span>'
+      - name: plainText
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Strips all HTML tags.
+      - name: titleColor
+        version: null
+        type: string
+        defaultValue: '#32c682'
+        description: Changes the color of the title text.
+      - name: titleFontSize
+        version: null
+        type: string
+        defaultValue: '16px'
+        description: Changes the font-size of the title text.
+      - name: titleMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the title text.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#1e1e1e'
+        description: Changes the color of the message text.
+      - name: messageFontSize
+        version: null
+        type: string
+        defaultValue: '14px'
+        description: Changes the font-size of the message text.
+      - name: messageMaxLength
+        version: null
+        type: number
+        defaultValue: '110'
+        description: The maximum length of the message text.
+      - name: buttonsFontSize
+        version: null
+        type: string
+        defaultValue: '15px'
+        description: Changes the font-size of the buttons text.
+      - name: buttonsMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the buttons text.
+      - name: okButtonColor
+        version: null
+        type: string
+        defaultValue: '#f8f8f8'
+        description: Changes the color of the OK button text.
+      - name: okButtonBackground
+        version: null
+        type: string
+        defaultValue: '#32c682'
+        description: Changes the background color of the OK button.
+      - name: cancelButtonColor
+        version: null
+        type: string
+        defaultValue: '#f8f8f8'
+        description: Changes the color of the Cancel button text.
+      - name: cancelButtonBackground
+        version: null
+        type: string
+        defaultValue: '#a9a9a9'
+        description: Changes the background color of the Cancel button.
 # Docs: Table Confirm Content: end
 
 # Docs: Table Loading Content: begin

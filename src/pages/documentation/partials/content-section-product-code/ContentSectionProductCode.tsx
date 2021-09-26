@@ -159,6 +159,26 @@ function ContentSectionProductCode({
                     </>
                   }
 
+                  {productId === EProductId.CONFIRM &&
+                    <>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`width: `}</span>
+                        <span className="code__string">{`'320px'`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`messageMaxLength: `}</span>
+                        <span className="code__number">{`1923`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`plainText: `}</span>
+                        <span className="code__boolean">{`true`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    </>
+                  }
+
                   <span className="code__indent1 code__indent--pt0">
                     <span>{`});`}</span>
                   </span>
@@ -191,6 +211,15 @@ function ContentSectionProductCode({
 
                     {
                       productId === EProductId.REPORT &&
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`plainText: `}</span>
+                        <span className="code__boolean">{`false`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    }
+
+                    {
+                      productId === EProductId.CONFIRM &&
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`plainText: `}</span>
                         <span className="code__boolean">{`false`}</span>
