@@ -7,7 +7,10 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  border-radius: 0 0 0 1rem;
+
+  &:last-child {
+    border-radius: 0 0 0 1rem;
+  }
 
   &--success,
   &--failure,
@@ -45,6 +48,10 @@
     width: 100%;
     padding: 0.5rem 0 1rem 0.75rem;
     border-left: 0.07rem dashed $color_gray_400;
+  }
+
+  &:last-child &__content {
+    border-radius: inherit;
   }
 
   &--success &__content,

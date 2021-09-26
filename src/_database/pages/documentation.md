@@ -33,7 +33,7 @@ _dbDocsTableNotify:
   optionsCommon:
     sectionId: DocsNotify
     sectionType: common
-    sectionTitle: 'Notify Common Options:'
+    sectionTitle: 'Common Options:'
     options:
       - name: width
         version: null
@@ -50,10 +50,130 @@ _dbDocsTableNotify:
         type: string
         defaultValue: 10px
         description: 'The distance between positioned notifications and the <span>body</span> element.'
+      - name: opacity
+        version: null
+        type: number
+        defaultValue: '1'
+        description: Changes the opacity. (Between 0 and 1)
+      - name: borderRadius
+        version: null
+        type: string
+        defaultValue: 5px
+        description: Changes the radius of the notifications corners.
+      - name: rtl
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: 'Specifies the text direction to "right-to-left".'
+      - name: timeout
+        version: null
+        type: number
+        defaultValue: '3000'
+        description: The delay in milliseconds to hide and remove the notifications.
+      - name: messageMaxLength
+        version: null
+        type: number
+        defaultValue: '110'
+        description: The maximum length of the notifications message text.
+      - name: backOverlay
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Adds a background overlay to the notifications.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.5)'
+        description: 'Changes the color of the background overlay. (Only if the notification type-based "backOverlayColor" option is empty.)'
+      - name: plainText
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Strips all HTML tags.
+      - name: showOnlyTheLastOne
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Auto-removes all the notifications except for the last one.
+      - name: clickToClose
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Removes the notification when it has been clicked without waiting for the delay.
+      - name: pauseOnHover
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Auto-remove functionality will be paused for each notification element when the pointer(mouse) enters on it.
+      - name: ID
+        version: null
+        type: string
+        defaultValue: 'NotiflixNotify'
+        description: Changes the ID (attribute) of the notifications.
+      - name: className
+        version: null
+        type: string
+        defaultValue: 'notiflix-notify'
+        description: Changes the class name (attribute) of the notifications.
+      - name: zindex
+        version: null
+        type: number
+        defaultValue: '4001'
+        description: Changes the z-index of the notifications.
+      - name: fontFamily
+        version: null
+        type: string
+        defaultValue: 'Quicksand'
+        description: Changes the font-family of the notifications message text.
+      - name: fontSize
+        version: null
+        type: string
+        defaultValue: '13px'
+        description: Changes the font-size of the notifications message text.
+      - name: cssAnimation
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Enables/disables CSS animations to show/hide the notifications.
+      - name: cssAnimationDuration
+        version: null
+        type: number
+        defaultValue: '400'
+        description: Changes the CSS animations duration as milliseconds.
+      - name: cssAnimationStyle
+        version: null
+        type: string
+        defaultValue: 'fade'
+        description: '6 types of styles can be used: <span>fade</span> <span>zoom</span> <span>from-right</span> <span>from-top</span> <span>from-bottom</span> <span>from-left</span>'
+      - name: closeButton
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Adds a close button/icon to the notifications. (Notifications with a close button won't disappear until they were clicked.)
+      - name: useIcon
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Allows using built-in SVG or external FontAwesome icons in the notifications. (By default, built-in SVG icons have been defined.)
+      - name: useFontAwesome
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Ignores built-in SVG icons and allows to use of external FontAwesome icons.
+      - name: fontAwesomeIconStyle
+        version: null
+        type: string
+        defaultValue: 'basic'
+        description: '2 types of styles can be used: <span>basic</span> <span>shadow</span>'
+      - name: fontAwesomeIconSize
+        version: null
+        type: string
+        defaultValue: '34px'
+        description: Changes the font-size of the FontAwesome icons.
   optionsSuccess:
     sectionId: DocsNotifySuccess
     sectionType: success
-    sectionTitle: 'Notify Success Options:'
+    sectionTitle: 'Success Options:'
     options:
       - name: background
         version: null
@@ -68,7 +188,7 @@ _dbDocsTableNotify:
       - name: childClassName
         version: null
         type: string
-        defaultValue: 'success'
+        defaultValue: 'notiflix-notify-success'
         description: Changes the class name.
       - name: notiflixIconColor
         version: null
@@ -90,19 +210,139 @@ _dbDocsTableNotify:
         type: string
         defaultValue: 'rgba(50,198,130,0.2)'
         description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+  optionsFailure:
+    sectionId: DocsNotifyFailure
+    sectionType: failure
+    sectionTitle: 'Failure Options:'
+    options:
+      - name: background
+        version: null
+        type: string
+        defaultValue: '#ff5549'
+        description: Changes the background color.
+      - name: textColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the text color.
+      - name: childClassName
+        version: null
+        type: string
+        defaultValue: 'notiflix-notify-failure'
+        description: Changes the class name.
+      - name: notiflixIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the SVG icon color.
+      - name: fontAwesomeClassName
+        version: null
+        type: string
+        defaultValue: 'fas fa-times-circle'
+        description: Changes the FontAwesome icon class name (FontAwesome has to be added to the project separately.)
+      - name: fontAwesomeIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the FontAwesome icon color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(255,85,73,0.2)'
+        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+  optionsWarning:
+    sectionId: DocsNotifyWarning
+    sectionType: warning
+    sectionTitle: 'Warning Options:'
+    options:
+      - name: background
+        version: null
+        type: string
+        defaultValue: '#eebf31'
+        description: Changes the background color.
+      - name: textColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the text color.
+      - name: childClassName
+        version: null
+        type: string
+        defaultValue: 'notiflix-notify-warning'
+        description: Changes the class name.
+      - name: notiflixIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the SVG icon color.
+      - name: fontAwesomeClassName
+        version: null
+        type: string
+        defaultValue: 'fas fa-exclamation-circle'
+        description: Changes the FontAwesome icon class name (FontAwesome has to be added to the project separately.)
+      - name: fontAwesomeIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the FontAwesome icon color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(238,191,49,0.2)'
+        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
+  optionsInfo:
+    sectionId: DocsNotifyInfo
+    sectionType: info
+    sectionTitle: 'Info Options:'
+    options:
+      - name: background
+        version: null
+        type: string
+        defaultValue: '#26c0d3'
+        description: Changes the background color.
+      - name: textColor
+        version: null
+        type: string
+        defaultValue: '#fff'
+        description: Changes the text color.
+      - name: childClassName
+        version: null
+        type: string
+        defaultValue: 'notiflix-notify-info'
+        description: Changes the class name.
+      - name: notiflixIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the SVG icon color.
+      - name: fontAwesomeClassName
+        version: null
+        type: string
+        defaultValue: 'fas fa-info-circle'
+        description: Changes the FontAwesome icon class name (FontAwesome has to be added to the project separately.)
+      - name: fontAwesomeIconColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.2)'
+        description: Changes the FontAwesome icon color.
+      - name: backOverlayColor
+        version: null
+        type: string
+        defaultValue: 'rgba(38,192,211,0.2)'
+        description: 'Changes the color of the back overlay. (Overrides the common "backOverlayColor" option for this notification type. It can be set as an empty string to use the common one.)'
 
 _dbDocsTableReport:
   namespace: Report
   optionsCommon:
     sectionId: DocsReport
     sectionType: common
-    sectionTitle: 'Report Common Options:'
+    sectionTitle: 'Common Options:'
     options:
       - todo: furkan
   optionsSuccess:
     sectionId: DocsReportSuccess
     sectionType: success
-    sectionTitle: 'Report Success Options:'
+    sectionTitle: 'Success Options:'
     options:
       - todo: furkan
 
@@ -111,7 +351,7 @@ _dbDocsTableConfirm:
   optionsCommon:
     sectionId: DocsConfirm
     sectionType: common
-    sectionTitle: 'Confirm Common Options:'
+    sectionTitle: 'Common Options:'
     options:
       - todo: furkan
 
@@ -120,7 +360,7 @@ _dbDocsTableLoading:
   optionsCommon:
     sectionId: DocsLoading
     sectionType: common
-    sectionTitle: 'Loading Common Options:'
+    sectionTitle: 'Common Options:'
     options:
       - todo: furkan
 
@@ -129,7 +369,7 @@ _dbDocsTableBlock:
   optionsCommon:
     sectionId: DocsBlock
     sectionType: common
-    sectionTitle: 'Block Common Options:'
+    sectionTitle: 'Common Options:'
     options:
       - todo: furkan
 
