@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Marked } from '@ts-stack/markdown';
 import { FiDownloadCloud as IconDownload, FiAlertTriangle as IconFailure } from 'react-icons/fi';
 import { FaGithub as IconGitHub } from 'react-icons/fa';
@@ -23,6 +23,8 @@ function DownloadTable(): JSX.Element {
   const { _dbDownloadTable } = _download;
 
   // Get All Releases from GitHub: begin
+  const refStateCanBeUpdated = useRef<boolean>(true);
+
   const [stateDownloadTableGitHub, setStateDownloadTableGitHub] = useState<IDownloadTableGitHubState>({
     isLoading: true,
     isSuccess: false,
@@ -33,7 +35,7 @@ function DownloadTable(): JSX.Element {
   const getGitHubAllReleasesAsync = useCallback(async () => {
     try {
       const gitHubData = await new GitHub().getAllReleasesAsync();
-      if (Array.isArray(gitHubData)) {
+      if (Array.isArray(gitHubData) && refStateCanBeUpdated.current) {
         setStateDownloadTableGitHub({
           isLoading: false,
           isSuccess: true,
@@ -44,20 +46,26 @@ function DownloadTable(): JSX.Element {
         throw new Error(gitHubData.toString());
       }
     } catch (error) {
-      setStateDownloadTableGitHub({
-        apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
-        isLoading: false,
-        isSuccess: false,
-        isFailure: true,
-      });
+      if (refStateCanBeUpdated.current) {
+        setStateDownloadTableGitHub({
+          apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
+          isLoading: false,
+          isSuccess: false,
+          isFailure: true,
+        });
+      }
     }
-  }, []);
+  }, [refStateCanBeUpdated]);
 
   useEffect(() => {
     if (stateDownloadTableGitHub.isLoading) {
+      refStateCanBeUpdated.current = true;
       getGitHubAllReleasesAsync();
     }
-  }, [stateDownloadTableGitHub, getGitHubAllReleasesAsync]);
+    return () => {
+      refStateCanBeUpdated.current = false;
+    };
+  }, [stateDownloadTableGitHub, refStateCanBeUpdated, getGitHubAllReleasesAsync]);
   // Get All Releases from GitHub: end
 
   return (
