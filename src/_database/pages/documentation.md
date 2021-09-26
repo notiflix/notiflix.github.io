@@ -19,6 +19,11 @@ _dbDocsNotify:
   viewCode: Code View
   viewCodeDescriptionInit: The "init()" function can be used to set custom options as globally.
   viewCodeDescriptionMerge: The "merge()" function can be used to deeply extend the "init()" options for a specific page or event globally.
+  tableHead:
+    option: Option
+    type: Type
+    defaultValue: Default Value
+    description: Description
   optionsCommon:
     sectionId: DocsNotify
     sectionType: common

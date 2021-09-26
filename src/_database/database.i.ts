@@ -347,6 +347,13 @@ interface IDatabaseDocumentationProductOptions {
   options?: IDatabaseDocumentationProductOption[];
 }
 
+interface IDatabaseDocumentationProductTableHead {
+  option: string;
+  type: string;
+  defaultValue: string;
+  description: string;
+}
+
 interface IDatabaseDocumentationProduct {
   id: string;
   namespace: string;
@@ -358,6 +365,7 @@ interface IDatabaseDocumentationProduct {
   viewCode: string;
   viewCodeDescriptionInit: string;
   viewCodeDescriptionMerge: string;
+  tableHead?: IDatabaseDocumentationProductTableHead;
   optionsCommon?: IDatabaseDocumentationProductOptions;
 }
 
@@ -418,6 +426,7 @@ interface IDatabaseSettings {
 export type {
   IDatabaseDocumentationProductOption,
   IDatabaseDocumentationProductOptions,
+  IDatabaseDocumentationProductTableHead,
   IDatabaseDocumentationProductNotify,
   IDatabaseDocumentationProductReport,
   IDatabaseDocumentationProduct,

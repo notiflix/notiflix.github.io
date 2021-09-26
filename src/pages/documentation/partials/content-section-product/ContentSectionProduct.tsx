@@ -68,7 +68,10 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
           `${styles.product__tables}`,
           `${!stateViewAsCode ? `${styles['product__tables--active'] || ''}` : ''}`,
         ].join(' ').trim()}>
-          <ContentSectionProductTable data={data?.optionsCommon} />
+          <ContentSectionProductTable
+            tableHead={data?.tableHead}
+            data={data?.optionsCommon}
+          />
           {
             (
               (data && 'optionsSuccess' in data) ||
@@ -84,6 +87,7 @@ function ContentSectionProduct({ data }: IContentSectionProduct): JSX.Element {
               <ContentSectionProductTable
                 key={index}
                 id={optionsGroup?.sectionId}
+                tableHead={data?.tableHead}
                 data={optionsGroup}
               />
             ))

@@ -1,13 +1,14 @@
-import { IDatabaseDocumentationProductOptions } from '@database/database.i';
+import { IDatabaseDocumentationProductOptions, IDatabaseDocumentationProductTableHead } from '@database/database.i';
 
 import styles from '@pages/documentation/partials/content-section-product-table/ContentSectionProductTable.module.scss';
 
 interface IContentSectionProductTable {
   id?: string;
+  tableHead?: IDatabaseDocumentationProductTableHead;
   data?: IDatabaseDocumentationProductOptions;
 }
 
-function ContentSectionProductTable({ id, data }: IContentSectionProductTable): JSX.Element {
+function ContentSectionProductTable({ id, tableHead, data }: IContentSectionProductTable): JSX.Element {
   return (
     <div
       id={id}
@@ -21,10 +22,10 @@ function ContentSectionProductTable({ id, data }: IContentSectionProductTable): 
         <table className={`table table--${data?.sectionType}`}>
           <thead className="table__thead">
             <tr className="table__tr">
-              <th className="table__th">Option</th>
-              <th className="table__th">Type</th>
-              <th className="table__th">Default Value</th>
-              <th className="table__th">Description</th>
+              <th className="table__th">{tableHead?.option}</th>
+              <th className="table__th">{tableHead?.type}</th>
+              <th className="table__th">{tableHead?.defaultValue}</th>
+              <th className="table__th">{tableHead?.description}</th>
             </tr>
           </thead>
           <tbody className="table__tbody">
