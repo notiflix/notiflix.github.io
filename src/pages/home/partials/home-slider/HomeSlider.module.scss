@@ -53,7 +53,7 @@
       transition: $transition_opacity;
       opacity: 0;
       filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.025));
-      max-width: 16rem;
+      max-width: 18rem;
 
       @include media_up($breakpoint_tablet) {
         max-width: 100%;
