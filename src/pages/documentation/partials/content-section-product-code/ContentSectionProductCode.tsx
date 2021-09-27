@@ -204,6 +204,27 @@ function ContentSectionProductCode({
                     </>
                   }
 
+                  {
+                    productId === EProductId.BLOCK &&
+                    <>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`backgroundColor: `}</span>
+                        <span className="code__string">{`'rgba(0,0,0,0.9)'`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`svgColor: `}</span>
+                        <span className="code__string">{`'#f8f8f8'`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`messageMaxLength: `}</span>
+                        <span className="code__number">{`19`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    </>
+                  }
+
                   <span className="code__indent1 code__indent--pt0">
                     <span>{`});`}</span>
                   </span>
@@ -257,6 +278,15 @@ function ContentSectionProductCode({
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`clickToClose: `}</span>
                         <span className="code__boolean">{`true`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    }
+
+                    {
+                      productId === EProductId.BLOCK &&
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`messageMaxLength: `}</span>
+                        <span className="code__number">{`23`}</span>
                         <span>{`,`}</span>
                       </span>
                     }

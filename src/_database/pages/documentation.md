@@ -823,7 +823,76 @@ _dbDocsTableBlock:
     sectionType: common
     sectionTitle: 'Common Options:'
     options:
-      - todo: furkan
+      - name: querySelectorLimit
+        version: null
+        type: number
+        defaultValue: '200'
+        description: 'Limit of the CSS selector(s) or "Array&lt;HTMLElement&gt;" or "NodeListOf&lt;HTMLElement&gt;" length.'
+      - name: className
+        version: null
+        type: string
+        defaultValue: 'notiflix-block'
+        description: Changes the class name (attribute) of the block indicator/message elements wrapper.
+      - name: position
+        version: null
+        type: string
+        defaultValue: 'absolute'
+        description: Changes the position of the block indicator/message elements wrapper.
+      - name: zindex
+        version: null
+        type: number
+        defaultValue: '1000'
+        description: Changes the z-index of the block indicator/message elements wrapper.
+      - name: backgroundColor
+        version: null
+        type: string
+        defaultValue: 'rgba(255,255,255,0.9)'
+        description: Changes the background color the block indicator/message elements wrapper.
+      - name: rtl
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: 'Specifies the text direction to "right-to-left".'
+      - name: fontFamily
+        version: null
+        type: string
+        defaultValue: 'Quicksand'
+        description: Changes the font-family.
+      - name: cssAnimation
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Enables/disables CSS animations to show/hide.
+      - name: cssAnimationDuration
+        version: null
+        type: number
+        defaultValue: '300'
+        description: Changes the CSS animations duration as milliseconds.
+      - name: svgSize
+        version: null
+        type: string
+        defaultValue: '45px'
+        description: Changes the built-in SVG icons width and height. (Notiflix uses square scaled icons.)
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#383838'
+        description: Changes the built-in SVG icon color.
+      - name: messageFontSize
+        version: null
+        type: string
+        defaultValue: '14px'
+        description: Changes the font-size of the block message text.
+      - name: messageMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the block message text.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#383838'
+        description: Changes the color of the block message text.
 # Docs: Table Block Content: end
 
 ---
