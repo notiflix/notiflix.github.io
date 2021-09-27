@@ -1,5 +1,7 @@
 import { IDatabaseDocumentationTableProductOptions, IDatabaseDocumentationTableCommonViewTableHead } from '@database/database.i';
 
+import { createDocumentationCodeClassName } from '@application/helpers/utilities';
+
 import styles from '@pages/documentation/partials/content-section-product-table/ContentSectionProductTable.module.scss';
 
 interface IContentSectionProductTable {
@@ -51,7 +53,7 @@ function ContentSectionProductTable({ id, tableHead, tableData }: IContentSectio
                     <span className={`table__td--${option?.type}`}>{option?.type}</span>
                   </td>
                   <td className="table__td table__td--default">
-                    <span className={`table__td--${option?.type}`}>{option?.defaultValue}</span>
+                    <span className={`table__td--${createDocumentationCodeClassName(option?.type, option?.defaultValue)}`}>{option?.defaultValue}</span>
                   </td>
                   <td className="table__td table__td--description" dangerouslySetInnerHTML={{ __html: option?.description || '' }}></td>
                 </tr>

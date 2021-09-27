@@ -61,6 +61,14 @@ const windowScrollToElementById = (selector: string, headerFix: boolean, isSmoot
   }
 };
 
+const createDocumentationCodeClassName = (type: string, value: string): string => {
+  return value?.toLocaleLowerCase('en') === 'null' ? 'null' : type;
+};
+
+const createDocumentationCodeValue = (type: string, value: string): string => {
+  return value?.toLocaleLowerCase('en') === 'null' ? 'null' : (type === 'string' ? `'${value}'` : value);
+};
+
 
 export {
   ErrorWithStatus,
@@ -72,4 +80,6 @@ export {
   createFormattedReleaseDate,
   replaceBetweenCurlyBracesWithAData,
   windowScrollToElementById,
+  createDocumentationCodeClassName,
+  createDocumentationCodeValue,
 };

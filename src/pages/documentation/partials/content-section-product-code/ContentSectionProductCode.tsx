@@ -2,6 +2,7 @@ import { IDatabaseDocumentationTableProductOptions, IDatabaseDocumentationTableC
 
 import { constants } from '@application/constants';
 import { EProductId } from '@application/enumerations/product-id';
+import { createDocumentationCodeClassName, createDocumentationCodeValue } from '@application/helpers/utilities';
 
 import styles from '@pages/documentation/partials/content-section-product-code/ContentSectionProductCode.module.scss';
 
@@ -56,7 +57,7 @@ function ContentSectionProductCode({
               optionsCommon?.options?.map((option, index) => (option &&
                 <span key={index} className="code__indent2 code__indent--py0">
                   <span className="code__attr">{`${option?.name}: `}</span>
-                  <span className={`code__${option?.type}`}>{`${option?.type === 'string' ? `'${option?.defaultValue}'` : option?.defaultValue}`}</span>
+                  <span className={`code__${createDocumentationCodeClassName(option?.type, option?.defaultValue)}`}>{createDocumentationCodeValue(option?.type, option?.defaultValue)}</span>
                   <span>{`,`}</span>
                 </span>
               ))
@@ -77,7 +78,7 @@ function ContentSectionProductCode({
                     optionsGroup?.options?.map((option, index) => (
                       <span key={index} className="code__indent3 code__indent--py0">
                         <span className="code__attr">{`${option?.name}: `}</span>
-                        <span className={`code__${option?.type}`}>{`${option?.type === 'string' ? `'${option?.defaultValue}'` : option?.defaultValue}`}</span>
+                        <span className={`code__${createDocumentationCodeClassName(option?.type, option?.defaultValue)}`}>{createDocumentationCodeValue(option?.type, option?.defaultValue)}</span>
                         <span>{`,`}</span>
                       </span>
                     ))
@@ -119,7 +120,8 @@ function ContentSectionProductCode({
                     <span>{`({`}</span>
                   </span>
 
-                  {productId === EProductId.NOTIFY &&
+                  {
+                    productId === EProductId.NOTIFY &&
                     <>
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`width: `}</span>
@@ -139,7 +141,8 @@ function ContentSectionProductCode({
                     </>
                   }
 
-                  {productId === EProductId.REPORT &&
+                  {
+                    productId === EProductId.REPORT &&
                     <>
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`width: `}</span>
@@ -159,7 +162,8 @@ function ContentSectionProductCode({
                     </>
                   }
 
-                  {productId === EProductId.CONFIRM &&
+                  {
+                    productId === EProductId.CONFIRM &&
                     <>
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`width: `}</span>
@@ -174,6 +178,27 @@ function ContentSectionProductCode({
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`plainText: `}</span>
                         <span className="code__boolean">{`true`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    </>
+                  }
+
+                  {
+                    productId === EProductId.LOADING &&
+                    <>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`backgroundColor: `}</span>
+                        <span className="code__string">{`'rgba(0,0,0,0.9)'`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`svgColor: `}</span>
+                        <span className="code__string">{`'#fff'`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`clickToClose: `}</span>
+                        <span className="code__boolean">{`false`}</span>
                         <span>{`,`}</span>
                       </span>
                     </>
@@ -223,6 +248,15 @@ function ContentSectionProductCode({
                       <span className="code__indent2 code__indent--py0">
                         <span className="code__attr">{`plainText: `}</span>
                         <span className="code__boolean">{`false`}</span>
+                        <span>{`,`}</span>
+                      </span>
+                    }
+
+                    {
+                      productId === EProductId.LOADING &&
+                      <span className="code__indent2 code__indent--py0">
+                        <span className="code__attr">{`clickToClose: `}</span>
+                        <span className="code__boolean">{`true`}</span>
                         <span>{`,`}</span>
                       </span>
                     }

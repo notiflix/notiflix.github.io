@@ -272,6 +272,10 @@ strong {
     color: $color_code_const;
   }
 
+  &__null {
+    color: $color_code_null;
+  }
+
   &__light {
     color: $color_code_light;
   }
@@ -459,7 +463,9 @@ strong {
 
     &--string,
     &--number,
-    &--boolean {
+    &--boolean,
+    &--null,
+    &--any {
       display: inline-block;
       text-align: center;
       padding: 0.15rem 0.6rem;
@@ -477,6 +483,14 @@ strong {
 
     &--boolean {
       background: $color_code_boolean;
+    }
+
+    &--null {
+      background: $color_code_null;
+    }
+
+    &--any {
+      background: $color_gray_600;
     }
 
     &__option {

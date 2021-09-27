@@ -738,7 +738,81 @@ _dbDocsTableLoading:
     sectionType: common
     sectionTitle: 'Common Options:'
     options:
-      - todo: furkan
+      - name: className
+        version: null
+        type: string
+        defaultValue: 'notiflix-loading'
+        description: Changes the class name (attribute).
+      - name: zindex
+        version: null
+        type: number
+        defaultValue: '4000'
+        description: Changes the z-index.
+      - name: backgroundColor
+        version: null
+        type: string
+        defaultValue: 'rgba(0,0,0,0.8)'
+        description: Changes the background color.
+      - name: rtl
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: 'Specifies the text direction to "right-to-left".'
+      - name: fontFamily
+        version: null
+        type: string
+        defaultValue: 'Quicksand'
+        description: Changes the font-family.
+      - name: cssAnimation
+        version: null
+        type: boolean
+        defaultValue: 'true'
+        description: Enables/disables CSS animations to show/hide.
+      - name: cssAnimationDuration
+        version: null
+        type: number
+        defaultValue: '400'
+        description: Changes the CSS animations duration as milliseconds.
+      - name: clickToClose
+        version: null
+        type: boolean
+        defaultValue: 'false'
+        description: Removes the loading indicator when it has been clicked.
+      - name: customSvgUrl
+        version: null
+        type: string
+        defaultValue: 'null'
+        description: 'An external SVG icon URL can be set. Usage: <span>Notiflix.Loading.custom();</span>'
+      - name: svgSize
+        version: null
+        type: string
+        defaultValue: '80px'
+        description: Changes the built-in SVG icons width and height. (Notiflix uses square scaled icons.)
+      - name: svgColor
+        version: null
+        type: string
+        defaultValue: '#32c682'
+        description: Changes the built-in SVG icon color.
+      - name: messageID
+        version: null
+        type: string
+        defaultValue: 'NotiflixLoadingMessage'
+        description: Changes the ID (attribute) of the loading message element.
+      - name: messageFontSize
+        version: null
+        type: string
+        defaultValue: '15px'
+        description: Changes the font-size of the loading message text.
+      - name: messageMaxLength
+        version: null
+        type: number
+        defaultValue: '34'
+        description: The maximum length of the loading message text.
+      - name: messageColor
+        version: null
+        type: string
+        defaultValue: '#dcdcdc'
+        description: Changes the color of the loading message text.
 # Docs: Table Loading Content: end
 
 # Docs: Table Block Content: begin
