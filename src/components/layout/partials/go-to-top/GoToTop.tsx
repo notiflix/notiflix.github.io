@@ -17,7 +17,7 @@ function GoToTop(): JSX.Element {
   // GotoTop Show/Hide: begin
   const [stateShowGoToTop, setStateShowGoToTop] = useState<boolean>(false);
   const documentScrollListener = (): void => {
-    setStateShowGoToTop(window.document.documentElement?.scrollTop > window.innerHeight);
+    setStateShowGoToTop(window.document.documentElement?.scrollTop > (window.innerHeight * 1.25));
   };
   useEffect(() => {
     window.document.addEventListener('scroll', documentScrollListener);
