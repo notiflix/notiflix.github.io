@@ -1,11 +1,14 @@
-import { IDatabaseMeta } from '@database/database.i';
+import { useLayoutEffect } from 'react';
+
+import { IDatabasePageMeta } from '@database/database.i';
 
 import MetaTags from '@components/meta/MetaTags';
 import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 import Schema from '@components/meta/Schema';
 
-import NoScript from '@components/layout/partials/NoScript';
+import Noscript from '@components/layout/partials/noscript/Noscript';
+import GoToTop from '@components/layout/partials/go-to-top/GoToTop';
 
 import styles from '@components/layout/Layout.module.scss';
 
@@ -19,15 +22,20 @@ type TChildren = React.ReactNode
 
 interface ILayout {
   classNamePrefix: string;
-  meta?: IDatabaseMeta;
+  meta?: IDatabasePageMeta;
   children?: TChildren;
 }
 
 function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
+
+  useLayoutEffect(() => {
+    window.document.documentElement?.dispatchEvent(new Event('scroll', { bubbles: true }));
+  }, []);
+
   return (
     <>
       <MetaTags meta={meta} />
-      <NoScript />
+      <Noscript />
       <Header classNamePrefix={classNamePrefix} />
       <main className={[
         `${styles.layout}`,
@@ -36,6 +44,7 @@ function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
         {children}
       </main>
       <Footer />
+      <GoToTop />
       <Schema />
     </>
   );
