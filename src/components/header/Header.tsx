@@ -25,9 +25,9 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
   const logoPathAs = routes.find(x => x?.id === _dbPageMeta?.routeId)?.pathAs || '/';
 
   // Sticky: begin
-  const [stateScrollTop, setStateScrollTop] = useState<number>(0);
+  const [stateIsSticky, setStateIsSticky] = useState<boolean>(false);
   const documentScrollListener = (): void => {
-    setStateScrollTop(Math.round(window.document.documentElement?.scrollTop || 0));
+    setStateIsSticky(window.document.documentElement?.scrollTop > 10);
   };
   useEffect(() => {
     window.document.addEventListener('scroll', documentScrollListener);
@@ -48,7 +48,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
     <header className={[
       `${styles.header}`,
       `${styles[`header--${classNamePrefix}`] || ''}`,
-      `${stateScrollTop > 1 ? (styles[`header--sticky`] || '') : ''}`,
+      `${stateIsSticky ? (styles[`header--sticky`] || '') : ''}`,
     ].join(' ').trim()}>
       <div className={styles.header__container}>
 
