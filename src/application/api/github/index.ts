@@ -153,7 +153,7 @@ class GitHub {
     try {
       const _headers = this.headers;
 
-      await addSomeDelayAsync(720);
+      await addSomeDelayAsync(360);
 
       const response = await fetch(constants.api.urlGitHubReleases, {
         method: 'get',
