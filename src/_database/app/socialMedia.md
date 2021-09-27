@@ -1,5 +1,5 @@
 ---
-_dbSocialMedia:
+_dbAppSocialMedia:
   - isActive: true
     url: https://github.com/notiflix
     name: GitHub

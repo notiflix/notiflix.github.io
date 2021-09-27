@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { attributes as _appContent } from '@database/app/content.md';
+
 import { constants } from '@application/constants';
 import { routes } from '@application/routes';
 
@@ -10,6 +12,8 @@ interface IHeaderMenu {
 }
 
 function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
+  const { _dbAppContent } = _appContent;
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav__ul}>
@@ -18,7 +22,7 @@ function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
             <li key={route?.id} className={styles.nav__ul__li}>
               <Link href={route?.pathPage} as={`${process.env.appUrl}${route?.pathAs}`} passHref prefetch={route?.prefetch}>
                 <a
-                  aria-label={`${constants.app.name} ${route?.name} ${constants.app.text.module}`}
+                  aria-label={`${constants.app.name} ${route?.name} ${_dbAppContent?.buttons?.module}`}
                   onClick={() => mobileMenuOnClickHandler(false)}
                   target={route?.isTargetBlank ? '_blank' : undefined}
                   className={[

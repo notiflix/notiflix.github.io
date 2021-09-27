@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Loading as NotiflixLoading } from 'notiflix';
 import { FiSettings as IconDocs } from 'react-icons/fi';
 
+import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _loading } from '@database/pages/loading.md';
 import { TDatabaseLoadingIndicatorsFunctionNames } from '@database/database.i';
 
@@ -16,6 +17,7 @@ import LazyImage from '@components/lazyimage/LazyImage';
 import styles from '@pages/loading/partials/loading-playground/LoadingPlayground.module.scss';
 
 function LoadingPlayground(): JSX.Element {
+  const { _dbAppContent } = _appContent;
   const { _dbLoadingPlayground } = _loading;
   const namespaceGlobal = constants.app.name;
   const namespaceModule = _dbLoadingPlayground?.namespace;
@@ -52,7 +54,7 @@ function LoadingPlayground(): JSX.Element {
       <div className={styles.playground__head}>
         <h2 className={styles.playground__head__title}>{_dbLoadingPlayground?.title}</h2>
         <button
-          aria-label={constants.app.text.switch}
+          aria-label={_dbAppContent?.buttons?.switch}
           type="button"
           onClick={() => switchAsAModuleOnClickHandler(!stateLoadingIsModule)}
           className={[
@@ -60,7 +62,7 @@ function LoadingPlayground(): JSX.Element {
             `${styles[`playground__head__switch--${stateLoadingIsModule ? 'module' : 'global'}`] || ''}`,
           ].join(' ').trim()}
         >
-          <span className={styles.playground__head__switch__text}>{stateLoadingIsModule ? constants.app.text.module : constants.app.text.global}</span>
+          <span className={styles.playground__head__switch__text}>{stateLoadingIsModule ? _dbAppContent?.buttons?.module : _dbAppContent?.buttons?.global}</span>
         </button>
       </div>
 

@@ -1,3 +1,5 @@
+import { attributes as _appContent } from '@database/app/content.md';
+
 import { constants } from '@application/constants';
 
 
@@ -28,9 +30,10 @@ const createVersionName = (tag?: string): string => `${constants.app.name}-${tag
 const createZipFileName = (tag?: string): string => `${constants.app.name}-${tag?.replace(/[^0-9.]/g, '')}.zip`;
 
 const createFormattedReleaseDate = (date: string): string => {
+  const { _dbAppContent } = _appContent;
   const createDate = new Date(date);
   const year = createDate.getFullYear();
-  const monthName = constants.app.text.monthNames[createDate.getMonth()];
+  const monthName = Array.isArray(_dbAppContent?.date?.monthNames) ? _dbAppContent?.date?.monthNames[createDate.getMonth()] : '';
   const day = (createDate.getDate() + '').padStart(2, '0');
   return `${monthName} ${day}, ${year}`;
 };

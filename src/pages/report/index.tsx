@@ -8,13 +8,13 @@ import ReportPlayground from '@pages/report/partials/report-playground/ReportPla
 import styles from '@pages/report/index.module.scss';
 
 function Report(): JSX.Element {
-  const { _dbMeta, _dbReportBanner } = _report;
+  const { _dbPageMeta, _dbReportBanner } = _report;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="report">
+    <Layout meta={_dbPageMeta} classNamePrefix="report">
       <BannerProduct
         classNamePrefix="report"
-        routeId={_dbMeta?.routeId}
+        routeId={_dbPageMeta?.routeId}
         content={_dbReportBanner}
       />
       <div className={styles.report}>

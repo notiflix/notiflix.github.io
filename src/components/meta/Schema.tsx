@@ -1,8 +1,8 @@
-import { attributes as _socialMedia } from '@database/settings/socialMedia.md';
+import { attributes as _appSocialMedia } from '@database/app/socialMedia.md';
 
 function Schema(): JSX.Element {
 
-  const { _dbSocialMedia } = _socialMedia;
+  const { _dbAppSocialMedia } = _appSocialMedia;
 
   const schemaOrganization = {
     '@context': 'https://schema.org',
@@ -10,7 +10,7 @@ function Schema(): JSX.Element {
     'name': process.env.appName,
     'url': process.env.appUrl,
     'logo': `${process.env.appUrl}${process.env.appOgImagePath}`,
-    'sameAs': _dbSocialMedia?.filter(x => x?.isActive)?.map(x => x?.url)?.map(x => x) || [],
+    'sameAs': _dbAppSocialMedia?.filter(x => x?.isActive)?.map(x => x?.url)?.map(x => x) || [],
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }} />;

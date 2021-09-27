@@ -8,13 +8,13 @@ import LoadingPlayground from '@pages/loading/partials/loading-playground/Loadin
 import styles from '@pages/loading/index.module.scss';
 
 function Loading(): JSX.Element {
-  const { _dbMeta, _dbLoadingBanner } = _loading;
+  const { _dbPageMeta, _dbLoadingBanner } = _loading;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="loading">
+    <Layout meta={_dbPageMeta} classNamePrefix="loading">
       <BannerProduct
         classNamePrefix="loading"
-        routeId={_dbMeta?.routeId}
+        routeId={_dbPageMeta?.routeId}
         content={_dbLoadingBanner}
       />
       <div className={styles.loading}>

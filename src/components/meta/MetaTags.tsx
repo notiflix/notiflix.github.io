@@ -1,16 +1,16 @@
 import Head from 'next/head';
 
-import { attributes as _settings } from '@database/settings/settings.md';
-import { IDatabaseMeta } from '@database/database.i';
+import { attributes as _appMeta } from '@database/app/meta.md';
+import { IDatabasePageMeta } from '@database/database.i';
 
 import { routes } from '@application/routes';
 
 interface IMetaTags {
-  meta?: IDatabaseMeta;
+  meta?: IDatabasePageMeta;
 }
 
 function MetaTags({ meta }: IMetaTags): JSX.Element {
-  const { _dbSettings } = _settings;
+  const { _dbAppMeta } = _appMeta;
 
   const appName = process.env.appName;
   const appUrl = process.env.appUrl;
@@ -18,16 +18,16 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
 
   const pathAs = routes.find(x => x?.id === meta?.routeId)?.pathAs || '';
   const canonicalUrl = `${appUrl || ''}${(pathAs?.length > 1 ? pathAs : '')}` || '';
-  const yearInit = _dbSettings?.metaYearInit;
+  const yearInit = _dbAppMeta?.metaYearInit;
   const yearCurrent = new Date().getFullYear() || '';
 
   const metaBase = {
-    languageCode: _dbSettings?.metaLanguageCode,
-    language: _dbSettings?.metaLanguage,
-    title: _dbSettings?.metaTitle,
-    description: _dbSettings?.metaDescription,
-    robots: _dbSettings?.metaRobots,
-    themeColor: _dbSettings?.metaThemeColor,
+    languageCode: _dbAppMeta?.metaLanguageCode,
+    language: _dbAppMeta?.metaLanguage,
+    title: _dbAppMeta?.metaTitle,
+    description: _dbAppMeta?.metaDescription,
+    robots: _dbAppMeta?.metaRobots,
+    themeColor: _dbAppMeta?.metaThemeColor,
     ogImage: appOgImagePath,
   };
   const metaData = { ...metaBase, ...meta };
@@ -48,7 +48,7 @@ function MetaTags({ meta }: IMetaTags): JSX.Element {
       <link rel="shortlink" href={canonicalUrl} />
       <meta name="generator" content={appName} />
       <meta name="designer" content={appName} />
-      <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbSettings?.metaCopyright}`} />
+      <meta name="copyright" content={`© ${yearInit}-${yearCurrent} ${appName}. ${_dbAppMeta?.metaCopyright}`} />
 
       {/* TODO: SEO */}
 

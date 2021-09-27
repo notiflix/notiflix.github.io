@@ -1,6 +1,8 @@
 @import "@styles/variables";
 
 .footer {
+  position: relative;
+  z-index: 99;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

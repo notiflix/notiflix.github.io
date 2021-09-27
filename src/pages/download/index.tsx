@@ -8,10 +8,10 @@ import DownloadBanner from '@pages/download/partials/download-banner/DownloadBan
 import styles from '@pages/download/index.module.scss';
 
 function Download(): JSX.Element {
-  const { _dbMeta } = _download;
+  const { _dbPageMeta } = _download;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="download">
+    <Layout meta={_dbPageMeta} classNamePrefix="download">
       <div className={styles.download}>
         <div className={styles.download__container}>
           <DownloadTable />

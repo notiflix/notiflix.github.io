@@ -8,13 +8,13 @@ import BlockPlayground from '@pages/block/partials/block-playground/BlockPlaygro
 import styles from '@pages/block/index.module.scss';
 
 function Block(): JSX.Element {
-  const { _dbMeta, _dbBlockBanner } = _block;
+  const { _dbPageMeta, _dbBlockBanner } = _block;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="block">
+    <Layout meta={_dbPageMeta} classNamePrefix="block">
       <BannerProduct
         classNamePrefix="block"
-        routeId={_dbMeta?.routeId}
+        routeId={_dbPageMeta?.routeId}
         content={_dbBlockBanner}
       />
       <div className={styles.block}>

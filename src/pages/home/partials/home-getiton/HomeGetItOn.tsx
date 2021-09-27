@@ -3,6 +3,7 @@ import { Notify as NotiflixNotify } from 'notiflix';
 import { FiCopy as IconCopy } from 'react-icons/fi';
 import { BiStar as IconStar, BiGitRepoForked as IconFork } from 'react-icons/bi';
 
+import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _home } from '@database/pages/home.md';
 
 import { constants } from '@application/constants';
@@ -24,6 +25,7 @@ interface IHomeGetItOnGitHubStatsState {
 }
 
 function HomeGetItOn(): JSX.Element {
+  const { _dbAppContent } = _appContent;
   const { _dbHomeGetItOn } = _home;
 
   // Copy to the clipboard: begin
@@ -101,7 +103,7 @@ function HomeGetItOn(): JSX.Element {
           >
             <span className={styles.getiton__link__script__copy}>
               <IconCopy className={styles.getiton__link__script__copy__icon} />
-              <span>{constants.app.text.copy}</span>
+              <span>{_dbAppContent?.buttons?.copy}</span>
             </span>
             {_dbHomeGetItOn?.yarn?.script}
           </span>
@@ -121,7 +123,7 @@ function HomeGetItOn(): JSX.Element {
           >
             <span className={styles.getiton__link__script__copy}>
               <IconCopy className={styles.getiton__link__script__copy__icon} />
-              <span>{constants.app.text.copy}</span>
+              <span>{_dbAppContent?.buttons?.copy}</span>
             </span>
             {_dbHomeGetItOn?.npm?.script}
           </span>

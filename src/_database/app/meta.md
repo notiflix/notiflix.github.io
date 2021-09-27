@@ -1,5 +1,5 @@
 ---
-_dbSettings:
+_dbAppMeta:
   metaLanguageCode: en
   metaLanguage: English
   metaTitle: Notiflix | a JavaScript library for client-side non-blocking notifications.
@@ -10,8 +10,5 @@ _dbSettings:
   metaThemeColor: "#32c682"
   metaTwitterUser: "@notiflixjs"
   metaTwitterDomain: notiflix.github.io
-  bodyNoScriptMessage: You have to enable JavaScript in your browser to use Notiflix.
-  footerGitHubName: /furcan
-  footerGitHubUrl: https://github.com/furcan
 
 ---

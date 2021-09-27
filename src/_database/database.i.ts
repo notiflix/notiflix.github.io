@@ -399,7 +399,7 @@ interface IDatabaseDocumentationTableCommon {
 // Page Documentation: end
 
 // Page Common: Meta Data: begin
-interface IDatabaseMeta {
+interface IDatabasePageMeta {
   routeId: string;
   lastModifiedDate: string;
   title: string;
@@ -411,16 +411,41 @@ interface IDatabaseMeta {
 // Page Common: Meta Data: end
 
 
+// App: Content: begin
+interface IDatabaseAppContent {
+  noscript?: {
+    message?: string;
+  };
+  footer?: {
+    gitHubName: string;
+    gitHubUrl: string;
+  };
+  buttons?: {
+    module?: string;
+    global?: string;
+    switch?: string;
+    menu?: string;
+    open?: string;
+    close?: string;
+    copy?: string;
+    goToTop?: string;
+  };
+  date?: {
+    monthNames?: string[];
+  };
+}
+// App: Content: end
+
 // App: Social Media Accounts: begin
-interface IDatabaseSocialMedia {
+interface IDatabaseAppSocialMedia {
   isActive: boolean;
   url: string;
   name: string;
 }
 // App: Social Media Accounts: end
 
-// App: Settings: begin
-interface IDatabaseSettings {
+// App: Meta: begin
+interface IDatabaseAppMeta {
   metaLanguageCode: string;
   metaLanguage: string;
   metaTitle: string;
@@ -431,11 +456,8 @@ interface IDatabaseSettings {
   metaThemeColor: string;
   metaTwitterUser: string;
   metaTwitterDomain: string;
-  bodyNoScriptMessage: string;
-  footerGitHubName: string;
-  footerGitHubUrl: string;
 }
-// App: Settings: end
+// App: Meta: end
 
 export type {
   IDatabaseDocumentationTableProductOption,
@@ -466,7 +488,8 @@ export type {
   IDatabaseHomeGetItOn,
   IDatabaseHomeBrowsers,
   IDatabaseHomeProducts,
-  IDatabaseMeta,
-  IDatabaseSocialMedia,
-  IDatabaseSettings,
+  IDatabasePageMeta,
+  IDatabaseAppContent,
+  IDatabaseAppSocialMedia,
+  IDatabaseAppMeta,
 };

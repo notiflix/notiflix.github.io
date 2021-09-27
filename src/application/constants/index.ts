@@ -8,16 +8,6 @@ interface IConstants {
     version: string;
     name: string;
     ogImagePath: string;
-    text: {
-      module: string;
-      global: string;
-      switch: string;
-      menu: string;
-      open: string;
-      close: string;
-      copy: string;
-      monthNames: string[];
-    };
     libraryOptions: {
       notify: INotifyOptions;
       report: IReportOptions;
@@ -39,16 +29,6 @@ const constants: IConstants = {
     version: (JSON.stringify((packageJSON || {}).version) || '').replace(/"/gm, ''),
     name: (JSON.stringify((packageJSON || {}).description) || '').replace(/"/gm, ''),
     ogImagePath: '/webapp/notiflix-og.jpg', // TODO:
-    text: {
-      module: 'Module',
-      global: 'Global',
-      switch: 'Switch',
-      menu: 'Menu',
-      open: 'Open',
-      close: 'Close',
-      copy: 'Copy',
-      monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    },
     libraryOptions: {
       notify: {
         fontFamily: 'Red Hat Display',

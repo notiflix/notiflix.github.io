@@ -1,5 +1,5 @@
 ---
-_dbMeta:
+_dbPageMeta:
   routeId: HOME
   lastModifiedDate: '2021-07-22' # YYYY-MM-DD
   title: Notiflix | a JavaScript library for client-side non-blocking notifications.

@@ -1,26 +1,34 @@
-// Settings: begin
-declare module '@database/settings/settings.md' {
+// App: begin
+declare module '@database/app/meta.md' {
   const attributes: {
-    _dbSettings?: import('./database.i').IDatabaseSettings,
+    _dbAppMeta?: import('./database.i').IDatabaseAppMeta,
   };
   const html: string;
   export { attributes, html };
 }
 
-declare module '@database/settings/socialMedia.md' {
+declare module '@database/app/socialMedia.md' {
   const attributes: {
-    _dbSocialMedia?: import('./database.i').IDatabaseSocialMedia[],
+    _dbAppSocialMedia?: import('./database.i').IDatabaseAppSocialMedia[],
   };
   const html: string;
   export { attributes, html };
 }
-// Settings: end
+
+declare module '@database/app/content.md' {
+  const attributes: {
+    _dbAppContent?: import('./database.i').IDatabaseAppContent,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// App: end
 
 
 // Pages: Home: begin
 declare module '@database/pages/home.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbHomeSlider?: import('./database.i').IDatabaseHomeSlider,
     _dbHomeGetItOn?: import('./database.i').IDatabaseHomeGetItOn,
     _dbHomeBrowsers?: import('./database.i').IDatabaseHomeBrowsers,
@@ -34,7 +42,7 @@ declare module '@database/pages/home.md' {
 // Pages: Notify: begin
 declare module '@database/pages/notify.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbNotifyBanner?: import('./database.i').IDatabaseBannerProducts,
     _dbNotifyPlayground?: import('./database.i').IDatabaseNotifyPlayground,
   };
@@ -46,7 +54,7 @@ declare module '@database/pages/notify.md' {
 // Pages: Report: begin
 declare module '@database/pages/report.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbReportBanner?: import('./database.i').IDatabaseBannerProducts,
     _dbReportPlayground?: import('./database.i').IDatabaseReportPlayground,
   };
@@ -58,7 +66,7 @@ declare module '@database/pages/report.md' {
 // Pages: Confirm: begin
 declare module '@database/pages/confirm.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbConfirmBanner?: import('./database.i').IDatabaseBannerProducts,
     _dbConfirmPlayground?: import('./database.i').IDatabaseConfirmPlayground,
   };
@@ -70,7 +78,7 @@ declare module '@database/pages/confirm.md' {
 // Pages: Loading: begin
 declare module '@database/pages/loading.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbLoadingBanner?: import('./database.i').IDatabaseBannerProducts,
     _dbLoadingPlayground?: import('./database.i').IDatabaseLoadingPlayground,
   };
@@ -82,7 +90,7 @@ declare module '@database/pages/loading.md' {
 // Pages: Block: begin
 declare module '@database/pages/block.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbBlockBanner?: import('./database.i').IDatabaseBannerProducts,
     _dbBlockPlayground?: import('./database.i').IDatabaseBlockPlayground,
   };
@@ -94,7 +102,7 @@ declare module '@database/pages/block.md' {
 // Pages: Download: begin
 declare module '@database/pages/download.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbDownloadBanner?: import('./database.i').IDatabaseDownloadBanner,
     _dbDownloadTable?: import('./database.i').IDatabaseDownloadTable,
   };
@@ -106,7 +114,7 @@ declare module '@database/pages/download.md' {
 // Pages: Documentation: begin
 declare module '@database/pages/documentation.md' {
   const attributes: {
-    _dbMeta?: import('./database.i').IDatabaseMeta,
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
     _dbDocsTableCommon?: import('./database.i').IDatabaseDocumentationTableCommon,
     _dbDocsTableNotify?: import('./database.i').IDatabaseDocumentationTableProductNotify,
     _dbDocsTableReport?: import('./database.i').IDatabaseDocumentationTableProductReport,

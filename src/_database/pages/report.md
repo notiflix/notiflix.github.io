@@ -1,5 +1,5 @@
 ---
-_dbMeta:
+_dbPageMeta:
   routeId: REPORT
   lastModifiedDate: '2021-10-29' # YYYY-MM-DD
   title: Report | Notiflix

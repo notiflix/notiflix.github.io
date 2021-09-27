@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FiMoreHorizontal as IconMenuOpen, FiX as IconMenuClose } from 'react-icons/fi';
 
+import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _home } from '@database/pages/home.md';
 
 import { constants } from '@application/constants';
@@ -17,10 +18,11 @@ interface IHeader {
 }
 
 function Header({ classNamePrefix }: IHeader): JSX.Element {
-  const { _dbMeta } = _home;
+  const { _dbAppContent } = _appContent;
+  const { _dbPageMeta } = _home;
 
-  const logoPathPage = routes.find(x => x?.id === _dbMeta?.routeId)?.pathPage || '/';
-  const logoPathAs = routes.find(x => x?.id === _dbMeta?.routeId)?.pathAs || '/';
+  const logoPathPage = routes.find(x => x?.id === _dbPageMeta?.routeId)?.pathPage || '/';
+  const logoPathAs = routes.find(x => x?.id === _dbPageMeta?.routeId)?.pathAs || '/';
 
   // Sticky: begin
   const [stateScrollTop, setStateScrollTop] = useState<number>(0);
@@ -63,7 +65,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
         </div>
 
         <button
-          aria-label={constants.app.text.menu}
+          aria-label={_dbAppContent?.buttons?.menu}
           type="button"
           className={styles.header__menu__open}
           onClick={() => mobileMenuOnClickHandler(true)}
@@ -72,7 +74,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
         </button>
 
         <button
-          aria-label={constants.app.text.close}
+          aria-label={_dbAppContent?.buttons?.close}
           type="button"
           className={[
             `${styles.header__menu__overlay}`,
@@ -86,7 +88,7 @@ function Header({ classNamePrefix }: IHeader): JSX.Element {
           `${stateMenuOpen ? (styles['header__menu--opened'] || '') : ''}`,
         ].join(' ').trim()}>
           <button
-            aria-label={constants.app.text.close}
+            aria-label={_dbAppContent?.buttons?.close}
             type="button"
             className={styles.header__menu__close}
             onClick={() => mobileMenuOnClickHandler(false)}

@@ -10,10 +10,10 @@ import HomeProducts from '@pages/home/partials/home-products/HomeProducts';
 import styles from '@pages/home/index.module.scss';
 
 function Home(): JSX.Element {
-  const { _dbMeta } = _home;
+  const { _dbPageMeta } = _home;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="home">
+    <Layout meta={_dbPageMeta} classNamePrefix="home">
       <HomeSlider />
       <div className={styles.home__getiton__browsers}>
         <div className={styles.home__getiton__browsers__container}>

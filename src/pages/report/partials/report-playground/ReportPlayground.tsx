@@ -5,6 +5,7 @@ import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';
 
+import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _report } from '@database/pages/report.md';
 import { TDatabaseReportFunctionNames } from '@database/database.i';
 
@@ -18,6 +19,7 @@ import LazyImage from '@components/lazyimage/LazyImage';
 import styles from '@pages/report/partials/report-playground/ReportPlayground.module.scss';
 
 function ReportPlayground(): JSX.Element {
+  const { _dbAppContent } = _appContent;
   const { _dbReportPlayground } = _report;
   const namespaceGlobal = constants.app.name;
   const namespaceModule = _dbReportPlayground?.namespace;
@@ -91,7 +93,7 @@ function ReportPlayground(): JSX.Element {
       <div className={styles.playground__head}>
         <h2 className={styles.playground__head__title}>{_dbReportPlayground?.title}</h2>
         <button
-          aria-label={constants.app.text.switch}
+          aria-label={_dbAppContent?.buttons?.switch}
           type="button"
           onClick={() => switchAsAModuleOnClickHandler(!stateReportIsModule)}
           className={[
@@ -99,7 +101,7 @@ function ReportPlayground(): JSX.Element {
             `${styles[`playground__head__switch--${stateReportIsModule ? 'module' : 'global'}`] || ''}`,
           ].join(' ').trim()}
         >
-          <span className={styles.playground__head__switch__text}>{stateReportIsModule ? constants.app.text.module : constants.app.text.global}</span>
+          <span className={styles.playground__head__switch__text}>{stateReportIsModule ? _dbAppContent?.buttons?.module : _dbAppContent?.buttons?.global}</span>
         </button>
       </div>
 

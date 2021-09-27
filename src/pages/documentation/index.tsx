@@ -8,10 +8,10 @@ import Content from '@pages/documentation/partials/content/Content';
 import styles from '@pages/documentation/index.module.scss';
 
 function Documentation(): JSX.Element {
-  const { _dbMeta } = _documentation;
+  const { _dbPageMeta } = _documentation;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="documentation">
+    <Layout meta={_dbPageMeta} classNamePrefix="documentation">
       <div className={styles.documentation}>
         <div className={styles.documentation__container}>
           <Sidebar />

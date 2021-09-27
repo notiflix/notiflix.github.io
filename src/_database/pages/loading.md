@@ -1,5 +1,5 @@
 ---
-_dbMeta:
+_dbPageMeta:
   routeId: LOADING
   lastModifiedDate: '2021-10-29' # YYYY-MM-DD
   title: Loading | Notiflix

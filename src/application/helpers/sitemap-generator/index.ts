@@ -66,11 +66,11 @@ const sitemapGetPagesLastModifiedDate = (path: string): string => {
     return newDateAsString;
   }
 
-  // read the file and return "_dbMeta.lastModifiedDate"
+  // read the file and return "_dbPageMeta.lastModifiedDate"
   const fileAsText = readFileSync(path, 'utf-8');
   if (fileAsText) {
     const fileTextAsObj = markdownParser(fileAsText);
-    const lastModifiedDate = fileTextAsObj?.attributes?._dbMeta?.lastModifiedDate || newDateAsString;
+    const lastModifiedDate = fileTextAsObj?.attributes?._dbPageMeta?.lastModifiedDate || newDateAsString;
     return lastModifiedDate;
   }
 

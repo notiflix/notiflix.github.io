@@ -5,6 +5,7 @@ import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';
 
+import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _notify } from '@database/pages/notify.md';
 import { TDatabaseNotifyFunctionNames } from '@database/database.i';
 
@@ -18,6 +19,7 @@ import LazyImage from '@components/lazyimage/LazyImage';
 import styles from '@pages/notify/partials/notify-playground/NotifyPlayground.module.scss';
 
 function NotifyPlayground(): JSX.Element {
+  const { _dbAppContent } = _appContent;
   const { _dbNotifyPlayground } = _notify;
   const namespaceGlobal = constants.app.name;
   const namespaceModule = _dbNotifyPlayground?.namespace;
@@ -75,7 +77,7 @@ function NotifyPlayground(): JSX.Element {
       <div className={styles.playground__head}>
         <h2 className={styles.playground__head__title}>{_dbNotifyPlayground?.title}</h2>
         <button
-          aria-label={constants.app.text.switch}
+          aria-label={_dbAppContent?.buttons?.switch}
           type="button"
           onClick={() => switchAsAModuleOnClickHandler(!stateNotifyIsModule)}
           className={[
@@ -83,7 +85,7 @@ function NotifyPlayground(): JSX.Element {
             `${styles[`playground__head__switch--${stateNotifyIsModule ? 'module' : 'global'}`] || ''}`,
           ].join(' ').trim()}
         >
-          <span className={styles.playground__head__switch__text}>{stateNotifyIsModule ? constants.app.text.module : constants.app.text.global}</span>
+          <span className={styles.playground__head__switch__text}>{stateNotifyIsModule ? _dbAppContent?.buttons?.module : _dbAppContent?.buttons?.global}</span>
         </button>
       </div>
 

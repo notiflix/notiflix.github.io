@@ -8,13 +8,13 @@ import NotifyPlayground from '@pages/notify/partials/notify-playground/NotifyPla
 import styles from '@pages/notify/index.module.scss';
 
 function Notify(): JSX.Element {
-  const { _dbMeta, _dbNotifyBanner } = _notify;
+  const { _dbPageMeta, _dbNotifyBanner } = _notify;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="notify">
+    <Layout meta={_dbPageMeta} classNamePrefix="notify">
       <BannerProduct
         classNamePrefix="notify"
-        routeId={_dbMeta?.routeId}
+        routeId={_dbPageMeta?.routeId}
         content={_dbNotifyBanner}
       />
       <div className={styles.notify}>

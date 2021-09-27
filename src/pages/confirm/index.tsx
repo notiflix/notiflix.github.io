@@ -8,13 +8,13 @@ import ConfirmPlayground from '@pages/confirm/partials/confirm-playground/Confir
 import styles from '@pages/confirm/index.module.scss';
 
 function Confirm(): JSX.Element {
-  const { _dbMeta, _dbConfirmBanner } = _confirm;
+  const { _dbPageMeta, _dbConfirmBanner } = _confirm;
 
   return (
-    <Layout meta={_dbMeta} classNamePrefix="confirm">
+    <Layout meta={_dbPageMeta} classNamePrefix="confirm">
       <BannerProduct
         classNamePrefix="confirm"
-        routeId={_dbMeta?.routeId}
+        routeId={_dbPageMeta?.routeId}
         content={_dbConfirmBanner}
       />
       <div className={styles.confirm}>
