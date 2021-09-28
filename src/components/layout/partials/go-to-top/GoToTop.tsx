@@ -30,6 +30,7 @@ function GoToTop(): JSX.Element {
   return (
     <button
       aria-label={_dbAppContent?.buttons?.goToTop}
+      type="button"
       onClick={goToTopOnClickHandler}
       className={[
         `${styles.button}`,
