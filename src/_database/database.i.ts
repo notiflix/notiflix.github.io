@@ -331,6 +331,16 @@ interface IDatabaseDownloadBanner {
 // Page Download: end
 
 // Page Documentation: begin
+interface IDatabaseDocumentationSearch {
+  bannerImageSrc: string;
+  bannerImageAlt: string;
+  optionsPrefix: string;
+  inputPlaceholder: string;
+  inputMaxLength: number;
+  resultsTitle: string;
+  resultsNotFound: string;
+}
+
 type TDatabaseDocumentationProductOptionSection = 'common' | 'success' | 'failure' | 'warning' | 'info';
 
 interface IDatabaseDocumentationTableProductOption {
@@ -461,6 +471,7 @@ interface IDatabaseAppMeta {
 // App: Meta: end
 
 export type {
+  IDatabaseDocumentationSearch,
   IDatabaseDocumentationTableProductOption,
   IDatabaseDocumentationTableProductOptions,
   IDatabaseDocumentationTableProductNotify,

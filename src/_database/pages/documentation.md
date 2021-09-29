@@ -8,6 +8,17 @@ _dbPageMeta:
   ogImage: null
   themeColor: null
 
+# Docs: Search: begin
+_dbDocsSearch:
+  bannerImageSrc: /content/media/documentation/notiflix-documentation-banner.svg
+  bannerImageAlt: Search in the documentation
+  optionsPrefix: Search in
+  inputPlaceholder: Search in the documentation
+  inputMaxLength: 100
+  resultsTitle: "Results in the {{x}} options:"
+  resultsNotFound: No results found
+# Docs: Search: end
+
 # Docs: Table Common Content: begin
 _dbDocsTableCommon:
   titleSuffix: ': All Options'

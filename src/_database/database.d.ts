@@ -115,6 +115,7 @@ declare module '@database/pages/download.md' {
 declare module '@database/pages/documentation.md' {
   const attributes: {
     _dbPageMeta?: import('./database.i').IDatabasePageMeta,
+    _dbDocsSearch?: import('./database.i').IDatabaseDocumentationSearch,
     _dbDocsTableCommon?: import('./database.i').IDatabaseDocumentationTableCommon,
     _dbDocsTableNotify?: import('./database.i').IDatabaseDocumentationTableProductNotify,
     _dbDocsTableReport?: import('./database.i').IDatabaseDocumentationTableProductReport,

@@ -1,19 +1,18 @@
 @import "@styles/variables";
 
-.search {
+.area {
+  order: 2;
   width: 100%;
-  margin: 6rem 0 4rem;
-  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: lawngreen;
+  padding: 2rem;
 
   @include media_up($breakpoint_tablet) {
-    margin: 3rem 0;
-  }
-
-  @include media_up($breakpoint_minibook) {
-    margin: 1rem 0 4rem;
+    order: 1;
+    width: 62%;
   }
 }
