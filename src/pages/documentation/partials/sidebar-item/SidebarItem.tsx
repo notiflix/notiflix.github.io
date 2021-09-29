@@ -35,25 +35,29 @@ function SidebarItem({
   const [stateListIsOpened, setStateListIsOpened] = useState<boolean>(false);
   const buttonOnClickHandler = (toggle: boolean): void => {
     setStateListIsOpened(toggle);
-    onClickHandlerMobileNavigation(false);
     windowScrollToElementBySelector({
       selector: `#${optionsCommon?.sectionId}`,
       headerFix: true,
       threshold: 20,
+      isSmooth: true,
     });
+    if (!stateListIsOpened) {
+      onClickHandlerMobileNavigation(false);
+    }
   };
   // Sidebar List Open/Close OnClick Handler: end
 
   // Sidebar Scoll to Table by Item OnClick Handler: begin
   const listItemOnClickHandler = (event: React.MouseEvent<HTMLLIElement>): void => {
-    if (event?.target instanceof HTMLLIElement) {
-      const targetSelector = event.target.dataset.selector || '';
-      onClickHandlerMobileNavigation(false);
+    if (event?.currentTarget instanceof HTMLLIElement) {
+      const targetSelector = event?.currentTarget?.dataset?.selector || '';
       windowScrollToElementBySelector({
         selector: `tr[data-selector="${targetSelector}"]`,
         headerFix: true,
         threshold: 32,
+        isSmooth: true,
       });
+      onClickHandlerMobileNavigation(false);
     }
   };
   // Sidebar Scoll to Table by Item OnClick Handler: end

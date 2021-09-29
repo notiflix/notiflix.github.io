@@ -24,6 +24,7 @@ function ContentSection(): JSX.Element {
       windowScrollToElementBySelector({
         selector: window.location.hash,
         headerFix: true,
+        isSmooth: true,
         clearHash: true,
       });
     }
