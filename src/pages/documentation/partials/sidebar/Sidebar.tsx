@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiList as IconNavigation } from 'react-icons/fi';
+import { FiList as IconNavigation, FiX as IconClose } from 'react-icons/fi';
 
 import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _documentation } from '@database/pages/documentation.md';
@@ -65,6 +65,15 @@ function Sidebar(): JSX.Element {
           <IconNavigation className={styles.sidebar__title__icon} />
           <span className={styles.sidebar__title__text}>{_dbAppContent?.buttons?.navigation}</span>
         </h3>
+
+        <button
+          type="button"
+          className={styles.sidebar__close}
+          onClick={() => buttonSidebarMobileOnClickHandler(false)}
+        >
+          <IconClose className={styles.sidebar__close__icon} />
+          <span className={styles.sidebar__close__text}>{_dbAppContent?.buttons?.close}</span>
+        </button>
 
         <div className={styles.sidebar__content}>
           <SidebarItem

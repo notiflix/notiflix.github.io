@@ -35,13 +35,13 @@ function SidebarItem({
   const [stateListIsOpened, setStateListIsOpened] = useState<boolean>(false);
   const buttonOnClickHandler = (toggle: boolean): void => {
     setStateListIsOpened(toggle);
-    windowScrollToElementBySelector({
-      selector: `#${optionsCommon?.sectionId}`,
-      headerFix: true,
-      threshold: 20,
-      isSmooth: true,
-    });
     if (!stateListIsOpened) {
+      windowScrollToElementBySelector({
+        selector: `#${optionsCommon?.sectionId}`,
+        headerFix: true,
+        threshold: 20,
+        isSmooth: true,
+      });
       onClickHandlerMobileNavigation(false);
     }
   };
