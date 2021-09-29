@@ -1,11 +1,127 @@
 @import "@styles/variables";
 
 .sidebar {
-  width: 100%;
-  height: 15.5rem;
-  background: crimson;
+  display: none;
 
   @include media_up($breakpoint_minibook) {
     width: 30%;
+    min-height: 16rem;
+    max-height: calc(100vh - #{$header_height_sticky} - 4rem);
+    position: sticky;
+    left: 0;
+    top: calc(2rem + #{$header_height_sticky});
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background: $color_white;
+    box-shadow: $box_shadow_20;
+  }
+
+  &--mobile {
+    @include media_down($breakpoint_minibook) {
+      position: fixed;
+      z-index: 102;
+      left: 0;
+      top: calc($header_height_sticky - 0.0625rem);
+      right: 0;
+      margin: auto;
+      width: 100%;
+      height: 100vh;
+      max-height: calc(100vh - #{$header_height_sticky});
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background: $color_light;
+      padding: 1rem 1rem 2rem 2rem;
+    }
+  }
+
+  &__navigation {
+    transition: $transition_top;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: calc($header_height + 0.5rem);
+    right: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include media_up($breakpoint_minibook) {
+      display: none;
+    }
+
+    &--sticky {
+      top: $header_height_sticky;
+    }
+
+    &__button {
+      transition: $transition_border;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      color: $color_white;
+      background: $color_theme_green;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+
+      &__icon {
+        margin-right: 0.6rem;
+        transform: scale(1.4);
+      }
+    }
+
+    &--sticky &__button {
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+
+  &__title {
+    display: none;
+
+    @include media_up($breakpoint_minibook) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 1.5rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    &__icon {
+      @include media_up($breakpoint_minibook) {
+        margin-right: 0.75rem;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden scroll;
+    display: block;
+
+    @include media_up($breakpoint_minibook) {
+      margin: 2.5rem 0 0;
+    }
   }
 }

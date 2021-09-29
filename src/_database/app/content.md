@@ -14,6 +14,7 @@ _dbAppContent:
     close: 'Close'
     copy: 'Copy'
     goToTop: Go to top
+    navigation: Navigation
   date:
     monthNames:
       - 'January'

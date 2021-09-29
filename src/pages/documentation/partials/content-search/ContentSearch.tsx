@@ -4,7 +4,7 @@ import styles from '@pages/documentation/partials/content-search/ContentSearch.m
 function ContentSearch(): JSX.Element {
   return (
     <div className={styles.search}>
-      <h1>ContentSearch</h1>
+      <h1>TODO: Search</h1>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 import { attributes as _documentation } from '@database/pages/documentation.md';
 
 import { EProductId } from '@application/enumerations/product-id';
-import { windowScrollToElementById } from '@application/helpers/utilities';
+import { windowScrollToElementBySelector } from '@application/helpers/utilities';
 
 import ContentSectionProduct from '@pages/documentation/partials/content-section-product/ContentSectionProduct';
 
@@ -21,7 +21,11 @@ function ContentSection(): JSX.Element {
 
   useLayoutEffect(() => {
     if (window.location.hash) {
-      windowScrollToElementById(window.location.hash, true, true, true);
+      windowScrollToElementBySelector({
+        selector: window.location.hash,
+        headerFix: true,
+        clearHash: true,
+      });
     }
   }, []);
 

@@ -6,11 +6,12 @@ import styles from '@pages/documentation/partials/content-section-product-table/
 
 interface IContentSectionProductTable {
   id?: string;
+  namespace?: string;
   tableHead?: IDatabaseDocumentationTableCommonViewTableHead;
   tableData?: IDatabaseDocumentationTableProductOptions;
 }
 
-function ContentSectionProductTable({ id, tableHead, tableData }: IContentSectionProductTable): JSX.Element {
+function ContentSectionProductTable({ id, namespace, tableHead, tableData }: IContentSectionProductTable): JSX.Element {
   return (
     <div
       id={id}
@@ -33,10 +34,14 @@ function ContentSectionProductTable({ id, tableHead, tableData }: IContentSectio
           <tbody className="table__tbody">
             {
               tableData?.options?.map((option, index) => (option &&
-                <tr key={index} className={[
-                  `table__tr`,
-                  `${option?.version ? 'table__tr--new' : ''}`,
-                ].join(' ').trim()}>
+                <tr
+                  key={index}
+                  data-selector={`${namespace}-${tableData?.sectionType}-${option?.name}`}
+                  className={[
+                    `table__tr`,
+                    `${option?.version ? 'table__tr--new' : ''}`,
+                  ].join(' ').trim()}
+                >
                   <td className="table__td table__td--option">
                     <div className={[
                       `table__td__option`,

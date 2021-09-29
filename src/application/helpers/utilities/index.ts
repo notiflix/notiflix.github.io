@@ -40,7 +40,19 @@ const createFormattedReleaseDate = (date: string): string => {
 
 const replaceBetweenCurlyBracesWithAData = (content: string, data?: string | number): string => `${content.replace(/\{\{(.*?)\}\}/gm, (data || '-').toString())}`;
 
-const windowScrollToElementById = (selector: string, headerFix: boolean, isSmooth?: boolean, clearHash?: boolean): void => {
+const windowScrollToElementBySelector = ({
+  selector,
+  headerFix = false,
+  threshold = 0,
+  isSmooth = true,
+  clearHash = false,
+}: {
+  selector: string;
+  headerFix?: boolean;
+  threshold?: number;
+  isSmooth?: boolean;
+  clearHash?: boolean;
+}): void => {
   let headerHeight = 0;
   if (headerFix) {
     const header: HTMLElement | null = window.document.querySelector('header');
@@ -49,8 +61,10 @@ const windowScrollToElementById = (selector: string, headerFix: boolean, isSmoot
 
   const element: HTMLDivElement | null = window.document.querySelector(selector);
   if (element) {
+    const top = Math.round((element.getBoundingClientRect()?.top || 0) + (window.document.documentElement?.scrollTop || 0) - headerHeight - threshold);
+
     window.scrollTo({
-      top: Math.round(element.offsetTop - headerHeight),
+      top: top,
       behavior: isSmooth ? 'smooth' : 'auto',
     });
   } else if (clearHash) {
@@ -79,7 +93,7 @@ export {
   createZipFileName,
   createFormattedReleaseDate,
   replaceBetweenCurlyBracesWithAData,
-  windowScrollToElementById,
+  windowScrollToElementBySelector,
   createDocumentationCodeClassName,
   createDocumentationCodeValue,
 };

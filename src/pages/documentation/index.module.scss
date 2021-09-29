@@ -7,9 +7,10 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 2rem 0 4.5rem;
+  margin: 0 0 4.5rem;
 
   &__container {
+    position: relative;
     width: 100%;
     max-width: $breakpoint_pc;
     margin: 0 auto;

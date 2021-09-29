@@ -429,6 +429,7 @@ interface IDatabaseAppContent {
     close?: string;
     copy?: string;
     goToTop?: string;
+    navigation?: string;
   };
   date?: {
     monthNames?: string[];

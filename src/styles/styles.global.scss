@@ -89,16 +89,16 @@ strong {
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba($color_black, 0.05);
+  background: rgba($color_black, 0.04);
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba($color_black, 0.2);
+  background: rgba($color_black, 0.08);
   cursor: pointer;
 }
 
 * {
-  scrollbar-color: rgba($color_black, 0.2) rgba($color_black, 0.05);
+  scrollbar-color: rgba($color_black, 0.08) rgba($color_black, 0.04);
   scrollbar-width: thin;
 }
 

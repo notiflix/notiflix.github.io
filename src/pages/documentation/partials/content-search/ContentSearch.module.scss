@@ -2,7 +2,15 @@
 
 .search {
   width: 100%;
-  height: 12rem;
+  margin: 6rem 0 4rem;
   background: yellowgreen;
-  margin: 0 0 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  @include media_up($breakpoint_minibook) {
+    margin: 2rem 0 4rem;
+  }
 }

@@ -20,7 +20,7 @@ interface IContentSectionProduct {
 
 function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentSectionProduct): JSX.Element {
   const namespaceGlobal = constants.app.name;
-  const namespaceProduct = dataProduct?.namespace;
+  const namespaceProduct = dataProduct?.namespace || '';
 
   // Switch To Code View: begin
   const [stateViewAsCode, setStateViewAsCode] = useState<boolean>(false);
@@ -35,7 +35,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
       <div className={styles.product__head}>
         <h2
           className={styles.product__head__title}
-          dangerouslySetInnerHTML={{ __html: `${namespaceGlobal} ${namespaceProduct || ''}${dataCommon?.titleSuffix || ''}` }}
+          dangerouslySetInnerHTML={{ __html: `${namespaceGlobal} ${namespaceProduct}${dataCommon?.titleSuffix || ''}` }}
         ></h2>
         <p
           className={styles.product__head__description}
@@ -74,6 +74,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
           `${!stateViewAsCode ? `${styles['product__tables--active'] || ''}` : ''}`,
         ].join(' ').trim()}>
           <ContentSectionProductTable
+            namespace={namespaceProduct}
             tableHead={dataCommon?.viewTable?.tableHead}
             tableData={dataProduct?.optionsCommon}
           />
@@ -92,6 +93,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
               <ContentSectionProductTable
                 key={index}
                 id={optionsGroup?.sectionId}
+                namespace={namespaceProduct}
                 tableHead={dataCommon?.viewTable?.tableHead}
                 tableData={optionsGroup}
               />
