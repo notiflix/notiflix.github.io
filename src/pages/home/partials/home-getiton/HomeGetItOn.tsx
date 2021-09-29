@@ -30,9 +30,9 @@ function HomeGetItOn(): JSX.Element {
 
   // Copy to the clipboard: begin
   const copyTextToTheClipboardOnClickHandler = (event: React.MouseEvent<HTMLSpanElement>): void => {
-    if (event.target instanceof HTMLSpanElement) {
+    if (event?.currentTarget instanceof HTMLSpanElement) {
       event.preventDefault();
-      const code = event.target.dataset.text || '';
+      const code = event?.currentTarget?.dataset?.text || '';
       window.navigator.clipboard.writeText(code);
       NotiflixNotify.success(`${_dbHomeGetItOn?.clipboard}<br/><b>${code}</b>`, constants.app.libraryOptions.notify);
     }
