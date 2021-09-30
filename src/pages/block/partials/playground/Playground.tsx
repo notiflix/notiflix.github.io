@@ -14,9 +14,9 @@ import { getBlockIconsAsSrc } from '@application/enumerations/block';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/block/partials/block-playground/BlockPlayground.module.scss';
+import styles from '@pages/block/partials/playground/Playground.module.scss';
 
-function BlockPlayground(): JSX.Element {
+function Playground(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbBlockPlayground } = _block;
   const namespaceGlobal = constants.app.name;
@@ -363,4 +363,4 @@ function BlockPlayground(): JSX.Element {
   );
 }
 
-export default BlockPlayground;
+export default Playground;

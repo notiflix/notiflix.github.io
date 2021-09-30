@@ -3,7 +3,7 @@ import { attributes as _block } from '@database/pages/block.md';
 import Layout from '@components/layout/Layout';
 import BannerProduct from '@components/banners/product/BannerProduct';
 
-import BlockPlayground from '@pages/block/partials/block-playground/BlockPlayground';
+import Playground from '@pages/block/partials/playground/Playground';
 
 import styles from '@pages/block/index.module.scss';
 
@@ -19,7 +19,7 @@ function Block(): JSX.Element {
       />
       <div className={styles.block}>
         <div className={styles.block__container}>
-          <BlockPlayground />
+          <Playground />
         </div>
       </div>
     </Layout>
