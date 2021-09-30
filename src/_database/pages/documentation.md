@@ -12,11 +12,12 @@ _dbPageMeta:
 _dbDocsSearch:
   bannerImageSrc: /content/media/documentation/notiflix-documentation-banner.svg
   bannerImageAlt: Search in the documentation
-  optionsPrefix: Search in
+  selectPrefix: Search in
   inputPlaceholder: Search in the documentation
-  inputMaxLength: 100
-  resultsTitle: "Results in the {{x}} options:"
-  resultsNotFound: No results found
+  inputMaxLength: 20
+  resultsTitle: "Results for the {{x}} options:"
+  resultsNotFound: No results found.
+  resultsButtonMore: More
 # Docs: Search: end
 
 # Docs: Table Common Content: begin

@@ -334,11 +334,12 @@ interface IDatabaseDownloadBanner {
 interface IDatabaseDocumentationSearch {
   bannerImageSrc: string;
   bannerImageAlt: string;
-  optionsPrefix: string;
+  selectPrefix: string;
   inputPlaceholder: string;
   inputMaxLength: number;
   resultsTitle: string;
   resultsNotFound: string;
+  resultsButtonMore: string;
 }
 
 type TDatabaseDocumentationProductOptionSection = 'common' | 'success' | 'failure' | 'warning' | 'info';

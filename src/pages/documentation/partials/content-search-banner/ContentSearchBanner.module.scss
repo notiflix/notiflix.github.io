@@ -8,12 +8,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 0 3rem;
+  margin: 2rem 0;
 
   @include media_up($breakpoint_tablet) {
     order: 2;
-    width: 38%;
-    padding: 0 2rem;
+    width: 34%;
+    padding: 0 0 0 2rem;
     margin: 0 auto;
   }
 

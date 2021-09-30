@@ -73,9 +73,13 @@ $transition_bottom: bottom 0.25s ease-in-out;
 
 // box-shadows
 $box_shadow_10: 0 0 2rem -1rem rgba($color_black, 0.1);
+$box_shadow_15: 0 0 2rem -1rem rgba($color_black, 0.15);
 $box_shadow_20: 0 0 2rem -1rem rgba($color_black, 0.2);
+$box_shadow_25: 0 0 2rem -1rem rgba($color_black, 0.25);
 $box_shadow_30: 0 0 2rem -1rem rgba($color_black, 0.3);
+$box_shadow_35: 0 0 2rem -1rem rgba($color_black, 0.35);
 $box_shadow_40: 0 0 2rem -1rem rgba($color_black, 0.4);
+$box_shadow_45: 0 0 2rem -1rem rgba($color_black, 0.45);
 $box_shadow_50: 0 0 2rem -1rem rgba($color_black, 0.5);
 $box_shadow_bottom_10: 0 0.5rem 2rem -1rem rgba($color_black, 0.1);
 $box_shadow_bottom_20: 0 0.5rem 2rem -1rem rgba($color_black, 0.2);

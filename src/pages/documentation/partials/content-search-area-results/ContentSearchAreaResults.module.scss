@@ -1,0 +1,141 @@
+@import "@styles/variables";
+
+.results {
+  transition: $transition_visibility, $transition_transform;
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 100%;
+  padding: 1rem;
+  background: $color_gray_150;
+  box-shadow: $box_shadow_20;
+  border-radius: 1.625rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  animation: animation_search_results 0.25s ease-in-out 0s 1;
+
+  @keyframes animation_search_results {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-1rem);
+    }
+
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &__notfound {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+
+    &__icon {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 auto 0.75rem;
+      opacity: 0.15;
+    }
+
+    &__message {
+      font-size: 0.75rem;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
+  &__content {
+    width: 100%;
+    max-height: 20rem;
+    overflow: hidden auto;
+    background: $color_white;
+    padding: 0.75rem 0.5rem;
+    border-radius: 1rem;
+    scrollbar-color: rgba($color_black, 0.08) transparent;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      height: 0.4rem;
+      width: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+    }
+  }
+
+  &__group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0.5rem;
+
+    &:not(:last-child) {
+      margin: 0 0 1rem;
+    }
+
+    &__title {
+      width: 100%;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: $color_gray_800;
+      margin: 0 0 0.5rem;
+
+      &--success {
+        color: $color_theme_green;
+      }
+
+      &--failure {
+        color: $color_theme_red;
+      }
+
+      &--warning {
+        color: $color_theme_yellow;
+      }
+
+      &--info {
+        color: $color_theme_blue;
+      }
+    }
+
+    &__table {
+      width: 100%;
+    }
+  }
+}

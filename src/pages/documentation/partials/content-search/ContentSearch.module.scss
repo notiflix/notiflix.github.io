@@ -1,17 +1,14 @@
 @import "@styles/variables";
 
 .search {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  margin: 6rem 0 4rem;
-  padding: 2rem;
+  margin: 3rem 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
-  @include media_up($breakpoint_tablet) {
-    margin: 3rem 0;
-  }
 
   @include media_up($breakpoint_minibook) {
     margin: 1rem 0 4rem;
