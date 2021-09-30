@@ -16,9 +16,9 @@ import { getReportIconsAsSrc } from '@application/enumerations/report';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/report/partials/report-playground/ReportPlayground.module.scss';
+import styles from '@pages/report/partials/playground/Playground.module.scss';
 
-function ReportPlayground(): JSX.Element {
+function Playground(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbReportPlayground } = _report;
   const namespaceGlobal = constants.app.name;
@@ -494,4 +494,4 @@ function ReportPlayground(): JSX.Element {
   );
 }
 
-export default ReportPlayground;
+export default Playground;
