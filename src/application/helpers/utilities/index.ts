@@ -38,7 +38,7 @@ const createFormattedReleaseDate = (date: string): string => {
   return `${monthName} ${day}, ${year}`;
 };
 
-const replaceBetweenCurlyBracesWithAData = (content: string, data?: string | number): string => `${content.replace(/\{\{(.*?)\}\}/gm, (data || '-').toString())}`;
+const replaceBetweenCurlyBracesWithAData = (content: string, replacement?: string | number): string => `${content?.replace(/\{\{(.*?)\}\}/gm, (replacement || '-').toString())}`;
 
 const windowScrollToElementBySelector = ({
   selector,
