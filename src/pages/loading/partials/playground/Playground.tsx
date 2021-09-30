@@ -14,9 +14,9 @@ import { getLoadingIconsAsSrc } from '@application/enumerations/loading';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/loading/partials/loading-playground/LoadingPlayground.module.scss';
+import styles from '@pages/loading/partials/playground/Playground.module.scss';
 
-function LoadingPlayground(): JSX.Element {
+function Playground(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbLoadingPlayground } = _loading;
   const namespaceGlobal = constants.app.name;
@@ -424,4 +424,4 @@ function LoadingPlayground(): JSX.Element {
   );
 }
 
-export default LoadingPlayground;
+export default Playground;
