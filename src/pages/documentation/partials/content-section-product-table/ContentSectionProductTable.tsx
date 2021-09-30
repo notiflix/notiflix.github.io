@@ -22,7 +22,7 @@ function ContentSectionProductTable({ id, namespace, tableHead, tableData }: ICo
     >
       <h3 className={styles.table__title}>{tableData?.sectionTitle}</h3>
       <div className={styles.table__content}>
-        <table className={`table table--${tableData?.sectionType}`}>
+        <table className={`table table--full table--${tableData?.sectionType}`}>
           <thead className="table__thead">
             <tr className="table__tr">
               <th className="table__th">{tableHead?.option}</th>
