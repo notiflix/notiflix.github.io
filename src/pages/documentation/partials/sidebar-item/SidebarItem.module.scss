@@ -35,10 +35,6 @@
       padding: 1rem 3.25rem 1rem 2rem;
       border-radius: 1.6rem;
 
-      @include media_up($breakpoint_minibook) {
-        font-size: 1rem;
-      }
-
       &--active {
         border-radius: 1.6rem 1.6rem 0.125rem 0.125rem;
         background: $color_theme_green;

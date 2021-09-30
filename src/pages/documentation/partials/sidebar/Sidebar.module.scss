@@ -4,7 +4,7 @@
   display: none;
 
   @include media_up($breakpoint_minibook) {
-    width: 30%;
+    width: 28%;
     min-height: 16rem;
     max-height: calc(100vh - #{$header_height_sticky} - 4rem);
     position: sticky;
@@ -151,6 +151,19 @@
 
     @include media_up($breakpoint_minibook) {
       margin: 2.5rem 0 0;
+    }
+
+    &::-webkit-scrollbar {
+      height: 0.35rem;
+      width: 0.35rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
     }
   }
 }

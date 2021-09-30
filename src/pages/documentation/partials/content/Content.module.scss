@@ -9,7 +9,7 @@
   justify-content: flex-start;
 
   @include media_up($breakpoint_minibook) {
-    width: 70%;
-    padding: 2rem;
+    width: 72%;
+    padding: 2rem 0 2rem 2.5rem;
   }
 }
