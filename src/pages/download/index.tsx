@@ -2,8 +2,8 @@ import { attributes as _download } from '@database/pages/download.md';
 
 import Layout from '@components/layout/Layout';
 
-import DownloadTable from '@pages/download/partials/download-table/DownloadTable';
-import DownloadBanner from '@pages/download/partials/download-banner/DownloadBanner';
+import Table from '@pages/download/partials/table/Table';
+import Banner from '@pages/download/partials/banner/Banner';
 
 import styles from '@pages/download/index.module.scss';
 
@@ -14,8 +14,8 @@ function Download(): JSX.Element {
     <Layout meta={_dbPageMeta} classNamePrefix="download">
       <div className={styles.download}>
         <div className={styles.download__container}>
-          <DownloadTable />
-          <DownloadBanner />
+          <Table />
+          <Banner />
         </div>
       </div>
     </Layout>

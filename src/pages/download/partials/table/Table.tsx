@@ -7,10 +7,9 @@ import { attributes as _download } from '@database/pages/download.md';
 
 import { GitHub, IGitHubAllReleases } from '@application/api/github';
 
-import styles from '@pages/download/partials/download-table/DownloadTable.module.scss';
+import styles from '@pages/download/partials/table/Table.module.scss';
 
-
-interface IDownloadTableGitHubState {
+interface ITableGitHubState {
   isLoading: boolean;
   isSuccess: boolean;
   isFailure: boolean;
@@ -19,13 +18,13 @@ interface IDownloadTableGitHubState {
   releases?: IGitHubAllReleases[];
 }
 
-function DownloadTable(): JSX.Element {
+function Table(): JSX.Element {
   const { _dbDownloadTable } = _download;
 
   // Get All Releases from GitHub: begin
   const refStateCanBeUpdated = useRef<boolean>(false);
 
-  const [stateDownloadTableGitHub, setStateDownloadTableGitHub] = useState<IDownloadTableGitHubState>({
+  const [stateTableGitHub, setStateTableGitHub] = useState<ITableGitHubState>({
     isLoading: true,
     isSuccess: false,
     isFailure: false,
@@ -36,7 +35,7 @@ function DownloadTable(): JSX.Element {
     try {
       const gitHubData = await new GitHub().getAllReleasesAsync();
       if (Array.isArray(gitHubData) && refStateCanBeUpdated.current) {
-        setStateDownloadTableGitHub({
+        setStateTableGitHub({
           isLoading: false,
           isSuccess: true,
           isFailure: false,
@@ -47,7 +46,7 @@ function DownloadTable(): JSX.Element {
       }
     } catch (error) {
       if (refStateCanBeUpdated.current) {
-        setStateDownloadTableGitHub({
+        setStateTableGitHub({
           apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
           isLoading: false,
           isSuccess: false,
@@ -58,14 +57,14 @@ function DownloadTable(): JSX.Element {
   }, [refStateCanBeUpdated]);
 
   useEffect(() => {
-    if (stateDownloadTableGitHub.isLoading) {
+    if (stateTableGitHub.isLoading) {
       refStateCanBeUpdated.current = true;
       getGitHubAllReleasesAsync();
     }
     return () => {
       refStateCanBeUpdated.current = false;
     };
-  }, [stateDownloadTableGitHub, refStateCanBeUpdated, getGitHubAllReleasesAsync]);
+  }, [stateTableGitHub, refStateCanBeUpdated, getGitHubAllReleasesAsync]);
   // Get All Releases from GitHub: end
 
   return (
@@ -107,8 +106,8 @@ function DownloadTable(): JSX.Element {
         </div>
 
         {
-          stateDownloadTableGitHub.isLoading &&
-          stateDownloadTableGitHub.placeholder?.map((_, index) => (
+          stateTableGitHub.isLoading &&
+          stateTableGitHub.placeholder?.map((_, index) => (
             <div key={index} className={[
               `${styles.table__body__item}`,
               `${styles['table__body__item--placeholder']}`,
@@ -117,10 +116,10 @@ function DownloadTable(): JSX.Element {
         }
 
         {
-          stateDownloadTableGitHub.isFailure &&
+          stateTableGitHub.isFailure &&
           <div className={styles.table__body__failure}>
             <IconFailure className={styles.table__body__failure__icon} />
-            <p className={styles.table__body__failure__message}>{stateDownloadTableGitHub.apiStatus === 403 ? _dbDownloadTable?.restricted : _dbDownloadTable?.failure}</p>
+            <p className={styles.table__body__failure__message}>{stateTableGitHub.apiStatus === 403 ? _dbDownloadTable?.restricted : _dbDownloadTable?.failure}</p>
             <a
               className={styles.table__body__failure__link}
               href={_dbDownloadTable?.restrictedLinkUrl}
@@ -134,8 +133,8 @@ function DownloadTable(): JSX.Element {
         }
 
         {
-          stateDownloadTableGitHub.isSuccess &&
-          stateDownloadTableGitHub.releases?.map((release, index) => (
+          stateTableGitHub.isSuccess &&
+          stateTableGitHub.releases?.map((release, index) => (
             <div
               key={index}
               className={[
@@ -187,4 +186,4 @@ function DownloadTable(): JSX.Element {
   );
 }
 
-export default DownloadTable;
+export default Table;

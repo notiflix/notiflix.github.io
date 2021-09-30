@@ -2,9 +2,9 @@ import { attributes as _download } from '@database/pages/download.md';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/download/partials/download-banner/DownloadBanner.module.scss';
+import styles from '@pages/download/partials/banner/Banner.module.scss';
 
-function DownloadBanner(): JSX.Element {
+function Banner(): JSX.Element {
   const { _dbDownloadBanner } = _download;
 
   return (
@@ -22,4 +22,4 @@ function DownloadBanner(): JSX.Element {
   );
 }
 
-export default DownloadBanner;
+export default Banner;
