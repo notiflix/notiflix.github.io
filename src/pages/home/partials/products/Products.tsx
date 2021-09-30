@@ -5,9 +5,9 @@ import { attributes as _home } from '@database/pages/home.md';
 
 import { routes } from '@application/routes';
 
-import styles from '@pages/home/partials/home-products/HomeProducts.module.scss';
+import styles from '@pages/home/partials/products/Products.module.scss';
 
-function HomeProducts(): JSX.Element {
+function Products(): JSX.Element {
   const { _dbHomeProducts } = _home;
 
   return (
@@ -51,4 +51,4 @@ function HomeProducts(): JSX.Element {
   );
 }
 
-export default HomeProducts;
+export default Products;

@@ -10,9 +10,9 @@ import { SiMicrosoftedge as IconEdge } from 'react-icons/si';
 
 import { attributes as _home } from '@database/pages/home.md';
 
-import styles from '@pages/home/partials/home-browsers/HomeBrowsers.module.scss';
+import styles from '@pages/home/partials/browsers/Browsers.module.scss';
 
-function HomeBrowsers(): JSX.Element {
+function Browsers(): JSX.Element {
   const { _dbHomeBrowsers } = _home;
 
   return (
@@ -53,4 +53,4 @@ function HomeBrowsers(): JSX.Element {
   );
 }
 
-export default HomeBrowsers;
+export default Browsers;

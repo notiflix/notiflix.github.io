@@ -13,9 +13,9 @@ import LogoYarn from '@components/logo/LogoYarn';
 import LogoNPM from '@components/logo/LogoNPM';
 import LogoGitHub from '@components/logo/LogoGitHub';
 
-import styles from '@pages/home/partials/home-getiton/HomeGetItOn.module.scss';
+import styles from '@pages/home/partials/getiton/GetItOn.module.scss';
 
-interface IHomeGetItOnGitHubStatsState {
+interface IGetItOnGitHubStatsState {
   isLoading: boolean;
   isSuccess: boolean;
   isFailure: boolean;
@@ -24,7 +24,7 @@ interface IHomeGetItOnGitHubStatsState {
   forksCount?: number;
 }
 
-function HomeGetItOn(): JSX.Element {
+function GetItOn(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbHomeGetItOn } = _home;
 
@@ -42,7 +42,7 @@ function HomeGetItOn(): JSX.Element {
   // Get GitHub Stats: begin
   const refStateCanBeUpdated = useRef<boolean>(false);
 
-  const [stateGetItOnGitHubStats, setStateGetItOnGitHubStats] = useState<IHomeGetItOnGitHubStatsState>({
+  const [stateGetItOnGitHubStats, setStateGetItOnGitHubStats] = useState<IGetItOnGitHubStatsState>({
     isLoading: true,
     isSuccess: false,
     isFailure: false,
@@ -158,4 +158,4 @@ function HomeGetItOn(): JSX.Element {
   );
 }
 
-export default HomeGetItOn;
+export default GetItOn;

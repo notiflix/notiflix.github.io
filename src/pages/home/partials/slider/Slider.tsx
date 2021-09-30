@@ -10,9 +10,9 @@ import { replaceBetweenCurlyBracesWithAData } from '@application/helpers/utiliti
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/home/partials/home-slider/HomeSlider.module.scss';
+import styles from '@pages/home/partials/slider/Slider.module.scss';
 
-interface IHomeSliderGitHubState {
+interface ISliderGitHubState {
   isLoading: boolean;
   isSuccess: boolean;
   isFailure: boolean;
@@ -21,35 +21,35 @@ interface IHomeSliderGitHubState {
   downloadUrl?: string;
 }
 
-interface IHomeSliderNPMState {
+interface ISliderNPMState {
   isLoading: boolean;
   isSuccess: boolean;
   downloadCounts?: number;
 }
 
-function HomeSlider(): JSX.Element {
+function Slider(): JSX.Element {
   const { _dbHomeSlider } = _home;
   const appName = process.env.appName;
 
   // Get GitHub and then NPM Data: begin
   const refStateCanBeUpdated = useRef<boolean>(false);
 
-  const [stateHomeSliderGitHub, setStateHomeSliderGitHub] = useState<IHomeSliderGitHubState>({
+  const [stateSliderGitHub, setStateSliderGitHub] = useState<ISliderGitHubState>({
     isLoading: true,
     isSuccess: false,
     isFailure: false,
   });
 
-  const [stateHomeSliderNPM, setStateHomeSliderNPM] = useState<IHomeSliderNPMState>({
+  const [stateSliderNPM, setStateSliderNPM] = useState<ISliderNPMState>({
     isLoading: true,
     isSuccess: false,
   });
 
-  const getHomeSliderNPMDataAsync = useCallback(async () => {
+  const getSliderNPMDataAsync = useCallback(async () => {
     try {
       const npmData = await new NPM().getTotalDownloadCounts();
       if (npmData instanceof Object && refStateCanBeUpdated.current) {
-        setStateHomeSliderNPM({
+        setStateSliderNPM({
           isLoading: false,
           isSuccess: true,
           downloadCounts: npmData.downloadCounts,
@@ -59,7 +59,7 @@ function HomeSlider(): JSX.Element {
       }
     } catch (error) {
       if (refStateCanBeUpdated.current) {
-        setStateHomeSliderNPM({
+        setStateSliderNPM({
           isLoading: false,
           isSuccess: false,
         });
@@ -67,12 +67,12 @@ function HomeSlider(): JSX.Element {
     }
   }, [refStateCanBeUpdated]);
 
-  const getHomeSliderGitHubDataAsync = useCallback(async () => {
+  const getSliderGitHubDataAsync = useCallback(async () => {
     try {
       const gitHubData = await new GitHub().getLatestReleaseAsync();
 
       if (gitHubData instanceof Object && refStateCanBeUpdated.current) {
-        setStateHomeSliderGitHub({
+        setStateSliderGitHub({
           isLoading: false,
           isSuccess: true,
           isFailure: false,
@@ -84,7 +84,7 @@ function HomeSlider(): JSX.Element {
       }
     } catch (error) {
       if (refStateCanBeUpdated.current) {
-        setStateHomeSliderGitHub({
+        setStateSliderGitHub({
           apiStatus: error instanceof Error ? (+(error?.message) || 500) : 500,
           isLoading: false,
           isSuccess: false,
@@ -95,23 +95,23 @@ function HomeSlider(): JSX.Element {
   }, [refStateCanBeUpdated]);
 
   useEffect(() => {
-    if (stateHomeSliderGitHub.isLoading) {
+    if (stateSliderGitHub.isLoading) {
       refStateCanBeUpdated.current = true;
-      getHomeSliderGitHubDataAsync();
+      getSliderGitHubDataAsync();
     }
-    if (stateHomeSliderGitHub.isSuccess && stateHomeSliderNPM.isLoading) {
+    if (stateSliderGitHub.isSuccess && stateSliderNPM.isLoading) {
       refStateCanBeUpdated.current = true;
-      getHomeSliderNPMDataAsync();
+      getSliderNPMDataAsync();
     }
     return () => {
       refStateCanBeUpdated.current = false;
     };
   }, [
-    stateHomeSliderGitHub,
-    stateHomeSliderNPM,
+    stateSliderGitHub,
+    stateSliderNPM,
     refStateCanBeUpdated,
-    getHomeSliderGitHubDataAsync,
-    getHomeSliderNPMDataAsync,
+    getSliderGitHubDataAsync,
+    getSliderNPMDataAsync,
   ]);
   // Get GitHub and then NPM Data: end
 
@@ -141,44 +141,44 @@ function HomeSlider(): JSX.Element {
           <div className={styles.slider__content__download}>
             <p className={styles.slider__content__download__info}>{_dbHomeSlider?.downloadInfo}</p>
             <a
-              href={stateHomeSliderGitHub.isSuccess ? stateHomeSliderGitHub.downloadUrl : undefined}
-              download={stateHomeSliderGitHub.isSuccess}
+              href={stateSliderGitHub.isSuccess ? stateSliderGitHub.downloadUrl : undefined}
+              download={stateSliderGitHub.isSuccess}
               className={[
                 `${styles.slider__content__download__link}`,
-                `${stateHomeSliderGitHub.isLoading ? (styles['slider__content__download__link--loading'] || '') : ''}`,
-                `${stateHomeSliderGitHub.isFailure ? (styles['slider__content__download__link--failure'] || '') : ''}`,
+                `${stateSliderGitHub.isLoading ? (styles['slider__content__download__link--loading'] || '') : ''}`,
+                `${stateSliderGitHub.isFailure ? (styles['slider__content__download__link--failure'] || '') : ''}`,
               ].join(' ').trim()}
             >
-              {stateHomeSliderGitHub.isLoading &&
+              {stateSliderGitHub.isLoading &&
                 <>
                   <IconLoading className={[
                     `${styles.slider__content__download__link__icon}`,
-                    `${stateHomeSliderGitHub.isLoading ? (styles['slider__content__download__link__icon--loading'] || '') : ''}`,
+                    `${stateSliderGitHub.isLoading ? (styles['slider__content__download__link__icon--loading'] || '') : ''}`,
                   ].join(' ').trim()} />
                   <span className={styles.slider__content__download__link__filename}>{_dbHomeSlider?.loading}</span>
                   <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                 </>
               }
-              {stateHomeSliderGitHub.isSuccess &&
+              {stateSliderGitHub.isSuccess &&
                 <>
                   <IconSuccess className={styles.slider__content__download__link__icon} />
-                  <span className={styles.slider__content__download__link__filename}>{stateHomeSliderGitHub.fileName}</span>
+                  <span className={styles.slider__content__download__link__filename}>{stateSliderGitHub.fileName}</span>
 
-                  {stateHomeSliderNPM.isLoading &&
+                  {stateSliderNPM.isLoading &&
                     <span className={styles.slider__content__download__link__count}>{_dbHomeSlider?.loading}</span>
                   }
-                  {stateHomeSliderNPM.isSuccess &&
-                    <span className={styles.slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), stateHomeSliderNPM.downloadCounts)}</span>
+                  {stateSliderNPM.isSuccess &&
+                    <span className={styles.slider__content__download__link__count}>{replaceBetweenCurlyBracesWithAData((_dbHomeSlider?.downloadCount || ''), stateSliderNPM.downloadCounts)}</span>
                   }
                 </>
               }
-              {stateHomeSliderGitHub.isFailure &&
+              {stateSliderGitHub.isFailure &&
                 <>
                   <IconFailure className={[
                     `${styles.slider__content__download__link__icon}`,
-                    `${stateHomeSliderGitHub.isFailure ? (styles['slider__content__download__link__icon--failure'] || '') : ''}`,
+                    `${stateSliderGitHub.isFailure ? (styles['slider__content__download__link__icon--failure'] || '') : ''}`,
                   ].join(' ').trim()} />
-                  <span>{stateHomeSliderGitHub.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
+                  <span>{stateSliderGitHub.apiStatus === 403 ? _dbHomeSlider?.restricted : _dbHomeSlider?.failure}</span>
                 </>
               }
             </a>
@@ -189,4 +189,4 @@ function HomeSlider(): JSX.Element {
   );
 }
 
-export default HomeSlider;
+export default Slider;
