@@ -3,7 +3,7 @@ import { attributes as _notify } from '@database/pages/notify.md';
 import Layout from '@components/layout/Layout';
 import BannerProduct from '@components/banners/product/BannerProduct';
 
-import NotifyPlayground from '@pages/notify/partials/notify-playground/NotifyPlayground';
+import Playground from '@pages/notify/partials/playground/Playground';
 
 import styles from '@pages/notify/index.module.scss';
 
@@ -19,7 +19,7 @@ function Notify(): JSX.Element {
       />
       <div className={styles.notify}>
         <div className={styles.notify__container}>
-          <NotifyPlayground />
+          <Playground />
         </div>
       </div>
     </Layout>

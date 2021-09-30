@@ -16,9 +16,9 @@ import { getNotifyIconsAsSrc } from '@application/enumerations/notify';
 
 import LazyImage from '@components/lazyimage/LazyImage';
 
-import styles from '@pages/notify/partials/notify-playground/NotifyPlayground.module.scss';
+import styles from '@pages/notify/partials/playground/Playground.module.scss';
 
-function NotifyPlayground(): JSX.Element {
+function Playground(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbNotifyPlayground } = _notify;
   const namespaceGlobal = constants.app.name;
@@ -380,4 +380,4 @@ function NotifyPlayground(): JSX.Element {
   );
 }
 
-export default NotifyPlayground;
+export default Playground;
