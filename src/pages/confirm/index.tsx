@@ -3,7 +3,7 @@ import { attributes as _confirm } from '@database/pages/confirm.md';
 import Layout from '@components/layout/Layout';
 import BannerProduct from '@components/banners/product/BannerProduct';
 
-import ConfirmPlayground from '@pages/confirm/partials/confirm-playground/ConfirmPlayground';
+import Playground from '@pages/confirm/partials/playground/Playground';
 
 import styles from '@pages/confirm/index.module.scss';
 
@@ -19,7 +19,7 @@ function Confirm(): JSX.Element {
       />
       <div className={styles.confirm}>
         <div className={styles.confirm__container}>
-          <ConfirmPlayground />
+          <Playground />
         </div>
       </div>
     </Layout>

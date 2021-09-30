@@ -12,19 +12,19 @@ import { routes } from '@application/routes';
 import { EPageId } from '@application/enumerations/page-id';
 import { EConfirm } from '@application/enumerations/confirm';
 
-interface IConfirmPlaygroundItem {
+interface IPlaygroundItem {
   isModule: boolean;
   namespace: string;
   data: IDatabaseConfirmMethodShow | IDatabaseConfirmMethodAsk;
 }
 
-import styles from '@pages/confirm/partials/confirm-playground-item/ConfirmPlaygroundItem.module.scss';
+import styles from '@pages/confirm/partials/playground-item/PlaygroundItem.module.scss';
 
-function ConfirmPlaygroundItem({
+function PlaygroundItem({
   isModule,
   namespace,
   data,
-}: IConfirmPlaygroundItem): JSX.Element {
+}: IPlaygroundItem): JSX.Element {
   const isMethodShow = data?.functionName === EConfirm.SHOW;
   const isMethodAsk = data?.functionName === EConfirm.ASK;
   const namespaceGlobal = constants.app.name;
@@ -482,4 +482,4 @@ function ConfirmPlaygroundItem({
   );
 }
 
-export default ConfirmPlaygroundItem;
+export default PlaygroundItem;

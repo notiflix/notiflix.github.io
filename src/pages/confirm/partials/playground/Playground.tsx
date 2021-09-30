@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { attributes as _appContent } from '@database/app/content.md';
 import { attributes as _confirm } from '@database/pages/confirm.md';
 
-import ConfirmPlaygroundItem from '@pages/confirm/partials/confirm-playground-item/ConfirmPlaygroundItem';
+import PlaygroundItem from '@pages/confirm/partials/playground-item/PlaygroundItem';
 
-import styles from '@pages/confirm/partials/confirm-playground/ConfirmPlayground.module.scss';
+import styles from '@pages/confirm/partials/playground/Playground.module.scss';
 
-function ConfirmPlayground(): JSX.Element {
+function Playground(): JSX.Element {
   const { _dbAppContent } = _appContent;
   const { _dbConfirmPlayground } = _confirm;
 
@@ -39,7 +39,7 @@ function ConfirmPlayground(): JSX.Element {
       <div className={styles.playground__items}>
         {
           (_dbConfirmPlayground?.methods?.show) &&
-          <ConfirmPlaygroundItem
+          <PlaygroundItem
             isModule={stateConfirmIsModule}
             namespace={_dbConfirmPlayground.namespace}
             data={_dbConfirmPlayground.methods.show}
@@ -47,7 +47,7 @@ function ConfirmPlayground(): JSX.Element {
         }
         {
           (_dbConfirmPlayground?.methods?.ask) &&
-          <ConfirmPlaygroundItem
+          <PlaygroundItem
             isModule={stateConfirmIsModule}
             namespace={_dbConfirmPlayground.namespace}
             data={_dbConfirmPlayground.methods.ask}
@@ -59,4 +59,4 @@ function ConfirmPlayground(): JSX.Element {
   );
 }
 
-export default ConfirmPlayground;
+export default Playground;
