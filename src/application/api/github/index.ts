@@ -173,7 +173,7 @@ class GitHub {
         throw new ErrorWithStatus('Not found.', 404);
       }
 
-      const allReleases = data?.sort((x, y) => y?.id - x?.id)?.filter(z => !z?.tag_name.includes('v1')) || [];
+      const allReleases = data?.sort((x, y) => y?.id - x?.id)?.filter(z => !z?.tag_name?.includes('v1')) || [];
       if (allReleases?.length < 1) {
         throw new ErrorWithStatus('There is no release.', 404);
       }
