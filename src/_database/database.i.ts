@@ -422,6 +422,17 @@ interface IDatabasePageMeta {
 // Page Common: Meta Data: end
 
 
+// Page 404: begin
+interface IDatabase404Content {
+  bannerImageSrc: string;
+  bannerImageWidth: string;
+  bannerImageHeight: string;
+  title: string;
+  buttonText: string;
+}
+// Page 404: end
+
+
 // App: Content: begin
 interface IDatabaseAppContent {
   noscript?: {
@@ -502,6 +513,7 @@ export type {
   IDatabaseHomeBrowsers,
   IDatabaseHomeProducts,
   IDatabasePageMeta,
+  IDatabase404Content,
   IDatabaseAppContent,
   IDatabaseAppSocialMedia,
   IDatabaseAppMeta,

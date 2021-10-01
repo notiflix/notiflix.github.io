@@ -127,3 +127,14 @@ declare module '@database/pages/documentation.md' {
   export { attributes, html };
 }
 // Pages: Documentation: end
+
+// Pages: 404: begin
+declare module '@database/pages/404.md' {
+  const attributes: {
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
+    _db404Content?: import('./database.i').IDatabase404Content,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Pages: 404: end

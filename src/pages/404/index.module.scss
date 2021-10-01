@@ -1,0 +1,102 @@
+@import "@styles/variables";
+
+.error {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 2.5rem 0 4.5rem;
+
+  &__container {
+    width: 100%;
+    max-width: $breakpoint_pc;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner {
+    order: 1;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 2rem;
+
+    @include media_up($breakpoint_tablet) {
+      order: 2;
+      width: 40%;
+      margin: 0;
+    }
+
+    &__image {
+      transition: $transition_opacity;
+      opacity: 0;
+      filter: drop-shadow(0 1rem 1rem rgba($color_black, 0.025));
+      max-width: 18rem;
+
+      @include media_up($breakpoint_tablet) {
+        max-width: 100%;
+      }
+
+      &--loaded {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 1rem;
+
+    @include media_up($breakpoint_tablet) {
+      order: 1;
+      width: 40%;
+      padding: 1rem 2rem;
+    }
+
+    &__title {
+      font-size: 4rem;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    &__subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 0 0 1.5rem;
+    }
+
+    &__link {
+      transition: $transition_color, $transition_border;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      color: $color_dark;
+      border: 0.07rem solid $color_dark;
+      border-radius: 4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+
+      &:hover {
+        color: $color_theme_green;
+        border-color: $color_theme_green;
+      }
+    }
+  }
+}
