@@ -6,10 +6,10 @@ _dbAppSocialMedia:
   - isActive: true
     url: https://twitter.com/notiflixjs
     name: Twitter
-  - isActive: true
+  - isActive: false
     url: https://www.facebook.com/notiflixjs
     name: Facebook
-  - isActive: true
+  - isActive: false
     url: https://www.instagram.com/notiflixjs
     name: Instagram
 ---
