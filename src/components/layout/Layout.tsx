@@ -9,6 +9,7 @@ import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 import Schema from '@components/meta/Schema';
 
+import InternetExplorer from '@components/layout/partials/internet-explorer/InternetExplorer';
 import Noscript from '@components/layout/partials/noscript/Noscript';
 import GoToTop from '@components/layout/partials/go-to-top/GoToTop';
 
@@ -33,15 +34,18 @@ function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
   const [stateIsInternetExplorer, setStateIsInternetExplorer] = useState<boolean>(false);
 
   useEffect(() => {
-    window.document.documentElement?.dispatchEvent(new Event('scroll', { bubbles: true }));
-    setStateIsInternetExplorer(browserIsInternetExplorer());
+    if (browserIsInternetExplorer()) {
+      setStateIsInternetExplorer(true);
+    } else {
+      window.document?.documentElement?.dispatchEvent(new Event('scroll', { bubbles: true }));
+    }
   }, []);
 
   return (
     <>
       <MetaTags meta={meta} />
+      {stateIsInternetExplorer && <InternetExplorer />}
       <Noscript />
-      {stateIsInternetExplorer && <p>TEST</p>}
       <Header classNamePrefix={classNamePrefix} />
       <main className={[
         `${styles.layout}`,

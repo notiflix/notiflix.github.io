@@ -456,6 +456,12 @@ interface IDatabaseAppContent {
   date?: {
     monthNames?: string[];
   };
+  browsers?: {
+    ieTitle?: string;
+    ieDescription?: string;
+    ieLinkText?: string;
+    ieLinkUrl?: string;
+  };
 }
 // App: Content: end
 

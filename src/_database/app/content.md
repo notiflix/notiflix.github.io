@@ -29,4 +29,10 @@ _dbAppContent:
       - 'October'
       - 'November'
       - 'December'
+  browsers:
+    ieTitle: Here we go...
+    ieDescription: It might be time to switch your browser. Or, you can use the repository link below.
+    ieLinkText: Go to GitHub
+    ieLinkUrl: https://github.com/notiflix/Notiflix
+
 ---
