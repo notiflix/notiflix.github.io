@@ -1,16 +1,16 @@
-import { attributes as _404 } from '@database/pages/404.md';
+import { attributes as _500 } from '@database/pages/500.md';
 
 import Layout from '@components/layout/Layout';
 import BannerError from '@components/banners/error/BannerError';
 
-import styles from '@pages/404/index.module.scss';
+import styles from '@pages/500/index.module.scss';
 
-interface IError404 {
+interface IError500 {
   statusCode?: number;
 }
 
-function Error404({ statusCode = 404 }: IError404): JSX.Element {
-  const { _dbPageMeta, _dbErrorBanner } = _404;
+function Error500({ statusCode = 500 }: IError500): JSX.Element {
+  const { _dbPageMeta, _dbErrorBanner } = _500;
 
   return (
     <Layout meta={_dbPageMeta} classNamePrefix="error">
@@ -23,4 +23,4 @@ function Error404({ statusCode = 404 }: IError404): JSX.Element {
   );
 }
 
-export default Error404;
+export default Error500;

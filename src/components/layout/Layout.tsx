@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 import { IDatabasePageMeta } from '@database/database.i';
 
@@ -28,7 +28,7 @@ interface ILayout {
 
 function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.document.documentElement?.dispatchEvent(new Event('scroll', { bubbles: true }));
   }, []);
 

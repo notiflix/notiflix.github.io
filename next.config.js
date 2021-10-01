@@ -108,6 +108,7 @@ const nextConfig = {
     let defaultPaths = {
       '/': { page: '/home' },
       '/404': { page: '/404' },
+      '/500': { page: '/500' },
     };
 
     routes?.filter(route => route?.isActive && route?.addToNextJSConfig)?.map(route => {

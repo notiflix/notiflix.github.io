@@ -132,9 +132,20 @@ declare module '@database/pages/documentation.md' {
 declare module '@database/pages/404.md' {
   const attributes: {
     _dbPageMeta?: import('./database.i').IDatabasePageMeta,
-    _db404Content?: import('./database.i').IDatabase404Content,
+    _dbErrorBanner?: import('./database.i').IDatabaseErrorBanner,
   };
   const html: string;
   export { attributes, html };
 }
 // Pages: 404: end
+
+// Pages: 500: begin
+declare module '@database/pages/500.md' {
+  const attributes: {
+    _dbPageMeta?: import('./database.i').IDatabasePageMeta,
+    _dbErrorBanner?: import('./database.i').IDatabaseErrorBanner,
+  };
+  const html: string;
+  export { attributes, html };
+}
+// Pages: 500: end

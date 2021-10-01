@@ -422,15 +422,15 @@ interface IDatabasePageMeta {
 // Page Common: Meta Data: end
 
 
-// Page 404: begin
-interface IDatabase404Content {
+// Page 404 | 500: begin
+interface IDatabaseErrorBanner {
   bannerImageSrc: string;
   bannerImageWidth: string;
   bannerImageHeight: string;
   title: string;
   buttonText: string;
 }
-// Page 404: end
+// Page 404 | 500: begin
 
 
 // App: Content: begin
@@ -513,7 +513,7 @@ export type {
   IDatabaseHomeBrowsers,
   IDatabaseHomeProducts,
   IDatabasePageMeta,
-  IDatabase404Content,
+  IDatabaseErrorBanner,
   IDatabaseAppContent,
   IDatabaseAppSocialMedia,
   IDatabaseAppMeta,
