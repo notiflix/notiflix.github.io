@@ -181,18 +181,22 @@ const sitemapWriteRobotsTxtFile = (): void => {
 # Google
 User-agent: Googlebot
 Disallow: /404
+Disallow: /500
 
 # Global
 User-agent: *
 Disallow: /404
+Disallow: /500
 
 # Yandex
 User-agent: Yandex
 Disallow: /404
+Disallow: /500
 
 # Microsoft
 User-Agent: msnbot
 Disallow: /404
+Disallow: /500
 `;
   writeFileSync(pathRobotsTXTOutput, robotTXT);
 };
