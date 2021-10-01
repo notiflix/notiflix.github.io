@@ -26,11 +26,15 @@
   &__content {
     &__top {
       width: 100%;
-      padding: 4rem 0;
+      padding: 4rem 0 2rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+
+      @include media_up($breakpoint_laptop) {
+        padding: 4rem 0;
+      }
 
       &__logo {
         width: 14rem;
@@ -46,10 +50,18 @@
 
       &__menu {
         width: 100%;
+        margin: 4rem auto 0;
+        padding: 0 2rem;
 
-        @include media_up($breakpoint_tablet) {
+        @include media_up($breakpoint_mobile) {
           width: auto;
           flex-grow: 1;
+          margin: 4rem auto;
+        }
+
+        @include media_up($breakpoint_pc) {
+          margin: 0 auto;
+          padding: 0 0 0 2rem;
         }
       }
     }
