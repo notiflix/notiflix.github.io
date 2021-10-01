@@ -83,6 +83,8 @@ const createDocumentationCodeValue = (type: string, value: string): string => {
   return value?.toLocaleLowerCase('en') === 'null' ? 'null' : (type === 'string' ? `'${value}'` : value);
 };
 
+const browserIsInternetExplorer = (): boolean => window?.navigator?.userAgent?.toLocaleLowerCase('en').indexOf('.net4') > -1;
+
 
 export {
   ErrorWithStatus,
@@ -96,4 +98,5 @@ export {
   windowScrollToElementBySelector,
   createDocumentationCodeClassName,
   createDocumentationCodeValue,
+  browserIsInternetExplorer,
 };

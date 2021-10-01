@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { IDatabasePageMeta } from '@database/database.i';
+
+import { browserIsInternetExplorer } from '@application/helpers/utilities';
 
 import MetaTags from '@components/meta/MetaTags';
 import Header from '@components/header/Header';
@@ -28,14 +30,18 @@ interface ILayout {
 
 function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
 
+  const [stateIsInternetExplorer, setStateIsInternetExplorer] = useState<boolean>(false);
+
   useEffect(() => {
     window.document.documentElement?.dispatchEvent(new Event('scroll', { bubbles: true }));
+    setStateIsInternetExplorer(browserIsInternetExplorer());
   }, []);
 
   return (
     <>
       <MetaTags meta={meta} />
       <Noscript />
+      {stateIsInternetExplorer && <p>TEST</p>}
       <Header classNamePrefix={classNamePrefix} />
       <main className={[
         `${styles.layout}`,
