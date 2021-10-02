@@ -481,10 +481,12 @@ interface IDatabaseAppMeta {
   metaDescription: string;
   metaRobots: string;
   metaYearInit: number;
+  metaAuthor: string;
   metaCopyright: string;
   metaThemeColor: string;
   metaTwitterUser: string;
   metaTwitterDomain: string;
+  metaGoogleSiteVerification: string;
 }
 // App: Meta: end
 
