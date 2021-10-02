@@ -47,6 +47,7 @@ interface IDatabaseHomeProduct {
   title: string;
   description: string;
   button: string;
+  buttonLabel: string;
 }
 
 interface IDatabaseHomeProducts {

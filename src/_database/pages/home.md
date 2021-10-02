@@ -52,20 +52,26 @@ _dbHomeProducts:
       title: Notify
       description: 'Notiflix Notify module can be used to send non-blocking alerts/notifications. This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'
       button: More
+      buttonLabel: More about Notify module
     - routeId: REPORT
       title: Report
       description: 'Notiflix Report module can be used to show extended notifications that contain a title, description, and button(with a callback function). This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'
       button: More
+      buttonLabel: More about Report module
     - routeId: CONFIRM
       title: Confirm
       description: 'Notiflix Confirm module can be used to show non-blocking prompt boxes. This module includes 2 types of prompts: "Show" and "Ask". An additional question can be asked as well within the prompt box if using the "Ask" one.'
       button: More
+      buttonLabel: More about Confirm module
     - routeId: LOADING
       title: Loading
       description: 'Notiflix Loading module can be used to show a loading indicator during a process (Fetch/XHR). Includes 6 types of animated SVG icons: "Standard", "Hourglass", "Circle", "Arrows", "Dots", and "Pulse". An additional type is "Custom", and it can be used with a custom SVG icon.'
       button: More
+      buttonLabel: More about Loading module
     - routeId: BLOCK
       title: Block
       description: "Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user’s interactions on the blocked elements."
       button: More
+      buttonLabel: More about Block module
+
 ---
