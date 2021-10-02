@@ -1,0 +1,50 @@
+{
+  "name": "Notiflix",
+  "short_name": "Notiflix",
+  "description": "Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more to that makes your web projects much better.",
+  "background_color": "#f8f8f8",
+  "theme_color": "#32c682",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/webapp/notiflix-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/webapp/notiflix-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
