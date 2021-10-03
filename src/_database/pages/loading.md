@@ -12,13 +12,16 @@ _dbLoadingBanner:
   importNamespace: Loading
   title: Loading
   description: 'Notiflix Loading module can be used to show a loading indicator during a process (Fetch/XHR). Includes 6 types of animated SVG icons: "Standard", "Hourglass", "Circle", "Arrows", "Dots", and "Pulse". An additional type is "Custom", and it can be used with a custom SVG icon.'
+  importPath: 'notiflix/build/notiflix-loading-aio'
   importDescription: (A) Import as a Module
   htmlDescription: (B) Add to an HTML page (Global)
-  htmlOneByOne: (B1) CSS and JS
-  htmlOneByOneCSS: ../dist/notiflix-X.X.X.min.css
-  htmlOneByOneJS: ../dist/notiflix-X.X.X.min.js
-  htmlAllInOne: (B2) or only JS (All in One => Internal CSS)
-  htmlAllInOneJS: ../dist/notiflix-aio-X.X.X.min.js
+  htmlOnlyThis: (B1) Loading Module, only JS (All in One => Internal CSS)
+  htmlOnlyThisJS: dist/notiflix-loading-aio-X.X.X.min.js
+  htmlOneByOne: (B2) All Modules, CSS and JS
+  htmlOneByOneCSS: dist/notiflix-X.X.X.min.css
+  htmlOneByOneJS: dist/notiflix-X.X.X.min.js
+  htmlAllInOne: (B3) All Modules, only JS (All in One => Internal CSS)
+  htmlAllInOneJS: dist/notiflix-aio-X.X.X.min.js
 
 _dbLoadingPlayground:
   title: Playground

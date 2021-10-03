@@ -12,13 +12,16 @@ _dbReportBanner:
   importNamespace: Report
   title: Report
   description: 'Notiflix Report module can be used to show extended notifications that contain a title, description, and button(with a callback function). This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'
+  importPath: 'notiflix/build/notiflix-report-aio'
   importDescription: (A) Import as a Module
   htmlDescription: (B) Add to an HTML page (Global)
-  htmlOneByOne: (B1) CSS and JS
-  htmlOneByOneCSS: ../dist/notiflix-X.X.X.min.css
-  htmlOneByOneJS: ../dist/notiflix-X.X.X.min.js
-  htmlAllInOne: (B2) or only JS (All in One => Internal CSS)
-  htmlAllInOneJS: ../dist/notiflix-aio-X.X.X.min.js
+  htmlOnlyThis: (B1) Report Module, only JS (All in One => Internal CSS)
+  htmlOnlyThisJS: dist/notiflix-report-aio-X.X.X.min.js
+  htmlOneByOne: (B2) All Modules, CSS and JS
+  htmlOneByOneCSS: dist/notiflix-X.X.X.min.css
+  htmlOneByOneJS: dist/notiflix-X.X.X.min.js
+  htmlAllInOne: (B3) All Modules, only JS (All in One => Internal CSS)
+  htmlAllInOneJS: dist/notiflix-aio-X.X.X.min.js
 
 _dbReportPlayground:
   title: Playground

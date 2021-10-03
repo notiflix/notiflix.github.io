@@ -61,8 +61,11 @@ interface IDatabaseBannerProducts {
   importNamespace: string;
   title: string;
   description: string;
+  importPath: string;
   importDescription: string;
   htmlDescription: string;
+  htmlOnlyThis: string;
+  htmlOnlyThisJS: string;
   htmlOneByOne: string;
   htmlOneByOneCSS: string;
   htmlOneByOneJS: string;

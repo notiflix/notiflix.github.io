@@ -12,13 +12,16 @@ _dbConfirmBanner:
   importNamespace: Confirm
   title: Confirm
   description: 'Notiflix Confirm module can be used to show non-blocking prompt boxes. This module includes 2 types of prompts: "Show" and "Ask". An additional question can be asked as well within the prompt box if using the "Ask" one.'
+  importPath: 'notiflix/build/notiflix-confirm-aio'
   importDescription: (A) Import as a Module
   htmlDescription: (B) Add to an HTML page (Global)
-  htmlOneByOne: (B1) CSS and JS
-  htmlOneByOneCSS: ../dist/notiflix-X.X.X.min.css
-  htmlOneByOneJS: ../dist/notiflix-X.X.X.min.js
-  htmlAllInOne: (B2) or only JS (All in One => Internal CSS)
-  htmlAllInOneJS: ../dist/notiflix-aio-X.X.X.min.js
+  htmlOnlyThis: (B1) Confirm Module, only JS (All in One => Internal CSS)
+  htmlOnlyThisJS: dist/notiflix-confirm-aio-X.X.X.min.js
+  htmlOneByOne: (B2) All Modules, CSS and JS
+  htmlOneByOneCSS: dist/notiflix-X.X.X.min.css
+  htmlOneByOneJS: dist/notiflix-X.X.X.min.js
+  htmlAllInOne: (B3) All Modules, only JS (All in One => Internal CSS)
+  htmlAllInOneJS: dist/notiflix-aio-X.X.X.min.js
 
 _dbConfirmPlayground:
   title: Playground

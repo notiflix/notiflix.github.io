@@ -12,13 +12,16 @@ _dbBlockBanner:
   importNamespace: Block
   title: Block
   description: 'Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user’s interactions on the blocked elements.'
+  importPath: 'notiflix/build/notiflix-block-aio'
   importDescription: (A) Import as a Module
   htmlDescription: (B) Add to an HTML page (Global)
-  htmlOneByOne: (B1) CSS and JS
-  htmlOneByOneCSS: ../dist/notiflix-X.X.X.min.css
-  htmlOneByOneJS: ../dist/notiflix-X.X.X.min.js
-  htmlAllInOne: (B2) or only JS (All in One => Internal CSS)
-  htmlAllInOneJS: ../dist/notiflix-aio-X.X.X.min.js
+  htmlOnlyThis: (B1) Block Module, only JS (All in One => Internal CSS)
+  htmlOnlyThisJS: dist/notiflix-block-aio-X.X.X.min.js
+  htmlOneByOne: (B2) All Modules, CSS and JS
+  htmlOneByOneCSS: dist/notiflix-X.X.X.min.css
+  htmlOneByOneJS: dist/notiflix-X.X.X.min.js
+  htmlAllInOne: (B3) All Modules, only JS (All in One => Internal CSS)
+  htmlAllInOneJS: dist/notiflix-aio-X.X.X.min.js
 
 
 _dbBlockPlayground:
