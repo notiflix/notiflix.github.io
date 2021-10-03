@@ -20,7 +20,7 @@ function ContentSearchAreaResults({ searchTerm, searchCloseOnClickHandler, dataN
 
   // Mapped Results by Search Term: begin
   const mappedSearchResults = dataOptions?.map((optionGroup) => {
-    const relatedOptions = optionGroup?.options?.filter(x => x?.name.includes(searchTerm) || x?.description.includes(searchTerm));
+    const relatedOptions = optionGroup?.options?.filter(x => x?.name?.toLocaleLowerCase('en')?.includes(searchTerm) || x?.description?.toLocaleLowerCase('en')?.includes(searchTerm));
     if (relatedOptions && relatedOptions?.length > 0) {
       return {
         title: optionGroup?.sectionTitle,
