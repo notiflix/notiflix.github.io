@@ -4,7 +4,7 @@ _dbPageMeta:
   lastModifiedDate: '2021-10-29' # YYYY-MM-DD
   title: Notify | Notiflix
   description: 'Notiflix Notify module can be used to send non-blocking alerts/notifications. This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'
-  robots: noindex, nofollow, noodp, noydir # TODO: index, follow
+  robots: index, follow, noodp, noydir
   ogImage: null
   themeColor: null
 

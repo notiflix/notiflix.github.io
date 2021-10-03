@@ -4,7 +4,7 @@ _dbPageMeta:
   lastModifiedDate: '2021-10-29' # YYYY-MM-DD
   title: Block | Notiflix
   description: 'Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user’s interactions on the blocked elements.'
-  robots: noindex, nofollow, noodp, noydir # TODO: index, follow
+  robots: index, follow, noodp, noydir
   ogImage: null
   themeColor: null
 
