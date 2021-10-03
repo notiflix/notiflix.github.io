@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import { Notify as NotiflixNotify } from 'notiflix';
+import { Notify as NotiflixNotify } from 'notiflix/build/notiflix-notify-aio';
 import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';

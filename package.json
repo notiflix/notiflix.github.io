@@ -1,6 +1,6 @@
 {
   "name": "notiflix-documentation",
-  "version": "1.0.0-Beta.01",
+  "version": "1.0.0",
   "homepage": "https://notiflix.github.io",
   "description": "Notiflix",
   "private": true,
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "next": "11.1.0",
-    "notiflix": "^3.0.2",
+    "notiflix": "^3.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

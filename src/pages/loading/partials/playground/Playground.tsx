@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { Loading as NotiflixLoading } from 'notiflix';
+import { Loading as NotiflixLoading } from 'notiflix/build/notiflix-loading-aio';
 import { FiSettings as IconDocs } from 'react-icons/fi';
 
 import { attributes as _appContent } from '@database/app/content.md';

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Confirm as NotiflixConfirm } from 'notiflix';
+import { Confirm as NotiflixConfirm } from 'notiflix/build/notiflix-confirm-aio';
 import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';

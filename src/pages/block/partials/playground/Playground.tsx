@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { Block as NotiflixBlock } from 'notiflix';
+import { Block as NotiflixBlock } from 'notiflix/build/notiflix-block-aio';
 import { FiSettings as IconDocs, FiShieldOff as IconUnblock } from 'react-icons/fi';
 
 import { attributes as _appContent } from '@database/app/content.md';
@@ -32,11 +32,14 @@ function Playground(): JSX.Element {
   // Switch As Module: end
 
   // Demo Call NotiflixBlock Function by Method: begin
+  const refDemoElement = useRef<HTMLDivElement>(null);
   const callNotiflixBlockFunctionByMethod = (
     functionName: TDatabaseBlockIndicatorsFunctionNames,
     message?: string,
   ): void => {
-    NotiflixBlock[functionName](_dbBlockPlayground?.methodsDefaultSelector || '', message, constants.app.libraryOptions.block);
+    if (refDemoElement.current) {
+      NotiflixBlock[functionName]([refDemoElement.current], message, constants.app.libraryOptions.block);
+    }
   };
   // Demo Call NotiflixBlock Function by Method: end
 
@@ -50,7 +53,9 @@ function Playground(): JSX.Element {
 
   // Demo Button Unbock OnClick Handler: begin
   const demoButtonUnblockOnClickHandler = (): void => {
-    NotiflixBlock.remove(_dbBlockPlayground?.methodsDefaultSelector || '');
+    if (refDemoElement.current) {
+      NotiflixBlock.remove([refDemoElement.current]);
+    }
   };
   // Demo Button Unbock OnClick Handler: end
 
@@ -288,10 +293,8 @@ function Playground(): JSX.Element {
               <div className={styles.playground__item__demo__element__wrapper}>
                 <span className={styles.playground__item__demo__element__selector}>{_dbBlockPlayground?.methodsDefaultSelector}</span>
                 <div
-                  className={[
-                    `${styles.playground__item__demo__element}`,
-                    `${_dbBlockPlayground?.methodsDefaultSelector?.split('.')?.pop()}`,
-                  ].join(' ').trim()}
+                  ref={refDemoElement}
+                  className={styles.playground__item__demo__element}
                 >
                   <LazyImage
                     threshold={0.25}
