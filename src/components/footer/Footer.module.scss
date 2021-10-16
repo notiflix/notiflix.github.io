@@ -86,10 +86,13 @@
         display: inline-flex;
         color: $color_theme_gray_blue;
         font-size: 0.75rem;
+        line-height: 1.5;
+        text-align: center;
         margin: 0.5rem 0;
 
         @include media_up($breakpoint_tablet) {
           order: 1;
+          text-align: left;
         }
       }
 

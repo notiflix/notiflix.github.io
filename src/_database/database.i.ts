@@ -443,6 +443,7 @@ interface IDatabaseAppContent {
     message?: string;
   };
   footer?: {
+    appVersion: string;
     gitHubName: string;
     gitHubUrl: string;
   };

@@ -3,6 +3,7 @@ _dbAppContent:
   noscript:
     message: You have to enable JavaScript in your browser to use Notiflix.
   footer:
+    appVersion: 'App version:'
     gitHubName: /furcan
     gitHubUrl: https://github.com/furcan
   buttons:
