@@ -4,7 +4,7 @@ import { FiPlus as IconPlus, FiMinus as IconMinus } from 'react-icons/fi';
 import { IDatabaseDocumentationTableProductOptions } from '@database/database.i';
 
 import { constants } from '@application/constants';
-import { windowScrollToElementBySelector } from '@application/helpers/utilities';
+import { isHTMLElementVisible, windowScrollToElementBySelector } from '@application/helpers/utilities';
 
 import styles from '@pages/documentation/partials/sidebar-item/SidebarItem.module.scss';
 
@@ -50,14 +50,29 @@ function SidebarItem({
   // Sidebar Scoll to Table by Item OnClick Handler: begin
   const listItemOnClickHandler = (event: React.MouseEvent<HTMLLIElement>): void => {
     if (event?.currentTarget instanceof HTMLLIElement) {
-      const targetSelector = event?.currentTarget?.dataset?.selector || '';
-      windowScrollToElementBySelector({
-        selector: `tr[data-selector="${targetSelector}"]`,
-        headerFix: true,
-        threshold: 32,
-        isSmooth: true,
-      });
-      onClickHandlerMobileNavigation(false);
+      const eventDataSelector = event?.currentTarget?.dataset?.selector || '';
+      const targetSelector = `tr[data-selector="${eventDataSelector}"]`;
+      const targetElement: HTMLTableElement | null = window.document.querySelector(targetSelector);
+
+      if (targetElement) {
+        let timeout = 0;
+        if (!isHTMLElementVisible(targetElement)) {
+          const targetModule = eventDataSelector.split('-')[0] || '';
+          const targetTableViewButton: HTMLButtonElement | null = window.document.querySelector(`button[data-table-namespace="${targetModule}"]`);
+          targetTableViewButton?.click();
+          timeout = 500;
+        }
+        const delay = setTimeout(() => {
+          windowScrollToElementBySelector({
+            selector: targetSelector,
+            headerFix: true,
+            threshold: 32,
+            isSmooth: true,
+          });
+          onClickHandlerMobileNavigation(false);
+          clearTimeout(delay);
+        }, timeout);
+      }
     }
   };
   // Sidebar Scoll to Table by Item OnClick Handler: end

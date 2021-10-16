@@ -46,6 +46,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
       <div className={styles.product__nav}>
         <button
           type="button"
+          data-table-namespace={namespaceProduct}
           onClick={() => switchToCodeViewOnClickHandler(false)}
           className={[
             `${styles.product__nav__button}`,
@@ -57,6 +58,7 @@ function ContentSectionProduct({ productId, dataCommon, dataProduct }: IContentS
         </button>
         <button
           type="button"
+          data-code-namespace={namespaceProduct}
           onClick={() => switchToCodeViewOnClickHandler(true)}
           className={[
             `${styles.product__nav__button}`,

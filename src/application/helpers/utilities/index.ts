@@ -85,6 +85,8 @@ const createDocumentationCodeValue = (type: string, value: string): string => {
 
 const browserIsInternetExplorer = (): boolean => window?.navigator?.userAgent?.toLocaleLowerCase('en').indexOf('.net4') > -1;
 
+const isHTMLElementVisible = (element: HTMLElement): boolean => !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+
 
 export {
   ErrorWithStatus,
@@ -99,4 +101,5 @@ export {
   createDocumentationCodeClassName,
   createDocumentationCodeValue,
   browserIsInternetExplorer,
+  isHTMLElementVisible,
 };
