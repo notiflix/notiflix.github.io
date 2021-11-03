@@ -33,12 +33,11 @@ function Products(): JSX.Element {
                       <p className={styles.products__list__item__description}>{product?.description}</p>
                       <Link href={productPathPage} as={`${process.env.appUrl}${productPathAs}`} passHref prefetch={false}>
                         <a
-                          aria-label={product?.buttonLabel}
                           target={productIsTargetBlank ? '_blank' : undefined}
                           className={styles.products__list__item__link}
                         >
                           <IconMore className={styles.products__list__item__link__icon} />
-                          <span className={styles.products__list__item__link__text}>{product?.button}</span>
+                          <span aria-label={product?.buttonLabel} className={styles.products__list__item__link__text}>{product?.button}</span>
                         </a>
                       </Link>
                     </div>
