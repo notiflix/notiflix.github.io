@@ -7,7 +7,8 @@
   },
   "parserOptions": {
     "ecmaVersion": 2021,
-    "sourceType": "module"
+    "sourceType": "module",
+    "warnOnUnsupportedTypeScriptVersion": false
   },
   "plugins": [
     "@typescript-eslint"
