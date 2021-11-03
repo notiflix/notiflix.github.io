@@ -22,7 +22,6 @@ function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
             <li key={route?.id} className={styles.nav__ul__li}>
               <Link href={route?.pathPage} as={`${process.env.appUrl}${route?.pathAs}`} passHref prefetch={route?.prefetch}>
                 <a
-                  aria-label={`${constants.app.name} ${route?.name} ${_dbAppContent?.buttons?.module}`}
                   onClick={() => mobileMenuOnClickHandler(false)}
                   target={route?.isTargetBlank ? '_blank' : undefined}
                   className={[
@@ -31,7 +30,7 @@ function HeaderMenu({ mobileMenuOnClickHandler }: IHeaderMenu): JSX.Element {
                   ].join(' ').trim()}
                 >
                   {route?.IconComponent && <route.IconComponent />}
-                  <span>{route?.name}</span>
+                  <span aria-label={`${constants.app.name} ${route?.name} ${_dbAppContent?.buttons?.module}`}>{route?.name}</span>
                 </a>
               </Link>
             </li>
