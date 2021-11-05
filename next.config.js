@@ -45,7 +45,7 @@ const nextConfig = {
   // next images
   images: {
     loader: 'imgix',
-    path: constants.app.url,
+    path: appUrl,
     disableStaticImages: true,
   },
 
