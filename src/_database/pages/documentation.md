@@ -99,7 +99,7 @@ _dbDocsTableNotify:
         version: null
         type: string
         defaultValue: 'rgba(0,0,0,0.5)'
-        description: 'Changes the color of the background overlay. (Only if the notification type-based "backOverlayColor" option is empty.)'
+        description: 'Changes the color of the background overlay. (Only if the notification type-based "backOverlayColor" option is an empty string.)'
       - name: plainText
         version: null
         type: boolean
@@ -394,7 +394,7 @@ _dbDocsTableReport:
         version: null
         type: string
         defaultValue: 'rgba(0,0,0,0.5)'
-        description: 'Changes the color of the background overlay. (Only if the report type-based "backOverlayColor" option is empty.)'
+        description: 'Changes the color of the background overlay. (Only if the report type-based "backOverlayColor" option is an empty string.)'
       - name: fontFamily
         version: null
         type: string
@@ -809,7 +809,7 @@ _dbDocsTableLoading:
         version: null
         type: string
         defaultValue: '#32c682'
-        description: Changes the built-in SVG icon color.
+        description: Changes the built-in SVG icons color.
       - name: messageID
         version: null
         type: string
@@ -894,7 +894,7 @@ _dbDocsTableBlock:
         version: null
         type: string
         defaultValue: '#383838'
-        description: Changes the built-in SVG icon color.
+        description: Changes the built-in SVG icons color.
       - name: messageFontSize
         version: null
         type: string
