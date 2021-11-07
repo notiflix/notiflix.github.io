@@ -1,5 +1,134 @@
 [
   {
+    "url": "https://api.github.com/repos/notiflix/Notiflix/releases/52877540",
+    "assets_url": "https://api.github.com/repos/notiflix/Notiflix/releases/52877540/assets",
+    "upload_url": "https://uploads.github.com/repos/notiflix/Notiflix/releases/52877540/assets{?name,label}",
+    "html_url": "https://github.com/notiflix/Notiflix/releases/tag/v3.2.1",
+    "id": 52877540,
+    "author": {
+      "login": "furcan",
+      "id": 49978011,
+      "node_id": "MDQ6VXNlcjQ5OTc4MDEx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49978011?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/furcan",
+      "html_url": "https://github.com/furcan",
+      "followers_url": "https://api.github.com/users/furcan/followers",
+      "following_url": "https://api.github.com/users/furcan/following{/other_user}",
+      "gists_url": "https://api.github.com/users/furcan/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/furcan/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/furcan/subscriptions",
+      "organizations_url": "https://api.github.com/users/furcan/orgs",
+      "repos_url": "https://api.github.com/users/furcan/repos",
+      "events_url": "https://api.github.com/users/furcan/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/furcan/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCY5RnM4DJtjk",
+    "tag_name": "v3.2.1",
+    "target_commitish": "main",
+    "name": "v3.2.1",
+    "draft": false,
+    "prerelease": false,
+    "created_at": "2021-11-07T20:29:20Z",
+    "published_at": "2021-11-07T20:33:30Z",
+    "assets": [],
+    "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v3.2.1",
+    "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v3.2.1",
+    "body": "* **Fixed:** `index.d.ts`:\r\n  - `Notiflix.Notify.*` module: `callbackOrOptions` type definition issue has been fixed.\r\n  - `Notiflix.Report.*` module: `callbackOrOptions` type definition issue has been fixed."
+  },
+  {
+    "url": "https://api.github.com/repos/notiflix/Notiflix/releases/52876556",
+    "assets_url": "https://api.github.com/repos/notiflix/Notiflix/releases/52876556/assets",
+    "upload_url": "https://uploads.github.com/repos/notiflix/Notiflix/releases/52876556/assets{?name,label}",
+    "html_url": "https://github.com/notiflix/Notiflix/releases/tag/v3.2.0",
+    "id": 52876556,
+    "author": {
+      "login": "furcan",
+      "id": 49978011,
+      "node_id": "MDQ6VXNlcjQ5OTc4MDEx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49978011?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/furcan",
+      "html_url": "https://github.com/furcan",
+      "followers_url": "https://api.github.com/users/furcan/followers",
+      "following_url": "https://api.github.com/users/furcan/following{/other_user}",
+      "gists_url": "https://api.github.com/users/furcan/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/furcan/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/furcan/subscriptions",
+      "organizations_url": "https://api.github.com/users/furcan/orgs",
+      "repos_url": "https://api.github.com/users/furcan/repos",
+      "events_url": "https://api.github.com/users/furcan/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/furcan/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCY5RnM4DJtUM",
+    "tag_name": "v3.2.0",
+    "target_commitish": "main",
+    "name": "v3.2.0",
+    "draft": false,
+    "prerelease": false,
+    "created_at": "2021-11-07T19:40:07Z",
+    "published_at": "2021-11-07T19:47:01Z",
+    "assets": [],
+    "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v3.2.0",
+    "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v3.2.0",
+    "body": "* **Added:** `Notiflix.Confirm.*` module: The `.prompt()` method has been added. ([#42](https://github.com/notiflix/Notiflix/issues/42))\r\n  - `Notiflix.Confirm.prompt()` method works similarly as `window.prompt()`. The client doesn't have to type a correct answer to the input element to proceed unlike the `Notiflix.Confirm.ask()` method. The client answer passes to the callback functions as a parameter and this parameter is always a `string`.\r\n\r\n* **Added:** `Notiflix.Loading.*` module: The `customSvgCode` option has been added for `Notiflix.Loading.custom();` method. The default is `null`. A text-based (`string`) SVG icon can be set to this option. Single quotation marks should be avoided.\r\n\r\n* **Fixed:** `index.d.ts`: `IConfirmOptions` interface: `zindex` property type has been fixed.\r\n\r\n* **Removed:** `index.d.ts`: Following types have been removed:\r\n  - `TNotiflixCallback`\r\n  - `TNotifyCallbackOrOptions`\r\n  - `TReportCallbackOrOptions`\r\n  - `TLoadingMessageOrOptions`\r\n  - `TBlockMessageOrOptions`\r\n  - `TBlockSelectorOrHTMLElements`\r\n\r\n* **Added:** `index.d.ts`: Namespaces, Functions, and Interfaces: Comments have been added for IntelliSense.\r\n\r\n* **Changed:** Code Review/Refactor."
+  },
+  {
+    "url": "https://api.github.com/repos/notiflix/Notiflix/releases/50702937",
+    "assets_url": "https://api.github.com/repos/notiflix/Notiflix/releases/50702937/assets",
+    "upload_url": "https://uploads.github.com/repos/notiflix/Notiflix/releases/50702937/assets{?name,label}",
+    "html_url": "https://github.com/notiflix/Notiflix/releases/tag/v3.1.0",
+    "id": 50702937,
+    "author": {
+      "login": "furcan",
+      "id": 49978011,
+      "node_id": "MDQ6VXNlcjQ5OTc4MDEx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49978011?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/furcan",
+      "html_url": "https://github.com/furcan",
+      "followers_url": "https://api.github.com/users/furcan/followers",
+      "following_url": "https://api.github.com/users/furcan/following{/other_user}",
+      "gists_url": "https://api.github.com/users/furcan/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/furcan/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/furcan/subscriptions",
+      "organizations_url": "https://api.github.com/users/furcan/orgs",
+      "repos_url": "https://api.github.com/users/furcan/repos",
+      "events_url": "https://api.github.com/users/furcan/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/furcan/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCY5RnM4DBapZ",
+    "tag_name": "v3.1.0",
+    "target_commitish": "main",
+    "name": "v3.1.0",
+    "draft": false,
+    "prerelease": false,
+    "created_at": "2021-10-03T17:03:36Z",
+    "published_at": "2021-10-03T17:08:34Z",
+    "assets": [],
+    "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v3.1.0",
+    "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v3.1.0",
+    "body": "* **Changed:** `Notiflix.Block.*` module: The `selector` parameter has been changed to `selectorOrHTMLElements`. An `Array<HTMLElement>` or a `NodeListOf<HTMLElement>` can be also used instead of CSS selector(s).\r\n\r\n* **Fixed:** `Notiflix.Notify.*` module: The background overlay element was not being removed at the end of the call if the `backOverlay` option has been set/changed as a parameter option in the next notification instead of the global init function.\r\n\r\n* **Changed:** `Notiflix.Notify.success`: The `childClassName` option, default value has been changed from `success` to `notiflix-notify-success`.\r\n\r\n* **Changed:** `Notiflix.Notify.failure`: The `childClassName` option, default value has been changed from `failure` to `notiflix-notify-failure`.\r\n\r\n* **Changed:** `Notiflix.Notify.warning`: The `childClassName` option, default value has been changed from `warning` to `notiflix-notify-warning`.\r\n\r\n* **Changed:** `Notiflix.Notify.info`: The `childClassName` option, default value has been changed from `info` to `notiflix-notify-info`.\r\n\r\n* **Changed:** Auto-generated `src/all-in-one/notiflix-aio.js` file has been moved to the `build` directory. (with `*.d.ts`)\r\n\r\n* **Added:** Auto-generated `build/notiflix-notify-aio.js` (with `*.d.ts`), and `dist/notiflix-notify-aio-3.1.0.min.js` files have been added. These files are only for using the Notify module instead of using all the modules.\r\n\r\n* **Added:** Auto-generated `build/notiflix-report-aio.js` (with `*.d.ts`), and `dist/notiflix-report-aio-3.1.0.min.js` files have been added. These files are only for using the Report module instead of using all the modules.\r\n\r\n* **Added:** Auto-generated `build/notiflix-confirm-aio.js` (with `*.d.ts`), and `dist/notiflix-confirm-aio-3.1.0.min.js` files have been added. These files are only for using the Confirm module instead of using all the modules.\r\n\r\n* **Added:** Auto-generated `build/notiflix-loading-aio.js` (with `*.d.ts`), and `dist/notiflix-loading-aio-3.1.0.min.js` files have been added. These files are only for using the Loading module instead of using all the modules.\r\n\r\n* **Added:** Auto-generated `build/notiflix-block-aio.js` (with `*.d.ts`), and `dist/notiflix-block-aio-3.1.0.min.js` files have been added. These files are only for using the Block module instead of using all the modules.\r\n\r\n* **Changed:** The documentation website URL has been changed.\r\n\r\n* **Changed:** Code Review/Refactor.",
+    "reactions": {
+      "url": "https://api.github.com/repos/notiflix/Notiflix/releases/50702937/reactions",
+      "total_count": 1,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 1,
+      "rocket": 0,
+      "eyes": 0
+    }
+  },
+  {
     "url": "https://api.github.com/repos/notiflix/Notiflix/releases/48458414",
     "assets_url": "https://api.github.com/repos/notiflix/Notiflix/releases/48458414/assets",
     "upload_url": "https://uploads.github.com/repos/notiflix/Notiflix/releases/48458414/assets{?name,label}",
@@ -33,9 +162,7 @@
     "prerelease": false,
     "created_at": "2021-08-25T20:26:46Z",
     "published_at": "2021-08-25T20:39:45Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v3.0.2",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v3.0.2",
     "body": "* **Changed:** `index.d.ts`: Types and Interfaces have been exported.\r\n* **Changed:** Code Review."
@@ -74,9 +201,7 @@
     "prerelease": false,
     "created_at": "2021-05-10T20:20:17Z",
     "published_at": "2021-05-10T20:26:28Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v3.0.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v3.0.1",
     "body": "* **Changed:** `Notiflix.Notify`: `Init()` function name changed to `init()`.\r\n* **Changed:** `Notiflix.Notify`: `Merge()` function name changed to `merge()`.\r\n* **Changed:** `Notiflix.Notify`: `Success()` function name changed to `success()`.\r\n* **Changed:** `Notiflix.Notify`: `Failure()` function name changed to `failure()`.\r\n* **Changed:** `Notiflix.Notify`: `Warning()` function name changed to `warning()`.\r\n* **Changed:** `Notiflix.Notify`: `Info()` function name changed to `info()`.\r\n\r\n* **Changed:** `Notiflix.Report`: `Init()` function name changed to `init()`.\r\n* **Changed:** `Notiflix.Report`: `Merge()` function name changed to `merge()`.\r\n* **Changed:** `Notiflix.Report`: `Success()` function name changed to `success()`.\r\n* **Changed:** `Notiflix.Report`: `Failure()` function name changed to `failure()`.\r\n* **Changed:** `Notiflix.Report`: `Warning()` function name changed to `warning()`.\r\n* **Changed:** `Notiflix.Report`: `Info()` function name changed to `info()`.\r\n\r\n* **Changed:** `Notiflix.Confirm`: `Init()` function name changed to `init()`.\r\n* **Changed:** `Notiflix.Confirm`: `Merge()` function name changed to `merge()`.\r\n* **Changed:** `Notiflix.Confirm`: `Show()` function name changed to `show()`.\r\n* **Changed:** `Notiflix.Confirm`: `Ask()` function name changed to `ask()`.\r\n\r\n* **Changed:** `Notiflix.Loading`: `Init()` function name changed to `init()`.\r\n* **Changed:** `Notiflix.Loading`: `Merge()` function name changed to `merge()`.\r\n* **Changed:** `Notiflix.Loading`: `Standard()` function name changed to `standard()`.\r\n* **Changed:** `Notiflix.Loading`: `Hourglass()` function name changed to `hourglass()`.\r\n* **Changed:** `Notiflix.Loading`: `Circle()` function name changed to `circle()`.\r\n* **Changed:** `Notiflix.Loading`: `Arrows()` function name changed to `arrows()`.\r\n* **Changed:** `Notiflix.Loading`: `Dots()` function name changed to `dots()`.\r\n* **Changed:** `Notiflix.Loading`: `Pulse()` function name changed to `pulse()`.\r\n* **Changed:** `Notiflix.Loading`: `Custom()` function name changed to `custom()`.\r\n* **Changed:** `Notiflix.Loading`: `Notiflix()` function name changed to `notiflix()`.\r\n* **Changed:** `Notiflix.Loading`: `Remove()` function name changed to `remove()`.\r\n* **Changed:** `Notiflix.Loading`: `Change()` function name changed to `change()`.\r\n\r\n* **Changed:** `Notiflix.Block`: `Init()` function name changed to `init()`.\r\n* **Changed:** `Notiflix.Block`: `Merge()` function name changed to `merge()`.\r\n* **Changed:** `Notiflix.Block`: `Standard()` function name changed to `standard()`.\r\n* **Changed:** `Notiflix.Block`: `Hourglass()` function name changed to `hourglass()`.\r\n* **Changed:** `Notiflix.Block`: `Circle()` function name changed to `circle()`.\r\n* **Changed:** `Notiflix.Block`: `Arrows()` function name changed to `arrows()`.\r\n* **Changed:** `Notiflix.Block`: `Dots()` function name changed to `dots()`.\r\n* **Changed:** `Notiflix.Block`: `Pulse()` function name changed to `pulse()`.\r\n* **Changed:** `Notiflix.Block`: `Remove()` function name changed to `remove()`.\r\n\r\n* **Changed:** `Notiflix.Notify.*` module: `useGoogleFont` options has been deprecated.\r\n* **Changed:** `Notiflix.Report.*` module: `useGoogleFont` options has been deprecated.\r\n* **Changed:** `Notiflix.Confirm.*` module: `useGoogleFont` options has been deprecated.\r\n* **Changed:** `Notiflix.Loading.*` module: `useGoogleFont` options has been deprecated.\r\n* **Changed:** `Notiflix.Block.*` module: `useGoogleFont` options has been deprecated.\r\n\r\n* **Added:** TypeScript declaration has added.\r\n* **Changed:** `index.d.ts` file has added to the NPM.\r\n* **Changed:** Code Review."
@@ -115,9 +240,7 @@
     "prerelease": false,
     "created_at": "2020-12-18T23:23:06Z",
     "published_at": "2020-12-18T23:27:08Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.7.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.7.0",
     "body": "* **Added:** `Notiflix.Notify.*` module: The `pauseOnHover` option has been added. The default value is `true`. Auto-remove functionality will be paused for each notification element when the pointer(mouse) enters the notification if this option has been set as `true`.\r\n\r\n* **Changed:** `Notiflix.Notify.*` module: Display improvements.\r\n\r\n* **Changed:** `Notiflix.Block.*` module: Code Review."
@@ -156,9 +279,7 @@
     "prerelease": false,
     "created_at": "2020-10-11T19:40:17Z",
     "published_at": "2020-10-11T19:43:50Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.6.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.6.0",
     "body": "* **Fixed:** `Notiflix.Confirm.*` module: display and position issues have been fixed.\r\n\r\n* **Added:** `Notiflix.Confirm.*` module: New position settings have been added. `center-bottom`, `right-center`, and `left-center`.\r\n\r\n* **Changed:** `Notiflix.Report.*` module: display and position improvements.\r\n\r\n* **Changed:** `Notiflix.Block.*` module: Code Review."
@@ -197,9 +318,7 @@
     "prerelease": false,
     "created_at": "2020-10-01T00:27:01Z",
     "published_at": "2020-10-01T00:32:16Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.5.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.5.0",
     "body": "* **Added:** `Notiflix.Confirm.*` module: The `options` parameter has been added to extend the initialize settings with new options for each Confirm Box.\r\n\r\n* **Added:** `Notiflix.Confirm.*` module: The `.Ask()` function has been added.\r\n\r\n  - `Notiflix.Confirm.Ask()` function can be used to prevent the accidental click to the Ok button by the user before answering a simple question that has been created by you. (Please click [here](https://github.com/notiflix/Notiflix#3--confirm-module) to see an example of usage.)\r\n\r\n* **Changed:** All the SVG icons have been compressed to reduce the file size as much as it can be."
@@ -238,9 +357,7 @@
     "prerelease": false,
     "created_at": "2020-08-12T22:54:06Z",
     "published_at": "2020-08-12T22:56:41Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.4.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.4.0",
     "body": "Added: \"Notiflix.Loading.*\" module: The \"message\" parameter has been extended, and the \"options\" parameter has been added.\r\n\r\nAdded: \"Notiflix.Block.*\" module: The \"message\" parameter has been extended, and the \"options\" parameter has been added.\r\n\r\nChanged: Code Review."
@@ -279,9 +396,7 @@
     "prerelease": false,
     "created_at": "2020-06-29T19:52:55Z",
     "published_at": "2020-06-29T19:53:55Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.3.3",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.3.3",
     "body": "Changed: Code Review.\r\nChanged: Prefixes for CSS."
@@ -320,9 +435,7 @@
     "prerelease": false,
     "created_at": "2020-06-18T16:09:25Z",
     "published_at": "2020-06-18T16:12:15Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.3.2",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.3.2",
     "body": "Fixed: \"Notiflix.Block.*\" module, \"Remove()\" function fixes and improvements for Internet Explorer(10+) compatibility.\r\n\r\nChanged: \"notiflix-aio.js\" file has been moved from \"src\" to \"src/all-in-one\" folder."
@@ -361,9 +474,7 @@
     "prerelease": false,
     "created_at": "2020-06-10T21:40:18Z",
     "published_at": "2020-06-10T21:43:23Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.3.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.3.1",
     "body": "Changed: \"Notiflix.Notify.*\" module, \"callback\" and \"options\" parameters have been changed.\r\n\r\nChanged: \"Notiflix.Report.*\" module, \"callback\" and \"options\" parameters have been changed.\r\n\r\nChanged: Code Review."
@@ -402,9 +513,7 @@
     "prerelease": true,
     "created_at": "2020-06-10T19:05:27Z",
     "published_at": "2020-06-10T19:07:05Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.3.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.3.0",
     "body": "(This package has been deprecated.)\r\n\r\nAdded: \"Notiflix.Notify.*\" module, \"optionsOrCallback\" parameter has been added.\r\n\r\nAdded: \"Notiflix.Report.*\" module, \"optionsOrCallback\" parameter has been added.\r\n\r\nChanged: Code Review."
@@ -443,9 +552,7 @@
     "prerelease": false,
     "created_at": "2020-06-09T20:07:34Z",
     "published_at": "2020-06-09T20:10:13Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.2.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.2.1",
     "body": "Changed: \"Notiflix.Notify.*\" module, CSS animation improvements."
@@ -484,9 +591,7 @@
     "prerelease": false,
     "created_at": "2020-06-05T04:09:52Z",
     "published_at": "2020-06-05T04:12:33Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.2.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.2.0",
     "body": "Added: \"Notiflix.Notify.*\" module; \"center-top\", \"center-bottom\", and \"center-center\" options have been added to the \"position\" setting.\r\n\r\nAdded: \"Notiflix.Notify.*\" module; \"backOverlayColor\" option has been added to each type of notification.\r\n\r\nAdded:  \"Notiflix.Report.*\" module; \"backOverlayColor\" option has been added to each type of dialog box.\r\n\r\nChanged: All modules (\"Notify\", \"Report\", \"Confirm\", \"Loading\", and \"Block\"); \"useGoogleFont\" setting has been changed as \"false\" to default.\r\n\r\nChanged: Code Review."
@@ -525,9 +630,7 @@
     "prerelease": false,
     "created_at": "2020-06-02T19:59:30Z",
     "published_at": "2020-06-02T20:03:42Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.1.4",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.1.4",
     "body": "Changed: Code Review.\r\nChanged: Notiflix Confirm module; HTML tag of the message element has been changed from \"p\" to \"div\"."
@@ -566,9 +669,7 @@
     "prerelease": false,
     "created_at": "2020-04-07T22:18:15Z",
     "published_at": "2020-04-07T22:19:26Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.1.3",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.1.3",
     "body": "Changed: Code Review."
@@ -607,9 +708,7 @@
     "prerelease": false,
     "created_at": "2020-02-28T20:37:07Z",
     "published_at": "2020-02-28T20:38:57Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.1.2",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.1.2",
     "body": "Fixed: Document Object Model definition fixes.\r\nChanged: Code Review."
@@ -648,9 +747,7 @@
     "prerelease": false,
     "created_at": "2020-02-28T19:41:07Z",
     "published_at": "2020-02-28T19:42:00Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.1.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.1.1",
     "body": "Fixed: Document Object Model definition fixes.\r\nChanged: Code Review."
@@ -689,9 +786,7 @@
     "prerelease": false,
     "created_at": "2020-02-27T23:27:32Z",
     "published_at": "2020-02-27T23:29:14Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.1.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.1.0",
     "body": "Added: Universal Module Definition."
@@ -730,9 +825,7 @@
     "prerelease": false,
     "created_at": "2020-02-07T17:46:09Z",
     "published_at": "2020-02-07T17:47:47Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v2.0.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v2.0.0",
     "body": "Notiflix \"v2\" is ready to use.\r\n\r\nThis version includes a new module name as \"Block\".\r\n\r\n\"Notiflix.Block.*\" module can be used to block or unblock elements to prevents users actions during the process (AJAX etc.) without locking the browser or the other elements.\r\n\r\nAdded: The \"Block\" module added to Notiflix.\r\n\r\nAdded: The \"clickToClose\" option added to the \"Notiflix.Notify.*\" module. Default is \"false\". This option can be set as \"true\" to remove each notification without waiting for it to be automatically removed when it has been clicked.\r\n\r\nChanged: Code Review."
@@ -771,9 +864,7 @@
     "prerelease": false,
     "created_at": "2019-09-18T09:37:58Z",
     "published_at": "2019-09-18T09:43:12Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.9.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.9.1",
     "body": "Changed: Code Review."
@@ -812,9 +903,7 @@
     "prerelease": false,
     "created_at": "2019-09-16T11:15:10Z",
     "published_at": "2019-09-16T11:16:38Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.9.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.9.0",
     "body": "Changed: Code Review."
@@ -853,9 +942,7 @@
     "prerelease": false,
     "created_at": "2019-07-30T12:15:40Z",
     "published_at": "2019-07-30T12:17:04Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.8.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.8.0",
     "body": "Added: The \"showOnlyTheLastOne\" option added to the \"Notiflix Notify\" module."
@@ -894,9 +981,7 @@
     "prerelease": false,
     "created_at": "2019-07-18T12:09:09Z",
     "published_at": "2019-07-18T12:10:37Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.7.2",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.7.2",
     "body": "Added: Unminified package published."
@@ -935,9 +1020,7 @@
     "prerelease": false,
     "created_at": "2019-07-02T08:39:17Z",
     "published_at": "2019-07-02T08:40:45Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.7.1",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.7.1",
     "body": "Notiflix v1.7.1"
@@ -976,9 +1059,7 @@
     "prerelease": false,
     "created_at": "2019-07-01T18:13:22Z",
     "published_at": "2019-07-01T18:15:11Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.7.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.7.0",
     "body": "Notiflix v1.7.0"
@@ -1017,9 +1098,7 @@
     "prerelease": false,
     "created_at": "2019-06-14T11:54:04Z",
     "published_at": "2019-06-14T11:54:45Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.6.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.6.0",
     "body": "Notiflix v1.6.0"
@@ -1058,9 +1137,7 @@
     "prerelease": false,
     "created_at": "2019-05-06T11:57:37Z",
     "published_at": "2019-05-06T11:59:30Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.5.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.5.0",
     "body": "Notiflix v1.5.0"
@@ -1099,52 +1176,9 @@
     "prerelease": false,
     "created_at": "2019-04-26T09:41:06Z",
     "published_at": "2019-04-26T09:43:33Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.4.0",
     "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.4.0",
     "body": "Notiflix v1.4.0"
-  },
-  {
-    "url": "https://api.github.com/repos/notiflix/Notiflix/releases/16843767",
-    "assets_url": "https://api.github.com/repos/notiflix/Notiflix/releases/16843767/assets",
-    "upload_url": "https://uploads.github.com/repos/notiflix/Notiflix/releases/16843767/assets{?name,label}",
-    "html_url": "https://github.com/notiflix/Notiflix/releases/tag/v1.3.0",
-    "id": 16843767,
-    "author": {
-      "login": "notiflix",
-      "id": 45588814,
-      "node_id": "MDQ6VXNlcjQ1NTg4ODE0",
-      "avatar_url": "https://avatars.githubusercontent.com/u/45588814?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/notiflix",
-      "html_url": "https://github.com/notiflix",
-      "followers_url": "https://api.github.com/users/notiflix/followers",
-      "following_url": "https://api.github.com/users/notiflix/following{/other_user}",
-      "gists_url": "https://api.github.com/users/notiflix/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/notiflix/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/notiflix/subscriptions",
-      "organizations_url": "https://api.github.com/users/notiflix/orgs",
-      "repos_url": "https://api.github.com/users/notiflix/repos",
-      "events_url": "https://api.github.com/users/notiflix/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/notiflix/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "node_id": "MDc6UmVsZWFzZTE2ODQzNzY3",
-    "tag_name": "v1.3.0",
-    "target_commitish": "master",
-    "name": "v1.3.0",
-    "draft": false,
-    "prerelease": false,
-    "created_at": "2019-04-12T15:46:48Z",
-    "published_at": "2019-04-18T08:52:36Z",
-    "assets": [
-
-    ],
-    "tarball_url": "https://api.github.com/repos/notiflix/Notiflix/tarball/v1.3.0",
-    "zipball_url": "https://api.github.com/repos/notiflix/Notiflix/zipball/v1.3.0",
-    "body": "Notiflix v1.3.0"
   }
 ]
