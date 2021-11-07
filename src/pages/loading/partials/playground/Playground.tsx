@@ -206,7 +206,7 @@ function Playground(): JSX.Element {
               <div className={styles.playground__item__usage__code}>
                 <code className="code code--medium">
                   <span className="code__indent1 code__indent--pb0">
-                    <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorCustom}</span>
+                    <span className="code__comment">{`${_dbLoadingPlayground?.commentIndicatorCustom} ${_dbLoadingPlayground?.commentIndicatorCustomAsAUrl}`}</span>
                   </span>
                   <span className="code__indent1 code__indent--py0">
                     {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
@@ -225,6 +225,25 @@ function Playground(): JSX.Element {
                   </span>
 
                   <span className="code__indent1 code__indent--pb0">
+                    <span className="code__comment">{`${_dbLoadingPlayground?.commentIndicatorCustom} ${_dbLoadingPlayground?.commentIndicatorCustomAsACode}`}</span>
+                  </span>
+                  <span className="code__indent1 code__indent--py0">
+                    {!stateLoadingIsModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
+                    <span className="code__namespace">{namespaceModule}</span>
+                    <span>{`.`}</span>
+                    <span className="code__method">{_dbLoadingPlayground?.methodCustom?.functionName}</span>
+                    <span>{`({`}</span>
+                  </span>
+                  <span className="code__indent2 code__indent--py0">
+                    <span className="code__attr">{`customSvgCode: `}</span>
+                    <span className="code__string">{`'${_dbLoadingPlayground?.methodCustomSvgCode}'`}</span>
+                    <span>{`,`}</span>
+                  </span>
+                  <span className="code__indent1 code__indent--pt0">
+                    <span>{`});`}</span>
+                  </span>
+
+                  <span className="code__indent1 code__indent--pb0">
                     <span className="code__comment">{_dbLoadingPlayground?.commentIndicatorCustomWithMessage}</span>
                   </span>
                   <span className="code__indent1 code__indent--py0">
@@ -237,8 +256,8 @@ function Playground(): JSX.Element {
                     <span>{`, {`}</span>
                   </span>
                   <span className="code__indent2 code__indent--py0">
-                    <span className="code__attr">{`customSvgUrl: `}</span>
-                    <span className="code__string">{`'${_dbLoadingPlayground?.methodCustomSvgUrl}'`}</span>
+                    <span className="code__attr">{`customSvgCode: `}</span>
+                    <span className="code__string">{`'${_dbLoadingPlayground?.methodCustomSvgCode}'`}</span>
                     <span>{`,`}</span>
                   </span>
                   <span className="code__indent1 code__indent--pt0">

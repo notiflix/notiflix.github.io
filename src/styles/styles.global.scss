@@ -369,7 +369,7 @@ strong {
       display: table-row;
     }
 
-    &:not(:last-child):not(&--new) {
+    &:not(:last-child) {
       border-bottom: 0.07rem solid $color_gray_100;
     }
   }
@@ -593,13 +593,13 @@ strong {
   }
 
   &__tr--new &__td {
-    background: rgba($color_theme_dark, 0.075);
+    background: rgba($color_theme_dark, 0.05);
 
     &:first-child {
       border-radius: 1rem 1rem 0 0;
 
       @include media_up($breakpoint_tablet) {
-        border-radius: 1rem 0 0 1rem;
+        border-radius: 0;
       }
     }
 
@@ -607,7 +607,7 @@ strong {
       border-radius: 0 0 1rem 1rem;
 
       @include media_up($breakpoint_tablet) {
-        border-radius: 0 1rem 1rem 0;
+        border-radius: 0;
       }
     }
   }

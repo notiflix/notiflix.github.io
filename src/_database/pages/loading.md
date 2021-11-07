@@ -36,6 +36,8 @@ _dbLoadingPlayground:
   commentIndicatorWithNewOptions: Only loading indicator with the new options
   commentIndicatorWithMessageAndNewOptions: Loading indicator with a message, and the new options
   commentIndicatorCustom: Only custom loading indicator
+  commentIndicatorCustomAsAUrl: (SVG Icon URL)
+  commentIndicatorCustomAsACode: (Text-based SVG Code)
   commentIndicatorCustomWithMessage: Custom loading indicator with a message
   commentsChange:
     - "@param1 {string}: Required, new message in string format."
@@ -74,6 +76,7 @@ _dbLoadingPlayground:
   methodCustomTitle: Custom Indicator
   methodCustomDescription: Show a custom loading indicator.
   methodCustomSvgUrl: https://notiflix.github.io/dir/icon.svg
+  methodCustomSvgCode: '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">...</svg>'
   methodCustom:
     id: CUSTOM
     isActive: true

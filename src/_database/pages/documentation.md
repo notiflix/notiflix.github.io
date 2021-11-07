@@ -795,6 +795,11 @@ _dbDocsTableLoading:
         type: string
         defaultValue: 'null'
         description: 'An external SVG icon URL can be set. Usage: <span>Notiflix.Loading.custom();</span>'
+      - name: customSvgCode
+        version: 'v3.2.0'
+        type: string
+        defaultValue: 'null'
+        description: 'A text-based (string) SVG icon can be set. Single quotation marks should be avoided. Usage: <span>Notiflix.Loading.custom();</span>'
       - name: svgSize
         version: null
         type: string

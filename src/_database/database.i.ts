@@ -236,6 +236,8 @@ interface IDatabaseLoadingPlayground {
   commentIndicatorWithNewOptions: string;
   commentIndicatorWithMessageAndNewOptions: string;
   commentIndicatorCustom: string;
+  commentIndicatorCustomAsAUrl: string;
+  commentIndicatorCustomAsACode: string;
   commentIndicatorCustomWithMessage: string;
   commentsChange?: string[];
   commentsRemove?: string[];
@@ -248,6 +250,7 @@ interface IDatabaseLoadingPlayground {
   methodCustomTitle: string;
   methodCustomDescription: string;
   methodCustomSvgUrl: string;
+  methodCustomSvgCode: string;
   methodCustom?: IDatabaseLoadingMethodCustom;
   methodChangeTitle: string;
   methodChangeDescription: string;
