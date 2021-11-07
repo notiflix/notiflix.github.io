@@ -43,9 +43,14 @@ function Playground(): JSX.Element {
   };
   // Demo Call NotiflixBlock Function by Method: end
 
+  // Demo Buttons State: begin
+  const [stateDemoButtonsCanBeClicked, setStateDemoButtonsCanBeClicked] = useState<boolean>(true);
+  // Demo Buttons State: end
+
   // Demo Buttons Block OnClick Handler: begin
   const refDemoInput = useRef<HTMLInputElement | null>(null);
   const demoButtonsBlockOnClickHandler = (functionName: TDatabaseBlockIndicatorsFunctionNames): void => {
+    setStateDemoButtonsCanBeClicked(false);
     const blockingMessage = refDemoInput.current?.value || '';
     callNotiflixBlockFunctionByMethod(functionName, blockingMessage);
   };
@@ -55,6 +60,7 @@ function Playground(): JSX.Element {
   const demoButtonUnblockOnClickHandler = (): void => {
     if (refDemoElement.current) {
       NotiflixBlock.remove([refDemoElement.current]);
+      setStateDemoButtonsCanBeClicked(true);
     }
   };
   // Demo Button Unbock OnClick Handler: end
@@ -318,6 +324,7 @@ function Playground(): JSX.Element {
                 type="text"
                 className={styles.playground__item__demo__input}
                 placeholder={_dbBlockPlayground?.demoInputPlaceholder}
+                disabled={!stateDemoButtonsCanBeClicked}
                 maxLength={34}
               />
               <div className={styles.playground__item__demo__buttons}>
@@ -327,6 +334,7 @@ function Playground(): JSX.Element {
                       key={index}
                       type="button"
                       onClick={() => demoButtonsBlockOnClickHandler(method?.functionName)}
+                      disabled={!stateDemoButtonsCanBeClicked}
                       className={styles.playground__item__demo__button}
                     >
                       <LazyImage
@@ -345,6 +353,7 @@ function Playground(): JSX.Element {
                 <button
                   type="button"
                   onClick={demoButtonUnblockOnClickHandler}
+                  disabled={stateDemoButtonsCanBeClicked}
                   className={[
                     `${styles.playground__item__demo__button}`,
                     `${styles['playground__item__demo__button--remove']}`,
