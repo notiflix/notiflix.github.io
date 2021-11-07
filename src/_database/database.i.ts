@@ -160,6 +160,7 @@ interface IDatabaseConfirmMethods {
   infoDescription: string;
   infoDocsLinkText: string;
   infoDocsLinkRouteHash: string;
+  usageInfoTitle: string;
   comments?: string[];
   defaultValueTitle: string;
   defaultValueQuestion: string;
@@ -190,12 +191,19 @@ interface IDatabaseConfirmMethodAsk extends IDatabaseConfirmMethods {
   demoInputPlaceholderAnswer: string;
 }
 
+interface IDatabaseConfirmMethodPrompt extends IDatabaseConfirmMethods {
+  functionName: 'prompt';
+  defaultValueAnswer: string;
+  demoInputPlaceholderAnswer: string;
+}
+
 interface IDatabaseConfirmPlayground {
   title: string;
   namespace: string;
   methods?: {
     show?: IDatabaseConfirmMethodShow;
     ask?: IDatabaseConfirmMethodAsk;
+    prompt?: IDatabaseConfirmMethodPrompt;
   };
 }
 // Page Confirm: end
@@ -519,6 +527,7 @@ export type {
   TDatabaseConfirmFunctionNames,
   IDatabaseConfirmMethodShow,
   IDatabaseConfirmMethodAsk,
+  IDatabaseConfirmMethodPrompt,
   IDatabaseConfirmPlayground,
   TDatabaseLoadingIndicatorsFunctionNames,
   IDatabaseLoadingPlayground,

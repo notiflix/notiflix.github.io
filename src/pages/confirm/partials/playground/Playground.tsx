@@ -53,6 +53,14 @@ function Playground(): JSX.Element {
             data={_dbConfirmPlayground.methods.ask}
           />
         }
+        {
+          (_dbConfirmPlayground?.methods?.prompt) &&
+          <PlaygroundItem
+            isModule={stateConfirmIsModule}
+            namespace={_dbConfirmPlayground.namespace}
+            data={_dbConfirmPlayground.methods.prompt}
+          />
+        }
       </div>
 
     </div>

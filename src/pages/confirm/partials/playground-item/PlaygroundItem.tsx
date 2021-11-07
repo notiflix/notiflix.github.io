@@ -5,7 +5,7 @@ import { FiSettings as IconDocs } from 'react-icons/fi';
 import { HiOutlineArrowDown as IconArrowDown } from 'react-icons/hi';
 import { BiMailSend as IconSend } from 'react-icons/bi';
 
-import { IDatabaseConfirmMethodShow, IDatabaseConfirmMethodAsk } from '@database/database.i';
+import { IDatabaseConfirmMethodShow, IDatabaseConfirmMethodAsk, IDatabaseConfirmMethodPrompt } from '@database/database.i';
 
 import { constants } from '@application/constants';
 import { routes } from '@application/routes';
@@ -15,7 +15,7 @@ import { EConfirm } from '@application/enumerations/confirm';
 interface IPlaygroundItem {
   isModule: boolean;
   namespace: string;
-  data: IDatabaseConfirmMethodShow | IDatabaseConfirmMethodAsk;
+  data: IDatabaseConfirmMethodShow | IDatabaseConfirmMethodAsk | IDatabaseConfirmMethodPrompt;
 }
 
 import styles from '@pages/confirm/partials/playground-item/PlaygroundItem.module.scss';
@@ -27,6 +27,7 @@ function PlaygroundItem({
 }: IPlaygroundItem): JSX.Element {
   const isMethodShow = data?.functionName === EConfirm.SHOW;
   const isMethodAsk = data?.functionName === EConfirm.ASK;
+  const isMethodPrompt = data?.functionName === EConfirm.PROMPT;
   const namespaceGlobal = constants.app.name;
   const namespaceModule = namespace;
   const pathPageDocs = routes.find(route => route?.id === EPageId.DOCUMENTATION)?.pathPage || '/';
@@ -93,6 +94,17 @@ function PlaygroundItem({
           () => alert(inputCancelButtonCallback?.value || ''),
           constants.app.libraryOptions.confirm,
         );
+      } else if (isMethodPrompt) {
+        NotiflixConfirm.prompt(
+          inputTitle?.value || '',
+          inputQuestion?.value || '',
+          inputAnswer?.value || '',
+          inputOkButton?.value || '',
+          inputCancelButton?.value || '',
+          (clientAnswer) => alert(`${data?.defaultValueButtonOkCallbackTxt}${clientAnswer}`),
+          (clientAnswer) => alert(`${data?.defaultValueButtonCancelCallbackTxt}${clientAnswer}`),
+          constants.app.libraryOptions.confirm,
+        );
       }
     }
   };
@@ -122,7 +134,10 @@ function PlaygroundItem({
               ].filter(x => x).join('.')
             }
           </h3>
-          <p className={styles.item__head__description}>{data?.infoDescription}</p>
+          <p
+            className={styles.item__head__description}
+            dangerouslySetInnerHTML={{ __html: (data?.infoDescription || '') }}
+          ></p>
           <Link href={pathPageDocs} as={`${process.env.appUrl}${pathAsDocs}${data?.infoDocsLinkRouteHash}`} passHref prefetch={false}>
             <a className={styles.item__head__link}>
               <IconDocs className={styles.item__head__link__icon} />
@@ -132,6 +147,10 @@ function PlaygroundItem({
         </div>
 
         <div className={styles.item__usage}>
+          <div className={styles.item__usage__head}>
+            <h4 className={styles.item__usage__head__title}>{data?.usageInfoTitle}</h4>
+          </div>
+
           <div className={styles.item__usage__code}>
             <code className="code code--medium">
               <span className="code__indent1 code__indent--pb0">
@@ -167,7 +186,10 @@ function PlaygroundItem({
                 <span>{`,`}</span>
               </span>
               {
-                (isMethodAsk && 'defaultValueAnswer' in data) &&
+                (
+                  (isMethodAsk && 'defaultValueAnswer' in data) ||
+                  (isMethodPrompt && 'defaultValueAnswer' in data)
+                ) &&
                 <span className="code__indent2 code__indent--py0">
                   <span className="code__string">{`'${data?.defaultValueAnswer}'`}</span>
                   <span>{`,`}</span>
@@ -186,7 +208,14 @@ function PlaygroundItem({
                   isModule
                     ?
                     <>
-                      <span>{`() `}</span>
+                      {!isMethodPrompt && <span>{`() `}</span>}
+                      {isMethodPrompt &&
+                        <>
+                          <span>{`(`}</span>
+                          <span className="code__attr">{`clientAnswer`}</span>
+                          <span>{`) `}</span>
+                        </>
+                      }
                       <span className="code__function">{`=>`}</span>
                       <span>{` {`}</span>
                     </>
@@ -194,14 +223,28 @@ function PlaygroundItem({
                     <>
                       <span className="code__function">{`function`}</span>
                       <span className="code__method">{` ${data?.defaultValueButtonOkCallbackFn}`}</span>
-                      <span>{`() {`}</span>
+                      {!isMethodPrompt && <span>{`() {`}</span>}
+                      {isMethodPrompt &&
+                        <>
+                          <span>{`(`}</span>
+                          <span className="code__attr">{`clientAnswer`}</span>
+                          <span>{`) {`}</span>
+                        </>
+                      }
                     </>
                 }
               </span>
               <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
-                <span className="code__string">{`'${data?.defaultValueButtonOkCallbackTxt}'`}</span>
+                {!isMethodPrompt && <span className="code__string">{`'${data?.defaultValueButtonOkCallbackTxt}'`}</span>}
+                {isMethodPrompt &&
+                  <>
+                    <span className="code__string">{`'${data?.defaultValueButtonOkCallbackTxt}'`}</span>
+                    <span>{` + `}</span>
+                    <span className="code__attr">{`clientAnswer`}</span>
+                  </>
+                }
                 <span>{`);`}</span>
               </span>
               <span className="code__indent2 code__indent--py0">
@@ -212,7 +255,14 @@ function PlaygroundItem({
                   isModule
                     ?
                     <>
-                      <span>{`() `}</span>
+                      {!isMethodPrompt && <span>{`() `}</span>}
+                      {isMethodPrompt &&
+                        <>
+                          <span>{`(`}</span>
+                          <span className="code__attr">{`clientAnswer`}</span>
+                          <span>{`) `}</span>
+                        </>
+                      }
                       <span className="code__function">{`=>`}</span>
                       <span>{` {`}</span>
                     </>
@@ -220,14 +270,28 @@ function PlaygroundItem({
                     <>
                       <span className="code__function">{`function`}</span>
                       <span className="code__method">{` ${data?.defaultValueButtonCancelCallbackFn}`}</span>
-                      <span>{`() {`}</span>
+                      {!isMethodPrompt && <span>{`() {`}</span>}
+                      {isMethodPrompt &&
+                        <>
+                          <span>{`(`}</span>
+                          <span className="code__attr">{`clientAnswer`}</span>
+                          <span>{`) {`}</span>
+                        </>
+                      }
                     </>
                 }
               </span>
               <span className="code__indent3 code__indent--py0">
                 <span className="code__method">{`alert`}</span>
                 <span>{`(`}</span>
-                <span className="code__string">{`'${data?.defaultValueButtonCancelCallbackTxt}'`}</span>
+                {!isMethodPrompt && <span className="code__string">{`'${data?.defaultValueButtonCancelCallbackTxt}'`}</span>}
+                {isMethodPrompt &&
+                  <>
+                    <span className="code__string">{`'${data?.defaultValueButtonCancelCallbackTxt}'`}</span>
+                    <span>{` + `}</span>
+                    <span className="code__attr">{`clientAnswer`}</span>
+                  </>
+                }
                 <span>{`);`}</span>
               </span>
               <span className="code__indent2 code__indent--py0">
@@ -274,6 +338,12 @@ function PlaygroundItem({
                   <input type="text" maxLength={110} className={styles.item__usage__preview__item__answer__input} readOnly placeholder={data?.demoInputPlaceholderAnswer} />
                 </div>
               }
+              {
+                (isMethodPrompt && 'demoInputPlaceholderAnswer' in data) &&
+                <div className={styles.item__usage__preview__item__answer}>
+                  <input type="text" maxLength={110} className={styles.item__usage__preview__item__answer__input} placeholder={data?.defaultValueAnswer} defaultValue={data?.defaultValueAnswer} />
+                </div>
+              }
               <div className={styles.item__usage__preview__item__buttons}>
                 <button
                   type="button"
@@ -296,6 +366,7 @@ function PlaygroundItem({
 
           <div className={styles.item__demo__code}>
             <code className="code code--medium">
+
               <span className="code__indent1 code__indent--pb0">
                 {!isModule && <><span className="code__namespace">{namespaceGlobal}</span><span>{`.`}</span></>}
                 <span className="code__namespace">{namespaceModule}</span>
@@ -319,6 +390,7 @@ function PlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`,`}</span>
               </span>
+
               <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
@@ -334,8 +406,12 @@ function PlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`,`}</span>
               </span>
+
               {
-                (isMethodAsk && 'demoInputPlaceholderAnswer' in data && 'defaultValueAnswer' in data) &&
+                (
+                  (isMethodAsk && 'demoInputPlaceholderAnswer' in data && 'defaultValueAnswer' in data) ||
+                  (isMethodPrompt && 'demoInputPlaceholderAnswer' in data && 'defaultValueAnswer' in data)
+                ) &&
                 <span className="code__indent2 code__indent--py0">
                   <span className="code__string">{`'`}</span>
                   <span className="code__string">
@@ -352,6 +428,7 @@ function PlaygroundItem({
                   <span>{`,`}</span>
                 </span>
               }
+
               <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
@@ -367,6 +444,7 @@ function PlaygroundItem({
                 <span className="code__string">{`'`}</span>
                 <span>{`,`}</span>
               </span>
+
               <span className="code__indent2 code__indent--py0">
                 <span className="code__string">{`'`}</span>
                 <span className="code__string">
@@ -383,85 +461,91 @@ function PlaygroundItem({
                 <span>{`,`}</span>
               </span>
 
-              <span className="code__indent2 code__indent--py0">
-                {
-                  isModule
-                    ?
-                    <>
-                      <span>{`() `}</span>
-                      <span className="code__function">{`=>`}</span>
-                      <span>{` {`}</span>
-                    </>
-                    :
-                    <>
-                      <span className="code__function">{`function`}</span>
-                      <span className="code__method">{` ${data?.defaultValueButtonOkCallbackFn}`}</span>
-                      <span>{`() {`}</span>
-                    </>
-                }
-              </span>
-              <span className="code__indent3 code__indent--py0">
-                <span className="code__method">{`alert`}</span>
-                <span>{`(`}</span>
-                <span className="code__string">{`'`}</span>
-                <span className="code__string">
-                  <input
-                    ref={(_inputOkButtonCallback: HTMLInputElement) => refsDemoInputs.current[refsDemoInputsIndexes.okButtonCallback] = _inputOkButtonCallback}
-                    className="code__input"
-                    placeholder={data?.demoInputPlaceholderOkButtonCallback}
-                    defaultValue={data?.defaultValueButtonOkCallbackTxt}
-                    type="text"
-                    maxLength={110}
-                  />
-                </span>
-                <span className="code__string">{`'`}</span>
-                <span>{`);`}</span>
-              </span>
-              <span className="code__indent2 code__indent--py0">
-                <span>{`},`}</span>
-              </span>
+              {
+                (isMethodShow || isMethodAsk) &&
+                <>
+                  <span className="code__indent2 code__indent--py0">
+                    {
+                      isModule
+                        ?
+                        <>
+                          <span>{`() `}</span>
+                          <span className="code__function">{`=>`}</span>
+                          <span>{` {`}</span>
+                        </>
+                        :
+                        <>
+                          <span className="code__function">{`function`}</span>
+                          <span className="code__method">{` ${data?.defaultValueButtonOkCallbackFn}`}</span>
+                          <span>{`() {`}</span>
+                        </>
+                    }
+                  </span>
+                  <span className="code__indent3 code__indent--py0">
+                    <span className="code__method">{`alert`}</span>
+                    <span>{`(`}</span>
+                    <span className="code__string">{`'`}</span>
+                    <span className="code__string">
+                      <input
+                        ref={(_inputOkButtonCallback: HTMLInputElement) => refsDemoInputs.current[refsDemoInputsIndexes.okButtonCallback] = _inputOkButtonCallback}
+                        className="code__input"
+                        placeholder={data?.demoInputPlaceholderOkButtonCallback}
+                        defaultValue={data?.defaultValueButtonOkCallbackTxt}
+                        type="text"
+                        maxLength={110}
+                      />
+                    </span>
+                    <span className="code__string">{`'`}</span>
+                    <span>{`);`}</span>
+                  </span>
+                  <span className="code__indent2 code__indent--py0">
+                    <span>{`},`}</span>
+                  </span>
 
-              <span className="code__indent2 code__indent--py0">
-                {
-                  isModule
-                    ?
-                    <>
-                      <span>{`() `}</span>
-                      <span className="code__function">{`=>`}</span>
-                      <span>{` {`}</span>
-                    </>
-                    :
-                    <>
-                      <span className="code__function">{`function`}</span>
-                      <span className="code__method">{` ${data?.defaultValueButtonCancelCallbackFn}`}</span>
-                      <span>{`() {`}</span>
-                    </>
-                }
-              </span>
-              <span className="code__indent3 code__indent--py0">
-                <span className="code__method">{`alert`}</span>
-                <span>{`(`}</span>
-                <span className="code__string">{`'`}</span>
-                <span className="code__string">
-                  <input
-                    ref={(_inputCancelButtonCallback: HTMLInputElement) => refsDemoInputs.current[refsDemoInputsIndexes.cancelButtonCallback] = _inputCancelButtonCallback}
-                    className="code__input"
-                    placeholder={data?.demoInputPlaceholderCancelButtonCallback}
-                    defaultValue={data?.defaultValueButtonCancelCallbackTxt}
-                    type="text"
-                    maxLength={110}
-                  />
-                </span>
-                <span className="code__string">{`'`}</span>
-                <span>{`);`}</span>
-              </span>
-              <span className="code__indent2 code__indent--py0">
-                <span>{`},`}</span>
-              </span>
+                  <span className="code__indent2 code__indent--py0">
+                    {
+                      isModule
+                        ?
+                        <>
+                          <span>{`() `}</span>
+                          <span className="code__function">{`=>`}</span>
+                          <span>{` {`}</span>
+                        </>
+                        :
+                        <>
+                          <span className="code__function">{`function`}</span>
+                          <span className="code__method">{` ${data?.defaultValueButtonCancelCallbackFn}`}</span>
+                          <span>{`() {`}</span>
+                        </>
+                    }
+                  </span>
+                  <span className="code__indent3 code__indent--py0">
+                    <span className="code__method">{`alert`}</span>
+                    <span>{`(`}</span>
+                    <span className="code__string">{`'`}</span>
+                    <span className="code__string">
+                      <input
+                        ref={(_inputCancelButtonCallback: HTMLInputElement) => refsDemoInputs.current[refsDemoInputsIndexes.cancelButtonCallback] = _inputCancelButtonCallback}
+                        className="code__input"
+                        placeholder={data?.demoInputPlaceholderCancelButtonCallback}
+                        defaultValue={data?.defaultValueButtonCancelCallbackTxt}
+                        type="text"
+                        maxLength={110}
+                      />
+                    </span>
+                    <span className="code__string">{`'`}</span>
+                    <span>{`);`}</span>
+                  </span>
+                  <span className="code__indent2 code__indent--py0">
+                    <span>{`},`}</span>
+                  </span>
+                </>
+              }
 
               <span className="code__indent1 code__indent--pt0">
                 <span>{`);`}</span>
               </span>
+
             </code>
 
             <button
