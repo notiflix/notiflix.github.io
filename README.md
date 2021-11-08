@@ -6,7 +6,7 @@ This application is the documentation project of [Notiflix](https://github.com/n
 
 ### Current Version
 
-1.1.0 [*](https://github.com/notiflix/notiflix.github.io/blob/main/CHANGELOG.md "CHANGELOG")
+1.1.1 [*](https://github.com/notiflix/notiflix.github.io/blob/main/CHANGELOG.md "CHANGELOG")
 
 
 ---------

@@ -3051,10 +3051,10 @@ normalize-selector@^0.2.0:
   resolved "https://registry.yarnpkg.com/normalize-selector/-/normalize-selector-0.2.0.tgz#d0b145eb691189c63a78d201dc4fdb1293ef0c03"
   integrity sha1-0LFF62kRicY6eNIB3E/bEpPvDAM=
 
-notiflix@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/notiflix/-/notiflix-3.2.1.tgz#1a1bbc9082641d00f78abb22405d38a517ba1e72"
-  integrity sha512-GtBdhdhV2BGsLR6LlQPFhpUBWise3Br10G28aR2thdchHrfYWc3IrGh4xG9D7qUHNxQzsJ0BU34jjEnNRDpZuw==
+notiflix@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/notiflix/-/notiflix-3.2.2.tgz#85becd576763f73b6d76433f360b2c9eb5e393cd"
+  integrity sha512-m1TdfVf0pU3W3BDGhyW3GuGKan2x8xmQ0gPJlVmkqW9yo7yc/ftOYrPO0zFCfwxCpg0JVeT5CVHUfDxsPilRtQ==
 
 num2fraction@^1.2.2:
   version "1.2.2"

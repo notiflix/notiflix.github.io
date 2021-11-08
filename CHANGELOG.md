@@ -1,3 +1,8 @@
+@1.1.1
+* **Changed:** Notiflix: v3.2.2
+
+-----
+
 @1.1.0
 * **Added:** Confirm Page: `prompt()` method has been added. (Notiflix v3.2.0)
 * **Added:** Loading Page, Documentation Page: `customSvgCode` option and usage has been added. (Notiflix v3.2.0)
