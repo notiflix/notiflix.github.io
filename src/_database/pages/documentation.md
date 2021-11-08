@@ -1,7 +1,7 @@
 ---
 _dbPageMeta:
   routeId: DOCUMENTATION
-  lastModifiedDate: '2021-10-03' # YYYY-MM-DD
+  lastModifiedDate: '2021-11-08' # YYYY-MM-DD
   title: Documentation | Notiflix
   description: Notiflix is a JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
   robots: index, follow, noodp, noydir
