@@ -1,3 +1,8 @@
+@1.1.3
+* **Changed:** Notiflix: v3.2.4
+
+-----
+
 @1.1.2
 * **Changed:** Dependencies have been updated.
 

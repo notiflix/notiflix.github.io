@@ -6,13 +6,13 @@ This application is the documentation project of [Notiflix](https://github.com/n
 
 ### Current Version
 
-1.1.2 [*](https://github.com/notiflix/notiflix.github.io/blob/main/CHANGELOG.md "CHANGELOG")
+1.1.3 [*](https://github.com/notiflix/notiflix.github.io/blob/main/CHANGELOG.md "CHANGELOG")
 
 
 ---------
 
 ### Copyright
-Copyright &copy; 2019 - 2021 Notiflix
+Copyright &copy; 2019 - 2022 Notiflix
 
 ### License
 GPL-3.0 License - https://opensource.org/licenses/GPL-3.0
