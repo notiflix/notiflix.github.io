@@ -25,7 +25,7 @@
     "site_admin": false
   },
   "html_url": "https://github.com/notiflix/Notiflix",
-  "description": "Notiflix is a JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.",
+  "description": "Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.",
   "fork": false,
   "url": "https://api.github.com/repos/notiflix/Notiflix",
   "forks_url": "https://api.github.com/repos/notiflix/Notiflix/forks",
