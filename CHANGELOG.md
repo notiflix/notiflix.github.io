@@ -1,3 +1,8 @@
+@1.1.4
+* **Changed:** Notiflix: v3.2.5
+
+-----
+
 @1.1.3
 * **Changed:** Notiflix: v3.2.4
 

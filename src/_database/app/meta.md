@@ -2,7 +2,7 @@
 _dbAppMeta:
   metaLanguageCode: en
   metaLanguage: English
-  metaTitle: Notiflix | a JavaScript library for client-side non-blocking notifications.
+  metaTitle: Notiflix | a pure JavaScript library for client-side non-blocking notifications.
   metaDescription: Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more to that makes your web projects much better.
   metaRobots: noindex, nofollow, noodp, noydir
   metaYearInit: 2019.

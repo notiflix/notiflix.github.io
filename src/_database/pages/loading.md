@@ -1,7 +1,7 @@
 ---
 _dbPageMeta:
   routeId: LOADING
-  lastModifiedDate: '2022-01-29' # YYYY-MM-DD
+  lastModifiedDate: '2022-03-06' # YYYY-MM-DD
   title: Loading | Notiflix
   description: 'Notiflix Loading module can be used to show a loading indicator during a process (Fetch/XHR). Includes 6 types of animated SVG icons: "Standard", "Hourglass", "Circle", "Arrows", "Dots", and "Pulse". An additional type is "Custom", and it can be used with a custom SVG icon.'
   robots: index, follow, noodp, noydir

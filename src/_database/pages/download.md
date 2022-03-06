@@ -1,9 +1,9 @@
 ---
 _dbPageMeta:
   routeId: DOWNLOAD
-  lastModifiedDate: '2022-01-29' # YYYY-MM-DD
+  lastModifiedDate: '2022-03-06' # YYYY-MM-DD
   title: Download | Notiflix
-  description: Notiflix is a JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
+  description: Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
   robots: index, follow, noodp, noydir
   ogImage: null
   themeColor: null

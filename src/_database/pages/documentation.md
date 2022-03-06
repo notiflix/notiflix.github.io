@@ -1,9 +1,9 @@
 ---
 _dbPageMeta:
   routeId: DOCUMENTATION
-  lastModifiedDate: '2022-01-29' # YYYY-MM-DD
+  lastModifiedDate: '2022-03-06' # YYYY-MM-DD
   title: Documentation | Notiflix
-  description: Notiflix is a JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
+  description: Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
   robots: index, follow, noodp, noydir
   ogImage: null
   themeColor: null
@@ -395,6 +395,11 @@ _dbDocsTableReport:
         type: string
         defaultValue: 'rgba(0,0,0,0.5)'
         description: 'Changes the color of the background overlay. (Only if the report type-based "backOverlayColor" option is an empty string.)'
+      - name: backOverlayClickToClose
+        version: 'v3.2.5'
+        type: boolean
+        defaultValue: 'false'
+        description: Removes the Report Notification when the background overlay element has been clicked. The "backOverlay" option has to be "true" as well.
       - name: fontFamily
         version: null
         type: string
