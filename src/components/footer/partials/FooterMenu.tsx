@@ -29,7 +29,7 @@ function FooterMenu(): JSX.Element {
                       aria-label={`${constants.app.name} ${route?.name} ${_dbAppContent?.buttons?.module}`}
                       target={route?.isTargetBlank ? '_blank' : undefined}
                       className={classNames(styles.a, {
-                        [styles.isProduct]: route?.isProductPage,
+                        [styles.isProductPage]: route?.isProductPage,
                       })}
                     >
                       {route?.IconComponent && <route.IconComponent />}
