@@ -15,20 +15,30 @@ function Footer(): JSX.Element {
   const { _dbAppContent } = _appContent;
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footer__container}>
-        <div className={styles.footer__content__top}>
-          <div className={styles.footer__content__top__logo}>
-            <LogoNotiflix className={styles.footer__content__top__logo__svg} colorNoti={'currentColor'} colorFlix={'currentColor'} />
+    <footer className={styles.root}>
+      <div className={styles.container}>
+        <div className={styles.contentTop}>
+          <div className={styles.logo}>
+            <LogoNotiflix className={styles.logoSVG} colorNoti={'currentColor'} colorFlix={'currentColor'} />
           </div>
-          <div className={styles.footer__content__top__menu}>
+          <div className={styles.menu}>
             <FooterMenu />
           </div>
         </div>
-        <div className={styles.footer__content__bottom}>
-          <p className={styles.footer__content__bottom__copyright} dangerouslySetInnerHTML={{ __html: `&copy; ${_dbAppMeta?.metaYearInit} - ${new Date().getFullYear()} ${constants.app.name}. ${_dbAppMeta?.metaCopyright} <br/>${_dbAppContent?.footer?.appVersion} ${constants.app.version}` }}></p>
-          <a href={_dbAppContent?.footer?.gitHubUrl} target="_blank" rel="noreferrer" className={styles.footer__content__bottom__link}>
-            <IconGitHub className={styles.footer__content__bottom__link__icon} />
+
+        <div className={styles.contentBottom}>
+          <p
+            className={styles.copyright}
+            dangerouslySetInnerHTML={{
+              __html: `&copy; ${_dbAppMeta?.metaYearInit} - ${new Date().getFullYear()} ${constants.app.name}. ${_dbAppMeta?.metaCopyright} <br/>${_dbAppContent?.footer?.appVersion} ${constants.app.version}`,
+            }}
+          ></p>
+          <a
+            href={_dbAppContent?.footer?.gitHubUrl}
+            target="_blank" rel="noreferrer"
+            className={styles.link}
+          >
+            <IconGitHub className={styles.linkIcon} />
             <span>{_dbAppContent?.footer?.gitHubName}</span>
           </a>
         </div>

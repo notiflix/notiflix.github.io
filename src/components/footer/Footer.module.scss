@@ -1,6 +1,6 @@
 @import "@styles/variables";
 
-.footer {
+.root {
   position: relative;
   z-index: 99;
   width: 100%;
@@ -11,115 +11,115 @@
   justify-content: center;
   color: $color_theme_light;
   @include backgroundGradientNight();
+}
 
-  &__container {
+.container {
+  width: 100%;
+  max-width: $breakpoint_pc;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  &Top {
     width: 100%;
-    max-width: $breakpoint_pc;
-    margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 4rem 0 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
+    @include media_up($breakpoint_laptop) {
+      padding: 4rem 0;
+    }
   }
 
-  &__content {
-    &__top {
-      width: 100%;
-      padding: 4rem 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+  &Bottom {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 0.0625rem solid rgba($color_light, 0.05);
+
+    @include media_up($breakpoint_tablet) {
+      flex-direction: row;
       justify-content: space-between;
-
-      @include media_up($breakpoint_laptop) {
-        padding: 4rem 0;
-      }
-
-      &__logo {
-        width: 14rem;
-        height: 4.65rem;
-        margin: auto;
-
-        &__svg {
-          width: 100%;
-          height: auto;
-          color: $color_theme_gray_blue;
-        }
-      }
-
-      &__menu {
-        width: 100%;
-        margin: 4rem auto 0;
-        padding: 0 2rem;
-
-        @include media_up($breakpoint_mobile) {
-          width: auto;
-          flex-grow: 1;
-          margin: 4rem auto;
-        }
-
-        @include media_up($breakpoint_pc) {
-          margin: 0 auto;
-          padding: 0 0 0 2rem;
-        }
-      }
     }
+  }
+}
 
-    &__bottom {
-      width: 100%;
-      padding: 1rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-top: 0.0625rem solid rgba($color_light, 0.05);
+.logo {
+  width: 14rem;
+  height: 4.65rem;
+  margin: auto;
 
-      @include media_up($breakpoint_tablet) {
-        flex-direction: row;
-        justify-content: space-between;
-      }
+  &SVG {
+    width: 100%;
+    height: auto;
+    color: $color_theme_gray_blue;
+  }
+}
 
-      &__copyright {
-        order: 2;
-        display: inline-flex;
-        color: $color_theme_gray_blue;
-        font-size: 0.75rem;
-        line-height: 1.5;
-        text-align: center;
-        margin: 0.5rem 0;
+.menu {
+  width: 100%;
+  margin: 4rem auto 0;
+  padding: 0 2rem;
 
-        @include media_up($breakpoint_tablet) {
-          order: 1;
-          text-align: left;
-        }
-      }
+  @include media_up($breakpoint_mobile) {
+    width: auto;
+    flex-grow: 1;
+    margin: 4rem auto;
+  }
 
-      &__link {
-        order: 1;
-        transition: $transition_color;
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        margin: 0.5rem 0;
-        font-size: 0.8rem;
-        letter-spacing: 0.036rem;
-        color: $color_theme_light;
+  @include media_up($breakpoint_pc) {
+    margin: 0 auto;
+    padding: 0 0 0 2rem;
+  }
+}
 
-        @include media_up($breakpoint_tablet) {
-          order: 2;
-        }
+.copyright {
+  order: 2;
+  display: inline-flex;
+  color: $color_theme_gray_blue;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0.5rem 0;
 
-        &:hover {
-          color: $color_theme_green;
-        }
+  @include media_up($breakpoint_tablet) {
+    order: 1;
+    text-align: left;
+  }
+}
 
-        &__icon {
-          margin: 0 0.1rem 0 0;
-        }
-      }
-    }
+.link {
+  order: 1;
+  transition: $transition_color;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.036rem;
+  color: $color_theme_light;
+
+  @include media_up($breakpoint_tablet) {
+    order: 2;
+  }
+
+  &:hover {
+    color: $color_theme_green;
+  }
+
+  &Icon {
+    margin: 0 0.1rem 0 0;
   }
 }
