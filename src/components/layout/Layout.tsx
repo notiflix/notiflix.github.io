@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { IDatabasePageMeta } from '@database/database.i';
 
-import { browserIsInternetExplorer } from '@application/helpers/utilities';
+import { browserIsInternetExplorer, classNames } from '@application/helpers/utilities';
 
 import MetaTags from '@components/meta/MetaTags';
 import Header from '@components/header/Header';
@@ -47,10 +47,7 @@ function Layout({ classNamePrefix, meta, children }: ILayout): JSX.Element {
       {stateIsInternetExplorer && <InternetExplorer />}
       <Noscript />
       <Header classNamePrefix={classNamePrefix} />
-      <main className={[
-        `${styles.layout}`,
-        `${styles[`layout--${classNamePrefix}`] || ''}`,
-      ].join(' ').trim()}>
+      <main className={classNames(styles.root, styles[classNamePrefix])}>
         {children}
       </main>
       <Footer />

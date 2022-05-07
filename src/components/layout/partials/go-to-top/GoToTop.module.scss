@@ -1,6 +1,6 @@
 @import "@styles/variables";
 
-.button {
+.root {
   transition: $transition_background, $transition_transform;
   position: fixed;
   z-index: 98;
@@ -24,7 +24,7 @@
     background: rgba($color_black, 0.9);
   }
 
-  &--show {
+  &.isVisible {
     transform: translateY(0);
   }
 }

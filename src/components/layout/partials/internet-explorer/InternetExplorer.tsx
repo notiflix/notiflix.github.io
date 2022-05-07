@@ -8,16 +8,16 @@ function InternetExplorer(): JSX.Element {
   const { _dbAppContent } = _appContent;
 
   return (
-    <div className={styles.ie}>
-      <h2 className={styles.ie__title}>{_dbAppContent?.browsers?.ieTitle}</h2>
-      <p className={styles.ie__description}>{_dbAppContent?.browsers?.ieDescription}</p>
+    <div className={styles.root}>
+      <h2 className={styles.title}>{_dbAppContent?.browsers?.ieTitle}</h2>
+      <p className={styles.description}>{_dbAppContent?.browsers?.ieDescription}</p>
       <a
-        className={styles.ie__link}
+        className={styles.link}
         href={_dbAppContent?.browsers?.ieLinkUrl}
         target="_blank"
         rel="noreferrer"
       >
-        <IconGitHub className={styles.ie__link__icon} />
+        <IconGitHub className={styles.linkIcon} />
         <span>{_dbAppContent?.browsers?.ieLinkText}</span>
       </a>
     </div>

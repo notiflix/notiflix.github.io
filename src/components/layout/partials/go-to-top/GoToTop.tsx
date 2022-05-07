@@ -3,6 +3,8 @@ import { FiArrowUp as IconArrowUp } from 'react-icons/fi';
 
 import { attributes as _appContent } from '@database/app/content.md';
 
+import { classNames } from '@application/helpers/utilities';
+
 import styles from '@components/layout/partials/go-to-top/GoToTop.module.scss';
 
 function GoToTop(): JSX.Element {
@@ -15,9 +17,9 @@ function GoToTop(): JSX.Element {
   // GotoTop OnClick Handler: end
 
   // GotoTop Show/Hide: begin
-  const [stateShowGoToTop, setStateShowGoToTop] = useState<boolean>(false);
+  const [stateIsVisible, setStateIsVisible] = useState<boolean>(false);
   const documentScrollListener = (): void => {
-    setStateShowGoToTop(window.document.documentElement?.scrollTop > (window.innerHeight * 1.25));
+    setStateIsVisible(window.document.documentElement?.scrollTop > (window.innerHeight * 1.25));
   };
   useEffect(() => {
     window.document.addEventListener('scroll', documentScrollListener);
@@ -32,10 +34,9 @@ function GoToTop(): JSX.Element {
       aria-label={_dbAppContent?.buttons?.goToTop}
       type="button"
       onClick={goToTopOnClickHandler}
-      className={[
-        `${styles.button}`,
-        `${stateShowGoToTop ? `${styles['button--show'] || ''}` : ''}`,
-      ].join(' ').trim()}
+      className={classNames(styles.root, {
+        [styles.isVisible]: stateIsVisible,
+      })}
     >
       <IconArrowUp />
     </button>

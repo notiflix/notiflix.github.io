@@ -1,6 +1,6 @@
 @import "@styles/variables";
 
-.layout {
+.root {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -8,19 +8,19 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: $header_height 0 0;
+}
 
-  &--home,
-  &--notify,
-  &--report,
-  &--confirm,
-  &--loading,
-  &--block {
-    padding: 0;
-    @include backgroundGradientNight();
-  }
+.home,
+.notify,
+.report,
+.confirm,
+.loading,
+.block {
+  padding: 0;
+  @include backgroundGradientNight();
+}
 
-  &--download,
-  &--documentation {
-    @include backgroundGradientLightGray();
-  }
+.download,
+.documentation {
+  @include backgroundGradientLightGray();
 }
