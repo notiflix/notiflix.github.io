@@ -443,7 +443,7 @@ interface IDatabaseErrorBanner {
   bannerImageWidth: string;
   bannerImageHeight: string;
   title: string;
-  buttonText: string;
+  linkText: string;
 }
 // Page 404 | 500: begin
 

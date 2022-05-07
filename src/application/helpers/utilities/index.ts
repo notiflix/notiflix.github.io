@@ -87,6 +87,37 @@ const browserIsInternetExplorer = (): boolean => window?.navigator?.userAgent?.t
 
 const isHTMLElementVisible = (element: HTMLElement): boolean => !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
 
+const isString = (value: unknown): value is string => typeof value === 'string' || value instanceof String;
+
+const isObject = (args: unknown): args is Record<string, unknown> => typeof args === 'object' || args instanceof Object;
+
+const classNamesCombiner = (names: (string | null)[]): string => names.filter((name) => isString(name)).join(' ');
+
+const classNamesReplacer = (text: string): string | null => text.replace(/\s/gm, '') || null;
+
+type TClassNamesParamAll = string | number | boolean | undefined | null;
+type TClassNamesParamObject = Record<string, TClassNamesParamAll>;
+type TClassNamesParams = TClassNamesParamAll | TClassNamesParamObject;
+
+const classNames = (...params: TClassNamesParams[]): string => classNamesCombiner(
+  params.map((param) => {
+    if (isString(param)) {
+      return classNamesReplacer(param);
+    }
+
+    if (isObject(param)) {
+      return classNamesCombiner(Object.entries(param).map(([key, value]) => {
+        if (isString(key) && value === true) {
+          return classNamesReplacer(key);
+        }
+        return null;
+      }));
+    }
+
+    return null;
+  }),
+);
+
 
 export {
   ErrorWithStatus,
@@ -102,4 +133,5 @@ export {
   createDocumentationCodeValue,
   browserIsInternetExplorer,
   isHTMLElementVisible,
+  classNames,
 };

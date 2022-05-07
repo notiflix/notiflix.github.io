@@ -3,6 +3,7 @@ import { FiTerminal as IconFallback } from 'react-icons/fi';
 import { IDatabaseBannerProducts } from '@database/database.i';
 
 import { routes } from '@application/routes';
+import { classNames } from '@application/helpers/utilities';
 
 import styles from '@components/banners/product/BannerProduct.module.scss';
 
@@ -16,18 +17,15 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
   const IconComponent = routes.find(route => route?.id === routeId)?.IconComponent || IconFallback;
 
   return (
-    <div className={[
-      `${styles.bannerproduct}`,
-      `${styles[`bannerproduct--${classNamePrefix}`] || ''}`,
-    ].join(' ').trim()}>
-      <div className={styles.bannerproduct__container}>
+    <div className={classNames(styles.root, styles[classNamePrefix])}>
+      <div className={styles.container}>
 
-        <div className={styles.bannerproduct__content}>
-          <IconComponent className={styles.bannerproduct__content__icon} />
-          <h1 className={styles.bannerproduct__content__title}>{content?.title}</h1>
-          <p className={styles.bannerproduct__content__description}>{content?.description}</p>
-          <div className={styles.bannerproduct__content__code}>
-            <h2 className={styles.bannerproduct__content__subtitle}>{content?.importDescription}</h2>
+        <div className={styles.content}>
+          <IconComponent className={styles.icon} />
+          <h1 className={styles.title}>{content?.title}</h1>
+          <p className={styles.description}>{content?.description}</p>
+          <div className={styles.code}>
+            <h2 className={styles.subtitle}>{content?.importDescription}</h2>
             <code className="code code--large">
               <span className="code__indent1">
                 <span className="code__import">{`import `}</span>
@@ -39,7 +37,7 @@ function BannerProduct({ classNamePrefix, routeId, content }: IBannerProduct): J
                 <span>{`;`}</span>
               </span>
             </code>
-            <h2 className={styles.bannerproduct__content__subtitle}>{content?.htmlDescription}</h2>
+            <h2 className={styles.subtitle}>{content?.htmlDescription}</h2>
             <code className="code code--medium code--html">
               <span className="code__indent1 code__indent--pb0">
                 <span className="code__comment code__comment--html">{`${content?.htmlOnlyThis}`}</span>

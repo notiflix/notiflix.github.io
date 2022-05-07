@@ -19,24 +19,24 @@ function BannerError({ statusCode, data }: IBannerError): JSX.Element {
   const linkPathAs = routes.find(x => x?.id === EPageId.HOME)?.pathAs || '/';
 
   return (
-    <div className={styles.bannererror}>
-      <div className={styles.bannererror__media}>
+    <div className={styles.root}>
+      <div className={styles.media}>
         <LazyImage
           threshold={0.25}
-          className={styles.bannererror__media__image}
-          classNameLoaded={styles['bannererror__media__image--loaded']}
+          className={styles.image}
+          classNameLoaded={styles.imageLoaded}
           width={data?.bannerImageWidth}
           height={data?.bannerImageHeight}
           src={`${process.env.appUrl}${data?.bannerImageSrc}`}
           alt={data?.title}
         />
       </div>
-      <div className={styles.bannererror__content}>
-        <h1 className={styles.bannererror__content__title}>{statusCode}</h1>
-        <h2 className={styles.bannererror__content__subtitle}>{data?.title}</h2>
+      <div className={styles.content}>
+        <h1 className={styles.title}>{statusCode}</h1>
+        <h2 className={styles.subtitle}>{data?.title}</h2>
         <Link href={linkPathPage} as={`${process.env.appUrl}${linkPathAs}`} passHref prefetch={false}>
-          <a className={styles.bannererror__content__link}>
-            <span>{data?.buttonText}</span>
+          <a className={styles.link}>
+            <span>{data?.linkText}</span>
           </a>
         </Link>
       </div>
