@@ -2,7 +2,7 @@
 * Notiflix
 * Description: Next.js configuration.
 * Version: 1.0.0
-* Author: Furkan MT ('https://github.com/furcan')
+* Author: Furkan ('https://github.com/furcan')
 * Copyright 2019-Present Notiflix, GPL-3.0 License ('https://opensource.org/licenses/GPL-3.0')
 */
 
