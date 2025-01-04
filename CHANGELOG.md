@@ -1,3 +1,12 @@
+@1.1.6
+
+**Happy new year!**
+
+* **Changed:** Content updates.
+* **Changed:** Notiflix: v3.2.8
+
+-----
+
 @1.1.5
 
 **Happy new year!**

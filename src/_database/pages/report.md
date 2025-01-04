@@ -1,7 +1,7 @@
 ---
 _dbPageMeta:
   routeId: REPORT
-  lastModifiedDate: '2023-01-11' # YYYY-MM-DD
+  lastModifiedDate: '2025-01-04' # YYYY-MM-DD
   title: Report | Notiflix
   description: 'Notiflix Report module can be used to show extended notifications that contain a title, description, and button(with a callback function). This module includes 4 types of notifications: "Success", "Failure", "Warning", and "Info".'
   robots: index, follow, noodp, noydir

@@ -1,7 +1,7 @@
 ---
 _dbPageMeta:
   routeId: CONFIRM
-  lastModifiedDate: '2023-01-11' # YYYY-MM-DD
+  lastModifiedDate: '2025-01-04' # YYYY-MM-DD
   title: Confirm | Notiflix
   description: 'Notiflix Confirm module can be used to show non-blocking confirm/prompt boxes. This module includes 3 types of confirm/prompt: "Show", "Ask", and "Prompt". An additional question can be asked within the prompt box if using the "Ask" and/or "Prompt" ones unlike the "Show" one.'
   robots: index, follow, noodp, noydir

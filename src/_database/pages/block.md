@@ -1,7 +1,7 @@
 ---
 _dbPageMeta:
   routeId: BLOCK
-  lastModifiedDate: '2023-01-11' # YYYY-MM-DD
+  lastModifiedDate: '2025-01-04' # YYYY-MM-DD
   title: Block | Notiflix
   description: 'Notiflix Block module can be used to block/unblock the elements during a process (Fetch/XHR), without locking the browser or the other elements/components to prevent the user’s interactions on the blocked elements.'
   robots: index, follow, noodp, noydir

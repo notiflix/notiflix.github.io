@@ -1,9 +1,9 @@
 ---
 _dbPageMeta:
   routeId: HOME
-  lastModifiedDate: '2023-01-11' # YYYY-MM-DD
+  lastModifiedDate: '2025-01-04' # YYYY-MM-DD
   title: Notiflix | a pure JavaScript library for client-side non-blocking notifications.
-  description: Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
+  description: Notiflix is a dependency-free, secure, and lightweight JavaScript library built with pure JavaScript, offering client-side non-blocking notifications, popup boxes, loading indicators, and more.
   robots: index, follow, noodp, noydir
   ogImage: null
   themeColor: null
@@ -11,7 +11,7 @@ _dbPageMeta:
 _dbHomeSlider:
   image: /content/media/home/notiflix-home-slider.svg
   title: welcome to <span>Notiflix</span>
-  description: Notiflix is a pure <span>JavaScript</span> library for client-side non-blocking notifications, popup boxes, loading indicators, and more that makes your web projects much better.
+  description: Notiflix is a <span>dependency-free</span>, <span>secure</span>, and <span>lightweight JavaScript library</span> built with pure JavaScript, offering client-side non-blocking notifications, popup boxes, loading indicators, and more. <br /><br />It is designed to enhance the user experience without the need for heavy dependencies, making it suitable for a wide variety of projects.
   downloadInfo: Download the latest version of Notiflix.
   downloadCount: Notiflix has been downloaded {{x}} times.
   loading: Loading...
@@ -60,7 +60,7 @@ _dbHomeProducts:
       buttonLabel: More about Report module
     - routeId: CONFIRM
       title: Confirm
-      description: 'Notiflix Confirm module can be used to show non-blocking prompt boxes. This module includes 2 types of prompts: "Show" and "Ask". An additional question can be asked as well within the prompt box if using the "Ask" one.'
+      description: 'Notiflix Confirm module can be used to show non-blocking confirm/prompt boxes. This module includes 3 types of confirm/prompt: "Show", "Ask", and "Prompt". An additional question can be asked within the prompt box if using the "Ask" and/or "Prompt" ones unlike the "Show" one.'
       button: More
       buttonLabel: More about Confirm module
     - routeId: LOADING
