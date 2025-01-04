@@ -1,7 +1,7 @@
 {
   "name": "Notiflix",
   "short_name": "Notiflix",
-  "description": "Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more to that makes your web projects much better.",
+  "description": "Notiflix is a dependency-free, secure, and lightweight JavaScript library built with pure JavaScript, offering client-side non-blocking notifications, popup boxes, loading indicators, and more.",
   "background_color": "#f8f8f8",
   "theme_color": "#32c682",
   "prefer_related_applications": false,
